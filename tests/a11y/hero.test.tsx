@@ -1,10 +1,18 @@
 import { render } from '@testing-library/react';
+import type { ReactNode } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
 import { Hero } from '@/components/sections/Hero';
 import { TrustBand } from '@/components/sections/TrustBand';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 
+vi.mock('@tanstack/react-router', () => ({
+  Link: ({ to, children, ...rest }: { to: string; children: ReactNode; [k: string]: unknown }) => (
+    <a href={to} {...rest}>
+      {children}
+    </a>
+  )
+}));
 vi.mock('@/hooks/useMaskReveal', () => ({
   useMaskReveal: () => ({ style: { transform: 'translateY(0%)', transition: '', willChange: '' } })
 }));
