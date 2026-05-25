@@ -1,11 +1,19 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { FooterRich } from '@/components/layout/FooterRich';
+import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
+import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
+import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
 import { TrustBand } from '@/components/sections/TrustBand';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { LogoWordmark } from '@/components/ui/LogoWordmark';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
+import { ProgramCard } from '@/components/ui/ProgramCard';
 import { ScrollCue } from '@/components/ui/ScrollCue';
+import { SocialIcon } from '@/components/ui/SocialIcon';
 import { StatNumber } from '@/components/ui/StatNumber';
+import { TestimonialShellCard } from '@/components/ui/TestimonialShellCard';
 
 function DevComponents() {
   return (
@@ -23,6 +31,27 @@ function DevComponents() {
         <div className="flex flex-col gap-sm">
           <Eyebrow>With gold dot (default)</Eyebrow>
           <Eyebrow goldDot={false}>Without gold dot</Eyebrow>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">LogoWordmark (Sprint 2)</h2>
+        <div className="flex items-baseline gap-md flex-wrap">
+          <LogoWordmark size="sm" />
+          <LogoWordmark size="md" />
+          <LogoWordmark size="lg" />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">SocialIcon (Sprint 2)</h2>
+        <div className="flex items-center gap-md text-silver">
+          <SocialIcon name="facebook" className="h-6 w-6" />
+          <SocialIcon name="instagram" className="h-6 w-6" />
+          <SocialIcon name="linkedin" className="h-6 w-6" />
+          <SocialIcon name="x" className="h-6 w-6" />
+          <SocialIcon name="tiktok" className="h-6 w-6" />
+          <SocialIcon name="youtube" className="h-6 w-6" />
         </div>
       </section>
 
@@ -45,6 +74,51 @@ function DevComponents() {
           <CTAPill variant="silver-outline" href="#none">
             Silver outline
           </CTAPill>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">ProgramCard (Sprint 2) — 3 variants</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+          <ProgramCard
+            variant="groupe"
+            href="#none"
+            eyebrow={{ fr: 'Programme de groupe · 12 semaines', en: 'Group program · 12 weeks' }}
+            title={{ fr: 'Variant Groupe', en: 'Group variant' }}
+            description={{
+              fr: 'Border silver, link "En savoir plus".',
+              en: 'Silver border, "Learn more" link.'
+            }}
+          />
+          <ProgramCard
+            variant="formation"
+            href="#none"
+            eyebrow={{ fr: 'Formation spécialisée', en: 'Specialized training' }}
+            title={{ fr: 'Variant Formation', en: 'Formation variant' }}
+            description={{
+              fr: 'Same silver style as groupe, different semantic.',
+              en: 'Same silver style, different semantic.'
+            }}
+          />
+          <ProgramCard
+            variant="accompagnement"
+            href="#none"
+            eyebrow={{ fr: 'Accompagnement 1:1', en: '1:1 advisory' }}
+            title={{ fr: 'Variant Accompagnement', en: 'Advisory variant' }}
+            description={{
+              fr: 'Border gold, link "Postuler" (premium tier).',
+              en: 'Gold border, "Apply" link (premium tier).'
+            }}
+          />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">TestimonialShellCard (Sprint 2)</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+          <TestimonialShellCard />
+          <TestimonialShellCard centerElevated />
+          <TestimonialShellCard />
         </div>
       </section>
 
@@ -77,6 +151,31 @@ function DevComponents() {
         <h2 className="text-h3 text-primary mb-md">TrustBand (composed)</h2>
         <TrustBand />
       </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">ProgramsGrid (Sprint 2 — composed)</h2>
+        <ProgramsGrid />
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">TestimonialGrid (Sprint 2 — composed)</h2>
+        <TestimonialGrid />
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">FinalCTASection (Sprint 2 — composed)</h2>
+        <FinalCTASection />
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">FooterRich (Sprint 2 — composed)</h2>
+        <FooterRich />
+      </section>
+
+      <p className="text-sm text-silver opacity-50 text-center mt-xl">
+        Note : Navbar is fixed top-0 z-40 — visible on the actual Home route `/`, not isolated here
+        (would overlap dev gallery).
+      </p>
 
       <div id="bottom" className="h-32" />
     </main>
