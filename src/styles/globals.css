@@ -2,7 +2,6 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     /* Safe area iOS */
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
