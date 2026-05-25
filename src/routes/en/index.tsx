@@ -7,8 +7,8 @@ function HomeEN() {
   return (
     <main>
       <Hero />
-      <VslPlaceholderSection id="methodologie" />
       <TrustBand />
+      <VslPlaceholderSection id="methodologie" />
     </main>
   );
 }
