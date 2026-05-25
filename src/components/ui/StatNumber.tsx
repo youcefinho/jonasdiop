@@ -21,7 +21,11 @@ export function StatNumber({ value, suffix = '', label }: StatNumberProps) {
 
   return (
     <div ref={ref} className="flex flex-col items-center text-center gap-xs">
-      <span className="text-gold font-display text-[clamp(2.25rem,1.7rem+2.5vw,3.5rem)] tracking-tight leading-none">
+      <span
+        aria-live="polite"
+        aria-atomic="true"
+        className="text-gold font-display text-[clamp(2.25rem,1.7rem+2.5vw,3.5rem)] tracking-tight leading-none"
+      >
         {animated}
         {suffix}
       </span>
