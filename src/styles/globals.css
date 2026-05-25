@@ -119,3 +119,23 @@
     background: var(--border-strong);
   }
 }
+
+@layer utilities {
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.05);
+    }
+  }
+  .animate-breathe {
+    animation: breathe 2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-breathe {
+      animation: none;
+    }
+  }
+}
