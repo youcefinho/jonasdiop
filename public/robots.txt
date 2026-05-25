@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jonas-diop.intralys.dev/sitemap.xml
