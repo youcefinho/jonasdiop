@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import { localeFromPath } from '@/lib/i18n/translations';
 import { destroyLenis, initLenis } from '@/lib/motion/lenis';
+import { buildSchemaJsonLd } from '@/lib/seo/schema';
 
 function RootLayout() {
   const { pathname } = useLocation();
@@ -12,6 +13,18 @@ function RootLayout() {
     initLenis();
     return () => destroyLenis();
   }, []);
+
+  useEffect(() => {
+    const scriptId = 'schema-org-graph';
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement('script');
+      script.id = scriptId;
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = buildSchemaJsonLd(locale);
+  }, [locale]);
 
   return (
     <html lang={locale === 'en' ? 'en' : 'fr-CA'}>
