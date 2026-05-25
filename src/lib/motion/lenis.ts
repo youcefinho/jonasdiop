@@ -1,11 +1,13 @@
 import Lenis from 'lenis';
 
 let lenisInstance: Lenis | null = null;
+let rafId: number | null = null;
 
 /**
  * Initialize Lenis smooth-scroll singleton.
  * Respects prefers-reduced-motion: reduce (returns null, no-op).
  * Returns existing instance if already initialized.
+ * RAF loop is stored and cancelled on destroyLenis() to prevent memory leaks.
  */
 export function initLenis(): Lenis | null {
   if (typeof window === 'undefined') return null;
@@ -21,10 +23,11 @@ export function initLenis(): Lenis | null {
   });
 
   function raf(time: number) {
-    lenisInstance?.raf(time);
-    requestAnimationFrame(raf);
+    if (!lenisInstance) return;
+    lenisInstance.raf(time);
+    rafId = requestAnimationFrame(raf);
   }
-  requestAnimationFrame(raf);
+  rafId = requestAnimationFrame(raf);
 
   return lenisInstance;
 }
@@ -34,6 +37,10 @@ export function getLenis(): Lenis | null {
 }
 
 export function destroyLenis(): void {
+  if (rafId !== null) {
+    cancelAnimationFrame(rafId);
+    rafId = null;
+  }
   lenisInstance?.destroy();
   lenisInstance = null;
 }
