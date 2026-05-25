@@ -1,0 +1,56 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jonas-diop",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // CRITIQUE anti-bug cross-Intralys : auto-build à chaque deploy.
+  // Sans ça, wrangler deploy push une dist obsolète (feedback_wrangler_no_autobuild_critical).
+  "build": {
+    "command": "bun run build"
+  },
+
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/*"]
+  },
+
+  "vars": {
+    "ENVIRONMENT": "production",
+    "GHL_LOCATION_ID": "REPLACE_AT_END",
+    "GHL_TRACKING_ID": "REPLACE_AT_END"
+  },
+
+  "kv_namespaces": [
+    {
+      "binding": "ARTICLE_CACHE",
+      "id": "REPLACE_AFTER_CREATE"
+    }
+  ],
+
+  // H11 décision : si on garde D1, décommenter ce bloc + créer la DB via wrangler d1 create
+  // "d1_databases": [
+  //   {
+  //     "binding": "DB",
+  //     "database_name": "jonas-diop-leads",
+  //     "database_id": "REPLACE_AFTER_CREATE"
+  //   }
+  // ],
+
+  "env": {
+    "staging": {
+      "name": "jonas-diop-staging",
+      "vars": {
+        "ENVIRONMENT": "staging"
+      }
+    }
+  },
+
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
