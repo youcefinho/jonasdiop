@@ -1,0 +1,112 @@
+/* globals.css — text stability modern CSS (feedback_text_stability_modern_css) + reset léger */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /* Safe area iOS */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.5;
+    color: var(--text-primary);
+    background-color: var(--bg-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Titres : balance + display font */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+
+  /* Paragraphes : pretty + hyphens auto (FR) */
+  p {
+    text-wrap: pretty;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Lang FR : hyphens-auto activé. Lang EN : pas de hyphens (lecture plus naturelle). */
+  [lang="en"] p,
+  [lang^="en-"] p {
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+
+  /* Flex children avec texte : min-w-0 par défaut pour éviter overflow */
+  .flex > *,
+  .grid > * {
+    min-width: 0;
+  }
+
+  /* Liens — sobriété */
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out-cubic);
+  }
+  a:hover {
+    color: var(--accent-silver);
+  }
+
+  /* Focus visible — accessibilité */
+  :focus-visible {
+    outline: 2px solid var(--accent-silver);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+  /* Bouton tap-area mobile */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Images responsive */
+  img, svg, video, picture {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  /* Fix Tailwind v4 preflight SVG overflow in flex containers (feedback_tailwind_v4_svg_preflight) */
+  .flex svg,
+  .grid svg {
+    max-width: none;
+    flex-shrink: 0;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--accent-gold);
+    color: var(--bg-base);
+  }
+
+  /* Scrollbar (webkit) — sober dark */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-medium);
+    border-radius: var(--radius-pill);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-strong);
+  }
+}

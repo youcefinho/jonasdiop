@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+@import "./styles/globals.css";
+
+/* Tailwind v4 native config via @theme — bridges tokens.css to utility classes */
+@theme {
+  --color-base: var(--bg-base);
+  --color-elevated: var(--bg-elevated);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-tertiary: var(--text-tertiary);
+  --color-silver: var(--accent-silver);
+  --color-gold: var(--accent-gold);
+
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-body: "Inter Variable", system-ui, sans-serif;
+
+  /* Tracking utilities aligned with eyebrow signature */
+  --tracking-widest: 0.2em;
+}

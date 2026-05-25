@@ -1,0 +1,97 @@
+/* tokens.css — Jonas Diop Design System "Platinum Executive Authority"
+ * Palette : Dark luxe warm + Silver primary + Gold rare (7 usages stricts).
+ * All sizes use clamp() for fluid responsive from 320px to 1920px+.
+ * OKLCH used for perceptual color uniformity (Tailwind v4 native).
+ */
+
+:root {
+  /* === PALETTE === */
+  /* Background hierarchy */
+  --bg-base: oklch(0.16 0.005 80);          /* #0a0a0a noir warm */
+  --bg-elevated: oklch(0.22 0.005 80);      /* #141414 cards/elevated */
+  --bg-overlay: oklch(0.18 0.005 80 / 0.9); /* modals overlay */
+
+  /* Text hierarchy */
+  --text-primary: oklch(0.94 0.008 85);     /* #f5f5f0 ivoire warm */
+  --text-secondary: oklch(0.71 0.012 70);   /* #a8a39a muted */
+  --text-tertiary: oklch(0.59 0.014 65);    /* #8a8377 hint */
+
+  /* Accents */
+  --accent-silver: oklch(0.79 0.005 270);   /* #c0c0c5 PRIMARY */
+  --accent-silver-hover: oklch(0.85 0.005 270);
+  --accent-silver-dim: oklch(0.60 0.005 270);
+  --accent-gold: oklch(0.74 0.085 75);      /* #c9a572 RARE — 7 usages strict */
+  --accent-gold-hover: oklch(0.80 0.085 75);
+
+  /* States */
+  --state-success: oklch(0.70 0.12 145);
+  --state-error: oklch(0.65 0.18 25);
+
+  /* Borders / dividers */
+  --border-subtle: oklch(1 0 0 / 0.06);
+  --border-medium: oklch(1 0 0 / 0.12);
+  --border-strong: oklch(1 0 0 / 0.20);
+
+  /* === TYPOGRAPHIE FLUIDE (clamp first per feedback_responsive_clamp_first) === */
+  /* H1 hero : 40px mobile -> 96px desktop */
+  --text-hero: clamp(2.5rem, 1.5rem + 4.5vw, 6rem);
+  /* H1 page : 32px -> 64px */
+  --text-h1: clamp(2rem, 1.4rem + 2.8vw, 4rem);
+  /* H2 section : 26px -> 44px */
+  --text-h2: clamp(1.625rem, 1.2rem + 1.9vw, 2.75rem);
+  /* H3 : 21px -> 30px */
+  --text-h3: clamp(1.3125rem, 1.1rem + 0.95vw, 1.875rem);
+  /* Body large : 16px -> 19px */
+  --text-body-lg: clamp(1rem, 0.92rem + 0.35vw, 1.1875rem);
+  /* Body : 15px -> 17px */
+  --text-body: clamp(0.9375rem, 0.88rem + 0.25vw, 1.0625rem);
+  /* Small : 13px -> 14px */
+  --text-sm: clamp(0.8125rem, 0.78rem + 0.14vw, 0.875rem);
+  /* Eyebrow uppercase : 11px -> 13px */
+  --text-eyebrow: clamp(0.6875rem, 0.65rem + 0.16vw, 0.8125rem);
+
+  /* === SPACING (8px grid, fluid) === */
+  --space-3xs: clamp(0.25rem, 0.23rem + 0.09vw, 0.3125rem);
+  --space-2xs: clamp(0.5rem, 0.46rem + 0.18vw, 0.625rem);
+  --space-xs: clamp(0.75rem, 0.69rem + 0.28vw, 0.9375rem);
+  --space-sm: clamp(1rem, 0.92rem + 0.35vw, 1.25rem);
+  --space-md: clamp(1.5rem, 1.38rem + 0.55vw, 1.875rem);
+  --space-lg: clamp(2rem, 1.7rem + 1.4vw, 3rem);
+  --space-xl: clamp(3rem, 2.4rem + 2.8vw, 5rem);
+  --space-2xl: clamp(4rem, 3rem + 4.6vw, 8rem);
+  --space-3xl: clamp(5rem, 3.5rem + 6.9vw, 12rem);
+
+  /* === CONTAINERS (max-width fluid) === */
+  --container-narrow: min(40rem, 90vw);
+  --container-content: min(56rem, 90vw);
+  --container-default: min(72rem, 92vw);
+  --container-wide: min(80rem, 94vw);
+
+  /* === RADIUS === */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-pill: 9999px;
+
+  /* === SHADOWS (soft, dark palette) === */
+  --shadow-soft: 0 4px 12px oklch(0 0 0 / 0.25);
+  --shadow-medium: 0 8px 24px oklch(0 0 0 / 0.35);
+  --shadow-strong: 0 16px 48px oklch(0 0 0 / 0.5);
+  --shadow-gold-glow: 0 0 32px oklch(0.74 0.085 75 / 0.25);
+
+  /* === MOTION === */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --duration-fast: 180ms;
+  --duration-base: 280ms;
+  --duration-slow: 520ms;
+}
+
+/* Respect prefers-reduced-motion globally */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}
