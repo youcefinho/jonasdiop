@@ -24,3 +24,8 @@ git push origin main                       # auto-deploy staging
 3. Lighthouse home production (Perf > 90)
 4. Click parcours : Home → Services → Contact → Form submit
 5. Switch FR/EN fonctionne
+
+## Sprint 0 decisions (2026-05-25)
+
+- **H11 D1 database : RETIRÉ** pour Sprint 0. Re-créer si besoin Sprint 6 via `bunx wrangler d1 create jonas-diop-leads` + décommenter bloc `d1_databases` dans wrangler.jsonc.
+- **Premier deploy Cloudflare + repo GitHub : DIFFÉRÉ** (à faire par Rochdi quand setup CF prêt). Stack code est prête, secrets à add dans GitHub Settings → Secrets : `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`.
