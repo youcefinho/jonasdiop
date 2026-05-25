@@ -55,7 +55,7 @@ export function MobileNavDrawer() {
         />
       )}
 
-      <aside
+      <div
         id="mobile-nav-drawer"
         role="dialog"
         aria-modal="true"
@@ -117,7 +117,7 @@ export function MobileNavDrawer() {
             {t({ fr: 'Consultation', en: 'Consultation' })}
           </CTAPill>
         </div>
-      </aside>
+      </div>
     </>
   );
 }
