@@ -3,6 +3,7 @@ import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { ScrollCue } from '@/components/ui/ScrollCue';
+import { ROUTES } from '@/config/routes';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { useT } from '@/lib/i18n/useT';
 import { heroEntranceTimings } from '@/lib/motion/presets';
@@ -40,7 +41,7 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-sm mt-md">
-          <CTAPill variant="gold-primary" href={locale === 'fr' ? '/contact' : '/en/contact'}>
+          <CTAPill variant="gold-primary" href={ROUTES.contact[locale]}>
             {t({ fr: 'Prendre rendez-vous', en: 'Book a call' })}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </CTAPill>

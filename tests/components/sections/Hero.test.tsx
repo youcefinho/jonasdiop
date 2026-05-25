@@ -4,6 +4,13 @@ import { describe, expect, it, vi } from 'vitest';
 import { Hero } from '@/components/sections/Hero';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 
+vi.mock('@tanstack/react-router', () => ({
+  Link: ({ to, children, ...rest }: { to: string; children: ReactNode; [k: string]: unknown }) => (
+    <a href={to} {...rest}>
+      {children}
+    </a>
+  )
+}));
 vi.mock('@/hooks/useMaskReveal', () => ({
   useMaskReveal: () => ({ style: { transform: 'translateY(0%)', transition: '', willChange: '' } })
 }));
