@@ -1,6 +1,15 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import type { ReactNode } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { CTAPill } from '@/components/ui/CTAPill';
+
+vi.mock('@tanstack/react-router', () => ({
+  Link: ({ to, children, ...rest }: { to: string; children: ReactNode; [k: string]: unknown }) => (
+    <a href={to} {...rest}>
+      {children}
+    </a>
+  )
+}));
 
 describe('CTAPill', () => {
   it('renders gold-primary variant with bg-gold + text-base', () => {

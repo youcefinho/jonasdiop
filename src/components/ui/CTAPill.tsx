@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 
@@ -45,9 +46,9 @@ export function CTAPill(props: CTAPillProps) {
 
   if ('href' in props && props.href !== undefined) {
     return (
-      <a href={props.href} className={allClasses} aria-label={ariaLabel}>
+      <Link to={props.href} className={allClasses} aria-label={ariaLabel}>
         {children}
-      </a>
+      </Link>
     );
   }
 
