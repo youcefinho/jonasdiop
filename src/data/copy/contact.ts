@@ -1,0 +1,280 @@
+import type { BilingualLax } from '@/lib/i18n/types';
+
+/**
+ * contact.ts — Page Contact + Calendly embed
+ * Copy source : BRIEF-FINAL.md + brief PDF Jonas (2026-05-21)
+ * Draft : 2026-05-26 · Sprint 2.5 Batch 2
+ * [À VALIDER JONAS] markers = contenus non confirmés (Calendly URL, dates, format appel)
+ */
+
+export const contactCopy = {
+  meta: {
+    title: {
+      fr: "Contact — Réserver un appel de qualification | Jonas Diop, Architecte d'affaires",
+      en: 'Contact — Book a Qualification Call | Jonas Diop, Business Architect'
+    } satisfies BilingualLax<string>,
+    description: {
+      fr: 'Un appel de qualification gratuit de 30 minutes pour évaluer si votre situation correspond à nos programmes. Réservez directement via Calendly.',
+      en: 'A free 30-minute qualification call to assess whether your situation fits our programs. Book directly via Calendly.'
+    } satisfies BilingualLax<string>
+  },
+
+  hero: {
+    eyebrow: {
+      fr: 'Contact',
+      en: 'Contact'
+    } satisfies BilingualLax<string>,
+    h1: {
+      fr: 'Parlons de votre architecture.',
+      en: "Let's talk about your architecture."
+    } satisfies BilingualLax<string>,
+    sub: {
+      fr: "Un appel de qualification de 30 minutes — gratuit, sans pression. On évalue ensemble si votre situation correspond à nos programmes. Si ce n'est pas le bon fit, on vous le dit.",
+      en: 'A 30-minute qualification call — free, no pressure. We assess together whether your situation fits our programs. If it is not the right fit, we will say so.'
+    } satisfies BilingualLax<string>
+  },
+
+  howItWorks: {
+    eyebrow: {
+      fr: 'Le processus',
+      en: 'The process'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Comment ça fonctionne.',
+      en: 'How it works.'
+    } satisfies BilingualLax<string>,
+    steps: [
+      {
+        number: '01',
+        title: {
+          fr: 'Réservez',
+          en: 'Book'
+        } satisfies BilingualLax<string>,
+        body: {
+          fr: "Choisissez un créneau directement dans l'agenda Calendly ci-dessous. Vous recevez une confirmation immédiate par email.",
+          en: 'Choose a time slot directly in the Calendly calendar below. You receive immediate email confirmation.'
+        } satisfies BilingualLax<string>
+      },
+      {
+        number: '02',
+        title: {
+          fr: 'Pré-call qualification',
+          en: 'Pre-call qualification'
+        } satisfies BilingualLax<string>,
+        body: {
+          fr: "30 minutes avec Jonas. On explore votre situation, votre chiffre d'affaires actuel, vos blocages, et ce que vous voulez construire. Pas de pitch. Pas de présentation produit.",
+          en: '30 minutes with Jonas. We explore your situation, your current revenue, your blockers, and what you want to build. No pitch. No product presentation.'
+        } satisfies BilingualLax<string>
+      },
+      {
+        number: '03',
+        title: {
+          fr: 'Décision mutuelle',
+          en: 'Mutual decision'
+        } satisfies BilingualLax<string>,
+        body: {
+          fr: "À la fin de l'appel, on décide ensemble si c'est le bon fit — vous et nous. Si oui, on vous présente le programme adapté et les prochaines étapes. Si non, vous repartez avec des pistes concrètes.",
+          en: 'At the end of the call, we decide together whether it is the right fit — you and us. If yes, we present the right program and next steps. If not, you leave with concrete direction.'
+        } satisfies BilingualLax<string>
+      }
+    ]
+  },
+
+  callExplore: {
+    eyebrow: {
+      fr: "Ce qu'on va explorer",
+      en: 'What we will explore'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: "L'appel, en détail.",
+      en: 'The call, in detail.'
+    } satisfies BilingualLax<string>,
+    items: [
+      {
+        fr: "Votre situation actuelle — CA, modèle d'affaires, structure d'équipe",
+        en: 'Your current situation — revenue, business model, team structure'
+      },
+      {
+        fr: 'Votre vision à 12-24 mois — où vous voulez amener votre entreprise',
+        en: 'Your 12-to-24 month vision — where you want to take your business'
+      },
+      {
+        fr: 'Vos blocages réels — pas les symptômes, la racine',
+        en: 'Your real blockers — not the symptoms, the root'
+      },
+      {
+        fr: 'Le fit programme — quel format correspond à votre situation et à votre timing',
+        en: 'Program fit — which format matches your situation and your timing'
+      },
+      {
+        fr: 'Les prochaines étapes — concrètes, sans ambiguïté',
+        en: 'Next steps — concrete, no ambiguity'
+      }
+    ]
+  },
+
+  notForWho: {
+    eyebrow: {
+      fr: 'Transparence',
+      en: 'Transparency'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: "À qui ce n'est pas destiné.",
+      en: 'Who this is not for.'
+    } satisfies BilingualLax<string>,
+    body: {
+      fr: "On travaille avec des entrepreneurs sérieux. Ce n'est pas une posture — c'est une réalité opérationnelle. Si vous vous reconnaissez dans l'un de ces profils, l'appel ne sera pas utile pour vous :",
+      en: 'We work with serious entrepreneurs. That is not a posture — it is an operational reality. If you recognize yourself in any of these profiles, the call will not be useful for you :'
+    } satisfies BilingualLax<string>,
+    disqualif: [
+      {
+        fr: 'Entrepreneurs en démarrage avec moins de 100K$ de CA',
+        en: 'Entrepreneurs just starting out with under $100K CAD revenue'
+      },
+      {
+        fr: "Ceux qui cherchent une formule magique sans engagement d'exécution",
+        en: 'Those looking for a magic formula without execution commitment'
+      },
+      {
+        fr: 'Ceux qui ne sont pas prêts à remettre en question leur modèle actuel',
+        en: 'Those not ready to question their current model'
+      },
+      {
+        fr: "Ceux qui voient la consultation comme un raccourci plutôt qu'un investissement stratégique",
+        en: 'Those who see consultation as a shortcut rather than a strategic investment'
+      }
+    ]
+  },
+
+  form: {
+    eyebrow: {
+      fr: 'Ou envoyez-nous un message',
+      en: 'Or send us a message'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Un message direct.',
+      en: 'A direct message.'
+    } satisfies BilingualLax<string>,
+    sub: {
+      fr: '[Formulaire wire Sprint 6 — GHL integration. Champs : nom, email, téléphone (optionnel), fourchette CA, message]',
+      en: '[Form wire Sprint 6 — GHL integration. Fields : name, email, phone (optional), revenue range, message]'
+    } satisfies BilingualLax<string>,
+    fields: {
+      name: {
+        label: { fr: 'Nom complet', en: 'Full name' } satisfies BilingualLax<string>,
+        placeholder: { fr: 'Votre nom', en: 'Your name' } satisfies BilingualLax<string>
+      },
+      email: {
+        label: { fr: 'Courriel', en: 'Email' } satisfies BilingualLax<string>,
+        placeholder: { fr: 'votre@email.com', en: 'your@email.com' } satisfies BilingualLax<string>
+      },
+      phone: {
+        label: {
+          fr: 'Téléphone (optionnel)',
+          en: 'Phone (optional)'
+        } satisfies BilingualLax<string>,
+        placeholder: { fr: '+1 514 000 0000', en: '+1 514 000 0000' } satisfies BilingualLax<string>
+      },
+      revenueRange: {
+        label: {
+          fr: "Chiffre d'affaires annuel",
+          en: 'Annual revenue'
+        } satisfies BilingualLax<string>,
+        options: [
+          { fr: 'Moins de 100K$', en: 'Under $100K' },
+          { fr: '100K$ – 250K$', en: '$100K – $250K' },
+          { fr: '250K$ – 500K$', en: '$250K – $500K' },
+          { fr: '500K$ – 1M$', en: '$500K – $1M' },
+          { fr: '1M$+', en: '$1M+' }
+        ]
+      },
+      message: {
+        label: {
+          fr: 'Votre situation en quelques lignes',
+          en: 'Your situation in a few lines'
+        } satisfies BilingualLax<string>,
+        placeholder: {
+          fr: 'Décrivez votre entreprise, votre défi principal, et ce que vous cherchez à construire.',
+          en: 'Describe your business, your main challenge, and what you are looking to build.'
+        } satisfies BilingualLax<string>
+      },
+      submit: {
+        fr: 'Envoyer le message',
+        en: 'Send message'
+      }
+    },
+    consentLabel: {
+      fr: "J'accepte que DIOP Stratégies Internationales conserve mes informations pour me recontacter. Consulter notre politique de confidentialité.",
+      en: 'I consent to DIOP Stratégies Internationales retaining my information to follow up. See our privacy policy.'
+    } satisfies BilingualLax<string>
+  },
+
+  calendly: {
+    eyebrow: {
+      fr: 'Réservation directe',
+      en: 'Direct booking'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Choisissez votre créneau.',
+      en: 'Choose your time slot.'
+    } satisfies BilingualLax<string>,
+    placeholder: {
+      fr: '[À VALIDER JONAS — URL Calendly à fournir. Embed iframe Sprint 6.]',
+      en: '[TO VALIDATE WITH JONAS — Calendly URL to provide. Embed iframe Sprint 6.]'
+    } satisfies BilingualLax<string>
+  },
+
+  contactAlternatives: {
+    eyebrow: {
+      fr: 'Coordonnées directes',
+      en: 'Direct contact'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Vous préférez écrire en direct.',
+      en: 'You prefer to reach out directly.'
+    } satisfies BilingualLax<string>,
+    items: [
+      {
+        type: 'email',
+        label: { fr: 'Courriel', en: 'Email' } satisfies BilingualLax<string>,
+        value: 'contact@jonasdiop.com'
+      },
+      {
+        type: 'phone',
+        label: { fr: 'Téléphone', en: 'Phone' } satisfies BilingualLax<string>,
+        value: '+1 438 356 7746'
+      },
+      {
+        type: 'location',
+        label: { fr: 'Territoire', en: 'Territory' } satisfies BilingualLax<string>,
+        value: {
+          fr: 'Montréal & Worldwide',
+          en: 'Montréal & Worldwide'
+        } satisfies BilingualLax<string>
+      }
+    ],
+    responseTime: {
+      fr: 'Réponse habituelle dans les 24-48h ouvrables.',
+      en: 'Usual response within 24-48 business hours.'
+    } satisfies BilingualLax<string>
+  },
+
+  finalCta: {
+    eyebrow: {
+      fr: 'Première étape',
+      en: 'First step'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: "Réserver l'appel.",
+      en: 'Book the call.'
+    } satisfies BilingualLax<string>,
+    sub: {
+      fr: '30 minutes. Gratuit. Sans engagement. On évalue si on peut faire quelque chose ensemble.',
+      en: '30 minutes. Free. No commitment. We assess whether we can build something together.'
+    } satisfies BilingualLax<string>,
+    ctaLabel: {
+      fr: "Réserver l'appel de qualification",
+      en: 'Book the qualification call'
+    } satisfies BilingualLax<string>
+  }
+} as const;
