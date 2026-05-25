@@ -31,7 +31,7 @@ export function TestimonialGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-md mt-xl items-stretch">
           {testimonialShells.map((shell) => (
-            <TestimonialShellCard key={shell.id} centerElevated={shell.centerElevated} />
+            <TestimonialShellCard key={shell.id} centerElevated={shell.centerElevated ?? false} />
           ))}
         </div>
 
