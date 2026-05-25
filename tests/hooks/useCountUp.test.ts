@@ -28,8 +28,6 @@ beforeEach(() => {
   global.IntersectionObserver = class MockIO extends IOMock {
     constructor(cb: IntersectionObserverCallback) {
       super(cb);
-      // biome-ignore lint/correctness/noConstructorReturn: intentional mock capture pattern
-      // eslint-disable-next-line no-constructor-return
       ioInstance = this as unknown as IOMock;
     }
   };
