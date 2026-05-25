@@ -35,25 +35,27 @@ describe('Navbar', () => {
   });
 
   it('renders 5 desktop nav links (FR)', () => {
+    // Both desktop nav AND mobile drawer aside render same labels (drawer hidden via translate),
+    // so getAllByText returns multiple — verify >= 1 for each.
     render(<Navbar />, { wrapper: wrapper('fr') });
-    expect(screen.getByText(/Méthodologie/i)).toBeInTheDocument();
-    expect(screen.getByText(/Programmes/i)).toBeInTheDocument();
-    expect(screen.getByText(/À propos/i)).toBeInTheDocument();
-    expect(screen.getByText(/Ressources/i)).toBeInTheDocument();
-    expect(screen.getByText(/Contact/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Méthodologie/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Programmes/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/À propos/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Ressources/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Contact/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it('renders Consultation CTA', () => {
     render(<Navbar />, { wrapper: wrapper('fr') });
-    expect(screen.getByText(/Consultation/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Consultation/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it('renders EN nav labels when locale en', () => {
     render(<Navbar />, { wrapper: wrapper('en') });
-    expect(screen.getByText(/Methodology/i)).toBeInTheDocument();
-    expect(screen.getByText(/Programs/i)).toBeInTheDocument();
-    expect(screen.getByText(/About/i)).toBeInTheDocument();
-    expect(screen.getByText(/Resources/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Methodology/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Programs/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/About/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Resources/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it('has aria-label "Navigation principale" (FR)', () => {
