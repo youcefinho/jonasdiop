@@ -13,8 +13,8 @@ function HomeFR() {
       </h1>
       <p className="text-body-lg text-secondary text-pretty max-w-content">
         {t({
-          fr: 'Stack B Intralys initialisée. Locale actuelle : ' + locale,
-          en: 'Stack B Intralys initialized. Current locale: ' + locale
+          fr: `Stack B Intralys initialisée. Locale actuelle : ${locale}`,
+          en: `Stack B Intralys initialized. Current locale: ${locale}`
         })}
       </p>
       <Link

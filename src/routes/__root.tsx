@@ -1,4 +1,4 @@
-import { Outlet, createRootRoute, useLocation } from '@tanstack/react-router';
+import { createRootRoute, Outlet, useLocation } from '@tanstack/react-router';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import { localeFromPath } from '@/lib/i18n/translations';
 

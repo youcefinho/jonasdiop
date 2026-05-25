@@ -7,30 +7,30 @@
 :root {
   /* === PALETTE === */
   /* Background hierarchy */
-  --bg-base: oklch(0.16 0.005 80);          /* #0a0a0a noir warm */
-  --bg-elevated: oklch(0.22 0.005 80);      /* #141414 cards/elevated */
+  --bg-base: oklch(0.16 0.005 80); /* #0a0a0a noir warm */
+  --bg-elevated: oklch(0.22 0.005 80); /* #141414 cards/elevated */
   --bg-overlay: oklch(0.18 0.005 80 / 0.9); /* modals overlay */
 
   /* Text hierarchy */
-  --text-primary: oklch(0.94 0.008 85);     /* #f5f5f0 ivoire warm */
-  --text-secondary: oklch(0.71 0.012 70);   /* #a8a39a muted */
-  --text-tertiary: oklch(0.59 0.014 65);    /* #8a8377 hint */
+  --text-primary: oklch(0.94 0.008 85); /* #f5f5f0 ivoire warm */
+  --text-secondary: oklch(0.71 0.012 70); /* #a8a39a muted */
+  --text-tertiary: oklch(0.59 0.014 65); /* #8a8377 hint */
 
   /* Accents */
-  --accent-silver: oklch(0.79 0.005 270);   /* #c0c0c5 PRIMARY */
+  --accent-silver: oklch(0.79 0.005 270); /* #c0c0c5 PRIMARY */
   --accent-silver-hover: oklch(0.85 0.005 270);
-  --accent-silver-dim: oklch(0.60 0.005 270);
-  --accent-gold: oklch(0.74 0.085 75);      /* #c9a572 RARE — 7 usages strict */
-  --accent-gold-hover: oklch(0.80 0.085 75);
+  --accent-silver-dim: oklch(0.6 0.005 270);
+  --accent-gold: oklch(0.74 0.085 75); /* #c9a572 RARE — 7 usages strict */
+  --accent-gold-hover: oklch(0.8 0.085 75);
 
   /* States */
-  --state-success: oklch(0.70 0.12 145);
+  --state-success: oklch(0.7 0.12 145);
   --state-error: oklch(0.65 0.18 25);
 
   /* Borders / dividers */
   --border-subtle: oklch(1 0 0 / 0.06);
   --border-medium: oklch(1 0 0 / 0.12);
-  --border-strong: oklch(1 0 0 / 0.20);
+  --border-strong: oklch(1 0 0 / 0.2);
 
   /* === TYPOGRAPHIE FLUIDE (clamp first per feedback_responsive_clamp_first) === */
   /* H1 hero : 40px mobile -> 96px desktop */

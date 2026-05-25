@@ -11,7 +11,10 @@ import { DEFAULT_LOCALE } from './types';
  *   ta(content.hero.headline, locale) → string
  *   ta('plain', locale) → 'plain'
  */
-export function ta<T = string>(value: Translatable<T> | null | undefined, locale: Locale): T | string {
+export function ta<T = string>(
+  value: Translatable<T> | null | undefined,
+  locale: Locale
+): T | string {
   if (value === null || value === undefined) return '';
 
   if (typeof value === 'object' && 'fr' in value) {

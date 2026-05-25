@@ -5,7 +5,8 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     /* Safe area iOS */
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+      env(safe-area-inset-left);
   }
 
   body {
@@ -20,14 +21,18 @@
   }
 
   /* Titres : balance + display font */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-display);
     text-wrap: balance;
     letter-spacing: -0.025em;
     line-height: 1.1;
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     text-wrap: balance;
     letter-spacing: -0.015em;
@@ -71,12 +76,16 @@
     border-radius: var(--radius-sm);
   }
   /* Bouton tap-area mobile */
-  button, a {
+  button,
+  a {
     -webkit-tap-highlight-color: transparent;
   }
 
   /* Images responsive */
-  img, svg, video, picture {
+  img,
+  svg,
+  video,
+  picture {
     display: block;
     max-width: 100%;
     height: auto;

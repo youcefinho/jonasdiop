@@ -1,6 +1,6 @@
-import type { Translatable } from './types';
-import { ta } from './translations';
 import { useLanguageContext } from './LanguageContext';
+import { ta } from './translations';
+import type { Translatable } from './types';
 
 /**
  * useT() — bilingual hook for components.

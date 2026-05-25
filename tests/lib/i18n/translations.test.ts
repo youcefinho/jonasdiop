@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { ta } from '@/lib/i18n/translations';
 
 describe('ta() — safe bilingual cast', () => {

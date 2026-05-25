@@ -1,12 +1,14 @@
-import { describe, it, expect } from 'vitest';
 import { renderHook } from '@testing-library/react';
+import type { ReactNode } from 'react';
+import { describe, expect, it } from 'vitest';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import { useT } from '@/lib/i18n/useT';
-import type { ReactNode } from 'react';
 
-const wrapper = (locale: 'fr' | 'en') => ({ children }: { children: ReactNode }) => (
-  <LanguageProvider locale={locale}>{children}</LanguageProvider>
-);
+const wrapper =
+  (locale: 'fr' | 'en') =>
+  ({ children }: { children: ReactNode }) => (
+    <LanguageProvider locale={locale}>{children}</LanguageProvider>
+  );
 
 describe('useT() — bilingual hook', () => {
   it('returns current locale', () => {
