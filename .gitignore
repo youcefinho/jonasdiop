@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+bun.lockb
+.pnp.*
+
+# Build outputs
+dist/
+build/
+.tanstack/
+src/routeTree.gen.ts
+
+# Cloudflare
+.wrangler/
+.dev.vars
+worker-configuration.d.ts
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Cache
+.turbo/
+.parcel-cache/
+.eslintcache
+.biome-cache/
+
+# Test
+coverage/
+*.lcov
+
+# Temp
+tmp/
+temp/
