@@ -337,10 +337,15 @@ export function ContactPage() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* CALENDLY embed section — Stitch board 25                          */}
-      {/* Iframe-shaped placeholder + POWERED BY CALENDLY note.             */}
-      {/* When H8 (Calendly URL) is received, swap the inner card for a    */}
-      {/* real <iframe> pointing to https://calendly.com/<jonas-handle>.    */}
+      {/* CAL.COM embed section — confirmed via audit jonasdiop.com         */}
+      {/* (template CoachVerse utilise Cal.com embed, pas Calendly).        */}
+      {/* Iframe-shaped placeholder + POWERED BY CAL.COM note.              */}
+      {/* When H8 (Cal.com URL Jonas) reçu, swap pour iframe :              */}
+      {/*   <iframe src="https://cal.com/jonas-diop/15min"                  */}
+      {/*           data-cal-config='{"theme":"dark","layout":"month_view", */}
+      {/*                             "timeZone":"America/Toronto"}'/>      */}
+      {/* Note timezone : Jonas site live a Africa/Lagos par défaut (bug    */}
+      {/* template), set explicitement America/Toronto.                     */}
       {/* ---------------------------------------------------------------- */}
       <section
         aria-label={t(contactCopy.calendly.eyebrow)}
@@ -366,7 +371,7 @@ export function ContactPage() {
               'shadow-[0_32px_80px_-16px_oklch(0_0_0/0.5),_inset_0_1px_1px_oklch(1_0_0/0.04)]'
             ].join(' ')}
           >
-            {/* Header bar — mimics Calendly toolbar */}
+            {/* Header bar — mimics Cal.com toolbar (15-Min Meeting, timezone Montréal) */}
             <div className="flex items-center justify-between px-md py-sm border-b border-silver/10 bg-elevated/60 backdrop-blur-sm">
               <div className="flex items-center gap-sm">
                 <span
@@ -374,11 +379,14 @@ export function ContactPage() {
                   className="inline-block h-2 w-2 rounded-full bg-gold animate-pulse"
                 />
                 <span className="text-eyebrow uppercase tracking-widest text-silver opacity-70 font-display text-xs">
-                  {t({ fr: 'Calendrier en direct', en: 'Live calendar' })}
+                  {t({ fr: 'Cal.com · en direct', en: 'Cal.com · live' })}
                 </span>
               </div>
               <span className="text-eyebrow uppercase tracking-widest text-silver opacity-50 font-display text-xs">
-                {t({ fr: 'Appel de qualification · 30 min', en: 'Qualification call · 30 min' })}
+                {t({
+                  fr: 'Appel de qualification · 30 min · America/Toronto',
+                  en: 'Qualification call · 30 min · America/Toronto'
+                })}
               </span>
             </div>
 
@@ -423,10 +431,10 @@ export function ContactPage() {
               </div>
             </div>
 
-            {/* Footer note — POWERED BY CALENDLY */}
+            {/* Footer note — POWERED BY CAL.COM */}
             <div className="flex items-center justify-between px-md py-sm border-t border-silver/10 bg-elevated/60 backdrop-blur-sm">
               <span className="text-eyebrow uppercase tracking-widest text-silver opacity-50 font-display text-xs">
-                {t({ fr: 'Propulsé par Calendly', en: 'Powered by Calendly' })}
+                {t({ fr: 'Propulsé par Cal.com', en: 'Powered by Cal.com' })}
               </span>
               <span className="text-eyebrow uppercase tracking-widest text-silver opacity-50 font-display text-xs">
                 {t({

@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
@@ -7,6 +7,14 @@ import { ROUTES } from '@/config/routes';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { useT } from '@/lib/i18n/useT';
 import { heroEntranceTimings } from '@/lib/motion/presets';
+
+/** 3 client portraits utilisés pour le social proof avatars sous H1.
+ * Inspiration : jonasdiop.com template CoachVerse + boards 04/07/26 Stitch. */
+const SOCIAL_AVATARS = [
+  { src: '/photos/sophie-martin.png', alt: 'Sophie Martin — cliente CDT™' },
+  { src: '/photos/marc-lefebvre.png', alt: 'Marc Lefebvre — client CDT™' },
+  { src: '/photos/david-chen.png', alt: 'David Chen — client CDT™' }
+] as const;
 
 /**
  * Hero direction C — typo-led centered, matching Stitch board 13 (platinum-executive-hero).
@@ -70,10 +78,15 @@ export function Hero() {
           delay={heroEntranceTimings.h1MaskReveal}
           className="font-normal tracking-[-0.045em] text-[clamp(2.5rem,1.5rem+3.5vw,5rem)] leading-[1.05] max-w-[26ch]"
         >
-          {t({
-            fr: "Ajouter un zéro à votre chiffre d'affaires.",
-            en: 'Add a zero to your revenue.'
-          })}
+          {/* Shimmer span — wraps the H1 text. Placed INSIDE the MaskReveal
+              inner span so the gradient stays in sync with the text (not the
+              wrapper's translateY animation). */}
+          <span className="text-shimmer">
+            {t({
+              fr: "Ajouter un zéro à votre chiffre d'affaires.",
+              en: 'Add a zero to your revenue.'
+            })}
+          </span>
         </MaskRevealHeading>
 
         <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[58ch]">
@@ -82,6 +95,52 @@ export function Hero() {
             en: 'Business architecture & strategic scaling for ambitious entrepreneurs.'
           })}
         </p>
+
+        {/* Social proof : 3 avatars overlap + rating stars + microcopy.
+            Inspiration jonasdiop.com (template CoachVerse) — placés AVANT les CTAs
+            pour renforcer la crédibilité immédiate above the fold. */}
+        <div className="flex items-center gap-sm mt-sm">
+          <ul className="flex items-center -space-x-2.5">
+            {SOCIAL_AVATARS.map((avatar) => (
+              <li
+                key={avatar.src}
+                className={[
+                  'relative h-9 w-9 rounded-full overflow-hidden',
+                  'ring-2 ring-base shadow-[0_4px_12px_oklch(0_0_0/0.4)]'
+                ].join(' ')}
+              >
+                <img
+                  src={avatar.src}
+                  alt={avatar.alt}
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col items-start gap-0.5">
+            <div
+              role="img"
+              aria-label={t({ fr: '5 étoiles sur 5', en: '5 stars out of 5' })}
+              className="flex items-center gap-0.5"
+            >
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star
+                  key={star}
+                  className="h-3 w-3 max-w-none fill-gold text-gold"
+                  aria-hidden="true"
+                />
+              ))}
+            </div>
+            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-80 font-display text-[10px]">
+              {t({
+                fr: '857+ entrepreneurs accompagnés',
+                en: '857+ entrepreneurs supported'
+              })}
+            </span>
+          </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-sm mt-md">
           <CTAPill variant="gold-primary" href={ROUTES.contact[locale]}>

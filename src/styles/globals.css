@@ -132,9 +132,50 @@
   .animate-breathe {
     animation: breathe 2s ease-in-out infinite;
   }
+
+  /* Shimmer effect for H1 Hero — Stitch board 13 + jonasdiop.com inspiration.
+   * Background gradient ivory → silver shimmer → ivory clipped to text. The
+   * shimmer band slides slowly from left to right via background-position
+   * animation. GPU-safe (background-position only animates).
+   *
+   * Apply via className="text-shimmer" on a heading element. Falls back to
+   * solid text-primary if browser doesn't support background-clip:text. */
+  .text-shimmer {
+    background: linear-gradient(
+      100deg,
+      var(--text-primary) 0%,
+      var(--text-primary) 35%,
+      oklch(0.88 0.005 270) 45%,
+      oklch(0.96 0.008 85) 50%,
+      oklch(0.88 0.005 270) 55%,
+      var(--text-primary) 65%,
+      var(--text-primary) 100%
+    );
+    background-size: 220% 100%;
+    background-position: 100% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: text-shimmer-sweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  @keyframes text-shimmer-sweep {
+    0%,
+    20% {
+      background-position: 100% 50%;
+    }
+    60%,
+    100% {
+      background-position: 0% 50%;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .animate-breathe {
       animation: none;
+    }
+    .text-shimmer {
+      animation: none;
+      background-position: 50% 50%;
     }
   }
 }
