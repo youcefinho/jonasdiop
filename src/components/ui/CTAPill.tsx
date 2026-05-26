@@ -24,7 +24,7 @@ interface CTAPillButtonProps extends CTAPillBaseProps {
 type CTAPillProps = CTAPillLinkProps | CTAPillButtonProps;
 
 const baseClasses =
-  'relative isolate inline-flex items-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display transition-all duration-base';
+  'relative isolate inline-flex items-center gap-2 rounded-pill px-md py-[0.65rem] text-eyebrow uppercase tracking-wider font-display transition-all duration-base';
 
 /**
  * Halo silver radial — signature derrière les CTAs silver-primary.
