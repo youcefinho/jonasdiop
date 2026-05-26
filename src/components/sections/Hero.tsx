@@ -46,7 +46,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            'radial-gradient(ellipse 55% 30% at 50% 55%, oklch(0.86 0.012 80 / 0.14) 0%, oklch(0.84 0.010 80 / 0.05) 50%, transparent 78%)'
+            'radial-gradient(ellipse 55% 30% at 50% 45%, oklch(0.86 0.012 80 / 0.09) 0%, oklch(0.84 0.010 80 / 0.03) 50%, transparent 78%)'
         }}
       />
       <div
@@ -54,7 +54,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            'radial-gradient(ellipse 30% 16% at 50% 55%, oklch(0.88 0.008 270 / 0.32) 0%, oklch(0.84 0.008 270 / 0.12) 45%, transparent 78%)'
+            'radial-gradient(ellipse 30% 16% at 50% 45%, oklch(0.88 0.008 270 / 0.20) 0%, oklch(0.84 0.008 270 / 0.07) 45%, transparent 78%)'
         }}
       />
 
