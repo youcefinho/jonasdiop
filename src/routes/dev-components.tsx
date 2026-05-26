@@ -1,11 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { ArticleRenderer } from '@/components/articles/ArticleRenderer';
+import { CookieBanner } from '@/components/consent/CookieBanner';
+import { CookieSettingsLink } from '@/components/consent/CookieSettingsLink';
+import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { FooterRich } from '@/components/layout/FooterRich';
 import { ContactPage } from '@/components/sections/ContactPage';
 import { EvenementsPage } from '@/components/sections/EvenementsPage';
 import { FAQPage } from '@/components/sections/FAQPage';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
+import { LegalPage } from '@/components/sections/LegalPage';
 import { LivrePage } from '@/components/sections/LivrePage';
 import { LPConsultationsTemplate } from '@/components/sections/LPConsultationsTemplate';
 import { LPProgramTemplate } from '@/components/sections/LPProgramTemplate';
@@ -25,8 +29,12 @@ import { ScrollCue } from '@/components/ui/ScrollCue';
 import { SocialIcon } from '@/components/ui/SocialIcon';
 import { StatNumber } from '@/components/ui/StatNumber';
 import { TestimonialShellCard } from '@/components/ui/TestimonialShellCard';
+import { conditionsUtilisationCopy } from '@/data/copy/conditions-utilisation';
+import { mentionsLegalesCopy } from '@/data/copy/mentions-legales';
+import { politiqueConfidentialiteCopy } from '@/data/copy/politique-confidentialite';
 import { consultationsPriveesCopy } from '@/data/copy/services-consultations-privees';
 import { gamechangerScalingCopy } from '@/data/copy/services-gamechanger-scaling';
+import { CookieConsentProvider } from '@/lib/consent/CookieConsentContext';
 import type { Article } from '@/lib/content/types';
 
 const devSampleArticle: Article = {
@@ -43,6 +51,45 @@ const devSampleArticle: Article = {
   category: { id: 'architecture', label: 'Architecture' },
   coverImage: null,
   readingMinutes: 4,
+  source: 'ghl'
+};
+
+const devSampleMarkdownArticle: Article = {
+  id: 'art-dev-002',
+  slug: 'sample-rich-markdown',
+  locale: 'fr',
+  title: 'Démo markdown — features react-markdown + rehype-sanitize.',
+  excerpt: 'Vérification visuelle des composants forcés DA Silver Platinum.',
+  bodyMarkdown: `## Architecture en 3 piliers
+
+La méthodologie CDT™ repose sur trois axes structurels :
+
+- **Architecture de l'offre** : repositionnement et levier
+- **Architecture de l'équipe** : délégation sans friction
+- **Compression des systèmes** : ce qui tourne sans vous
+
+### Pourquoi cet ordre
+
+1. L'offre conditionne le revenu *immédiat*
+2. L'équipe conditionne la *capacité* à scaler
+3. Les systèmes conditionnent la *durabilité*
+
+> Architecture détermine 80% de votre trajectoire. Le reste, c'est de l'exécution.
+
+| Phase | Durée | Levier |
+|-------|-------|--------|
+| Diagnostic | 2 semaines | Repérage |
+| Restructuration | 4 semaines | Action |
+| Scaling | Continu | Mesure |
+
+Utiliser \`getArticle(slug)\` côté code pour fetch les articles depuis GHL.
+Détails : [docs](https://example.com).`,
+  publishedAt: '2026-06-15T10:00:00.000Z',
+  updatedAt: null,
+  author: { name: 'Jonas Diop', title: "Architecte d'affaires" },
+  category: { id: 'architecture', label: 'Architecture' },
+  coverImage: null,
+  readingMinutes: 5,
   source: 'ghl'
 };
 
@@ -304,6 +351,71 @@ function DevComponents() {
         <h2 className="text-h3 text-primary mb-md">NotFoundPage (Sprint 5) — 404 fallback</h2>
         <div className="border border-silver/15 rounded-lg overflow-hidden">
           <NotFoundPage />
+        </div>
+      </section>
+
+      {/* Sprint 6 — Legal pages + cookie consent + ArticleRenderer markdown */}
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          LegalPage / mentions-legales (Sprint 6) — Loi 25 compliant
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <LegalPage copy={mentionsLegalesCopy} />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          LegalPage / politique-confidentialite (Sprint 6)
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <LegalPage copy={politiqueConfidentialiteCopy} />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          LegalPage / conditions-utilisation (Sprint 6)
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <LegalPage copy={conditionsUtilisationCopy} />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          ArticleRenderer (Sprint 6) — react-markdown + rehype-sanitize
+        </h2>
+        <p className="text-body text-silver opacity-70 mb-md max-w-[65ch]">
+          Sample article with rich markdown : ## h2 / ### h3 / bullet lists / numbered lists /
+          blockquotes / **bold** / *italic* / `code` / [external link](https://example.com) / GFM
+          table. Strict allow-list strips raw HTML and inline styles.
+        </p>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <ArticleRenderer article={devSampleMarkdownArticle} />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          Cookie consent (Sprint 6) — Loi 25 banner + modal
+        </h2>
+        <p className="text-body text-silver opacity-70 mb-md max-w-[65ch]">
+          Banner renders fixed at the viewport bottom-right ; click "Personnaliser" to open the
+          granular modal. Decision persists 13 months via localStorage. Footer link re-opens
+          settings anytime.
+        </p>
+        <div className="relative border border-silver/15 rounded-lg overflow-visible min-h-[200px] bg-base p-md">
+          <CookieConsentProvider>
+            <p className="text-sm text-silver/60 italic">
+              ↘ Banner appears bottom-right of the viewport. Footer link below opens the modal.
+            </p>
+            <div className="mt-md">
+              <CookieSettingsLink />
+            </div>
+            <CookieBanner />
+            <CookieSettingsModal />
+          </CookieConsentProvider>
         </div>
       </section>
 
