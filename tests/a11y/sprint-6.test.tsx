@@ -1,11 +1,14 @@
-import { render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import type { ReactNode } from 'react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
+import { CookieBanner } from '@/components/consent/CookieBanner';
+import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { LegalPage } from '@/components/sections/LegalPage';
 import { conditionsUtilisationCopy } from '@/data/copy/conditions-utilisation';
 import { mentionsLegalesCopy } from '@/data/copy/mentions-legales';
 import { politiqueConfidentialiteCopy } from '@/data/copy/politique-confidentialite';
+import { CookieConsentProvider } from '@/lib/consent/CookieConsentContext';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 
 vi.mock('@tanstack/react-router', async () => {
@@ -66,6 +69,46 @@ describe('a11y — Sprint 6 legal pages', () => {
           <LegalPage copy={conditionsUtilisationCopy} />
         </LanguageProvider>
       );
+      const results = await axe(container);
+      // biome-ignore lint/suspicious/noExplicitAny: vitest-axe types incompatible with Vitest 4
+      (expect(results) as any).toHaveNoViolations();
+    });
+  }
+});
+
+describe('a11y — Sprint 6 cookie consent', () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+  afterEach(() => {
+    localStorage.clear();
+  });
+
+  for (const locale of ['fr', 'en'] as const) {
+    it(`CookieBanner has 0 axe violations (${locale})`, async () => {
+      const { container } = render(
+        <LanguageProvider locale={locale}>
+          <CookieConsentProvider>
+            <CookieBanner />
+          </CookieConsentProvider>
+        </LanguageProvider>
+      );
+      const results = await axe(container);
+      // biome-ignore lint/suspicious/noExplicitAny: vitest-axe types incompatible with Vitest 4
+      (expect(results) as any).toHaveNoViolations();
+    });
+
+    it(`CookieSettingsModal (open) has 0 axe violations (${locale})`, async () => {
+      const { container } = render(
+        <LanguageProvider locale={locale}>
+          <CookieConsentProvider>
+            <CookieBanner />
+            <CookieSettingsModal />
+          </CookieConsentProvider>
+        </LanguageProvider>
+      );
+      const customizeLabel = locale === 'fr' ? 'Personnaliser' : 'Customize';
+      fireEvent.click(screen.getByText(customizeLabel));
       const results = await axe(container);
       // biome-ignore lint/suspicious/noExplicitAny: vitest-axe types incompatible with Vitest 4
       (expect(results) as any).toHaveNoViolations();

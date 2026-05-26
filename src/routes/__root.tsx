@@ -1,6 +1,9 @@
 import { createRootRoute, Outlet, useLocation } from '@tanstack/react-router';
 import { useEffect } from 'react';
+import { CookieBanner } from '@/components/consent/CookieBanner';
+import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
+import { CookieConsentProvider } from '@/lib/consent/CookieConsentContext';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import { localeFromPath } from '@/lib/i18n/translations';
 import { destroyLenis, initLenis } from '@/lib/motion/lenis';
@@ -31,7 +34,11 @@ function RootLayout() {
   return (
     <html lang={locale === 'en' ? 'en' : 'fr-CA'}>
       <LanguageProvider locale={locale}>
-        <Outlet />
+        <CookieConsentProvider>
+          <Outlet />
+          <CookieBanner />
+          <CookieSettingsModal />
+        </CookieConsentProvider>
       </LanguageProvider>
     </html>
   );
@@ -43,7 +50,11 @@ function NotFoundLayout() {
   return (
     <html lang={locale === 'en' ? 'en' : 'fr-CA'}>
       <LanguageProvider locale={locale}>
-        <NotFoundPage />
+        <CookieConsentProvider>
+          <NotFoundPage />
+          <CookieBanner />
+          <CookieSettingsModal />
+        </CookieConsentProvider>
       </LanguageProvider>
     </html>
   );

@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { CookieSettingsLink } from '@/components/consent/CookieSettingsLink';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { LogoWordmark } from '@/components/ui/LogoWordmark';
 import { SocialIcon } from '@/components/ui/SocialIcon';
@@ -212,6 +213,7 @@ export function FooterRich() {
           >
             {t({ fr: 'Conditions', en: 'Terms' })}
           </Link>
+          <CookieSettingsLink />
         </nav>
         <p>
           {t({ fr: 'Site par', en: 'Made by' })}{' '}
