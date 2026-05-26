@@ -1,4 +1,5 @@
 import { PlayCircle } from 'lucide-react';
+import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { useT } from '@/lib/i18n/useT';
 
 interface VslPlaceholderSectionProps {
@@ -15,10 +16,11 @@ export function VslPlaceholderSection({ id }: VslPlaceholderSectionProps) {
   return (
     <section
       id={id}
-      className="min-h-[60vh] flex items-center justify-center px-md py-2xl bg-base"
+      className="relative min-h-[60vh] flex items-center justify-center px-md py-2xl bg-base"
       aria-label={t({ fr: 'Vidéo méthodologie', en: 'Methodology video' })}
     >
-      <div className="aspect-video w-full max-w-content bg-elevated border border-silver/15 rounded-lg flex flex-col items-center justify-center gap-md text-silver/60">
+      <FiligraneNumber number="03" position="right" />
+      <div className="relative aspect-video w-full max-w-content bg-elevated border border-silver/15 rounded-lg flex flex-col items-center justify-center gap-md text-silver/60">
         <PlayCircle className="h-12 w-12" aria-hidden="true" />
         <p className="text-eyebrow uppercase tracking-widest font-display">
           {t({ fr: 'VSL bientôt disponible', en: 'VSL coming soon' })}

@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { ROUTES } from '@/config/routes';
 import { useT } from '@/lib/i18n/useT';
@@ -10,9 +11,10 @@ export function FinalCTASection() {
   return (
     <section
       aria-label={t({ fr: 'Réserver un appel', en: 'Book a call' })}
-      className="py-2xl bg-elevated border-t border-silver/10"
+      className="relative py-2xl bg-elevated border-t border-silver/10"
     >
-      <div className="max-w-content mx-auto px-md text-center flex flex-col items-center gap-md">
+      <FiligraneNumber number="06" position="right" />
+      <div className="relative max-w-content mx-auto px-md text-center flex flex-col items-center gap-md">
         <Eyebrow>{t({ fr: 'Prochaine étape', en: 'Next step' })}</Eyebrow>
         <MaskRevealHeading as="h2">
           {t({ fr: 'Prêt à ajouter un zéro ?', en: 'Ready to add a zero?' })}

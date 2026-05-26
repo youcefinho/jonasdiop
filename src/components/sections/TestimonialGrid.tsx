@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { TestimonialShellCard } from '@/components/ui/TestimonialShellCard';
 import { ROUTES } from '@/config/routes';
 import { testimonialShells } from '@/data/testimonials';
@@ -10,9 +11,10 @@ export function TestimonialGrid() {
   return (
     <section
       aria-label={t({ fr: 'Témoignages clients', en: 'Client testimonials' })}
-      className="py-2xl bg-base"
+      className="relative py-2xl bg-base"
     >
-      <div className="max-w-default mx-auto px-md">
+      <FiligraneNumber number="05" position="left" />
+      <div className="relative max-w-default mx-auto px-md">
         <div className="flex flex-col items-center text-center gap-sm">
           <Eyebrow>{t({ fr: 'Ils ont appliqué CDT™', en: 'They applied CDT™' })}</Eyebrow>
           <h2 className="text-h2 text-primary font-display text-balance max-w-content">

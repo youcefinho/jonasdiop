@@ -1,3 +1,4 @@
+import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { StatNumber } from '@/components/ui/StatNumber';
 import { useT } from '@/lib/i18n/useT';
 
@@ -11,9 +12,10 @@ export function TrustBand() {
   return (
     <section
       aria-label={t({ fr: 'Chiffres clés', en: 'Key figures' })}
-      className="py-xl border-y border-silver/10 bg-base"
+      className="relative py-xl border-y border-silver/10 bg-base"
     >
-      <div className="container mx-auto max-w-default px-md grid grid-cols-1 md:grid-cols-3 gap-lg">
+      <FiligraneNumber number="02" position="left" />
+      <div className="relative container mx-auto max-w-default px-md grid grid-cols-1 md:grid-cols-3 gap-lg">
         <StatNumber
           value={857}
           suffix="+"

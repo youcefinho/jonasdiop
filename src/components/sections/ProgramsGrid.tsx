@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { ProgramCard } from '@/components/ui/ProgramCard';
 import { ROUTES } from '@/config/routes';
 import { programmes } from '@/data/programmes';
@@ -12,14 +13,7 @@ export function ProgramsGrid() {
       aria-label={t({ fr: "Programmes d'accompagnement", en: 'Coaching programs' })}
       className="relative py-2xl bg-base"
     >
-      {/* Filigrane number silver outline — signature DESIGN-v2-silver.md
-          "Section numbering 01-05 large outline silver filigrane". */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute top-md right-md select-none font-display font-bold text-[clamp(7rem,18vw,14rem)] leading-none tracking-tighter text-transparent [-webkit-text-stroke:1px_oklch(0.79_0.005_270/0.06)] [text-stroke:1px_oklch(0.79_0.005_270/0.06)]"
-      >
-        04
-      </span>
+      <FiligraneNumber number="04" position="right" />
       <div className="relative max-w-default mx-auto px-md">
         <div className="flex flex-col items-center text-center gap-sm">
           <Eyebrow>{t({ fr: 'Nos programmes', en: 'Our programs' })}</Eyebrow>
