@@ -53,7 +53,6 @@ const META_LOADERS: Partial<Record<RouteKey, MetaLoader>> = {
     (await import('@/data/copy/services-cash-scale')).cashScaleCopy.meta,
   'services-consultations-privees': async () =>
     (await import('@/data/copy/services-consultations-privees')).consultationsPriveesCopy.meta,
-  faq: async () => (await import('@/data/copy/faq')).faqCopy.meta,
   contact: async () => (await import('@/data/copy/contact')).contactCopy.meta,
   temoignages: async () => (await import('@/data/copy/temoignages')).temoignagesCopy.meta,
   livre: async () => (await import('@/data/copy/livre')).livreCopy.meta,

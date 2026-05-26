@@ -93,7 +93,7 @@ export function NotFoundPage() {
             </li>
             <li>
               <a
-                href={ROUTES.faq[locale]}
+                href={`${ROUTES.home[locale]}#faq`}
                 className="text-silver hover:text-gold transition-colors duration-base"
               >
                 {t({ fr: 'FAQ', en: 'FAQ' })}

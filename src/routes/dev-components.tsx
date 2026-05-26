@@ -6,7 +6,7 @@ import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { FooterRich } from '@/components/layout/FooterRich';
 import { ContactPage } from '@/components/sections/ContactPage';
 import { EvenementsPage } from '@/components/sections/EvenementsPage';
-import { FAQPage } from '@/components/sections/FAQPage';
+import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
 import { LegalPage } from '@/components/sections/LegalPage';
@@ -279,10 +279,10 @@ function DevComponents() {
 
       <section>
         <h2 className="text-h3 text-primary mb-md">
-          FAQPage (Sprint 5) — 14 Q/A across 5 categories
+          FAQHomeSection (Sprint 9) — 14 Q/A 5 categories, inline on Home
         </h2>
         <div className="border border-silver/15 rounded-lg overflow-hidden">
-          <FAQPage />
+          <FAQHomeSection />
         </div>
       </section>
 

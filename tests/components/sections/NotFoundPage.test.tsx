@@ -65,7 +65,7 @@ describe('NotFoundPage — 404 fallback', () => {
     expect(container.querySelector('a[href="/en"]')).toBeInTheDocument();
     expect(container.querySelector('a[href="/en/services"]')).toBeInTheDocument();
     expect(container.querySelector('a[href="/en/about"]')).toBeInTheDocument();
-    expect(container.querySelector('a[href="/en/faq"]')).toBeInTheDocument();
+    expect(container.querySelector('a[href="/en#faq"]')).toBeInTheDocument();
   });
 
   it('section has aria-label "Page introuvable" (FR)', () => {
