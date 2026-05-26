@@ -33,18 +33,20 @@ export function Hero() {
       aria-label={t({ fr: 'Section principale', en: 'Hero section' })}
       className="relative min-h-[78svh] flex flex-col items-center justify-center text-center px-md py-2xl overflow-hidden"
     >
-      {/* Ambient cream/silver "stage" light — Stitch board 13 luminous signature.
-          Multi-layer to actually be VISIBLE on dark base (was 7% → noyé) :
-            Layer 1 — broad warm cream wash over lower 60% of Hero
-            Layer 2 — concentrated silver "spotlight" right under CTAs
-            Layer 3 — subtle edge ambient (top corners) for depth
-          GPU-only (background gradients only, no blur on scrolling container). */}
+      {/* Silver/cream "stage spotlight" centré sur la zone CTAs — Stitch board 13.
+          Composition 2 couches concentrées exactement sur les CTAs (~55%Y du section) :
+            L1 — bright silver/cream core (ellipse 30%×16% at 50% 55%) @ 32% opacity
+                 → halo focal lumineux directement sous/autour des CTAs
+            L2 — soft outer bloom (ellipse 55%×30% at 50% 55%) @ 14% opacity
+                 → wrap autour pour le fade naturel
+          Pas de wash global ni de top ambient — focus exclusif sur la zone CTAs
+          comme dans le board 13 (effet "spotlight" théâtral). */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            'radial-gradient(ellipse 90% 55% at 50% 75%, oklch(0.88 0.018 80 / 0.14) 0%, oklch(0.85 0.012 80 / 0.06) 40%, transparent 75%)'
+            'radial-gradient(ellipse 55% 30% at 50% 55%, oklch(0.86 0.012 80 / 0.14) 0%, oklch(0.84 0.010 80 / 0.05) 50%, transparent 78%)'
         }}
       />
       <div
@@ -52,15 +54,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            'radial-gradient(ellipse 45% 28% at 50% 68%, oklch(0.82 0.008 270 / 0.18) 0%, oklch(0.82 0.008 270 / 0.06) 50%, transparent 80%)'
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 35% at 50% 25%, oklch(0.79 0.005 270 / 0.05) 0%, transparent 70%)'
+            'radial-gradient(ellipse 30% 16% at 50% 55%, oklch(0.88 0.008 270 / 0.32) 0%, oklch(0.84 0.008 270 / 0.12) 45%, transparent 78%)'
         }}
       />
 
