@@ -64,6 +64,17 @@ export interface ClientConfig {
     readonly applePodcastsUrl: string | null;
     readonly youtubeUrl: string | null;
   };
+
+  /**
+   * Sentry error monitoring — empty DSN = no-op init (Sprint 6 scaffold state).
+   * Filled when Sentry project provisioned. Tracing + Replay disabled by default ;
+   * enable per-env in initSentry() once volume justifies the sampling cost.
+   */
+  readonly sentry: {
+    readonly dsn: string;
+    readonly environment: 'staging' | 'production' | 'development';
+    readonly release: string;
+  };
 }
 
 export const clientConfig: ClientConfig = {
@@ -119,5 +130,11 @@ export const clientConfig: ClientConfig = {
     spotifyUrl: null, // ⏳ H17
     applePodcastsUrl: null, // ⏳ H17
     youtubeUrl: null // ⏳ H17
+  },
+
+  sentry: {
+    dsn: '', // ⏳ Empty → initSentry() is a no-op ; fill once Sentry project provisioned
+    environment: 'production',
+    release: 'jonas-diop@sprint-6'
   }
 } as const;
