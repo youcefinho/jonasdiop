@@ -45,17 +45,18 @@ const goldHalo =
   "before:content-[''] before:absolute before:inset-[-1.75rem] before:rounded-pill before:bg-[radial-gradient(circle,oklch(0.74_0.085_75/0.35)_0%,oklch(0.74_0.085_75/0.10)_45%,transparent_72%)] before:blur-xl before:-z-10 before:opacity-95 hover:before:opacity-100 hover:before:inset-[-2.25rem] before:transition-all before:duration-base";
 
 const variantClasses: Record<CTAVariant, string> = {
-  // DEFAULT primary — filled silver #c0c0c5 + text base. Used on every page's
-  // commitment CTA (form submits, page-final CTAs, LP CTAs, etc.) per
-  // DESIGN-v2-silver.md "Primary (silver) : filled silver bg + base text".
-  'silver-primary': `bg-silver text-base hover:bg-silver/90 hover:scale-[1.02] hover:shadow-[0_0_24px_oklch(0.79_0.005_270/0.25)] ${silverHalo}`,
-  // EXCEPTIONAL primary — gold. Reserved for Hero PRENDRE RENDEZ-VOUS +
-  // FinalCTA "Réserver mon appel" only (Home page commitment moments per
-  // Stitch board 13). Warm gold halo, not silver.
-  'gold-primary': `bg-gold text-base hover:shadow-[0_0_32px_oklch(0.74_0.085_75/0.50)] hover:scale-[1.02] ${goldHalo}`,
+  // DEFAULT primary — METALLIC SILVER GRADIENT extracted from jonasdiop.com
+  // (`linear-gradient(rgba(245,245,245,0.96) 0%, rgb(189,189,189) 100%)`).
+  // White ivory top → mid silver bottom = metallic surface signature.
+  // + shadow-haptic-card pour depth + halo permanent silver derrière.
+  'silver-primary': `bg-[linear-gradient(180deg,oklch(0.96_0.005_85/0.96)_0%,oklch(0.74_0.005_270)_100%)] text-base shadow-haptic-card hover:scale-[1.02] hover:brightness-110 ${silverHalo}`,
+  // EXCEPTIONAL primary — METALLIC GOLD GRADIENT (warmer cream → amber).
+  // Pour Hero + FinalCTA. Halo warm gold permanent + brightness boost hover.
+  'gold-primary': `bg-[linear-gradient(180deg,oklch(0.86_0.085_75)_0%,oklch(0.66_0.085_75)_100%)] text-base shadow-haptic-card hover:scale-[1.02] hover:brightness-110 ${goldHalo}`,
   'silver-secondary':
-    'bg-transparent border border-silver/40 text-silver hover:border-silver hover:bg-silver/5',
-  'silver-outline': 'bg-transparent border border-silver/60 text-silver hover:bg-silver/10'
+    'bg-transparent border border-silver/40 text-silver hover:border-silver hover:bg-silver/5 transition-colors duration-base',
+  'silver-outline':
+    'bg-transparent border border-silver/60 text-silver hover:bg-silver/10 transition-colors duration-base'
 };
 
 /**

@@ -12,14 +12,16 @@ vi.mock('@tanstack/react-router', () => ({
 }));
 
 describe('CTAPill', () => {
-  it('renders gold-primary variant with bg-gold + text-base', () => {
+  it('renders gold-primary variant with metallic gradient + text-base', () => {
     render(
       <CTAPill variant="gold-primary" onClick={() => {}}>
         Prendre RDV
       </CTAPill>
     );
     const btn = screen.getByText('Prendre RDV');
-    expect(btn.className).toContain('bg-gold');
+    // Metallic gold gradient (linear-gradient oklch warm cream → amber) per
+    // jonasdiop.com extraction. Used to be flat bg-gold.
+    expect(btn.className).toMatch(/linear-gradient.+oklch.+0\.085_75/);
     expect(btn.className).toContain('text-base');
     expect(btn.className).toContain('rounded-pill');
   });
