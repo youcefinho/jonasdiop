@@ -96,7 +96,7 @@ export function FAQPage() {
             {t(faqCopy.finalCta.sub)}
           </p>
           <div className="mt-md">
-            <CTAPill variant="gold-primary" href={ROUTES.contact[locale]}>
+            <CTAPill variant="silver-primary" href={ROUTES.contact[locale]}>
               {t(faqCopy.finalCta.ctaLabel)}
               <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
             </CTAPill>

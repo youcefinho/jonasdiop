@@ -255,7 +255,7 @@ export function ContactPage() {
             <button
               type="submit"
               disabled
-              className="inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-gold text-base disabled:cursor-not-allowed disabled:opacity-50 mt-sm"
+              className="inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-silver text-base disabled:cursor-not-allowed disabled:opacity-50 mt-sm"
             >
               {t(contactCopy.form.fields.submit)}
               <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
@@ -362,7 +362,7 @@ export function ContactPage() {
           </p>
           <div className="mt-md">
             <CTAPill
-              variant="gold-primary"
+              variant="silver-primary"
               onClick={() => {
                 if (typeof window !== 'undefined') {
                   window.scrollTo({ top: 0, behavior: 'smooth' });

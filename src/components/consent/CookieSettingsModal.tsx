@@ -168,7 +168,7 @@ export function CookieSettingsModal() {
           <button
             type="button"
             onClick={handleSave}
-            className="flex-1 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display text-xs bg-gold text-base hover:shadow-[0_0_24px_oklch(0.74_0.085_75/0.35)] transition-all duration-base"
+            className="flex-1 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display text-xs bg-silver text-base hover:shadow-[0_0_24px_oklch(0.79_0.005_270/0.30)] transition-all duration-base"
           >
             {t({ fr: 'Enregistrer mes choix', en: 'Save my choices' })}
           </button>

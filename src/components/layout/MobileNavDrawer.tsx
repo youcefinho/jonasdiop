@@ -113,7 +113,7 @@ export function MobileNavDrawer() {
         </nav>
 
         <div className="mt-auto">
-          <CTAPill variant="gold-primary" href={ROUTES.contact[locale]}>
+          <CTAPill variant="silver-primary" href={ROUTES.contact[locale]}>
             {t({ fr: 'Consultation', en: 'Consultation' })}
           </CTAPill>
         </div>

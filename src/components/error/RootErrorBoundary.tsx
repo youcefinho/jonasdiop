@@ -67,7 +67,7 @@ export class RootErrorBoundary extends Component<RootErrorBoundaryProps, RootErr
                 window.location.reload();
               }
             }}
-            className="mt-md inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-gold text-base hover:shadow-[0_0_24px_oklch(0.74_0.085_75/0.35)] transition-all duration-base"
+            className="mt-md inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-silver text-base hover:shadow-[0_0_24px_oklch(0.79_0.005_270/0.30)] transition-all duration-base"
           >
             Rafraîchir la page
           </button>

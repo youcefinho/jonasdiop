@@ -85,7 +85,7 @@ function AboutPage() {
               {t(aboutCopy.finalCta.sub)}
             </p>
             <div className="mt-md">
-              <CTAPill variant="gold-primary" href={ROUTES.contact[locale]}>
+              <CTAPill variant="silver-primary" href={ROUTES.contact[locale]}>
                 {t(aboutCopy.finalCta.ctaLabel)}
               </CTAPill>
             </div>

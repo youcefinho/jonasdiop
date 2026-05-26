@@ -48,7 +48,7 @@ export function NotFoundPage() {
         </p>
 
         <div className="mt-md flex flex-col sm:flex-row gap-sm items-center justify-center">
-          <CTAPill variant="gold-primary" href={ROUTES.home[locale]}>
+          <CTAPill variant="silver-primary" href={ROUTES.home[locale]}>
             {t({ fr: "Retour à l'accueil", en: 'Back to home' })}
             <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
           </CTAPill>

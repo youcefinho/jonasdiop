@@ -65,7 +65,7 @@ export function MobileSignatureBar() {
             </span>
           </Link>
         </li>
-        <li className="bg-gold">
+        <li className="bg-silver">
           <Link
             to={ROUTES.contact[locale]}
             className="flex flex-col items-center justify-center gap-1 py-3 text-base hover:opacity-90 transition-opacity duration-base active:scale-[0.97]"

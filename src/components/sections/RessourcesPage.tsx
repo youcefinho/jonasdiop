@@ -195,7 +195,7 @@ export function RessourcesPage() {
             <button
               type="submit"
               disabled
-              className="inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-gold text-base disabled:cursor-not-allowed disabled:opacity-50 shrink-0"
+              className="inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-silver text-base disabled:cursor-not-allowed disabled:opacity-50 shrink-0"
             >
               {t(ressourcesCopy.newsletter.submitLabel)}
               <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
@@ -221,7 +221,7 @@ export function RessourcesPage() {
           </p>
           <div className="mt-md">
             <CTAPill
-              variant="gold-primary"
+              variant="silver-primary"
               onClick={() => {
                 if (typeof window !== 'undefined') {
                   const form = document.querySelector(

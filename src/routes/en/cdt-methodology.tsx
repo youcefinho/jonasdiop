@@ -195,7 +195,7 @@ function MethodologieCdtENPage() {
               {t(copy.finalCta.sub)}
             </p>
             <div className="mt-[clamp(0.5rem,1vw,1rem)]">
-              <CTAPill variant="gold-primary" href={ROUTES.contact[locale]}>
+              <CTAPill variant="silver-primary" href={ROUTES.contact[locale]}>
                 {t(copy.finalCta.ctaLabel)}
               </CTAPill>
             </div>
