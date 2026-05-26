@@ -33,15 +33,34 @@ export function Hero() {
       aria-label={t({ fr: 'Section principale', en: 'Hero section' })}
       className="relative min-h-[78svh] flex flex-col items-center justify-center text-center px-md py-2xl overflow-hidden"
     >
-      {/* Ambient silver/cream radial — luminous "stage" light behind the CTA zone.
-          Stitch board 13 signature : soft silver bloom centered slightly below
-          the H1, fades to transparent. GPU-only (background gradient), no blur. */}
+      {/* Ambient cream/silver "stage" light — Stitch board 13 luminous signature.
+          Multi-layer to actually be VISIBLE on dark base (was 7% → noyé) :
+            Layer 1 — broad warm cream wash over lower 60% of Hero
+            Layer 2 — concentrated silver "spotlight" right under CTAs
+            Layer 3 — subtle edge ambient (top corners) for depth
+          GPU-only (background gradients only, no blur on scrolling container). */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            'radial-gradient(ellipse 60% 50% at 50% 65%, oklch(0.79 0.005 270 / 0.07) 0%, oklch(0.79 0.005 270 / 0.03) 35%, transparent 70%)'
+            'radial-gradient(ellipse 90% 55% at 50% 75%, oklch(0.88 0.018 80 / 0.14) 0%, oklch(0.85 0.012 80 / 0.06) 40%, transparent 75%)'
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            'radial-gradient(ellipse 45% 28% at 50% 68%, oklch(0.82 0.008 270 / 0.18) 0%, oklch(0.82 0.008 270 / 0.06) 50%, transparent 80%)'
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            'radial-gradient(ellipse 60% 35% at 50% 25%, oklch(0.79 0.005 270 / 0.05) 0%, transparent 70%)'
         }}
       />
 
