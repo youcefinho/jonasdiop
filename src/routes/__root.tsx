@@ -23,8 +23,9 @@ function RootLayout() {
       script.type = 'application/ld+json';
       document.head.appendChild(script);
     }
-    script.textContent = buildSchemaJsonLd(locale);
-  }, [locale]);
+    const includeServices = pathname.startsWith('/services') || pathname.startsWith('/en/services');
+    script.textContent = buildSchemaJsonLd(locale, { includeServices });
+  }, [locale, pathname]);
 
   return (
     <html lang={locale === 'en' ? 'en' : 'fr-CA'}>
