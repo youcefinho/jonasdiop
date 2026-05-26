@@ -65,13 +65,18 @@ export function MobileSignatureBar() {
             </span>
           </Link>
         </li>
-        <li className="bg-silver">
+        {/* DISCUTER — primary call-to-action.
+            Cream/warm-ivory background per Stitch board 11 (lighter, warmer than pure
+            silver — communicates the "human conversation" tonal warmth). Top edge
+            accented with a 2px gold strip for the gold-rare signature touch. */}
+        <li className="relative bg-[oklch(0.94_0.008_85)]">
+          <span aria-hidden="true" className="absolute top-0 left-0 right-0 h-[2px] bg-gold" />
           <Link
             to={ROUTES.contact[locale]}
             className="flex flex-col items-center justify-center gap-1 py-3 text-base hover:opacity-90 transition-opacity duration-base active:scale-[0.97]"
           >
             <MessageCircle className="h-5 w-5 max-w-none shrink-0" aria-hidden="true" />
-            <span className="text-eyebrow uppercase tracking-widest font-display font-medium text-[10px]">
+            <span className="text-eyebrow uppercase tracking-widest font-display font-semibold text-[10px]">
               {t({ fr: 'Discuter', en: 'Chat' })}
             </span>
           </Link>

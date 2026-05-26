@@ -159,28 +159,59 @@ export function CDTDiagram() {
   return (
     <div className="relative max-w-[var(--container-default)] mx-auto px-[clamp(1rem,4vw,3rem)]">
       {/*
-       * Gold halo — radial gradient centered behind middle pillar.
-       * Usage gold #1/7 : CDT™ marker signature.
+       * GOLD ORB SIGNATURE — Compression symbol per Stitch board 08.
+       * Multi-layer glowing ring : outer diffuse halo + visible stroke ring + bright inner core.
+       * Centered behind the 3 hexagones — they orbit the orb. Usage gold #1/7 strict.
        * GPU-only (transform/opacity) — no blur on scrolling container per soft-skill perf rules.
        */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
       >
-        {/* Primary halo — warm gold core */}
+        {/* Layer 1 — Outer diffuse halo (atmospheric glow) */}
         <div
-          className="absolute h-[clamp(280px,30vw,480px)] w-[clamp(280px,30vw,480px)] rounded-full"
+          className="absolute h-[clamp(480px,56vw,860px)] w-[clamp(480px,56vw,860px)] rounded-full"
           style={{
             background:
-              'radial-gradient(ellipse at center, oklch(0.74 0.085 75 / 0.18) 0%, oklch(0.74 0.085 75 / 0.07) 45%, transparent 72%)'
+              'radial-gradient(ellipse at center, oklch(0.74 0.085 75 / 0.10) 0%, oklch(0.74 0.085 75 / 0.04) 45%, transparent 75%)'
           }}
         />
-        {/* Secondary outer diffuse ring */}
+
+        {/* Layer 2 — Mid radial warmth (boost golden ambient) */}
         <div
-          className="absolute h-[clamp(400px,48vw,720px)] w-[clamp(400px,48vw,720px)] rounded-full"
+          className="absolute h-[clamp(340px,38vw,560px)] w-[clamp(340px,38vw,560px)] rounded-full"
           style={{
             background:
-              'radial-gradient(ellipse at center, transparent 40%, oklch(0.74 0.085 75 / 0.04) 60%, transparent 80%)'
+              'radial-gradient(ellipse at center, oklch(0.74 0.085 75 / 0.26) 0%, oklch(0.74 0.085 75 / 0.10) 50%, transparent 78%)'
+          }}
+        />
+
+        {/* Layer 3 — VISIBLE GOLD RING STROKE (the orb itself, board 08 signature) */}
+        <div
+          className="absolute h-[clamp(220px,24vw,360px)] w-[clamp(220px,24vw,360px)] rounded-full"
+          style={{
+            border: '2px solid oklch(0.74 0.085 75 / 0.55)',
+            boxShadow:
+              '0 0 0 1px oklch(0.74 0.085 75 / 0.20), 0 0 48px oklch(0.74 0.085 75 / 0.35), inset 0 0 32px oklch(0.74 0.085 75 / 0.25)'
+          }}
+        />
+
+        {/* Layer 4 — Inner secondary ring (thinner, slightly smaller for depth) */}
+        <div
+          className="absolute h-[clamp(170px,18vw,280px)] w-[clamp(170px,18vw,280px)] rounded-full"
+          style={{
+            border: '1px solid oklch(0.74 0.085 75 / 0.30)',
+            background:
+              'radial-gradient(ellipse at center, oklch(0.74 0.085 75 / 0.18) 0%, transparent 70%)'
+          }}
+        />
+
+        {/* Layer 5 — Bright concentrated core (the "compression point") */}
+        <div
+          className="absolute h-[clamp(80px,9vw,140px)] w-[clamp(80px,9vw,140px)] rounded-full"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, oklch(0.88 0.10 80 / 0.45) 0%, oklch(0.74 0.085 75 / 0.20) 50%, transparent 85%)'
           }}
         />
       </div>

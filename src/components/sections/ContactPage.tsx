@@ -337,22 +337,104 @@ export function ContactPage() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* CALENDLY placeholder card                                        */}
+      {/* CALENDLY embed section — Stitch board 25                          */}
+      {/* Iframe-shaped placeholder + POWERED BY CALENDLY note.             */}
+      {/* When H8 (Calendly URL) is received, swap the inner card for a    */}
+      {/* real <iframe> pointing to https://calendly.com/<jonas-handle>.    */}
       {/* ---------------------------------------------------------------- */}
       <section
         aria-label={t(contactCopy.calendly.eyebrow)}
         className="py-2xl bg-elevated border-y border-silver/10"
       >
-        <div className="max-w-content mx-auto px-md">
-          <div className="text-center flex flex-col items-center gap-sm mb-lg">
+        <div className="max-w-default mx-auto px-md">
+          <div className="text-center flex flex-col items-center gap-sm mb-xl">
             <Eyebrow>{t(contactCopy.calendly.eyebrow)}</Eyebrow>
             <MaskRevealHeading as="h2">{t(contactCopy.calendly.title)}</MaskRevealHeading>
+            <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[55ch]">
+              {t({
+                fr: 'Sélectionnez un créneau qui vous convient. Réservation instantanée, sans frais, et sans engagement.',
+                en: 'Pick a slot that works for you. Instant booking, no fees, no commitment.'
+              })}
+            </p>
           </div>
 
-          <div className="border border-dashed border-silver/20 rounded-lg p-xl bg-base/50 text-center">
-            <p className="text-sm text-silver/50 italic text-pretty">
-              {t(contactCopy.calendly.placeholder)}
-            </p>
+          {/* Calendly-shaped placeholder card (aspect mimicking real embed) */}
+          <div
+            className={[
+              'relative mx-auto max-w-[820px] rounded-[clamp(0.75rem,0.8vw+0.4rem,1.5rem)] overflow-hidden',
+              'ring-1 ring-silver/15 bg-base',
+              'shadow-[0_32px_80px_-16px_oklch(0_0_0/0.5),_inset_0_1px_1px_oklch(1_0_0/0.04)]'
+            ].join(' ')}
+          >
+            {/* Header bar — mimics Calendly toolbar */}
+            <div className="flex items-center justify-between px-md py-sm border-b border-silver/10 bg-elevated/60 backdrop-blur-sm">
+              <div className="flex items-center gap-sm">
+                <span
+                  aria-hidden="true"
+                  className="inline-block h-2 w-2 rounded-full bg-gold animate-pulse"
+                />
+                <span className="text-eyebrow uppercase tracking-widest text-silver opacity-70 font-display text-xs">
+                  {t({ fr: 'Calendrier en direct', en: 'Live calendar' })}
+                </span>
+              </div>
+              <span className="text-eyebrow uppercase tracking-widest text-silver opacity-50 font-display text-xs">
+                {t({ fr: 'Appel de qualification · 30 min', en: 'Qualification call · 30 min' })}
+              </span>
+            </div>
+
+            {/* Embed area — aspect 4:3 mimics Calendly month view */}
+            <div className="relative aspect-[4/3] bg-base">
+              {/* Decorative grid pattern (placeholder Calendly month grid) */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 grid grid-cols-7 grid-rows-5 gap-[1px] p-md opacity-30"
+              >
+                {Array.from({ length: 35 }).map((_, idx) => (
+                  <div
+                    // biome-ignore lint/suspicious/noArrayIndexKey: static decorative grid
+                    key={idx}
+                    className="rounded-sm bg-elevated/60 ring-1 ring-silver/5"
+                  />
+                ))}
+              </div>
+
+              {/* Center loading state */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-md gap-sm">
+                <div
+                  aria-hidden="true"
+                  className={[
+                    'relative h-14 w-14 rounded-full',
+                    'ring-1 ring-gold/30',
+                    'bg-[radial-gradient(ellipse_at_center,oklch(0.74_0.085_75/0.25)_0%,transparent_70%)]',
+                    'flex items-center justify-center'
+                  ].join(' ')}
+                >
+                  <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
+                </div>
+                <p className="text-body text-primary font-display tracking-tight max-w-[42ch] text-pretty">
+                  {t({
+                    fr: 'Le calendrier interactif est en cours de connexion.',
+                    en: 'The interactive calendar is connecting.'
+                  })}
+                </p>
+                <p className="text-sm text-silver opacity-60 text-pretty max-w-[48ch]">
+                  {t(contactCopy.calendly.placeholder)}
+                </p>
+              </div>
+            </div>
+
+            {/* Footer note — POWERED BY CALENDLY */}
+            <div className="flex items-center justify-between px-md py-sm border-t border-silver/10 bg-elevated/60 backdrop-blur-sm">
+              <span className="text-eyebrow uppercase tracking-widest text-silver opacity-50 font-display text-xs">
+                {t({ fr: 'Propulsé par Calendly', en: 'Powered by Calendly' })}
+              </span>
+              <span className="text-eyebrow uppercase tracking-widest text-silver opacity-50 font-display text-xs">
+                {t({
+                  fr: 'Réservation instantanée · Sans frais',
+                  en: 'Instant booking · No fees'
+                })}
+              </span>
+            </div>
           </div>
         </div>
       </section>

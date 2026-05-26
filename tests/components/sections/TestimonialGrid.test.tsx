@@ -38,15 +38,15 @@ describe('TestimonialGrid', () => {
 
   it('renders disclaimer + bottom link', () => {
     render(<TestimonialGrid />, { wrapper: wrapper('fr') });
-    expect(screen.getByText(/Témoignages clients réels disponibles bientôt/i)).toBeInTheDocument();
+    expect(screen.getByText(/Portraits et témoignages illustratifs/i)).toBeInTheDocument();
     expect(screen.getByText(/Voir tous les témoignages/i)).toBeInTheDocument();
   });
 
-  it('center shell has gold border (testimonialShells[1] centerElevated=true)', () => {
+  it('focal testimonial card has gold ring (Marc Lefebvre centerElevated=true)', () => {
     const { container } = render(<TestimonialGrid />, { wrapper: wrapper('fr') });
     const articles = container.querySelectorAll('article');
-    expect(articles[1]?.className).toContain('border-gold');
-    expect(articles[0]?.className).toContain('border-silver');
-    expect(articles[2]?.className).toContain('border-silver');
+    expect(articles[1]?.className).toContain('ring-gold');
+    expect(articles[0]?.className).toContain('ring-silver');
+    expect(articles[2]?.className).toContain('ring-silver');
   });
 });

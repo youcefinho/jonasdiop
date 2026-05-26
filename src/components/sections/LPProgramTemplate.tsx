@@ -309,35 +309,60 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
                 <MaskRevealHeading as="h2">{t(copy.modules.title)}</MaskRevealHeading>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+              {/* Stitch board 03 curriculum pattern : stacked full-width cards
+                  (vertical list, not grid). Each card horizontal :
+                  - Large gold filigrane number (col-span-2)
+                  - Eyebrow weeks + title + body (col-span-10)
+                  Hover : subtle gold border-left accent + scale.
+                  Mobile : stacks vertically inside each card. */}
+              <ol className="flex flex-col gap-md">
                 {copy.modules.items.map((module, idx) => (
-                  <article
-                    key={module.id ?? idx}
-                    data-module-card
-                    className="flex flex-col gap-sm p-md bg-base border border-silver/15 rounded-lg transition-all duration-base hover:border-silver/30"
-                  >
-                    {/* Gold number filigrane */}
-                    <span
-                      aria-hidden="true"
-                      className="text-[2.5rem] font-display font-bold text-gold/15 leading-none select-none"
+                  <li key={module.id ?? idx} className="list-none">
+                    <article
+                      data-module-card
+                      className={[
+                        'group relative grid grid-cols-1 md:grid-cols-12 gap-md items-center',
+                        'px-lg py-md bg-base border border-silver/15 rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
+                        'transition-all duration-base hover:border-gold/30 hover:translate-x-[2px]',
+                        'shadow-[inset_0_1px_1px_oklch(1_0_0/0.04)]'
+                      ].join(' ')}
                     >
-                      {String(idx + 1).padStart(2, '0')}
-                    </span>
+                      {/* Gold filigrane number — large, left col */}
+                      <div className="md:col-span-2 flex items-center md:justify-center">
+                        <span
+                          aria-hidden="true"
+                          className="text-[clamp(3rem,2.5rem+2.5vw,5rem)] font-display font-bold leading-none tracking-tight select-none text-gold/25 group-hover:text-gold/40 transition-colors duration-base"
+                        >
+                          {String(idx + 1).padStart(2, '0')}
+                        </span>
+                      </div>
 
-                    {module.weeks && (
-                      <p className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
-                        {t(module.weeks)}
-                      </p>
-                    )}
+                      {/* Content — right col */}
+                      <div className="md:col-span-10 flex flex-col gap-sm">
+                        {module.weeks && (
+                          <div className="flex items-center gap-sm">
+                            <span
+                              aria-hidden="true"
+                              className="inline-block h-1 w-1 rounded-full bg-gold"
+                            />
+                            <p className="text-eyebrow uppercase tracking-widest text-gold/80 font-display text-xs">
+                              {t(module.weeks)}
+                            </p>
+                          </div>
+                        )}
 
-                    <h3 className="text-h3 text-primary font-display text-balance">
-                      {t(module.title)}
-                    </h3>
+                        <h3 className="text-h3 text-primary font-display text-balance leading-[1.15]">
+                          {t(module.title)}
+                        </h3>
 
-                    <p className="text-body text-silver opacity-70 text-pretty">{t(module.body)}</p>
-                  </article>
+                        <p className="text-body text-silver opacity-75 text-pretty max-w-[72ch]">
+                          {t(module.body)}
+                        </p>
+                      </div>
+                    </article>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
           </section>
         )}
