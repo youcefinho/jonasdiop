@@ -30,6 +30,39 @@ export default defineConfig({
           if (id.includes('node_modules/motion')) {
             return 'motion';
           }
+          // Markdown + sanitize stack — only used by ArticleRenderer on
+          // /ressources/:slug routes. Isolating ensures the +35kB-gzip cost
+          // is paid only when an article detail page is visited.
+          if (
+            id.includes('node_modules/react-markdown') ||
+            id.includes('node_modules/remark-') ||
+            id.includes('node_modules/rehype-') ||
+            id.includes('node_modules/unified') ||
+            id.includes('node_modules/mdast-') ||
+            id.includes('node_modules/micromark') ||
+            id.includes('node_modules/hast-') ||
+            id.includes('node_modules/vfile') ||
+            id.includes('node_modules/bail') ||
+            id.includes('node_modules/trough') ||
+            id.includes('node_modules/property-information') ||
+            id.includes('node_modules/space-separated-tokens') ||
+            id.includes('node_modules/comma-separated-tokens') ||
+            id.includes('node_modules/ccount') ||
+            id.includes('node_modules/character-entities') ||
+            id.includes('node_modules/decode-named-character-reference') ||
+            id.includes('node_modules/escape-string-regexp') ||
+            id.includes('node_modules/longest-streak') ||
+            id.includes('node_modules/markdown-table') ||
+            id.includes('node_modules/zwitch') ||
+            id.includes('node_modules/devlop')
+          ) {
+            return 'markdown';
+          }
+          // Sentry SDK — keep separate so error-boundary fallback works without
+          // bloating the main bundle for non-error pages.
+          if (id.includes('node_modules/@sentry')) {
+            return 'sentry';
+          }
           return undefined;
         }
       }
