@@ -4,6 +4,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { CDTDiagram } from '@/components/sections/CDTDiagram';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { ROUTES } from '@/config/routes';
 import { methodologieCdtCopy } from '@/data/copy/methodologie-cdt';
@@ -50,9 +51,10 @@ function MethodologieCdtPage() {
         {/* ─── DÉFINITION ────────────────────────────────────────────────────── */}
         <section
           aria-label={t(copy.definition.eyebrow)}
-          className="py-[clamp(3rem,6vw,7rem)] bg-elevated border-y border-silver/10"
+          className="relative py-[clamp(3rem,6vw,7rem)] bg-elevated border-y border-silver/10"
         >
-          <div className="max-w-[var(--container-content)] mx-auto px-[clamp(1rem,4vw,3rem)] flex flex-col gap-[clamp(0.75rem,1.5vw,1.25rem)]">
+          <FiligraneNumber number="02" position="left" />
+          <div className="relative max-w-[var(--container-content)] mx-auto px-[clamp(1rem,4vw,3rem)] flex flex-col gap-[clamp(0.75rem,1.5vw,1.25rem)]">
             <Eyebrow>{t(copy.definition.eyebrow)}</Eyebrow>
             <h2 className="text-h2 text-primary font-display text-balance">
               {t(copy.definition.title)}
@@ -73,9 +75,10 @@ function MethodologieCdtPage() {
         {/* ─── 3 PILIERS (CDTDiagram) ────────────────────────────────────────── */}
         <section
           aria-label={t(copy.pillars.eyebrow)}
-          className="py-[clamp(3.5rem,7vw,8rem)] bg-base relative overflow-hidden"
+          className="relative py-[clamp(3.5rem,7vw,8rem)] bg-base overflow-hidden"
         >
-          <div className="max-w-[var(--container-default)] mx-auto px-[clamp(1rem,4vw,3rem)] text-center flex flex-col items-center gap-[clamp(0.75rem,1.5vw,1.25rem)] mb-[clamp(2rem,4vw,4rem)]">
+          <FiligraneNumber number="03" position="right" />
+          <div className="relative max-w-[var(--container-default)] mx-auto px-[clamp(1rem,4vw,3rem)] text-center flex flex-col items-center gap-[clamp(0.75rem,1.5vw,1.25rem)] mb-[clamp(2rem,4vw,4rem)]">
             <Eyebrow>{t(copy.pillars.eyebrow)}</Eyebrow>
             <h2 className="text-h2 text-primary font-display text-balance max-w-[var(--container-content)]">
               {t(copy.pillars.title)}

@@ -3,6 +3,7 @@ import { FooterRich } from '@/components/layout/FooterRich';
 import { Navbar } from '@/components/layout/Navbar';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { ROUTES } from '@/config/routes';
 import type { BilingualLax } from '@/lib/i18n/types';
@@ -299,9 +300,10 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
         {copy.modules && (
           <section
             aria-label={t(copy.modules.eyebrow)}
-            className="py-2xl bg-elevated border-y border-silver/10"
+            className="relative py-2xl bg-elevated border-y border-silver/10"
           >
-            <div className="max-w-default mx-auto px-md">
+            <FiligraneNumber number="03" position="right" />
+            <div className="relative max-w-default mx-auto px-md">
               <div className="text-center flex flex-col items-center gap-sm mb-xl">
                 <Eyebrow>{t(copy.modules.eyebrow)}</Eyebrow>
                 <MaskRevealHeading as="h2">{t(copy.modules.title)}</MaskRevealHeading>

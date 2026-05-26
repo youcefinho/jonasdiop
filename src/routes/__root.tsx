@@ -2,6 +2,7 @@ import { createRootRoute, Outlet, useLocation } from '@tanstack/react-router';
 import { useEffect } from 'react';
 import { CookieBanner } from '@/components/consent/CookieBanner';
 import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
+import { MobileSignatureBar } from '@/components/layout/MobileSignatureBar';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
 import { CookieConsentProvider } from '@/lib/consent/CookieConsentContext';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
@@ -55,6 +56,7 @@ function RootLayout() {
     <LanguageProvider locale={locale}>
       <CookieConsentProvider>
         <Outlet />
+        <MobileSignatureBar />
         <CookieBanner />
         <CookieSettingsModal />
       </CookieConsentProvider>
