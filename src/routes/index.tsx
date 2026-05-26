@@ -30,7 +30,7 @@ function HomeFR() {
         <RessourcesPreviewSection />
         {/* Podcast The Game Changer preview + 3 platforms + lien /podcast */}
         <PodcastPreviewSection />
-        {/* FAQ full inline (migrated from removed /faq route) */}
+        {/* FAQ preview (5 questions top) + lien /faq pour full 14 Q/A */}
         <FAQHomeSection />
         {/* FinalCTA — gold "Réserver mon appel" */}
         <FinalCTASection />

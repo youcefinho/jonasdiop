@@ -6,6 +6,7 @@ import { ArticleRenderer } from '@/components/articles/ArticleRenderer';
 import { ContactPage } from '@/components/sections/ContactPage';
 import { EvenementsPage } from '@/components/sections/EvenementsPage';
 import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
+import { FAQPage } from '@/components/sections/FAQPage';
 import { LivrePage } from '@/components/sections/LivrePage';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
 import { PodcastPageLive, PodcastPageWaitlist } from '@/components/sections/PodcastPage';
@@ -48,6 +49,17 @@ describe('a11y — Sprint 5 secondary pages', () => {
       const { container } = render(
         <LanguageProvider locale={locale}>
           <ContactPage />
+        </LanguageProvider>
+      );
+      const results = await axe(container);
+      // biome-ignore lint/suspicious/noExplicitAny: vitest-axe types incompatible with Vitest 4
+      (expect(results) as any).toHaveNoViolations();
+    });
+
+    it(`FAQPage has 0 axe violations (${locale})`, async () => {
+      const { container } = render(
+        <LanguageProvider locale={locale}>
+          <FAQPage />
         </LanguageProvider>
       );
       const results = await axe(container);

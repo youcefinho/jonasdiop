@@ -7,6 +7,7 @@ import { FooterRich } from '@/components/layout/FooterRich';
 import { ContactPage } from '@/components/sections/ContactPage';
 import { EvenementsPage } from '@/components/sections/EvenementsPage';
 import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
+import { FAQPage } from '@/components/sections/FAQPage';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
 import { LegalPage } from '@/components/sections/LegalPage';
@@ -279,7 +280,16 @@ function DevComponents() {
 
       <section>
         <h2 className="text-h3 text-primary mb-md">
-          FAQHomeSection (Sprint 9) — 14 Q/A 5 categories, inline on Home
+          FAQPage (Sprint 5) — full 14 Q/A standalone page
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <FAQPage />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          FAQHomeSection (Sprint 9) — preview 3-5 top questions on Home
         </h2>
         <div className="border border-silver/15 rounded-lg overflow-hidden">
           <FAQHomeSection />

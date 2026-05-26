@@ -74,9 +74,9 @@ describe('resolvePageMeta (async with dynamic imports)', () => {
   });
 
   it('returns hreflang alternates pointing to both locales', async () => {
-    const meta = await resolvePageMeta('/contact');
-    expect(meta.alternates.fr).toContain('/contact');
-    expect(meta.alternates.en).toContain('/en/contact');
+    const meta = await resolvePageMeta('/faq');
+    expect(meta.alternates.fr).toContain('/faq');
+    expect(meta.alternates.en).toContain('/en/faq');
   });
 
   it('returns DEFAULT_META for home (no per-route override)', async () => {
@@ -109,7 +109,7 @@ describe('applyPageMeta', () => {
   });
 
   it('creates meta[name=description]', async () => {
-    applyPageMeta(await resolvePageMeta('/contact'));
+    applyPageMeta(await resolvePageMeta('/faq'));
     const desc = document.head.querySelector('meta[name="description"]');
     expect(desc).not.toBeNull();
     expect(desc?.getAttribute('content')?.length).toBeGreaterThan(20);
@@ -152,7 +152,7 @@ describe('applyPageMeta', () => {
   });
 
   it('creates 3 hreflang alternates (fr-CA + en + x-default)', async () => {
-    applyPageMeta(await resolvePageMeta('/contact'));
+    applyPageMeta(await resolvePageMeta('/faq'));
     const alts = document.head.querySelectorAll('link[rel="alternate"][hreflang]');
     expect(alts.length).toBe(3);
     const hreflangs = Array.from(alts).map((el) => el.getAttribute('hreflang'));
