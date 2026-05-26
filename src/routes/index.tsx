@@ -5,7 +5,6 @@ import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
 import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
-import { TrustBand } from '@/components/sections/TrustBand';
 import { VslPlaceholderSection } from '@/components/sections/VslPlaceholderSection';
 
 function HomeFR() {
@@ -13,8 +12,9 @@ function HomeFR() {
     <>
       <Navbar />
       <main className="pt-[80px]">
+        {/* Hero includes inline stats (3 gold numbers) per Stitch board 13 —
+            replaces the standalone <TrustBand /> previously rendered below Hero. */}
         <Hero />
-        <TrustBand />
         <VslPlaceholderSection id="methodologie" />
         <ProgramsGrid />
         <TestimonialGrid />
