@@ -34,12 +34,16 @@ interface LPForWho {
   eyebrow: BilingualLax<string>;
   title: BilingualLax<string>;
   qualif: ReadonlyArray<BilingualLax<string>>;
-  disqualif: ReadonlyArray<BilingualLax<string>>;
+  /** Optional — some programs (trainings) only define positive qualif criteria */
+  disqualif?: ReadonlyArray<BilingualLax<string>>;
 }
 
 interface LPModuleItem {
   id?: string;
-  weeks: BilingualLax<string>;
+  /** Week label for group programs (e.g. "Semaines 1-2"). Absent for self-paced training modules. */
+  weeks?: BilingualLax<string>;
+  /** Module number for self-paced trainings (e.g. "01"). Absent for group program week-based modules. */
+  number?: string;
   title: BilingualLax<string>;
   body: BilingualLax<string>;
 }
@@ -68,9 +72,13 @@ interface LPMilestone {
 
 interface LPResults {
   eyebrow: BilingualLax<string>;
-  title: BilingualLax<string>;
+  /** Optional — some programs use a simple bullet list (items[]) instead of a milestone timeline */
+  title?: BilingualLax<string>;
   disclaimer: BilingualLax<string>;
-  milestones: ReadonlyArray<LPMilestone>;
+  /** Timeline milestones for group programs (e.g. Gamechanger Scaling "Semaine 2: ...") */
+  milestones?: ReadonlyArray<LPMilestone>;
+  /** Simple bullet list for training programs (e.g. Focus & Flow) — rendered as plain list */
+  items?: ReadonlyArray<BilingualLax<string>>;
 }
 
 interface LPFaqItem {
@@ -93,18 +101,20 @@ interface LPFinalCta {
 
 /**
  * LPCopy — full structure matching services-*.ts copy files.
- * All sections optional except hero + forWho + modules + format + faq + finalCta.
- * Optional fields (meta, promise, results) render gracefully when missing.
+ * Required: hero, finalCta.
+ * Optional: meta, promise, forWho, modules, format, results, faq.
+ * Training-format LPs (Master Closing, Focus & Flow, Cash & Scale) may omit faq.
+ * Consulting LPs (Consultations Privées) use a separate custom layout component.
  */
 export interface LPCopy {
   meta?: LPMeta;
   hero: LPHero;
   promise?: LPPromise;
-  forWho: LPForWho;
-  modules: LPModules;
-  format: LPFormat;
+  forWho?: LPForWho;
+  modules?: LPModules;
+  format?: LPFormat;
   results?: LPResults;
-  faq: LPFaq;
+  faq?: LPFaq;
   finalCta: LPFinalCta;
 }
 
@@ -201,147 +211,165 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
         {/* ---------------------------------------------------------------- */}
         {/* QUALIFICATION SPLIT — signature Dan Martell pattern              */}
         {/* Pour vous ✓ gold  |  Pas pour vous × silver-dim                 */}
+        {/* Renders only when copy.forWho is present                        */}
         {/* ---------------------------------------------------------------- */}
-        <section
-          aria-label={t({ fr: 'Critères de qualification', en: 'Qualification criteria' })}
-          className="py-2xl bg-base"
-        >
-          <div className="max-w-default mx-auto px-md grid grid-cols-1 md:grid-cols-2 gap-xl">
-            {/* Pour vous */}
-            <div className="flex flex-col gap-sm">
-              <Eyebrow>{t(copy.forWho.eyebrow)}</Eyebrow>
-              <h2 className="text-h3 text-primary font-display text-balance">
-                {t(copy.forWho.title)}
-              </h2>
-              <ul className="flex flex-col gap-sm mt-md" aria-label={t(copy.forWho.eyebrow)}>
-                {copy.forWho.qualif.map((item) => (
-                  <li
-                    key={item.fr.slice(0, 40)}
-                    className="flex items-start gap-3 text-body text-silver"
-                  >
-                    <span
-                      data-qualif-check
-                      aria-hidden="true"
-                      className="mt-0.5 h-5 w-5 max-w-none shrink-0 text-gold"
+        {copy.forWho && (
+          <section
+            aria-label={t({ fr: 'Critères de qualification', en: 'Qualification criteria' })}
+            className="py-2xl bg-base"
+          >
+            <div
+              className={`max-w-default mx-auto px-md grid grid-cols-1 gap-xl ${copy.forWho.disqualif ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-content'}`}
+            >
+              {/* Pour vous */}
+              <div className="flex flex-col gap-sm">
+                <Eyebrow>{t(copy.forWho.eyebrow)}</Eyebrow>
+                <h2 className="text-h3 text-primary font-display text-balance">
+                  {t(copy.forWho.title)}
+                </h2>
+                <ul className="flex flex-col gap-sm mt-md" aria-label={t(copy.forWho.eyebrow)}>
+                  {copy.forWho.qualif.map((item) => (
+                    <li
+                      key={item.fr.slice(0, 40)}
+                      className="flex items-start gap-3 text-body text-silver"
                     >
-                      <Check className="h-5 w-5 max-w-none" />
-                    </span>
-                    <span className="text-pretty">{t(item)}</span>
-                  </li>
-                ))}
-              </ul>
+                      <span
+                        data-qualif-check
+                        aria-hidden="true"
+                        className="mt-0.5 h-5 w-5 max-w-none shrink-0 text-gold"
+                      >
+                        <Check className="h-5 w-5 max-w-none" />
+                      </span>
+                      <span className="text-pretty">{t(item)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Pas pour vous — only renders when disqualif list exists */}
+              {copy.forWho.disqualif && (
+                <div className="flex flex-col gap-sm">
+                  <Eyebrow goldDot={false}>
+                    {t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
+                  </Eyebrow>
+                  <h2 className="text-h3 text-primary font-display text-balance">
+                    {t({
+                      fr: "Ce n'est pas pour vous si vous...",
+                      en: "This isn't for you if you..."
+                    })}
+                  </h2>
+                  <ul
+                    className="flex flex-col gap-sm mt-md"
+                    aria-label={t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
+                  >
+                    {copy.forWho.disqualif.map((item) => (
+                      <li
+                        key={item.fr.slice(0, 40)}
+                        className="flex items-start gap-3 text-body text-silver opacity-60"
+                      >
+                        <span
+                          data-disqualif-x
+                          aria-hidden="true"
+                          className="mt-0.5 h-5 w-5 max-w-none shrink-0 text-silver/50"
+                        >
+                          <X className="h-5 w-5 max-w-none" />
+                        </span>
+                        <span className="text-pretty">{t(item)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
-            {/* Pas pour vous */}
-            <div className="flex flex-col gap-sm">
-              <Eyebrow goldDot={false}>
-                {t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
-              </Eyebrow>
-              <h2 className="text-h3 text-primary font-display text-balance">
-                {t({ fr: "Ce n'est pas pour vous si vous...", en: "This isn't for you if you..." })}
-              </h2>
-              <ul
-                className="flex flex-col gap-sm mt-md"
-                aria-label={t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
-              >
-                {copy.forWho.disqualif.map((item) => (
-                  <li
-                    key={item.fr.slice(0, 40)}
-                    className="flex items-start gap-3 text-body text-silver opacity-60"
-                  >
-                    <span
-                      data-disqualif-x
-                      aria-hidden="true"
-                      className="mt-0.5 h-5 w-5 max-w-none shrink-0 text-silver/50"
-                    >
-                      <X className="h-5 w-5 max-w-none" />
-                    </span>
-                    <span className="text-pretty">{t(item)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Honnêteté radicale disclaimer — signature Jonas */}
-          <p className="text-sm text-silver/50 text-center mt-xl max-w-content mx-auto px-md text-pretty">
-            {t({
-              fr: "Honnêteté radicale. Si vous n'êtes pas un bon fit, on vous le dira.",
-              en: "Radical honesty. If you're not a good fit, we'll tell you."
-            })}
-          </p>
-        </section>
+            {/* Honnêteté radicale disclaimer — signature Jonas */}
+            <p className="text-sm text-silver/50 text-center mt-xl max-w-content mx-auto px-md text-pretty">
+              {t({
+                fr: "Honnêteté radicale. Si vous n'êtes pas un bon fit, on vous le dira.",
+                en: "Radical honesty. If you're not a good fit, we'll tell you."
+              })}
+            </p>
+          </section>
+        )}
 
         {/* ---------------------------------------------------------------- */}
         {/* MODULES — 6 piliers / 3-col desktop grid                        */}
+        {/* Renders only when copy.modules is present                       */}
         {/* ---------------------------------------------------------------- */}
-        <section
-          aria-label={t(copy.modules.eyebrow)}
-          className="py-2xl bg-elevated border-y border-silver/10"
-        >
-          <div className="max-w-default mx-auto px-md">
-            <div className="text-center flex flex-col items-center gap-sm mb-xl">
-              <Eyebrow>{t(copy.modules.eyebrow)}</Eyebrow>
-              <MaskRevealHeading as="h2">{t(copy.modules.title)}</MaskRevealHeading>
-            </div>
+        {copy.modules && (
+          <section
+            aria-label={t(copy.modules.eyebrow)}
+            className="py-2xl bg-elevated border-y border-silver/10"
+          >
+            <div className="max-w-default mx-auto px-md">
+              <div className="text-center flex flex-col items-center gap-sm mb-xl">
+                <Eyebrow>{t(copy.modules.eyebrow)}</Eyebrow>
+                <MaskRevealHeading as="h2">{t(copy.modules.title)}</MaskRevealHeading>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
-              {copy.modules.items.map((module, idx) => (
-                <article
-                  key={module.id ?? idx}
-                  data-module-card
-                  className="flex flex-col gap-sm p-md bg-base border border-silver/15 rounded-lg transition-all duration-base hover:border-silver/30"
-                >
-                  {/* Gold number filigrane */}
-                  <span
-                    aria-hidden="true"
-                    className="text-[2.5rem] font-display font-bold text-gold/15 leading-none select-none"
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+                {copy.modules.items.map((module, idx) => (
+                  <article
+                    key={module.id ?? idx}
+                    data-module-card
+                    className="flex flex-col gap-sm p-md bg-base border border-silver/15 rounded-lg transition-all duration-base hover:border-silver/30"
                   >
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
+                    {/* Gold number filigrane */}
+                    <span
+                      aria-hidden="true"
+                      className="text-[2.5rem] font-display font-bold text-gold/15 leading-none select-none"
+                    >
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
 
-                  <p className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
-                    {t(module.weeks)}
-                  </p>
+                    {module.weeks && (
+                      <p className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                        {t(module.weeks)}
+                      </p>
+                    )}
 
-                  <h3 className="text-h3 text-primary font-display text-balance">
-                    {t(module.title)}
-                  </h3>
+                    <h3 className="text-h3 text-primary font-display text-balance">
+                      {t(module.title)}
+                    </h3>
 
-                  <p className="text-body text-silver opacity-70 text-pretty">{t(module.body)}</p>
-                </article>
-              ))}
+                    <p className="text-body text-silver opacity-70 text-pretty">{t(module.body)}</p>
+                  </article>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* ---------------------------------------------------------------- */}
         {/* FORMAT — dl/dt/dd with gold border-l                            */}
+        {/* Renders only when copy.format is present                        */}
         {/* ---------------------------------------------------------------- */}
-        <section aria-label={t(copy.format.eyebrow)} className="py-2xl bg-base">
-          <div className="max-w-default mx-auto px-md">
-            <div className="text-center flex flex-col items-center gap-sm mb-xl">
-              <Eyebrow>{t(copy.format.eyebrow)}</Eyebrow>
-              <MaskRevealHeading as="h2">{t(copy.format.title)}</MaskRevealHeading>
-            </div>
+        {copy.format && (
+          <section aria-label={t(copy.format.eyebrow)} className="py-2xl bg-base">
+            <div className="max-w-default mx-auto px-md">
+              <div className="text-center flex flex-col items-center gap-sm mb-xl">
+                <Eyebrow>{t(copy.format.eyebrow)}</Eyebrow>
+                <MaskRevealHeading as="h2">{t(copy.format.title)}</MaskRevealHeading>
+              </div>
 
-            <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md max-w-default mx-auto">
-              {copy.format.details.map((detail) => (
-                <div
-                  key={detail.label.fr}
-                  className="flex flex-col gap-2 p-md border-l-2 border-gold/30 bg-elevated rounded-r-lg"
-                >
-                  <dt className="text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs">
-                    {t(detail.label)}
-                  </dt>
-                  <dd className="text-body text-primary font-display font-medium">
-                    {t(detail.value)}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
+              <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md max-w-default mx-auto">
+                {copy.format.details.map((detail) => (
+                  <div
+                    key={detail.label.fr}
+                    className="flex flex-col gap-2 p-md border-l-2 border-gold/30 bg-elevated rounded-r-lg"
+                  >
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs">
+                      {t(detail.label)}
+                    </dt>
+                    <dd className="text-body text-primary font-display font-medium">
+                      {t(detail.value)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        )}
 
         {/* ---------------------------------------------------------------- */}
         {/* RESULTS (optional) — milestone timeline                         */}
@@ -354,24 +382,46 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
             <div className="max-w-content mx-auto px-md">
               <div className="text-center flex flex-col items-center gap-sm mb-xl">
                 <Eyebrow>{t(copy.results.eyebrow)}</Eyebrow>
-                <MaskRevealHeading as="h2">{t(copy.results.title)}</MaskRevealHeading>
+                {copy.results.title && (
+                  <MaskRevealHeading as="h2">{t(copy.results.title)}</MaskRevealHeading>
+                )}
               </div>
 
-              <ol className="flex flex-col gap-sm" aria-label={t(copy.results.title)}>
-                {copy.results.milestones.map((milestone) => (
-                  <li
-                    key={milestone.timeframe.fr}
-                    className="flex items-start gap-md p-md bg-base border border-silver/15 rounded-lg"
-                  >
-                    <span className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs shrink-0 pt-0.5 min-w-[5rem]">
-                      {t(milestone.timeframe)}
-                    </span>
-                    <p className="text-body text-silver opacity-80 text-pretty">
-                      {t(milestone.label)}
-                    </p>
-                  </li>
-                ))}
-              </ol>
+              {/* Milestone timeline — for group programs */}
+              {copy.results.milestones && (
+                <ol className="flex flex-col gap-sm" aria-label={t(copy.results.eyebrow)}>
+                  {copy.results.milestones.map((milestone) => (
+                    <li
+                      key={milestone.timeframe.fr}
+                      className="flex items-start gap-md p-md bg-base border border-silver/15 rounded-lg"
+                    >
+                      <span className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs shrink-0 pt-0.5 min-w-[5rem]">
+                        {t(milestone.timeframe)}
+                      </span>
+                      <p className="text-body text-silver opacity-80 text-pretty">
+                        {t(milestone.label)}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+              )}
+
+              {/* Bullet list — for training programs (e.g. Focus & Flow) */}
+              {copy.results.items && (
+                <ul className="flex flex-col gap-sm" aria-label={t(copy.results.eyebrow)}>
+                  {copy.results.items.map((item) => (
+                    <li
+                      key={item.fr.slice(0, 40)}
+                      className="flex items-start gap-3 p-md bg-base border border-silver/15 rounded-lg text-body text-silver opacity-80"
+                    >
+                      <span aria-hidden="true" className="mt-0.5 text-gold/60 shrink-0">
+                        ✦
+                      </span>
+                      <span className="text-pretty">{t(item)}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
               <p className="text-xs text-silver/40 text-center mt-lg text-pretty">
                 {t(copy.results.disclaimer)}
@@ -382,36 +432,39 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
 
         {/* ---------------------------------------------------------------- */}
         {/* FAQ — native <details> accordion                                 */}
+        {/* Renders only when copy.faq is present                           */}
         {/* ---------------------------------------------------------------- */}
-        <section aria-label={t(copy.faq.title)} className="py-2xl bg-base">
-          <div className="max-w-content mx-auto px-md">
-            <div className="text-center flex flex-col items-center gap-sm mb-xl">
-              <MaskRevealHeading as="h2">{t(copy.faq.title)}</MaskRevealHeading>
-            </div>
+        {copy.faq && (
+          <section aria-label={t(copy.faq.title)} className="py-2xl bg-base">
+            <div className="max-w-content mx-auto px-md">
+              <div className="text-center flex flex-col items-center gap-sm mb-xl">
+                <MaskRevealHeading as="h2">{t(copy.faq.title)}</MaskRevealHeading>
+              </div>
 
-            <div className="flex flex-col gap-sm">
-              {copy.faq.items.map((item, idx) => (
-                <details
-                  key={item.id ?? idx}
-                  className="group p-md bg-elevated border border-silver/15 rounded-lg"
-                >
-                  <summary className="cursor-pointer flex items-center justify-between gap-sm text-body text-primary font-display font-medium list-none [&::-webkit-details-marker]:hidden">
-                    <span className="text-pretty">{t(item.question)}</span>
-                    <span
-                      aria-hidden="true"
-                      className="text-gold text-xl font-bold shrink-0 transition-transform duration-base group-open:rotate-45 select-none"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="text-body text-silver opacity-75 text-pretty mt-md">
-                    {t(item.answer)}
-                  </p>
-                </details>
-              ))}
+              <div className="flex flex-col gap-sm">
+                {copy.faq.items.map((item, idx) => (
+                  <details
+                    key={item.id ?? idx}
+                    className="group p-md bg-elevated border border-silver/15 rounded-lg"
+                  >
+                    <summary className="cursor-pointer flex items-center justify-between gap-sm text-body text-primary font-display font-medium list-none [&::-webkit-details-marker]:hidden">
+                      <span className="text-pretty">{t(item.question)}</span>
+                      <span
+                        aria-hidden="true"
+                        className="text-gold text-xl font-bold shrink-0 transition-transform duration-base group-open:rotate-45 select-none"
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <p className="text-body text-silver opacity-75 text-pretty mt-md">
+                      {t(item.answer)}
+                    </p>
+                  </details>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* ---------------------------------------------------------------- */}
         {/* FINAL CTA                                                        */}
