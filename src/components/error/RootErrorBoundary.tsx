@@ -21,17 +21,17 @@ interface RootErrorBoundaryState {
  * here rather than triggering React's default unhandled-error behavior.
  */
 export class RootErrorBoundary extends Component<RootErrorBoundaryProps, RootErrorBoundaryState> {
-  state: RootErrorBoundaryState = { hasError: false };
+  override state: RootErrorBoundaryState = { hasError: false };
 
   static getDerivedStateFromError(): RootErrorBoundaryState {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo): void {
+  override componentDidCatch(error: Error, info: ErrorInfo): void {
     captureError(error, { componentStack: info.componentStack });
   }
 
-  render(): ReactNode {
+  override render(): ReactNode {
     if (!this.state.hasError) {
       return this.props.children;
     }

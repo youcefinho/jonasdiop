@@ -133,22 +133,30 @@ const componentsMap: Components = {
       <table className="w-full text-sm border-collapse">{children}</table>
     </div>
   ),
-  th: ({ children, align }) => (
-    <th
-      className="text-left px-sm py-2 border-b-2 border-gold/30 text-eyebrow uppercase tracking-widest text-silver/70 font-display text-xs"
-      {...(align && { style: { textAlign: align } })}
-    >
-      {children}
-    </th>
-  ),
-  td: ({ children, align }) => (
-    <td
-      className="px-sm py-2 border-b border-silver/10 text-body text-silver opacity-85"
-      {...(align && { style: { textAlign: align } })}
-    >
-      {children}
-    </td>
-  ),
+  th: ({ children, align }) => {
+    const safeAlign =
+      align === 'left' || align === 'right' || align === 'center' ? align : undefined;
+    return (
+      <th
+        className="text-left px-sm py-2 border-b-2 border-gold/30 text-eyebrow uppercase tracking-widest text-silver/70 font-display text-xs"
+        {...(safeAlign && { style: { textAlign: safeAlign } })}
+      >
+        {children}
+      </th>
+    );
+  },
+  td: ({ children, align }) => {
+    const safeAlign =
+      align === 'left' || align === 'right' || align === 'center' ? align : undefined;
+    return (
+      <td
+        className="px-sm py-2 border-b border-silver/10 text-body text-silver opacity-85"
+        {...(safeAlign && { style: { textAlign: safeAlign } })}
+      >
+        {children}
+      </td>
+    );
+  },
   del: ({ children }) => <del className="text-silver/40 line-through">{children}</del>
 };
 

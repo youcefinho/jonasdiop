@@ -20,8 +20,22 @@ jobs:
       - name: Install deps
         run: bun install --frozen-lockfile
 
+      # Gate prod deploy on full green — manual workflow_dispatch is the only
+      # trigger but belt-and-suspenders defense against shipping broken main.
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Tests
+        run: bun run test:run
+
       - name: Build
         run: bun run build
+
+      - name: Bundle size budget
+        run: bun run check:bundle-size
 
       - name: Deploy to Cloudflare (production)
         uses: cloudflare/wrangler-action@v3

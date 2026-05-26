@@ -7,7 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    needs: []
     permissions:
       contents: read
     steps:
@@ -21,8 +20,21 @@ jobs:
       - name: Install deps
         run: bun install --frozen-lockfile
 
+      # Gate deploy on green checks — prevents shipping broken main to staging.
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Tests
+        run: bun run test:run
+
       - name: Build
         run: bun run build
+
+      - name: Bundle size budget
+        run: bun run check:bundle-size
 
       - name: Deploy to Cloudflare (staging)
         uses: cloudflare/wrangler-action@v3

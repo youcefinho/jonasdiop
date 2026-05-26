@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { RootErrorBoundary } from '@/components/error/RootErrorBoundary';
 
-function Bomb({ message = 'boom' }: { message?: string }) {
+function Bomb({ message = 'boom' }: { message?: string }): never {
   throw new Error(message);
 }
 

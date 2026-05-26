@@ -20,6 +20,6 @@
     "types": ["@cloudflare/workers-types", "vite/client"],
     "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["src", "scripts", "tests"],
+  "include": ["src", "tests"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

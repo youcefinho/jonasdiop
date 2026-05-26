@@ -17,6 +17,7 @@
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit",
+    "check:bundle-size": "bun scripts/check-bundle-size.ts",
     "prepare": "husky"
   },
   "devDependencies": {
