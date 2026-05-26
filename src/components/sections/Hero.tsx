@@ -21,7 +21,7 @@ export function Hero() {
   return (
     <section
       aria-label={t({ fr: 'Section principale', en: 'Hero section' })}
-      className="relative min-h-svh flex flex-col items-center justify-center text-center px-md py-xl"
+      className="relative min-h-[78svh] flex flex-col items-center justify-center text-center px-md py-2xl"
     >
       <div className="flex flex-col items-center gap-md max-w-content">
         <Eyebrow>{t({ fr: "Architecte d'affaires", en: 'Business Architect' })}</Eyebrow>

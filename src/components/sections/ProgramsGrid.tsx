@@ -10,9 +10,17 @@ export function ProgramsGrid() {
   return (
     <section
       aria-label={t({ fr: "Programmes d'accompagnement", en: 'Coaching programs' })}
-      className="py-2xl bg-base"
+      className="relative py-2xl bg-base"
     >
-      <div className="max-w-default mx-auto px-md">
+      {/* Filigrane number silver outline — signature DESIGN-v2-silver.md
+          "Section numbering 01-05 large outline silver filigrane". */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute top-md right-md select-none font-display font-bold text-[clamp(7rem,18vw,14rem)] leading-none tracking-tighter text-transparent [-webkit-text-stroke:1px_oklch(0.79_0.005_270/0.06)] [text-stroke:1px_oklch(0.79_0.005_270/0.06)]"
+      >
+        04
+      </span>
+      <div className="relative max-w-default mx-auto px-md">
         <div className="flex flex-col items-center text-center gap-sm">
           <Eyebrow>{t({ fr: 'Nos programmes', en: 'Our programs' })}</Eyebrow>
           <h2 className="text-h2 text-primary font-display text-balance max-w-content">

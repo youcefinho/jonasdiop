@@ -22,8 +22,10 @@ export function Navbar() {
     <nav
       aria-label={t({ fr: 'Navigation principale', en: 'Main navigation' })}
       className={clsx(
-        'fixed top-0 left-0 right-0 z-40 bg-base/80 backdrop-blur-md transition-all duration-base',
-        scrolled ? 'py-2' : 'py-sm'
+        'fixed top-0 left-0 right-0 z-40 transition-all duration-base',
+        scrolled
+          ? 'py-2 bg-base/80 backdrop-blur-md border-b border-silver/10'
+          : 'py-sm bg-transparent'
       )}
     >
       <div className="max-w-wide mx-auto px-md flex justify-between items-center gap-md">
