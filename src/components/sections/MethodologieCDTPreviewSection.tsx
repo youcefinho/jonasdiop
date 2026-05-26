@@ -68,7 +68,7 @@ export function MethodologieCDTPreviewSection() {
               en: 'Dynamic Time Compression.'
             })}
           </h2>
-          <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[58ch]">
+          <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[58ch]">
             {t({
               fr: "Chaque heure investie dans une entreprise bien architecturée produit 3 à 5× plus de résultats qu'une heure investie dans une entreprise mal câblée. C'est l'ingénierie qui change la donne, pas l'effort.",
               en: 'Every hour invested in a well-architected business produces 3 to 5× more output than an hour invested in a poorly wired one. Engineering makes the difference, not effort.'
@@ -126,7 +126,7 @@ export function MethodologieCDTPreviewSection() {
               <h3 className="text-h3 text-primary font-display text-balance leading-[1.15]">
                 {t(pillar.title)}
               </h3>
-              <p className="text-body text-silver opacity-70 text-pretty">{t(pillar.body)}</p>
+              <p className="text-body text-silver opacity-80 text-pretty">{t(pillar.body)}</p>
             </article>
           ))}
         </div>

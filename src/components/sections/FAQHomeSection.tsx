@@ -67,7 +67,7 @@ export function FAQHomeSection() {
               en: 'The 5 questions we get asked the most.'
             })}
           </h2>
-          <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[55ch]">
+          <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[55ch]">
             {t({
               fr: 'Aperçu. La FAQ complète est sur la page dédiée.',
               en: 'Preview. The full FAQ is on the dedicated page.'
@@ -91,7 +91,7 @@ export function FAQHomeSection() {
                   +
                 </span>
               </summary>
-              <div className="mt-md text-body text-silver opacity-75 text-pretty space-y-md">
+              <div className="mt-md text-body text-silver opacity-85 text-pretty space-y-md">
                 {t(item.answer)
                   .split('\n\n')
                   .map((para) => (

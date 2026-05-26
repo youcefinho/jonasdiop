@@ -43,7 +43,7 @@ export function RessourcesPreviewSection() {
               en: 'Articles, frameworks & tools.'
             })}
           </h2>
-          <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[55ch]">
+          <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[55ch]">
             {t({
               fr: "Ce qu'on partage publiquement de la méthode CDT™. Architecture, scaling, closing, cash flow.",
               en: 'What we share publicly of the CDT™ method. Architecture, scaling, closing, cash flow.'
@@ -59,7 +59,7 @@ export function RessourcesPreviewSection() {
                 className={[
                   'inline-flex items-center gap-2 px-md py-2 rounded-full',
                   'text-eyebrow uppercase tracking-widest font-display text-xs',
-                  'bg-base ring-1 ring-silver/15 text-silver opacity-75'
+                  'bg-base ring-1 ring-silver/15 text-silver opacity-85'
                 ].join(' ')}
               >
                 <span aria-hidden="true" className="inline-block h-1 w-1 rounded-full bg-gold" />

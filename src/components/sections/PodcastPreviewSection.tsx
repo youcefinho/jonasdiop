@@ -57,7 +57,7 @@ export function PodcastPreviewSection() {
               en: 'Unscripted conversations with entrepreneurs who execute.'
             })}
           </h2>
-          <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[58ch]">
+          <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[58ch]">
             {t({
               fr: "Pas de motivation générique. Des chiffres, des décisions difficiles, et les leviers qui ont fait la différence. Architecture, scaling, closing, cash flow — l'exécution réelle.",
               en: 'No generic motivation. Numbers, tough decisions, and the levers that made the difference. Architecture, scaling, closing, cash flow — real execution.'
@@ -87,7 +87,7 @@ export function PodcastPreviewSection() {
                 <Headphones className="h-5 w-5 max-w-none" />
               </span>
               <h3 className="text-h3 text-primary font-display tracking-tight">{platform.name}</h3>
-              <p className="text-sm text-silver opacity-65 text-pretty">
+              <p className="text-sm text-silver opacity-75 text-pretty">
                 {t(platform.description)}
               </p>
             </article>

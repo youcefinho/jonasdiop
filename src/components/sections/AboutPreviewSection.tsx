@@ -64,13 +64,13 @@ export function AboutPreviewSection() {
               en: 'Jonas Diop. 15 years observing what actually scales.'
             })}
           </h2>
-          <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[60ch]">
+          <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[60ch]">
             {t({
               fr: "Architecte d'affaires basé à Montréal. 857+ entrepreneurs accompagnés. 31M$+ générés pour ses clients. La méthodologie CDT™ — Compression Dynamique du Temps — est née de 15 ans d'observation : les entrepreneurs qui réussissent le mieux sont aussi ceux qui s'épuisent le plus.",
               en: 'Business architect based in Montréal. 857+ entrepreneurs supported. $31M+ generated for clients. The CDT™ methodology — Dynamic Time Compression — was born from 15 years of observation : the entrepreneurs who succeed the most are also the ones who burn out the hardest.'
             })}
           </p>
-          <p className="text-body text-silver opacity-65 text-pretty max-w-[60ch]">
+          <p className="text-body text-silver opacity-75 text-pretty max-w-[60ch]">
             {t({
               fr: "Pas une théorie. Une approche d'ingénierie systémique pour ajouter un zéro à votre chiffre d'affaires en récupérant 50% de votre temps.",
               en: 'Not a theory. A systemic engineering approach to add a zero to your revenue while reclaiming 50% of your time.'

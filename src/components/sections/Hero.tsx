@@ -76,7 +76,7 @@ export function Hero() {
           })}
         </MaskRevealHeading>
 
-        <p className="text-body text-silver opacity-65 text-pretty max-w-[58ch]">
+        <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[58ch]">
           {t({
             fr: "Architecture d'affaires & scaling stratégique pour entrepreneurs ambitieux.",
             en: 'Business architecture & strategic scaling for ambitious entrepreneurs.'
@@ -106,7 +106,7 @@ export function Hero() {
             <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
               857+
             </span>
-            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
+            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
               {t({ fr: 'Entrepreneurs accompagnés', en: 'Entrepreneurs supported' })}
             </span>
           </li>
@@ -114,7 +114,7 @@ export function Hero() {
             <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
               31M$+
             </span>
-            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
+            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
               {t({ fr: 'Généré pour nos clients', en: 'Generated for clients' })}
             </span>
           </li>
@@ -122,7 +122,7 @@ export function Hero() {
             <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
               15 ANS
             </span>
-            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
+            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
               {t({ fr: "D'expertise stratégique", en: 'Of strategic expertise' })}
             </span>
           </li>
