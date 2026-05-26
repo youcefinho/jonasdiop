@@ -1,10 +1,19 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { ArticleRenderer } from '@/components/articles/ArticleRenderer';
 import { FooterRich } from '@/components/layout/FooterRich';
+import { ContactPage } from '@/components/sections/ContactPage';
+import { EvenementsPage } from '@/components/sections/EvenementsPage';
+import { FAQPage } from '@/components/sections/FAQPage';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
+import { LivrePage } from '@/components/sections/LivrePage';
 import { LPConsultationsTemplate } from '@/components/sections/LPConsultationsTemplate';
 import { LPProgramTemplate } from '@/components/sections/LPProgramTemplate';
+import { NotFoundPage } from '@/components/sections/NotFoundPage';
+import { PodcastPageLive, PodcastPageWaitlist } from '@/components/sections/PodcastPage';
 import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
+import { RessourcesPage } from '@/components/sections/RessourcesPage';
+import { TemoignagesPage } from '@/components/sections/TemoignagesPage';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
 import { TrustBand } from '@/components/sections/TrustBand';
 import { CTAPill } from '@/components/ui/CTAPill';
@@ -18,6 +27,24 @@ import { StatNumber } from '@/components/ui/StatNumber';
 import { TestimonialShellCard } from '@/components/ui/TestimonialShellCard';
 import { consultationsPriveesCopy } from '@/data/copy/services-consultations-privees';
 import { gamechangerScalingCopy } from '@/data/copy/services-gamechanger-scaling';
+import type { Article } from '@/lib/content/types';
+
+const devSampleArticle: Article = {
+  id: 'art-dev-001',
+  slug: 'pourquoi-cdt-fonctionne',
+  locale: 'fr',
+  title: 'Pourquoi la CDT™ fonctionne quand les frameworks classiques échouent.',
+  excerpt: 'Trois piliers, une seule méthode. Voici ce qui fait la différence.',
+  bodyMarkdown:
+    "La plupart des entrepreneurs essaient de scaler sans toucher à leur architecture. Résultat : plus de chiffre d'affaires, mais aussi plus de chaos.\n\nLa CDT™ part d'un constat simple : votre architecture détermine 80% de votre trajectoire. Le reste, c'est de l'exécution.\n\nVoici comment on s'y prend.",
+  publishedAt: '2026-06-01T10:00:00.000Z',
+  updatedAt: null,
+  author: { name: 'Jonas Diop', title: "Architecte d'affaires" },
+  category: { id: 'architecture', label: 'Architecture' },
+  coverImage: null,
+  readingMinutes: 4,
+  source: 'ghl'
+};
 
 function DevComponents() {
   return (
@@ -192,6 +219,91 @@ function DevComponents() {
         </h2>
         <div className="border border-silver/15 rounded-lg overflow-hidden">
           <LPConsultationsTemplate copy={consultationsPriveesCopy} />
+        </div>
+      </section>
+
+      {/* Sprint 5 — Secondary pages + GHL Blog scaffolding + 404 */}
+      <section>
+        <h2 className="text-h3 text-primary mb-md">ContactPage (Sprint 5) — full secondary page</h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <ContactPage />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          FAQPage (Sprint 5) — 14 Q/A across 5 categories
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <FAQPage />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          TemoignagesPage (Sprint 5) — 3 shells pending H3
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <TemoignagesPage />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">LivrePage (Sprint 5) — 7 chapters + waitlist</h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <LivrePage />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          EvenementsPage (Sprint 5) — calendar empty state pending H7
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <EvenementsPage />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          PodcastPageLive (Sprint 5, Scenario A) — H17 confirmé live
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <PodcastPageLive />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          PodcastPageWaitlist (Sprint 5, Scenario B) — H17 default coming_soon
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <PodcastPageWaitlist />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          RessourcesPage (Sprint 5) — GHL Blog scaffolding empty state
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <RessourcesPage />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          ArticleRenderer (Sprint 5) — sample article DA blindé
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <ArticleRenderer article={devSampleArticle} />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">NotFoundPage (Sprint 5) — 404 fallback</h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <NotFoundPage />
         </div>
       </section>
 
