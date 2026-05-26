@@ -2,6 +2,8 @@ import { createFileRoute } from '@tanstack/react-router';
 import { FooterRich } from '@/components/layout/FooterRich';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
+import { LPConsultationsTemplate } from '@/components/sections/LPConsultationsTemplate';
+import { LPProgramTemplate } from '@/components/sections/LPProgramTemplate';
 import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
 import { TrustBand } from '@/components/sections/TrustBand';
@@ -14,6 +16,8 @@ import { ScrollCue } from '@/components/ui/ScrollCue';
 import { SocialIcon } from '@/components/ui/SocialIcon';
 import { StatNumber } from '@/components/ui/StatNumber';
 import { TestimonialShellCard } from '@/components/ui/TestimonialShellCard';
+import { consultationsPriveesCopy } from '@/data/copy/services-consultations-privees';
+import { gamechangerScalingCopy } from '@/data/copy/services-gamechanger-scaling';
 
 function DevComponents() {
   return (
@@ -170,6 +174,25 @@ function DevComponents() {
       <section>
         <h2 className="text-h3 text-primary mb-md">FooterRich (Sprint 2 — composed)</h2>
         <FooterRich />
+      </section>
+
+      {/* Sprint 4 — LP templates */}
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          LPProgramTemplate (Sprint 4) — Gamechanger sample
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <LPProgramTemplate copy={gamechangerScalingCopy} />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-h3 text-primary mb-md">
+          LPConsultationsTemplate (Sprint 4) — Consultations Privées
+        </h2>
+        <div className="border border-silver/15 rounded-lg overflow-hidden">
+          <LPConsultationsTemplate copy={consultationsPriveesCopy} />
+        </div>
       </section>
 
       <p className="text-sm text-silver opacity-50 text-center mt-xl">
