@@ -1,5 +1,6 @@
 import { createRootRoute, Outlet, useLocation } from '@tanstack/react-router';
 import { useEffect } from 'react';
+import { NotFoundPage } from '@/components/sections/NotFoundPage';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import { localeFromPath } from '@/lib/i18n/translations';
 import { destroyLenis, initLenis } from '@/lib/motion/lenis';
@@ -36,6 +37,19 @@ function RootLayout() {
   );
 }
 
+function NotFoundLayout() {
+  const { pathname } = useLocation();
+  const locale = localeFromPath(pathname);
+  return (
+    <html lang={locale === 'en' ? 'en' : 'fr-CA'}>
+      <LanguageProvider locale={locale}>
+        <NotFoundPage />
+      </LanguageProvider>
+    </html>
+  );
+}
+
 export const Route = createRootRoute({
-  component: RootLayout
+  component: RootLayout,
+  notFoundComponent: NotFoundLayout
 });
