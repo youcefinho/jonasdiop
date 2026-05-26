@@ -3,6 +3,7 @@ import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { ROUTES } from '@/config/routes';
+import { useParallax } from '@/hooks/useParallax';
 import { useT } from '@/lib/i18n/useT';
 
 /**
@@ -12,6 +13,7 @@ import { useT } from '@/lib/i18n/useT';
  */
 export function AboutPreviewSection() {
   const { t, locale } = useT();
+  const parallaxRef = useParallax({ speed: 0.12 });
   return (
     <section
       aria-label={t({
@@ -22,8 +24,8 @@ export function AboutPreviewSection() {
     >
       <FiligraneNumber number="01" position="right" />
       <div className="relative max-w-default mx-auto px-md grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
-        {/* Portrait */}
-        <div className="lg:col-span-5 relative">
+        {/* Portrait — parallax drift on scroll (speed 0.12 = subtle) */}
+        <div ref={parallaxRef} className="lg:col-span-5 relative">
           <div
             className={[
               'relative aspect-[3/4] rounded-[clamp(1rem,1vw+0.5rem,1.75rem)] overflow-hidden',

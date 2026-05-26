@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
+import { useMagnetic } from '@/hooks/useMagnetic';
 
 type CTAVariant = 'silver-primary' | 'gold-primary' | 'silver-secondary' | 'silver-outline';
 
@@ -70,18 +71,33 @@ const variantClasses: Record<CTAVariant, string> = {
  */
 export function CTAPill(props: CTAPillProps) {
   const { variant, children, className, ariaLabel } = props;
-  const allClasses = clsx(baseClasses, variantClasses[variant], className);
+  // Magnetic effect only on primary variants (commitment CTAs) — secondary/outline
+  // stay neutral so dense UI areas don't have all buttons pulling at the cursor.
+  const isPrimary = variant === 'silver-primary' || variant === 'gold-primary';
+  const magneticRef = useMagnetic({ strength: 0.18, radius: 100 });
+  const allClasses = clsx(baseClasses, variantClasses[variant], isPrimary && 'magnetic', className);
 
   if ('href' in props && props.href !== undefined) {
     return (
-      <Link to={props.href} className={allClasses} aria-label={ariaLabel}>
+      <Link
+        to={props.href}
+        className={allClasses}
+        aria-label={ariaLabel}
+        ref={isPrimary ? (magneticRef as React.Ref<HTMLAnchorElement>) : undefined}
+      >
         {children}
       </Link>
     );
   }
 
   return (
-    <button type="button" onClick={props.onClick} className={allClasses} aria-label={ariaLabel}>
+    <button
+      type="button"
+      onClick={props.onClick}
+      className={allClasses}
+      aria-label={ariaLabel}
+      ref={isPrimary ? (magneticRef as React.Ref<HTMLButtonElement>) : undefined}
+    >
       {children}
     </button>
   );

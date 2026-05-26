@@ -5,35 +5,45 @@ import { AboutPreviewSection } from '@/components/sections/AboutPreviewSection';
 import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
+import { MarqueeTestimonials } from '@/components/sections/MarqueeTestimonials';
 import { MethodologieCDTPreviewSection } from '@/components/sections/MethodologieCDTPreviewSection';
 import { PodcastPreviewSection } from '@/components/sections/PodcastPreviewSection';
 import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
 import { RessourcesPreviewSection } from '@/components/sections/RessourcesPreviewSection';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 function HomeFR() {
   return (
     <>
       <Navbar />
       <main className="pt-[80px]">
-        {/* Hero typo-led centered + stats inline (Stitch board 13). */}
         <Hero />
-        {/* Preview À propos — portrait direct Jonas + intro + lien /a-propos */}
-        <AboutPreviewSection />
-        {/* Méthodologie CDT preview + signature image speaking + 3 piliers */}
-        <MethodologieCDTPreviewSection />
-        {/* Programmes ecosystem (6 LPs grouped par variant) */}
-        <ProgramsGrid />
-        {/* Témoignages asymmetric focal */}
-        <TestimonialGrid />
-        {/* Ressources/Articles preview + categories chips + lien /ressources */}
-        <RessourcesPreviewSection />
-        {/* Podcast The Game Changer preview + 3 platforms + lien /podcast */}
-        <PodcastPreviewSection />
-        {/* FAQ preview (5 questions top) + lien /faq pour full 14 Q/A */}
-        <FAQHomeSection />
-        {/* FinalCTA — gold "Réserver mon appel" */}
-        <FinalCTASection />
+        <ScrollReveal>
+          <AboutPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <MethodologieCDTPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ProgramsGrid />
+        </ScrollReveal>
+        <ScrollReveal>
+          <TestimonialGrid />
+        </ScrollReveal>
+        <MarqueeTestimonials />
+        <ScrollReveal>
+          <RessourcesPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <PodcastPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FAQHomeSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FinalCTASection />
+        </ScrollReveal>
       </main>
       <FooterRich />
     </>

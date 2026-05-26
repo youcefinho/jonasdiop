@@ -2,7 +2,9 @@ import { ArrowRight } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { MeshGradient } from '@/components/ui/MeshGradient';
 import { ROUTES } from '@/config/routes';
+import { useParallax } from '@/hooks/useParallax';
 import { useT } from '@/lib/i18n/useT';
 
 interface Pillar {
@@ -49,12 +51,14 @@ const PILLARS: ReadonlyArray<Pillar> = [
  */
 export function MethodologieCDTPreviewSection() {
   const { t, locale } = useT();
+  const parallaxRef = useParallax<HTMLElement>({ speed: 0.1 });
   return (
     <section
       id="methodologie"
       aria-label={t({ fr: 'Méthodologie CDT™', en: 'CDT™ Methodology' })}
       className="relative py-2xl bg-base overflow-hidden"
     >
+      <MeshGradient variant="deep-gold" opacity={0.08} />
       <FiligraneNumber number="02" position="left" />
       <div className="relative max-w-default mx-auto px-md flex flex-col gap-xl">
         {/* Header */}
@@ -76,8 +80,9 @@ export function MethodologieCDTPreviewSection() {
           </p>
         </div>
 
-        {/* Signature image — Jonas speaking authority shot (real photo Stitch 2026-05-26) */}
-        <figure className="relative max-w-[var(--container-default)] mx-auto">
+        {/* Signature image — Jonas speaking authority shot (real photo 2026-05-26).
+            Parallax subtle drift on scroll (speed 0.10). */}
+        <figure ref={parallaxRef} className="relative max-w-[var(--container-default)] mx-auto">
           <div
             className={[
               'relative aspect-[16/9] rounded-[clamp(0.75rem,0.8vw+0.4rem,1.5rem)] overflow-hidden',

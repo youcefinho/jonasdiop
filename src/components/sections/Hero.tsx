@@ -2,6 +2,7 @@ import { ArrowRight, Star } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
+import { MeshGradient } from '@/components/ui/MeshGradient';
 import { ScrollCue } from '@/components/ui/ScrollCue';
 import { ROUTES } from '@/config/routes';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
@@ -41,6 +42,9 @@ export function Hero() {
       aria-label={t({ fr: 'Section principale', en: 'Hero section' })}
       className="relative min-h-[78svh] flex flex-col items-center justify-center text-center px-md py-2xl overflow-hidden"
     >
+      {/* Atmospheric mesh gradient drift behind everything — slow 24s loop. */}
+      <MeshGradient variant="warm-cream" opacity={0.12} />
+
       {/* Silver/cream "stage spotlight" centré sur la zone CTAs — Stitch board 13.
           Composition 2 couches concentrées exactement sur les CTAs (~55%Y du section) :
             L1 — bright silver/cream core (ellipse 30%×16% at 50% 55%) @ 32% opacity

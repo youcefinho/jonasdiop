@@ -5,11 +5,13 @@ import { AboutPreviewSection } from '@/components/sections/AboutPreviewSection';
 import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
+import { MarqueeTestimonials } from '@/components/sections/MarqueeTestimonials';
 import { MethodologieCDTPreviewSection } from '@/components/sections/MethodologieCDTPreviewSection';
 import { PodcastPreviewSection } from '@/components/sections/PodcastPreviewSection';
 import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
 import { RessourcesPreviewSection } from '@/components/sections/RessourcesPreviewSection';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 function HomeEN() {
   return (
@@ -17,14 +19,31 @@ function HomeEN() {
       <Navbar />
       <main className="pt-[80px]">
         <Hero />
-        <AboutPreviewSection />
-        <MethodologieCDTPreviewSection />
-        <ProgramsGrid />
-        <TestimonialGrid />
-        <RessourcesPreviewSection />
-        <PodcastPreviewSection />
-        <FAQHomeSection />
-        <FinalCTASection />
+        <ScrollReveal>
+          <AboutPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <MethodologieCDTPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ProgramsGrid />
+        </ScrollReveal>
+        <ScrollReveal>
+          <TestimonialGrid />
+        </ScrollReveal>
+        <MarqueeTestimonials />
+        <ScrollReveal>
+          <RessourcesPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <PodcastPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FAQHomeSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FinalCTASection />
+        </ScrollReveal>
       </main>
       <FooterRich />
     </>
