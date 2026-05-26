@@ -51,6 +51,19 @@ export interface ClientConfig {
     readonly productionUrl: string;
     readonly finalDomain: string;
   };
+
+  /**
+   * Podcast "The Game Changer" — H17 pending Jonas.
+   * 'coming_soon' (default) renders waitlist scenario.
+   * 'live' renders episode embeds + platforms scenario.
+   * URLs filled when H17 confirmed.
+   */
+  readonly podcast: {
+    readonly status: 'live' | 'coming_soon';
+    readonly spotifyUrl: string | null;
+    readonly applePodcastsUrl: string | null;
+    readonly youtubeUrl: string | null;
+  };
 }
 
 export const clientConfig: ClientConfig = {
@@ -99,5 +112,12 @@ export const clientConfig: ClientConfig = {
     stagingUrl: 'https://jonas-diop-staging.intralys.dev',
     productionUrl: 'https://jonas-diop.intralys.dev',
     finalDomain: 'jonasdiop.com'
+  },
+
+  podcast: {
+    status: 'coming_soon', // ⏳ H17 — flip to 'live' once Jonas confirms platforms
+    spotifyUrl: null, // ⏳ H17
+    applePodcastsUrl: null, // ⏳ H17
+    youtubeUrl: null // ⏳ H17
   }
 } as const;

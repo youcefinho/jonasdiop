@@ -6,6 +6,7 @@ import { ContactPage } from '@/components/sections/ContactPage';
 import { EvenementsPage } from '@/components/sections/EvenementsPage';
 import { FAQPage } from '@/components/sections/FAQPage';
 import { LivrePage } from '@/components/sections/LivrePage';
+import { PodcastPageLive, PodcastPageWaitlist } from '@/components/sections/PodcastPage';
 import { TemoignagesPage } from '@/components/sections/TemoignagesPage';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 
@@ -87,6 +88,28 @@ describe('a11y — Sprint 5 secondary pages', () => {
       const { container } = render(
         <LanguageProvider locale={locale}>
           <EvenementsPage />
+        </LanguageProvider>
+      );
+      const results = await axe(container);
+      // biome-ignore lint/suspicious/noExplicitAny: vitest-axe types incompatible with Vitest 4
+      (expect(results) as any).toHaveNoViolations();
+    });
+
+    it(`PodcastPageLive (Scenario A) has 0 axe violations (${locale})`, async () => {
+      const { container } = render(
+        <LanguageProvider locale={locale}>
+          <PodcastPageLive />
+        </LanguageProvider>
+      );
+      const results = await axe(container);
+      // biome-ignore lint/suspicious/noExplicitAny: vitest-axe types incompatible with Vitest 4
+      (expect(results) as any).toHaveNoViolations();
+    });
+
+    it(`PodcastPageWaitlist (Scenario B) has 0 axe violations (${locale})`, async () => {
+      const { container } = render(
+        <LanguageProvider locale={locale}>
+          <PodcastPageWaitlist />
         </LanguageProvider>
       );
       const results = await axe(container);
