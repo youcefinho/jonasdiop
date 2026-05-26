@@ -2,6 +2,10 @@ import { clsx } from 'clsx';
 
 interface LogoWordmarkProps {
   size?: 'sm' | 'md' | 'lg';
+  /** Show gold dot signature after wordmark. Default false (matches Stitch
+   * board 13 Hero navbar logo). Enable for FooterRich (board 18 "gold dot
+   * signature" variant) or any context where the dot signature is wanted. */
+  withDot?: boolean;
   className?: string;
 }
 
@@ -12,10 +16,14 @@ const sizeClasses: Record<'sm' | 'md' | 'lg', string> = {
 };
 
 /**
- * Logo wordmark text-based "JONAS DIOP" with gold dot signature after 'D'.
- * Placeholder until real SVG vector logo lands (H7 pending Jonas).
+ * Logo wordmark text-based "JONAS DIOP". Placeholder until real SVG vector
+ * logo lands (H7 pending Jonas).
+ *
+ * Default = plain wordmark (no dot) per Stitch board 13 Hero navbar.
+ * `withDot` = true → gold dot signature after wordmark per Stitch board 18
+ * (logo variant 2 "wordmark + gold dot signature").
  */
-export function LogoWordmark({ size = 'md', className }: LogoWordmarkProps) {
+export function LogoWordmark({ size = 'md', withDot = false, className }: LogoWordmarkProps) {
   return (
     <span
       data-logo-wordmark
@@ -26,11 +34,13 @@ export function LogoWordmark({ size = 'md', className }: LogoWordmarkProps) {
       )}
     >
       <span>JONAS DIOP</span>
-      <span
-        data-logo-dot
-        aria-hidden="true"
-        className="inline-block h-1 w-1 rounded-full bg-gold translate-y-[-2px]"
-      />
+      {withDot && (
+        <span
+          data-logo-dot
+          aria-hidden="true"
+          className="inline-block h-1 w-1 rounded-full bg-gold translate-y-[-2px]"
+        />
+      )}
     </span>
   );
 }

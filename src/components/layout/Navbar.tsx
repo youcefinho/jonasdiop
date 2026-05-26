@@ -70,7 +70,9 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:block">
-          <CTAPill variant="silver-outline" href={ROUTES.contact[locale]}>
+          {/* CONSULTATION pill — silver-primary filled per Stitch board 13
+              (prominent cream/silver pill top-right, not outline transparent). */}
+          <CTAPill variant="silver-primary" href={ROUTES.contact[locale]}>
             {t({ fr: 'Consultation', en: 'Consultation' })}
           </CTAPill>
         </div>

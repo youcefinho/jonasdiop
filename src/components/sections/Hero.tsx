@@ -45,13 +45,17 @@ export function Hero() {
         }}
       />
 
-      <div className="relative flex flex-col items-center gap-md max-w-content">
+      <div className="relative flex flex-col items-center gap-md max-w-[var(--container-default)]">
         <Eyebrow>{t({ fr: "Architecte d'affaires", en: 'Business Architect' })}</Eyebrow>
 
+        {/* H1 size + width tuned to force 2 lines balanced per Stitch board 13 :
+            - max-w-[24ch] = ~24 chars/line → "Ajouter un zéro à votre" (23) /
+              "chiffre d'affaires." (19) fits 2 lines
+            - clamp 1.75→3.5rem keeps medium poids visuel (not the 3-line ÉNORME) */}
         <MaskRevealHeading
           as="h1"
           delay={heroEntranceTimings.h1MaskReveal}
-          className="font-medium tracking-[-0.04em] text-[clamp(2rem,1.2rem+3.2vw,4rem)] leading-[1.08] max-w-[18ch]"
+          className="font-normal tracking-[-0.045em] text-[clamp(1.75rem,1rem+2.5vw,3.5rem)] leading-[1.05] max-w-[24ch]"
         >
           {t({
             fr: "Ajouter un zéro à votre chiffre d'affaires.",
@@ -79,34 +83,34 @@ export function Hero() {
         {/* Divider thin silver — separates CTAs from inline stats (Stitch board 13) */}
         <div
           aria-hidden="true"
-          className="mt-xl w-full max-w-[640px] h-px bg-gradient-to-r from-transparent via-silver/20 to-transparent"
+          className="mt-2xl w-full max-w-[820px] h-px bg-gradient-to-r from-transparent via-silver/25 to-transparent"
         />
 
-        {/* Stats inline — 3 gold numbers + labels uppercase silver, all visible
-            in same viewport as Hero per Stitch board 13. */}
-        <ul className="mt-md grid grid-cols-3 gap-md sm:gap-xl w-full max-w-[640px]">
-          <li className="flex flex-col items-center text-center gap-1">
-            <span className="text-gold font-display text-[clamp(1.5rem,1.1rem+1.5vw,2.25rem)] tracking-tight leading-none">
+        {/* Stats inline — 3 gold numbers (BIG per Stitch board 13) + full labels
+            uppercase silver, all visible in same viewport as Hero. */}
+        <ul className="mt-md grid grid-cols-3 gap-md sm:gap-xl w-full max-w-[820px]">
+          <li className="flex flex-col items-center text-center gap-2">
+            <span className="text-gold font-display font-normal text-[clamp(2rem,1.4rem+2vw,3rem)] tracking-tight leading-none">
               857+
             </span>
-            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-60 font-display text-[10px] sm:text-xs">
-              {t({ fr: 'Entrepreneurs', en: 'Entrepreneurs' })}
+            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
+              {t({ fr: 'Entrepreneurs accompagnés', en: 'Entrepreneurs supported' })}
             </span>
           </li>
-          <li className="flex flex-col items-center text-center gap-1">
-            <span className="text-gold font-display text-[clamp(1.5rem,1.1rem+1.5vw,2.25rem)] tracking-tight leading-none">
+          <li className="flex flex-col items-center text-center gap-2">
+            <span className="text-gold font-display font-normal text-[clamp(2rem,1.4rem+2vw,3rem)] tracking-tight leading-none">
               31M$+
             </span>
-            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-60 font-display text-[10px] sm:text-xs">
-              {t({ fr: 'Générés', en: 'Generated' })}
+            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
+              {t({ fr: 'Généré pour nos clients', en: 'Generated for clients' })}
             </span>
           </li>
-          <li className="flex flex-col items-center text-center gap-1">
-            <span className="text-gold font-display text-[clamp(1.5rem,1.1rem+1.5vw,2.25rem)] tracking-tight leading-none">
+          <li className="flex flex-col items-center text-center gap-2">
+            <span className="text-gold font-display font-normal text-[clamp(2rem,1.4rem+2vw,3rem)] tracking-tight leading-none">
               15 ANS
             </span>
-            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-60 font-display text-[10px] sm:text-xs">
-              {t({ fr: 'Expertise', en: 'Expertise' })}
+            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
+              {t({ fr: "D'expertise stratégique", en: 'Of strategic expertise' })}
             </span>
           </li>
         </ul>

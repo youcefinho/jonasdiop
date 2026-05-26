@@ -8,8 +8,14 @@ describe('LogoWordmark', () => {
     expect(screen.getByText(/JONAS DIOP/i)).toBeInTheDocument();
   });
 
-  it('renders gold dot signature', () => {
+  it('omits gold dot by default (Stitch board 13 Hero navbar plain wordmark)', () => {
     const { container } = render(<LogoWordmark />);
+    const dot = container.querySelector('[data-logo-dot]');
+    expect(dot).toBeNull();
+  });
+
+  it('renders gold dot signature when withDot=true (Stitch board 18 variant)', () => {
+    const { container } = render(<LogoWordmark withDot />);
     const dot = container.querySelector('[data-logo-dot]');
     expect(dot).toBeInTheDocument();
     expect(dot?.className).toContain('bg-gold');
