@@ -1,3 +1,7 @@
+import { defaultSchema } from 'hast-util-sanitize';
+import ReactMarkdown, { type Components } from 'react-markdown';
+import rehypeSanitize from 'rehype-sanitize';
+import remarkGfm from 'remark-gfm';
 import type { Article } from '@/lib/content/types';
 
 interface ArticleRendererProps {
@@ -5,27 +9,164 @@ interface ArticleRendererProps {
 }
 
 /**
+ * Strict allow-list for the sanitize step.
+ *
+ * Cross-Intralys "client autonomy" hardening : even if Jonas publishes crude
+ * markdown in GHL admin (or pastes HTML from Word, or includes <script>),
+ * rehype-sanitize strips everything outside this whitelist before the
+ * components map below renders the surviving nodes.
+ *
+ * Allowed : structural headings, paragraphs, lists, links, basic inline marks,
+ * blockquotes, code blocks, GFM tables, horizontal rules, hr. No images
+ * inside markdown body (cover image is rendered separately, controlled by us).
+ * No `style`, no `class`, no `id` — DA classes are added at the components
+ * map level.
+ */
+const sanitizeSchema = {
+  ...defaultSchema,
+  tagNames: [
+    'h2',
+    'h3',
+    'h4',
+    'p',
+    'em',
+    'strong',
+    'a',
+    'ul',
+    'ol',
+    'li',
+    'blockquote',
+    'code',
+    'pre',
+    'hr',
+    'br',
+    'table',
+    'thead',
+    'tbody',
+    'tr',
+    'th',
+    'td',
+    'del'
+  ],
+  attributes: {
+    ...defaultSchema.attributes,
+    a: ['href', 'title'],
+    code: ['className'],
+    pre: ['className'],
+    th: ['align', 'colSpan', 'rowSpan'],
+    td: ['align', 'colSpan', 'rowSpan']
+  }
+};
+
+/**
+ * Components map enforcing DA Platinum Executive Authority on every rendered
+ * markdown element. Headings collapse h1 → h2 (the article H1 is already
+ * rendered in the header) ; links open external URLs in new tabs with rel=noopener.
+ */
+const componentsMap: Components = {
+  h1: ({ children }) => (
+    <h2 className="text-h2 text-primary font-display text-balance mt-2xl mb-md">{children}</h2>
+  ),
+  h2: ({ children }) => (
+    <h2 className="text-h2 text-primary font-display text-balance mt-2xl mb-md">{children}</h2>
+  ),
+  h3: ({ children }) => (
+    <h3 className="text-h3 text-primary font-display text-balance mt-xl mb-sm">{children}</h3>
+  ),
+  h4: ({ children }) => (
+    <h4 className="text-body-lg text-primary font-display font-medium text-balance mt-lg mb-sm">
+      {children}
+    </h4>
+  ),
+  p: ({ children }) => (
+    <p className="text-body text-silver opacity-85 text-pretty leading-relaxed">{children}</p>
+  ),
+  a: ({ href, children }) => {
+    const isExternal = href !== undefined && /^https?:\/\//.test(href);
+    return (
+      <a
+        href={href}
+        className="text-gold hover:underline underline-offset-2 transition-colors duration-base"
+        {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
+      >
+        {children}
+      </a>
+    );
+  },
+  strong: ({ children }) => (
+    <strong className="text-primary font-display font-medium">{children}</strong>
+  ),
+  em: ({ children }) => <em className="italic">{children}</em>,
+  ul: ({ children }) => (
+    <ul className="flex flex-col gap-2 list-disc marker:text-gold/70 pl-md">{children}</ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="flex flex-col gap-2 list-decimal marker:text-gold/70 pl-md">{children}</ol>
+  ),
+  li: ({ children }) => (
+    <li className="text-body text-silver opacity-85 text-pretty leading-relaxed">{children}</li>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className="border-l-2 border-gold/40 pl-md py-sm my-md text-body text-silver opacity-90 italic text-pretty">
+      {children}
+    </blockquote>
+  ),
+  code: ({ className, children }) => {
+    const isBlock = className?.startsWith('language-') ?? false;
+    if (isBlock) {
+      return <code className={className}>{children}</code>;
+    }
+    return (
+      <code className="px-1.5 py-0.5 rounded bg-elevated text-gold/90 text-sm font-mono">
+        {children}
+      </code>
+    );
+  },
+  pre: ({ children }) => (
+    <pre className="p-md bg-elevated border border-silver/15 rounded-lg overflow-x-auto text-sm font-mono text-silver">
+      {children}
+    </pre>
+  ),
+  hr: () => <hr className="border-silver/15 my-xl" />,
+  table: ({ children }) => (
+    <div className="overflow-x-auto my-md">
+      <table className="w-full text-sm border-collapse">{children}</table>
+    </div>
+  ),
+  th: ({ children, align }) => (
+    <th
+      className="text-left px-sm py-2 border-b-2 border-gold/30 text-eyebrow uppercase tracking-widest text-silver/70 font-display text-xs"
+      {...(align && { style: { textAlign: align } })}
+    >
+      {children}
+    </th>
+  ),
+  td: ({ children, align }) => (
+    <td
+      className="px-sm py-2 border-b border-silver/10 text-body text-silver opacity-85"
+      {...(align && { style: { textAlign: align } })}
+    >
+      {children}
+    </td>
+  ),
+  del: ({ children }) => <del className="text-silver/40 line-through">{children}</del>
+};
+
+/**
  * ArticleRenderer — blindé renderer enforcing DA Platinum Executive Authority.
  *
  * Cross-Intralys "client autonomy" pattern : even if Jonas publishes crude
- * markdown in his GHL admin (random font sizes, inline colors, broken layouts),
- * this component forces the canonical Silver Platinum typography on render.
+ * markdown in his GHL admin (random font sizes, inline colors, broken layouts,
+ * <script>, inline styles), this component sanitizes via rehype-sanitize with
+ * a strict allow-list and forces DA classes on every surviving element.
  *
- * Strategies of blindage applied :
- *   - Typography forced via Tailwind classes on h1-h6 / p / ul / ol / blockquote
- *   - max-w-[65ch] container for readability
- *   - Gold accent for blockquotes + first-letter optional drop-cap
- *   - No inline style honored — markdown body is sanitized to a strict subset
- *     before render (Sprint 6 : real markdown → React via remark/rehype with
- *     custom allow-list ; Sprint 5 stub : naive paragraph split)
+ * Pipeline : raw markdown → remark-parse → remark-gfm (tables, strikethrough)
+ *         → rehype → rehype-sanitize (allow-list) → React via components map.
  *
- * Stub : Sprint 5 renders bodyMarkdown as paragraph-split text only (no full
- * markdown parsing yet). Sprint 6 will pull in remark/rehype with strict
- * allow-list (h1-h6, p, em, strong, a, ul, ol, li, blockquote, code, pre).
+ * No raw HTML allowed in the source. No `style` / `class` / `id` attributes
+ * survive sanitization. Links open external URLs in new tabs with rel=noopener.
  */
 export function ArticleRenderer({ article }: ArticleRendererProps) {
-  const paragraphs = article.bodyMarkdown.split('\n\n').filter((p) => p.trim().length > 0);
-
   return (
     <article
       data-article-renderer
@@ -71,16 +212,15 @@ export function ArticleRenderer({ article }: ArticleRendererProps) {
         </figure>
       )}
 
-      {/* Body — forced typography paragraphs */}
+      {/* Body — sanitized markdown with forced DA components */}
       <div data-article-body className="max-w-[65ch] mx-auto w-full flex flex-col gap-md">
-        {paragraphs.map((para) => (
-          <p
-            key={para.slice(0, 40)}
-            className="text-body text-silver opacity-85 text-pretty leading-relaxed"
-          >
-            {para}
-          </p>
-        ))}
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[[rehypeSanitize, sanitizeSchema]]}
+          components={componentsMap}
+        >
+          {article.bodyMarkdown}
+        </ReactMarkdown>
       </div>
     </article>
   );
