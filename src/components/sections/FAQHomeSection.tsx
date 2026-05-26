@@ -54,7 +54,7 @@ export function FAQHomeSection() {
         fr: 'Questions fréquentes (aperçu)',
         en: 'Frequently asked questions (preview)'
       })}
-      className="relative py-2xl bg-elevated border-y border-silver/10 overflow-hidden"
+      className="relative py-2xl bg-section-elevated border-y border-silver/10 overflow-hidden"
     >
       <FiligraneNumber number="07" position="right" />
       <div className="relative max-w-default mx-auto px-md flex flex-col gap-xl">

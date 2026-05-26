@@ -71,9 +71,9 @@ export function PodcastPreviewSection() {
             <article
               key={platform.name}
               className={[
-                'flex flex-col items-center text-center gap-sm p-md rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
+                'group flex flex-col items-center text-center gap-sm p-md rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
                 'bg-elevated ring-1 ring-silver/15',
-                'shadow-[inset_0_1px_1px_oklch(1_0_0/0.04)]',
+                'shadow-haptic-card shadow-haptic-card-hover',
                 'transition-all duration-base hover:ring-silver/30'
               ].join(' ')}
             >

@@ -30,7 +30,7 @@ export function RessourcesPreviewSection() {
   return (
     <section
       aria-label={t({ fr: 'Ressources & articles', en: 'Resources & articles' })}
-      className="relative py-2xl bg-elevated border-y border-silver/10 overflow-hidden"
+      className="relative py-2xl bg-section-elevated border-y border-silver/10 overflow-hidden"
     >
       <FiligraneNumber number="05" position="right" />
       <div className="relative max-w-default mx-auto px-md flex flex-col gap-xl">
@@ -77,7 +77,7 @@ export function RessourcesPreviewSection() {
               className={[
                 'flex flex-col gap-sm p-md rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
                 'bg-base ring-1 ring-silver/10',
-                'shadow-[inset_0_1px_1px_oklch(1_0_0/0.04)]'
+                'shadow-haptic-card'
               ].join(' ')}
             >
               <div className="flex items-center gap-sm text-silver opacity-60">

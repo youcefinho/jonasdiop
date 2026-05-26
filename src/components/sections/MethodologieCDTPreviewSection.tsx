@@ -56,7 +56,7 @@ export function MethodologieCDTPreviewSection() {
     <section
       id="methodologie"
       aria-label={t({ fr: 'Méthodologie CDT™', en: 'CDT™ Methodology' })}
-      className="relative py-2xl bg-base overflow-hidden"
+      className="relative py-2xl bg-section-base overflow-hidden"
     >
       <MeshGradient variant="deep-gold" opacity={0.08} />
       <FiligraneNumber number="02" position="left" />
@@ -117,9 +117,9 @@ export function MethodologieCDTPreviewSection() {
             <article
               key={pillar.number}
               className={[
-                'flex flex-col gap-sm p-md rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
+                'group flex flex-col gap-sm p-md rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
                 'bg-elevated ring-1 ring-silver/15',
-                'shadow-[inset_0_1px_1px_oklch(1_0_0/0.04)]'
+                'shadow-haptic-card shadow-haptic-card-hover transition-all duration-base'
               ].join(' ')}
             >
               <span

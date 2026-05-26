@@ -211,6 +211,61 @@
     animation: marquee 60s linear infinite;
   }
 
+  /* Haptic depth shadow utilities — multi-layer premium shadows extracted
+   * from jonasdiop.com (Framer template signature). White inset highlight =
+   * Apple-like edge glow + cumulative drop shadows = floating depth. */
+  .shadow-haptic-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-haptic-card-hover:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  .shadow-haptic-focal {
+    box-shadow: var(--shadow-focal);
+  }
+  .shadow-haptic-inset {
+    box-shadow: var(--shadow-inset-highlight);
+  }
+
+  /* Slow color transition — premium hover feel per jonasdiop.com extraction
+   * (`color 0.7s cubic-bezier(0, 0.95, 1, 1)`). Apply via class on hover-aware
+   * elements. Override the generic transition-all duration-base where needed. */
+  .transition-color-slow {
+    transition: color 0.7s cubic-bezier(0, 0.95, 1, 1);
+  }
+
+  /* Section gradient backgrounds — replace flat bg-elevated/bg-base with
+   * subtle linear-gradients for depth. Per jonasdiop.com extraction (8 BG
+   * gradients found, all subtle gray→gray linear). */
+  .bg-section-elevated {
+    background-image: linear-gradient(
+      to bottom,
+      var(--bg-elevated) 0%,
+      oklch(0.24 0.005 80) 60%,
+      var(--bg-elevated) 100%
+    );
+  }
+  .bg-section-base {
+    background-image: linear-gradient(
+      to bottom,
+      var(--bg-base) 0%,
+      oklch(0.19 0.005 80) 50%,
+      var(--bg-base) 100%
+    );
+  }
+
+  /* Multi-blur layered atmosphere — stack with brightness for "ethereal glass"
+   * effect per soft-skill. Apply to fixed pseudo only (no scrolling). */
+  .blur-stack-light {
+    filter: brightness(1.05) blur(24px);
+  }
+  .blur-stack-medium {
+    filter: blur(12px);
+  }
+  .blur-stack-subtle {
+    filter: blur(5px);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-breathe,
     .animate-mesh-drift {

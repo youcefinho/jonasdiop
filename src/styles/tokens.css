@@ -80,6 +80,30 @@
   --shadow-strong: 0 16px 48px oklch(0 0 0 / 0.5);
   --shadow-gold-glow: 0 0 32px oklch(0.74 0.085 75 / 0.25);
 
+  /* === HAPTIC DEPTH SHADOWS (jonasdiop.com extraction — multi-layer
+   *     premium shadows with white inset highlight for "Apple-like" depth) === */
+  /* Card default — 5 couches drop + inset highlight blanc */
+  --shadow-card:
+    rgba(0, 0, 0, 0.17) 0px 0.7px 1.8px -0.6px,
+    rgba(0, 0, 0, 0.16) 0px 1.8px 4.7px -1.2px,
+    rgba(0, 0, 0, 0.15) 0px 4px 10px 1px,
+    rgba(0, 0, 0, 0.04) 0px 1.25px 1.25px 0px,
+    rgba(255, 255, 255, 0.06) 0px 1px 1px 0px inset;
+  /* Card hover — boost ombres + glow accent */
+  --shadow-card-hover:
+    rgba(0, 0, 0, 0.25) 0px 4px 8px 0px,
+    rgba(0, 0, 0, 0.18) 0px 12px 24px 2px,
+    rgba(0, 0, 0, 0.12) 0px 24px 48px 4px,
+    rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset;
+  /* Focal card (testimonial center, CDT center) — gold glow + multi-drop */
+  --shadow-focal:
+    oklch(0.74 0.085 75 / 0.15) 0px 0px 48px 0px,
+    rgba(0, 0, 0, 0.25) 0px 8px 16px 0px,
+    rgba(0, 0, 0, 0.18) 0px 16px 32px 2px,
+    rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset;
+  /* Inset highlight only — pour edge glow subtle */
+  --shadow-inset-highlight: rgba(255, 255, 255, 0.12) 0px 2px 2px 0px inset;
+
   /* === MOTION === */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);

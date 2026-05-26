@@ -31,9 +31,11 @@ export function TestimonialRealCard({ testimonial, focal = false }: TestimonialR
       className={clsx(
         'group relative flex flex-col overflow-hidden rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
         'bg-elevated transition-all duration-base',
+        // Haptic depth shadows extracted jonasdiop.com — focal card uses
+        // gold-glow focal shadow, flank cards use multi-layer card shadow.
         focal
-          ? 'ring-1 ring-gold/30 shadow-[0_32px_72px_-16px_oklch(0.74_0.085_75/0.15),_inset_0_1px_1px_oklch(1_0_0/0.06)]'
-          : 'ring-1 ring-silver/15 shadow-[0_16px_48px_-12px_oklch(0_0_0/0.5),_inset_0_1px_1px_oklch(1_0_0/0.04)]'
+          ? 'ring-1 ring-gold/30 shadow-haptic-focal'
+          : 'ring-1 ring-silver/15 shadow-haptic-card shadow-haptic-card-hover'
       )}
     >
       {/* Portrait — aspect square focal card, slightly portrait on flanks */}

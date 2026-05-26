@@ -20,7 +20,7 @@ export function AboutPreviewSection() {
         fr: "L'architecte derrière la méthode",
         en: 'The architect behind the method'
       })}
-      className="relative py-2xl bg-elevated border-y border-silver/10 overflow-hidden"
+      className="relative py-2xl bg-section-elevated border-y border-silver/10 overflow-hidden"
     >
       <FiligraneNumber number="01" position="right" />
       <div className="relative max-w-default mx-auto px-md grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
