@@ -45,16 +45,20 @@ function RootLayout() {
     };
   }, [pathname]);
 
+  // The <html> element is the real document root from index.html — never
+  // emit it as JSX (mounting it inside <div id="root"> produces a nested
+  // <html> which is invalid HTML and triggers React hydration errors that
+  // cascade into <nav>/<main>/<footer>/<div> nesting warnings). The
+  // document.documentElement.lang attribute is kept in sync by applyPageMeta
+  // on each pathname change.
   return (
-    <html lang={locale === 'en' ? 'en' : 'fr-CA'}>
-      <LanguageProvider locale={locale}>
-        <CookieConsentProvider>
-          <Outlet />
-          <CookieBanner />
-          <CookieSettingsModal />
-        </CookieConsentProvider>
-      </LanguageProvider>
-    </html>
+    <LanguageProvider locale={locale}>
+      <CookieConsentProvider>
+        <Outlet />
+        <CookieBanner />
+        <CookieSettingsModal />
+      </CookieConsentProvider>
+    </LanguageProvider>
   );
 }
 
@@ -62,15 +66,13 @@ function NotFoundLayout() {
   const { pathname } = useLocation();
   const locale = localeFromPath(pathname);
   return (
-    <html lang={locale === 'en' ? 'en' : 'fr-CA'}>
-      <LanguageProvider locale={locale}>
-        <CookieConsentProvider>
-          <NotFoundPage />
-          <CookieBanner />
-          <CookieSettingsModal />
-        </CookieConsentProvider>
-      </LanguageProvider>
-    </html>
+    <LanguageProvider locale={locale}>
+      <CookieConsentProvider>
+        <NotFoundPage />
+        <CookieBanner />
+        <CookieSettingsModal />
+      </CookieConsentProvider>
+    </LanguageProvider>
   );
 }
 

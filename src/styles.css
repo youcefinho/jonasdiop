@@ -2,8 +2,20 @@
 @import "./styles/tokens.css";
 @import "./styles/globals.css";
 
-/* Tailwind v4 native config via @theme — bridges tokens.css to utility classes */
+/* Tailwind v4 native config via @theme — bridges tokens.css to utility classes.
+ *
+ * Tailwind v4 generates utility classes from @theme entries whose names match
+ * the recognized namespaces : --color-*, --font-*, --text-*, --spacing-*,
+ * --radius-*, --container-*, --tracking-*, --shadow-*, --ease-*, --duration-*.
+ *
+ * Tokens authored in tokens.css live under :root (CSS variables consumable
+ * via var(--name)) and are re-exposed here under the namespaces Tailwind
+ * expects so that classes like `gap-md`, `text-eyebrow`, `rounded-pill`,
+ * `max-w-default`, `duration-base` actually emit CSS. Without this bridge,
+ * those utilities silently no-op and the layout collapses to browser defaults.
+ */
 @theme {
+  /* === Colors === */
   --color-base: var(--bg-base);
   --color-elevated: var(--bg-elevated);
   --color-primary: var(--text-primary);
@@ -12,9 +24,75 @@
   --color-silver: var(--accent-silver);
   --color-gold: var(--accent-gold);
 
+  /* === Fonts === */
   --font-display: "Space Grotesk Variable", system-ui, sans-serif;
   --font-body: "Inter Variable", system-ui, sans-serif;
 
-  /* Tracking utilities aligned with eyebrow signature */
+  /* === Font sizes (text-* utilities) === */
+  --text-hero: clamp(2.5rem, 1.5rem + 4.5vw, 6rem);
+  --text-h1: clamp(2rem, 1.4rem + 2.8vw, 4rem);
+  --text-h2: clamp(1.625rem, 1.2rem + 1.9vw, 2.75rem);
+  --text-h3: clamp(1.3125rem, 1.1rem + 0.95vw, 1.875rem);
+  --text-body-lg: clamp(1rem, 0.92rem + 0.35vw, 1.1875rem);
+  --text-body: clamp(0.9375rem, 0.88rem + 0.25vw, 1.0625rem);
+  --text-sm: clamp(0.8125rem, 0.78rem + 0.14vw, 0.875rem);
+  --text-eyebrow: clamp(0.6875rem, 0.65rem + 0.16vw, 0.8125rem);
+
+  /* === Spacing (p-* m-* gap-* py-* px-* utilities) ===
+   * 8px-grid fluid scale. Components reference gap-md, py-2xl, px-md, etc.
+   */
+  --spacing-3xs: clamp(0.25rem, 0.23rem + 0.09vw, 0.3125rem);
+  --spacing-2xs: clamp(0.5rem, 0.46rem + 0.18vw, 0.625rem);
+  --spacing-xs: clamp(0.75rem, 0.69rem + 0.28vw, 0.9375rem);
+  --spacing-sm: clamp(1rem, 0.92rem + 0.35vw, 1.25rem);
+  --spacing-md: clamp(1.5rem, 1.38rem + 0.55vw, 1.875rem);
+  --spacing-lg: clamp(2rem, 1.7rem + 1.4vw, 3rem);
+  --spacing-xl: clamp(3rem, 2.4rem + 2.8vw, 5rem);
+  --spacing-2xl: clamp(4rem, 3rem + 4.6vw, 8rem);
+  --spacing-3xl: clamp(5rem, 3.5rem + 6.9vw, 12rem);
+
+  /* === Radius (rounded-* utilities) === */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-pill: 9999px;
+
+  /* === Containers (max-w-* utilities) ===
+   * Custom intralys aliases + Tailwind v4 standard sizes preserved.
+   * Declaring any --container-* in @theme replaces the entire default scale,
+   * so we re-declare md/lg/xl/etc. to keep `max-w-md` etc. functional.
+   */
+  --container-narrow: min(40rem, 90vw);
+  --container-content: min(56rem, 90vw);
+  --container-default: min(72rem, 92vw);
+  --container-wide: min(80rem, 94vw);
+  --container-3xs: 16rem;
+  --container-2xs: 18rem;
+  --container-xs: 20rem;
+  --container-sm: 24rem;
+  --container-md: 28rem;
+  --container-lg: 32rem;
+  --container-xl: 36rem;
+  --container-2xl: 42rem;
+  --container-3xl: 48rem;
+  --container-4xl: 56rem;
+  --container-5xl: 64rem;
+  --container-6xl: 72rem;
+  --container-7xl: 80rem;
+
+  /* === Motion (duration-* ease-* utilities) === */
+  --duration-fast: 180ms;
+  --duration-base: 280ms;
+  --duration-slow: 520ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+
+  /* === Tracking === */
   --tracking-widest: 0.2em;
+
+  /* === Shadows === */
+  --shadow-soft: 0 4px 12px oklch(0 0 0 / 0.25);
+  --shadow-medium: 0 8px 24px oklch(0 0 0 / 0.35);
+  --shadow-strong: 0 16px 48px oklch(0 0 0 / 0.5);
+  --shadow-gold-glow: 0 0 32px oklch(0.74 0.085 75 / 0.25);
 }

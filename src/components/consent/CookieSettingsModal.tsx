@@ -63,7 +63,7 @@ export function CookieSettingsModal() {
       aria-labelledby="cookie-settings-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-md bg-base/80 backdrop-blur-sm"
     >
-      <div className="relative w-full max-w-lg bg-elevated border border-silver/20 rounded-lg shadow-[0_16px_48px_oklch(0_0_0/0.55)] p-lg flex flex-col gap-md">
+      <div className="relative w-full max-w-[32rem] bg-elevated border border-silver/20 rounded-lg shadow-[0_16px_48px_oklch(0_0_0/0.55)] p-lg flex flex-col gap-md">
         <button
           type="button"
           onClick={closeSettings}

@@ -27,7 +27,7 @@ export function CookieBanner() {
       aria-modal="false"
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-body"
-      className="fixed bottom-md right-md left-md sm:left-auto z-50 max-w-md bg-elevated/95 backdrop-blur-md border border-silver/20 rounded-lg shadow-[0_8px_32px_oklch(0_0_0/0.45)] p-md flex flex-col gap-sm"
+      className="fixed bottom-md right-md left-md sm:left-auto z-50 max-w-[28rem] bg-elevated/95 backdrop-blur-md border border-silver/20 rounded-lg shadow-[0_8px_32px_oklch(0_0_0/0.45)] p-md flex flex-col gap-sm"
     >
       <p
         id="cookie-banner-title"
