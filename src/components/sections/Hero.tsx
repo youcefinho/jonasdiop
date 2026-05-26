@@ -31,7 +31,7 @@ export function Hero() {
   return (
     <section
       aria-label={t({ fr: 'Section principale', en: 'Hero section' })}
-      className="relative min-h-[62svh] flex flex-col items-center justify-center text-center px-md py-2xl overflow-hidden"
+      className="relative min-h-[78svh] flex flex-col items-center justify-center text-center px-md py-2xl overflow-hidden"
     >
       {/* Ambient silver/cream radial — luminous "stage" light behind the CTA zone.
           Stitch board 13 signature : soft silver bloom centered slightly below
@@ -48,14 +48,14 @@ export function Hero() {
       <div className="relative flex flex-col items-center gap-md max-w-[var(--container-default)]">
         <Eyebrow>{t({ fr: "Architecte d'affaires", en: 'Business Architect' })}</Eyebrow>
 
-        {/* H1 size + width tuned to force 2 lines balanced per Stitch board 13 :
-            - max-w-[24ch] = ~24 chars/line → "Ajouter un zéro à votre" (23) /
-              "chiffre d'affaires." (19) fits 2 lines
-            - clamp 1.75→3.5rem keeps medium poids visuel (not the 3-line ÉNORME) */}
+        {/* H1 size + width tuned to force 2 lignes balanced per Stitch board 13 :
+            - max-w-[26ch] permet "Ajouter un zéro à votre" (23) + "chiffre d'affaires." (19)
+            - clamp 2.5→5rem = impact visuel matching Stitch (impactful, pas timide)
+            - font-normal + tracking serré = poids visuel light/élégant pas bold/lourd */}
         <MaskRevealHeading
           as="h1"
           delay={heroEntranceTimings.h1MaskReveal}
-          className="font-normal tracking-[-0.045em] text-[clamp(1.75rem,1rem+2.5vw,3.5rem)] leading-[1.05] max-w-[24ch]"
+          className="font-normal tracking-[-0.045em] text-[clamp(2.5rem,1.5rem+3.5vw,5rem)] leading-[1.05] max-w-[26ch]"
         >
           {t({
             fr: "Ajouter un zéro à votre chiffre d'affaires.",
@@ -90,7 +90,7 @@ export function Hero() {
             uppercase silver, all visible in same viewport as Hero. */}
         <ul className="mt-md grid grid-cols-3 gap-md sm:gap-xl w-full max-w-[820px]">
           <li className="flex flex-col items-center text-center gap-2">
-            <span className="text-gold font-display font-normal text-[clamp(2rem,1.4rem+2vw,3rem)] tracking-tight leading-none">
+            <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
               857+
             </span>
             <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
@@ -98,7 +98,7 @@ export function Hero() {
             </span>
           </li>
           <li className="flex flex-col items-center text-center gap-2">
-            <span className="text-gold font-display font-normal text-[clamp(2rem,1.4rem+2vw,3rem)] tracking-tight leading-none">
+            <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
               31M$+
             </span>
             <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
@@ -106,7 +106,7 @@ export function Hero() {
             </span>
           </li>
           <li className="flex flex-col items-center text-center gap-2">
-            <span className="text-gold font-display font-normal text-[clamp(2rem,1.4rem+2vw,3rem)] tracking-tight leading-none">
+            <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
               15 ANS
             </span>
             <span className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">

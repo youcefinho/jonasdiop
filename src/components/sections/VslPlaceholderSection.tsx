@@ -16,7 +16,7 @@ export function VslPlaceholderSection({ id }: VslPlaceholderSectionProps) {
   return (
     <section
       id={id}
-      className="relative min-h-[60vh] flex items-center justify-center px-md py-2xl bg-base"
+      className="relative min-h-[60vh] flex items-center justify-center px-md py-2xl bg-base overflow-hidden"
       aria-label={t({ fr: 'Vidéo méthodologie', en: 'Methodology video' })}
     >
       <FiligraneNumber number="03" position="right" />
