@@ -25,11 +25,16 @@ export function ClickRipple() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     let counter = 0;
+    const MAX_RIPPLES = 8;
     const onClick = (e: MouseEvent) => {
       // Ignore non-primary buttons (right-click context menu, middle-click)
       if (e.button !== 0) return;
       const id = ++counter;
-      setRipples((prev) => [...prev, { id, x: e.clientX, y: e.clientY }]);
+      setRipples((prev) => {
+        const next = [...prev, { id, x: e.clientX, y: e.clientY }];
+        // Cap concurrent ripples to avoid jank under spam clicking.
+        return next.length > MAX_RIPPLES ? next.slice(-MAX_RIPPLES) : next;
+      });
       // Remove after the animation ends (720ms in CSS + small safety margin).
       window.setTimeout(() => {
         setRipples((prev) => prev.filter((r) => r.id !== id));

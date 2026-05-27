@@ -78,12 +78,16 @@ export function CustomCursor() {
       }
     };
 
-    const onLeave = () => {
+    // Hide cursor when the window loses focus (tab switch, alt-tab, click on
+    // browser chrome). `window.blur`/`focus` is more reliable cross-browser
+    // than `document.mouseleave`/`mouseenter` which only fire if the pointer
+    // actually crosses the document edge.
+    const onBlur = () => {
       ring.style.opacity = '0';
       dot.style.opacity = '0';
     };
 
-    const onEnter = () => {
+    const onFocus = () => {
       ring.style.opacity = '1';
       dot.style.opacity = '1';
     };
@@ -100,16 +104,16 @@ export function CustomCursor() {
 
     window.addEventListener('mousemove', onMove, { passive: true });
     document.addEventListener('mouseover', onOver, { passive: true });
-    document.addEventListener('mouseleave', onLeave);
-    document.addEventListener('mouseenter', onEnter);
+    window.addEventListener('blur', onBlur);
+    window.addEventListener('focus', onFocus);
     tick();
 
     return () => {
       document.documentElement.classList.remove('has-custom-cursor');
       window.removeEventListener('mousemove', onMove);
       document.removeEventListener('mouseover', onOver);
-      document.removeEventListener('mouseleave', onLeave);
-      document.removeEventListener('mouseenter', onEnter);
+      window.removeEventListener('blur', onBlur);
+      window.removeEventListener('focus', onFocus);
       window.cancelAnimationFrame(rafId);
     };
   }, [enabled]);

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 interface CountUpProps {
   /** Target number to count up to. */
@@ -84,10 +84,16 @@ export function CountUp({
     return () => obs.disconnect();
   }, [to, duration]);
 
-  const formatter = new Intl.NumberFormat(locale, {
-    maximumFractionDigits: decimals,
-    minimumFractionDigits: decimals
-  });
+  // Memoize formatter to avoid recreating ~60 Intl.NumberFormat instances per
+  // second during the animation tick (3 CountUps × 60fps = ~180/sec waste).
+  const formatter = useMemo(
+    () =>
+      new Intl.NumberFormat(locale, {
+        maximumFractionDigits: decimals,
+        minimumFractionDigits: decimals
+      }),
+    [locale, decimals]
+  );
 
   return (
     <span ref={spanRef} className={className}>

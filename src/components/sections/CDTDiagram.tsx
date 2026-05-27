@@ -21,22 +21,35 @@ function ConnectingPaths() {
       return;
     }
 
+    let cancelled = false;
+    let rafId = 0;
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      window.requestAnimationFrame(() => setDrawn(true));
-      return;
+      rafId = window.requestAnimationFrame(() => {
+        if (!cancelled) setDrawn(true);
+      });
+      return () => {
+        cancelled = true;
+        window.cancelAnimationFrame(rafId);
+      };
     }
 
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (!entry?.isIntersecting) return;
+        if (!entry?.isIntersecting || cancelled) return;
         obs.disconnect();
         setDrawn(true);
       },
-      { threshold: 0.2 }
+      // threshold:0 → fires on any pixel intersection ; safer for SVG that
+      // may be hidden on mobile (R4 audit finding : threshold 0.2 could stick
+      // at drawn=false after rapid resize desktop↔mobile↔desktop).
+      { threshold: 0 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      cancelled = true;
+      obs.disconnect();
+    };
   }, []);
 
   const pathStyle = {
@@ -121,6 +134,7 @@ function PillarCard({ pillar, index, isCenter }: PillarCardProps) {
     if (prefersReduced) {
       el.style.opacity = '1';
       el.style.transform = 'translateY(0) scale(1)';
+      el.style.willChange = 'auto';
       return;
     }
 
@@ -129,24 +143,59 @@ function PillarCard({ pillar, index, isCenter }: PillarCardProps) {
     el.style.transform = 'translateY(24px) scale(0.97)';
     el.style.transition = 'none';
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        observer.disconnect();
+    let cancelled = false;
+    const timers: number[] = [];
 
-        const delay = STAGGER_DELAYS[index] ?? 0;
-        setTimeout(() => {
+    const reveal = () => {
+      if (cancelled) return;
+      const delay = STAGGER_DELAYS[index] ?? 0;
+      timers.push(
+        window.setTimeout(() => {
+          if (cancelled) return;
           el.style.transition =
             'opacity 520ms cubic-bezier(0.23, 1, 0.32, 1), transform 520ms cubic-bezier(0.23, 1, 0.32, 1)';
           el.style.opacity = '1';
           el.style.transform = 'translateY(0) scale(1)';
-        }, delay);
+          // Free the GPU layer once the transition completes (520ms + buffer)
+          // to avoid 3 forever-promoted layers (R6 audit finding).
+          timers.push(
+            window.setTimeout(() => {
+              if (cancelled) return;
+              el.style.willChange = 'auto';
+            }, 600)
+          );
+        }, delay)
+      );
+    };
+
+    // Above-the-fold guard : IntersectionObserver may miss the initial
+    // intersection for elements visible on first paint. Match the pattern
+    // used in ScrollReveal / StaggerReveal / ImageReveal.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const rafId = window.requestAnimationFrame(reveal);
+      return () => {
+        cancelled = true;
+        window.cancelAnimationFrame(rafId);
+        for (const t of timers) window.clearTimeout(t);
+      };
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || cancelled) return;
+        observer.disconnect();
+        reveal();
       },
       { threshold: 0.15 }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+      for (const t of timers) window.clearTimeout(t);
+    };
   }, [index]);
 
   return (

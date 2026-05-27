@@ -30,7 +30,20 @@ export function useScrollFade<T extends HTMLElement>({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Always-run cleanup that resets all inline styles touched by this hook
+    // (also runs after the reduced-motion early-return so any leftover styles
+    // from a previous render get cleared).
+    const cleanup = () => {
+      el.style.opacity = '';
+      el.style.transform = '';
+      el.style.willChange = '';
+    };
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      cleanup();
+      return cleanup;
+    }
 
     el.style.willChange = 'opacity, transform';
 
@@ -56,7 +69,7 @@ export function useScrollFade<T extends HTMLElement>({
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.cancelAnimationFrame(rafId);
-      el.style.willChange = 'auto';
+      cleanup();
     };
   }, [distance, maxOffset]);
 

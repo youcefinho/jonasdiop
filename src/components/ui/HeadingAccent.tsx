@@ -39,21 +39,31 @@ export function HeadingAccent({
       setDrawn(true);
       return;
     }
+    let cancelled = false;
+    let rafId = 0;
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      window.requestAnimationFrame(() => setDrawn(true));
-      return;
+      rafId = window.requestAnimationFrame(() => {
+        if (!cancelled) setDrawn(true);
+      });
+      return () => {
+        cancelled = true;
+        window.cancelAnimationFrame(rafId);
+      };
     }
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (!entry?.isIntersecting) return;
+        if (!entry?.isIntersecting || cancelled) return;
         obs.disconnect();
         setDrawn(true);
       },
       { threshold: 0.5 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      cancelled = true;
+      obs.disconnect();
+    };
   }, []);
 
   const color = variant === 'gold' ? 'oklch(0.74 0.085 75)' : 'oklch(0.82 0.005 270)';

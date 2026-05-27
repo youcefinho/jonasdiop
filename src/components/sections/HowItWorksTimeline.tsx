@@ -20,21 +20,31 @@ function TimelineLine() {
       setDrawn(true);
       return;
     }
+    let cancelled = false;
+    let rafId = 0;
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      window.requestAnimationFrame(() => setDrawn(true));
-      return;
+      rafId = window.requestAnimationFrame(() => {
+        if (!cancelled) setDrawn(true);
+      });
+      return () => {
+        cancelled = true;
+        window.cancelAnimationFrame(rafId);
+      };
     }
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (!entry?.isIntersecting) return;
+        if (!entry?.isIntersecting || cancelled) return;
         obs.disconnect();
         setDrawn(true);
       },
       { threshold: 0.1 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      cancelled = true;
+      obs.disconnect();
+    };
   }, []);
 
   return (
@@ -97,21 +107,31 @@ function TimelinePhase({
       setActive(true);
       return;
     }
+    let cancelled = false;
+    let rafId = 0;
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      window.requestAnimationFrame(() => setActive(true));
-      return;
+      rafId = window.requestAnimationFrame(() => {
+        if (!cancelled) setActive(true);
+      });
+      return () => {
+        cancelled = true;
+        window.cancelAnimationFrame(rafId);
+      };
     }
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (!entry?.isIntersecting) return;
+        if (!entry?.isIntersecting || cancelled) return;
         obs.disconnect();
         setActive(true);
       },
       { threshold: 0.5 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      cancelled = true;
+      obs.disconnect();
+    };
   }, []);
 
   return (
