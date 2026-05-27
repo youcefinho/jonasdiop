@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { CookieBanner } from '@/components/consent/CookieBanner';
 import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { MobileSignatureBar } from '@/components/layout/MobileSignatureBar';
+import { StickyFloatingCTA } from '@/components/layout/StickyFloatingCTA';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
 import { GrainOverlay } from '@/components/ui/GrainOverlay';
 import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
@@ -61,6 +62,7 @@ function RootLayout() {
         <ScrollProgressBar />
         <Outlet />
         <MobileSignatureBar />
+        <StickyFloatingCTA />
         <CookieBanner />
         <CookieSettingsModal />
       </CookieConsentProvider>

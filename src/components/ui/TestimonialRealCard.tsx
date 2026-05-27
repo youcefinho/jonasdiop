@@ -39,9 +39,10 @@ export function TestimonialRealCard({ testimonial, focal = false }: TestimonialR
         // hover-lift uniquement sur flank cards (focal a son propre tilt 3D)
         !focal && 'hover-lift',
         // Haptic depth shadows extracted jonasdiop.com — focal card uses
-        // gold-glow focal shadow, flank cards use multi-layer card shadow.
+        // gold-glow focal shadow + animated rotating gold border ; flank cards
+        // use multi-layer card shadow.
         focal
-          ? 'ring-1 ring-gold/30 shadow-haptic-focal'
+          ? 'ring-1 ring-gold/30 shadow-haptic-focal border-glow'
           : 'ring-1 ring-silver/15 shadow-haptic-card shadow-haptic-card-hover'
       )}
     >

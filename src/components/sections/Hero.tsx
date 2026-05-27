@@ -3,6 +3,7 @@ import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { MeshGradient } from '@/components/ui/MeshGradient';
+import { MouseFollowSpotlight } from '@/components/ui/MouseFollowSpotlight';
 import { ScrollCue } from '@/components/ui/ScrollCue';
 import { ROUTES } from '@/config/routes';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
@@ -44,6 +45,11 @@ export function Hero() {
     >
       {/* Atmospheric mesh gradient drift behind everything — slow 24s loop. */}
       <MeshGradient variant="warm-cream" opacity={0.12} />
+
+      {/* Mouse-follow spotlight — cursor-tracked radial light reveals as the
+          user moves over the Hero. Premium polish signature (touch + reduced
+          motion fall back to static centered). */}
+      <MouseFollowSpotlight color="oklch(0.88 0.012 80)" size={360} intensity={0.08} />
 
       {/* Silver/cream "stage spotlight" centré sur la zone CTAs — Stitch board 13.
           Composition 2 couches concentrées exactement sur les CTAs (~55%Y du section) :

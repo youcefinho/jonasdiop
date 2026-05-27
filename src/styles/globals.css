@@ -256,6 +256,57 @@
     transition: transform var(--duration-base) var(--ease-out-cubic);
   }
 
+  /* Animated gradient border — rotating conic-gradient gold around focal
+   * elements (testimonial center card, CDT pillar center, FinalCTA).
+   * Applied via wrapping pseudo-element with conic-gradient rotation.
+   *
+   * Usage : add .border-glow on parent. The element gets a 1px gold border
+   * that rotates slowly (16s loop). GPU-safe (only background-position +
+   * transform on pseudo). */
+  @property --border-glow-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+  @keyframes border-glow-rotate {
+    from {
+      --border-glow-angle: 0deg;
+    }
+    to {
+      --border-glow-angle: 360deg;
+    }
+  }
+  .border-glow {
+    position: relative;
+    isolation: isolate;
+  }
+  .border-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--border-glow-angle),
+      transparent 0deg,
+      oklch(0.74 0.085 75 / 0.85) 90deg,
+      transparent 180deg,
+      oklch(0.82 0.005 270 / 0.45) 270deg,
+      transparent 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-glow-rotate 16s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
   /* Slow color transition — premium hover feel per jonasdiop.com extraction
    * (`color 0.7s cubic-bezier(0, 0.95, 1, 1)`). Apply via class on hover-aware
    * elements. Override the generic transition-all duration-base where needed. */
@@ -316,6 +367,9 @@
     .group:hover .group-hover\:lift {
       transform: none;
       transition: none;
+    }
+    .border-glow::before {
+      animation: none;
     }
   }
 }
