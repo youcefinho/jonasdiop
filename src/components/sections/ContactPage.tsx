@@ -1,4 +1,5 @@
-import { ArrowRight, Check, Mail, MapPin, Phone, X } from 'lucide-react';
+import { ArrowRight, Check, Loader2, Mail, MapPin, Phone, X } from 'lucide-react';
+import { useState } from 'react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
@@ -6,6 +7,8 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { contactCopy } from '@/data/copy/contact';
 import { useT } from '@/lib/i18n/useT';
+
+type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
 /**
  * ContactPage — composite landing page section for /contact (FR) and /en/contact.
@@ -17,6 +20,12 @@ import { useT } from '@/lib/i18n/useT';
  */
 export function ContactPage() {
   const { t } = useT();
+  // Submit state machine — wire to GHL POST handler when H8 credentials land.
+  // Currently the form is disabled (stub state) so the loading/success/error
+  // branches don't fire ; once the disabled attributes are removed and the
+  // onSubmit handler calls the GHL adapter, the button automatically picks
+  // up the premium loading + success + error UI defined below.
+  const [submitStatus, _setSubmitStatus] = useState<SubmitStatus>('idle');
 
   return (
     <>
@@ -279,14 +288,54 @@ export function ContactPage() {
                   {t(contactCopy.form.consentLabel)}
                 </p>
 
-                {/* Submit */}
+                {/* Submit — state-aware (idle / loading / success / error).
+                    Stub state currently `disabled` ; once H8 wires onSubmit
+                    to GHL POST, button automatically renders the right UI. */}
                 <button
                   type="submit"
-                  disabled
-                  className="inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-silver text-base disabled:cursor-not-allowed disabled:opacity-50 mt-sm self-start"
+                  disabled={submitStatus === 'loading' || true /* stub: form not wired */}
+                  aria-live="polite"
+                  className={[
+                    'inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm self-start mt-sm',
+                    'text-eyebrow uppercase tracking-wider font-display',
+                    'transition-all duration-base',
+                    'disabled:cursor-not-allowed disabled:opacity-50',
+                    submitStatus === 'success'
+                      ? 'bg-[linear-gradient(180deg,oklch(0.86_0.085_75)_0%,oklch(0.66_0.085_75)_100%)] text-base'
+                      : submitStatus === 'error'
+                        ? 'bg-state-error/15 text-state-error border border-state-error/40'
+                        : 'bg-silver text-base'
+                  ].join(' ')}
                 >
-                  {t(contactCopy.form.fields.submit)}
-                  <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
+                  {submitStatus === 'loading' && (
+                    <>
+                      <Loader2
+                        className="h-4 w-4 max-w-none shrink-0 animate-spin"
+                        aria-hidden="true"
+                      />
+                      <span>{t({ fr: 'Envoi…', en: 'Sending…' })}</span>
+                    </>
+                  )}
+                  {submitStatus === 'success' && (
+                    <>
+                      <Check className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
+                      <span>
+                        {t({ fr: 'Envoyé · réponse sous 24h', en: 'Sent · reply within 24h' })}
+                      </span>
+                    </>
+                  )}
+                  {submitStatus === 'error' && (
+                    <>
+                      <X className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
+                      <span>{t({ fr: 'Erreur — réessayer', en: 'Error — retry' })}</span>
+                    </>
+                  )}
+                  {submitStatus === 'idle' && (
+                    <>
+                      <span>{t(contactCopy.form.fields.submit)}</span>
+                      <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
+                    </>
+                  )}
                 </button>
               </form>
 

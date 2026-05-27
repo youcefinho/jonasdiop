@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { CookieBanner } from '@/components/consent/CookieBanner';
 import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { MobileSignatureBar } from '@/components/layout/MobileSignatureBar';
+import { SkipToMain } from '@/components/layout/SkipToMain';
 import { StickyFloatingCTA } from '@/components/layout/StickyFloatingCTA';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
 import { ClickRipple } from '@/components/ui/ClickRipple';
@@ -61,12 +62,17 @@ function RootLayout() {
   return (
     <LanguageProvider locale={locale}>
       <CookieConsentProvider>
+        <SkipToMain />
         <GrainOverlay />
         <ScrollProgressBar />
         <CustomCursor />
         <ClickRipple />
         <PageTransition pathname={pathname} />
-        <Outlet />
+        {/* Target for SkipToMain — `tabIndex={-1}` allows programmatic focus
+            on hash-jump without becoming a tab stop in the normal tab order. */}
+        <div id="main-content" tabIndex={-1} className="outline-none">
+          <Outlet />
+        </div>
         <MobileSignatureBar />
         <StickyFloatingCTA />
         <CookieBanner />
@@ -82,12 +88,15 @@ function NotFoundLayout() {
   return (
     <LanguageProvider locale={locale}>
       <CookieConsentProvider>
+        <SkipToMain />
         <GrainOverlay />
         <ScrollProgressBar />
         <CustomCursor />
         <ClickRipple />
         <PageTransition pathname={pathname} />
-        <NotFoundPage />
+        <div id="main-content" tabIndex={-1} className="outline-none">
+          <NotFoundPage />
+        </div>
         <CookieBanner />
         <CookieSettingsModal />
       </CookieConsentProvider>
