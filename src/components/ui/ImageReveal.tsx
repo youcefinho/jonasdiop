@@ -59,17 +59,42 @@ export function ImageReveal({
     el.style.transition = 'none';
     el.style.willChange = 'clip-path';
 
+    /**
+     * Trigger the reveal animation. Idempotent — guards against IO double-fire
+     * + above-the-fold immediate-reveal race.
+     */
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      window.setTimeout(() => {
+        el.style.transition = `clip-path ${duration}ms cubic-bezier(0.7, 0, 0.3, 1)`;
+        el.style.clipPath = 'inset(0 0 0 0)';
+        window.setTimeout(() => {
+          el.style.willChange = 'auto';
+        }, duration + 100);
+      }, delay);
+    };
+
+    /**
+     * Check if the element is ALREADY in viewport on mount. Above-the-fold
+     * images (Hero portraits etc.) need immediate reveal because the
+     * IntersectionObserver "first observe" sometimes misses elements that
+     * were intersecting before the observer was attached (StrictMode double
+     * mount, hydration timing, etc.).
+     */
+    const rect = el.getBoundingClientRect();
+    const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inViewport) {
+      // Use rAF to let the initial clip-path commit before we transition off.
+      window.requestAnimationFrame(() => reveal());
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
-        window.setTimeout(() => {
-          el.style.transition = `clip-path ${duration}ms cubic-bezier(0.7, 0, 0.3, 1)`;
-          el.style.clipPath = 'inset(0 0 0 0)';
-          window.setTimeout(() => {
-            el.style.willChange = 'auto';
-          }, duration + 100);
-        }, delay);
+        reveal();
       },
       { threshold }
     );

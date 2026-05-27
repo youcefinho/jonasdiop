@@ -84,23 +84,34 @@ export function StaggerReveal({
       el.style.willChange = 'opacity, transform';
     });
 
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      items.forEach((el, idx) => {
+        window.setTimeout(() => {
+          el.style.transition =
+            'opacity 640ms cubic-bezier(0.22, 1, 0.36, 1), transform 640ms cubic-bezier(0.22, 1, 0.36, 1)';
+          el.style.opacity = '1';
+          el.style.transform = 'translate3d(0, 0, 0)';
+          window.setTimeout(() => {
+            el.style.willChange = 'auto';
+          }, 720);
+        }, idx * staggerMs);
+      });
+    };
+
+    // Above-the-fold guard : container already in viewport on mount → reveal immediately
+    const rect = container.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      window.requestAnimationFrame(() => reveal());
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
-
-        items.forEach((el, idx) => {
-          window.setTimeout(() => {
-            el.style.transition =
-              'opacity 640ms cubic-bezier(0.22, 1, 0.36, 1), transform 640ms cubic-bezier(0.22, 1, 0.36, 1)';
-            el.style.opacity = '1';
-            el.style.transform = 'translate3d(0, 0, 0)';
-            // Drop will-change after animation completes
-            window.setTimeout(() => {
-              el.style.willChange = 'auto';
-            }, 720);
-          }, idx * staggerMs);
-        });
+        reveal();
       },
       { threshold }
     );

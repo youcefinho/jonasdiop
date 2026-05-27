@@ -54,20 +54,33 @@ export function ScrollReveal({
     el.style.transition = 'none';
     el.style.willChange = 'opacity, transform';
 
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      window.setTimeout(() => {
+        el.style.transition =
+          'opacity 720ms cubic-bezier(0.22, 1, 0.36, 1), transform 720ms cubic-bezier(0.22, 1, 0.36, 1)';
+        el.style.opacity = '1';
+        el.style.transform = 'translate3d(0, 0, 0)';
+        window.setTimeout(() => {
+          el.style.willChange = 'auto';
+        }, 800);
+      }, delay);
+    };
+
+    // Above-the-fold guard : if element is already in viewport on mount,
+    // reveal immediately via rAF (avoid IO miss on initial intersection).
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      window.requestAnimationFrame(() => reveal());
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
-        window.setTimeout(() => {
-          el.style.transition =
-            'opacity 720ms cubic-bezier(0.22, 1, 0.36, 1), transform 720ms cubic-bezier(0.22, 1, 0.36, 1)';
-          el.style.opacity = '1';
-          el.style.transform = 'translate3d(0, 0, 0)';
-          // Drop will-change after the transition to free GPU resources
-          window.setTimeout(() => {
-            el.style.willChange = 'auto';
-          }, 800);
-        }, delay);
+        reveal();
       },
       { threshold }
     );
