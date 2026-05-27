@@ -43,7 +43,7 @@ export function ProgramCard({ variant, href, eyebrow, title, description }: Prog
       className={clsx(
         // Multi-layer haptic shadow + white inset highlight + sheen on hover.
         // Premium depth pattern extracted from jonasdiop.com (Framer template).
-        'group relative overflow-hidden flex flex-col gap-sm p-md bg-elevated border rounded-lg transition-all duration-base hover:scale-[1.01]',
+        'group relative overflow-hidden flex flex-col gap-sm p-md bg-elevated border rounded-lg transition-all duration-base hover-lift',
         'shadow-haptic-card shadow-haptic-card-hover',
         // Sheen silver diagonal hover — pseudo-element slides on hover
         "after:content-[''] after:absolute after:inset-0 after:rounded-lg after:bg-[linear-gradient(120deg,transparent_30%,oklch(0.79_0.005_270/0.08)_50%,transparent_70%)] after:bg-[length:200%_200%] after:bg-[position:200%_0] after:transition-all after:duration-[700ms] after:ease-[cubic-bezier(0.4,0,0.2,1)] after:pointer-events-none group-hover:after:bg-[position:-50%_0]",

@@ -11,6 +11,7 @@ import { PodcastPreviewSection } from '@/components/sections/PodcastPreviewSecti
 import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
 import { RessourcesPreviewSection } from '@/components/sections/RessourcesPreviewSection';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
+import { TrustedLogosBar } from '@/components/sections/TrustedLogosBar';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 function HomeEN() {
@@ -19,6 +20,7 @@ function HomeEN() {
       <Navbar />
       <main className="pt-[80px]">
         <Hero />
+        <TrustedLogosBar />
         <ScrollReveal>
           <AboutPreviewSection />
         </ScrollReveal>

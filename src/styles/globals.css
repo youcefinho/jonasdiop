@@ -227,6 +227,35 @@
     box-shadow: var(--shadow-inset-highlight);
   }
 
+  /* Inner Circle micro-shadow utility — 6 micro-layer subtle shadows for
+   * small circular elements (avatars, icons, badges). Extracted Framer
+   * "Inner Circle" component (data-framer-name='Inner Circle').
+   * Different from card shadow : much subtler, designed for tight radii. */
+  .shadow-inner-circle {
+    box-shadow:
+      rgba(0, 0, 0, 0.12) 0px 0.25px 0.25px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0.75px 0.75px 0px,
+      rgba(0, 0, 0, 0.04) 0px 1.25px 1.25px 0px,
+      rgba(0, 0, 0, 0.03) 0px 1.5px 1.5px 0px,
+      rgba(0, 0, 0, 0.03) 0px 2px 4px 0px,
+      rgba(0, 0, 0, 0.16) 0px 4px 8px -2px;
+  }
+
+  /* Hover lift — common premium pattern across template sites. Card rises
+   * 4px on hover (GPU-only translate3d). Combined with shadow-haptic-card-hover
+   * gives the "floating up" feel. Use on .group parent for trigger semantics. */
+  .hover-lift {
+    transition: transform var(--duration-base) var(--ease-out-cubic);
+    will-change: transform;
+  }
+  .hover-lift:hover {
+    transform: translate3d(0, -4px, 0);
+  }
+  .group:hover .group-hover\:lift {
+    transform: translate3d(0, -4px, 0);
+    transition: transform var(--duration-base) var(--ease-out-cubic);
+  }
+
   /* Slow color transition — premium hover feel per jonasdiop.com extraction
    * (`color 0.7s cubic-bezier(0, 0.95, 1, 1)`). Apply via class on hover-aware
    * elements. Override the generic transition-all duration-base where needed. */
@@ -281,6 +310,12 @@
     }
     .animate-marquee {
       animation: none;
+    }
+    .hover-lift,
+    .hover-lift:hover,
+    .group:hover .group-hover\:lift {
+      transform: none;
+      transition: none;
     }
   }
 }

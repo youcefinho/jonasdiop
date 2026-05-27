@@ -30,7 +30,7 @@ export function TestimonialRealCard({ testimonial, focal = false }: TestimonialR
       })}
       className={clsx(
         'group relative flex flex-col overflow-hidden rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
-        'bg-elevated transition-all duration-base',
+        'bg-elevated transition-all duration-base hover-lift',
         // Haptic depth shadows extracted jonasdiop.com — focal card uses
         // gold-glow focal shadow, flank cards use multi-layer card shadow.
         focal

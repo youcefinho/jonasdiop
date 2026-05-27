@@ -119,7 +119,7 @@ export function MethodologieCDTPreviewSection() {
               className={[
                 'group flex flex-col gap-sm p-md rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
                 'bg-elevated ring-1 ring-silver/15',
-                'shadow-haptic-card shadow-haptic-card-hover transition-all duration-base'
+                'shadow-haptic-card shadow-haptic-card-hover hover-lift transition-all duration-base'
               ].join(' ')}
             >
               <span
