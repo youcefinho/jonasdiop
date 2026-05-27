@@ -10,7 +10,15 @@ interface ImageRevealProps {
   duration?: number;
   /** Delay before reveal (ms). Default 0. */
   delay?: number;
-  /** Intersection threshold 0..1. Default 0.15. */
+  /** Intersection threshold 0..1. Default 0.
+   * NOTE : MUST stay at 0 by default. Chrome's IntersectionObserver respects
+   * the target's `clip-path` when computing `intersectionRatio`. Since this
+   * component starts with a clip-path that hides the wrapper (inset(100%) or
+   * inset(45%)), the visible area = 0 → ratio = 0 → any threshold > 0 would
+   * NEVER fire. The bug : portraits stuck invisible on below-the-fold sections
+   * because reveal() was never called. Threshold 0 means "any positive bounding
+   * box overlap fires" — IO callback runs even when ratio=0 because
+   * isIntersecting flips from false to true. */
   threshold?: number;
   className?: string;
 }
@@ -40,7 +48,7 @@ export function ImageReveal({
   direction = 'expand',
   duration = 900,
   delay = 0,
-  threshold = 0.15,
+  threshold = 0,
   className
 }: ImageRevealProps) {
   const ref = useRef<HTMLDivElement>(null);

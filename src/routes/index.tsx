@@ -13,6 +13,7 @@ import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
 import { RessourcesPreviewSection } from '@/components/sections/RessourcesPreviewSection';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
 import { TrustedLogosBar } from '@/components/sections/TrustedLogosBar';
+import { VslPlaceholderSection } from '@/components/sections/VslPlaceholderSection';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SectionDivider } from '@/components/ui/SectionDivider';
 
@@ -22,6 +23,9 @@ function HomeFR() {
       <Navbar />
       <main className="pt-[80px]">
         <Hero />
+        <ScrollReveal>
+          <VslPlaceholderSection id="vsl-methode" />
+        </ScrollReveal>
         <TrustedLogosBar />
         <ScrollReveal>
           <AboutPreviewSection />
