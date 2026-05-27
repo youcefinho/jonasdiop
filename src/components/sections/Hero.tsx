@@ -7,6 +7,7 @@ import { MeshGradient } from '@/components/ui/MeshGradient';
 import { MouseFollowSpotlight } from '@/components/ui/MouseFollowSpotlight';
 import { ScrollCue } from '@/components/ui/ScrollCue';
 import { ROUTES } from '@/config/routes';
+import { useScrollFade } from '@/hooks/useScrollFade';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { useT } from '@/lib/i18n/useT';
 import { heroEntranceTimings } from '@/lib/motion/presets';
@@ -38,6 +39,10 @@ const SOCIAL_AVATARS = [
 export function Hero() {
   const { t, locale } = useT();
   const scrollTo = useSmoothScroll();
+  // Cinematic scroll-fade : H1 + sub + CTAs + stats fade out + translateY up
+  // as the user scrolls past the first viewport. Atmospheric layers (mesh,
+  // spotlight, light beam) stay anchored for depth contrast.
+  const contentFadeRef = useScrollFade<HTMLDivElement>({ distance: 520, maxOffset: 36 });
 
   return (
     <section
@@ -94,7 +99,10 @@ export function Hero() {
         }}
       />
 
-      <div className="relative flex flex-col items-center gap-md max-w-[var(--container-default)]">
+      <div
+        ref={contentFadeRef}
+        className="relative flex flex-col items-center gap-md max-w-[var(--container-default)]"
+      >
         <Eyebrow>{t({ fr: "Architecte d'affaires", en: 'Business Architect' })}</Eyebrow>
 
         {/* H1 size + width tuned to force 2 lignes balanced per Stitch board 13 :

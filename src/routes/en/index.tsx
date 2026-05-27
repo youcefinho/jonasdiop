@@ -14,6 +14,7 @@ import { RessourcesPreviewSection } from '@/components/sections/RessourcesPrevie
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
 import { TrustedLogosBar } from '@/components/sections/TrustedLogosBar';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { SectionDivider } from '@/components/ui/SectionDivider';
 
 function HomeEN() {
   return (
@@ -25,6 +26,7 @@ function HomeEN() {
         <ScrollReveal>
           <AboutPreviewSection />
         </ScrollReveal>
+        <SectionDivider variant="gold" />
         <ScrollReveal>
           <MethodologieCDTPreviewSection />
         </ScrollReveal>
@@ -34,6 +36,7 @@ function HomeEN() {
         <ScrollReveal>
           <HowItWorksTimeline />
         </ScrollReveal>
+        <SectionDivider variant="silver" />
         <ScrollReveal>
           <TestimonialGrid />
         </ScrollReveal>
@@ -47,6 +50,7 @@ function HomeEN() {
         <ScrollReveal>
           <FAQHomeSection />
         </ScrollReveal>
+        <SectionDivider variant="gold" />
         <ScrollReveal>
           <FinalCTASection />
         </ScrollReveal>

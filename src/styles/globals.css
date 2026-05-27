@@ -19,6 +19,28 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Brand scrollbar — thin silver track + gold thumb. Premium polish that
+   * matches the Platinum Executive Authority palette. WebKit + standard. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.74 0.085 75 / 0.6) oklch(0.27 0.005 80 / 0.4);
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: oklch(0.27 0.005 80 / 0.4);
+  }
+  *::-webkit-scrollbar-thumb {
+    background: oklch(0.74 0.085 75 / 0.55);
+    border-radius: 9999px;
+    border: 2px solid oklch(0.16 0.005 80);
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.74 0.085 75 / 0.85);
+  }
+
   /* Titres : balance + display font */
   h1,
   h2,
@@ -102,21 +124,7 @@
     color: var(--bg-base);
   }
 
-  /* Scrollbar (webkit) — sober dark */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--bg-base);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--border-medium);
-    border-radius: var(--radius-pill);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--border-strong);
-  }
+  /* (Scrollbar styles defined above near body — gold accent + silver track) */
 }
 
 @layer utilities {
@@ -330,6 +338,63 @@
     filter: brightness(1.05);
   }
 
+  /* Hover border sweep — single-pass conic gradient sweep on hover. Different
+   * from `.border-glow` (which rotates continuously). Use for focal cards
+   * that should signal interactivity without permanent motion. Requires the
+   * card to be `position: relative` and have a child with z-index above this
+   * pseudo. The sweep travels once from 0° → 360° in 1.4s on hover, fades
+   * out on leave. Mask composite xor to keep gradient on border only. */
+  .hover-border-sweep {
+    position: relative;
+    isolation: isolate;
+  }
+  .hover-border-sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--hbs-angle, 0deg),
+      transparent 0deg,
+      transparent 80deg,
+      oklch(0.74 0.085 75 / 0.85) 140deg,
+      oklch(0.88 0.1 80 / 0.95) 160deg,
+      oklch(0.74 0.085 75 / 0.85) 180deg,
+      transparent 240deg,
+      transparent 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 320ms ease-out;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hover-border-sweep:hover::after {
+    opacity: 1;
+    animation: hover-border-sweep-rotate 1400ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @property --hbs-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+  @keyframes hover-border-sweep-rotate {
+    0% {
+      --hbs-angle: 0deg;
+    }
+    100% {
+      --hbs-angle: 360deg;
+    }
+  }
+
   /* Section gradient backgrounds — replace flat bg-elevated/bg-base with
    * subtle linear-gradients for depth. Per jonasdiop.com extraction (8 BG
    * gradients found, all subtle gray→gray linear). */
@@ -393,6 +458,11 @@
       transform: none;
       filter: none;
       transition: none;
+    }
+    .hover-border-sweep::after,
+    .hover-border-sweep:hover::after {
+      animation: none;
+      opacity: 0;
     }
   }
 }

@@ -160,7 +160,9 @@ function PillarCard({ pillar, index, isCenter }: PillarCardProps) {
         /* Double-bezel outer shell */
         'rounded-[clamp(1rem,0.7rem+1.4vw,1.75rem)]',
         'ring-1',
-        isCenter ? 'ring-gold/25 bg-elevated/80' : 'ring-silver/10 bg-elevated/50',
+        isCenter
+          ? 'ring-gold/25 bg-elevated/80 hover-border-sweep'
+          : 'ring-silver/10 bg-elevated/50',
         'backdrop-blur-sm',
         /* Inner highlight — Emil: inset shadow for depth */
         isCenter
