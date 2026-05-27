@@ -90,7 +90,7 @@ export function MethodologieCDTPreviewSection() {
             direction="expand"
             duration={900}
             className={[
-              'relative aspect-[16/9] rounded-[clamp(0.75rem,0.8vw+0.4rem,1.5rem)] overflow-hidden',
+              'group relative aspect-[16/9] rounded-[clamp(0.75rem,0.8vw+0.4rem,1.5rem)] overflow-hidden',
               'ring-1 ring-silver/10',
               'shadow-[0_32px_80px_-16px_oklch(0_0_0/0.5)]'
             ].join(' ')}
@@ -106,7 +106,7 @@ export function MethodologieCDTPreviewSection() {
                 })}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hover-zoom-target"
               />
             </picture>
             <div

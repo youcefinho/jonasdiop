@@ -314,6 +314,22 @@
     transition: color 0.7s cubic-bezier(0, 0.95, 1, 1);
   }
 
+  /* Hover zoom — apply to a wrapper around <img> / <picture>. The wrapper
+   * must have `overflow: hidden` for the zoom to crop cleanly. Subtle scale
+   * 1.04 + brightness 1.05 over 900ms cubic-bezier. GPU-safe (transform +
+   * filter only). Pair with `.group` and `group-hover:` for parent hover. */
+  .hover-zoom-target {
+    transition:
+      transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+  .group:hover .hover-zoom-target,
+  .hover-zoom:hover .hover-zoom-target {
+    transform: scale(1.04);
+    filter: brightness(1.05);
+  }
+
   /* Section gradient backgrounds — replace flat bg-elevated/bg-base with
    * subtle linear-gradients for depth. Per jonasdiop.com extraction (8 BG
    * gradients found, all subtle gray→gray linear). */
@@ -370,6 +386,13 @@
     }
     .border-glow::before {
       animation: none;
+    }
+    .hover-zoom-target,
+    .group:hover .hover-zoom-target,
+    .hover-zoom:hover .hover-zoom-target {
+      transform: none;
+      filter: none;
+      transition: none;
     }
   }
 }

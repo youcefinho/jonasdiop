@@ -54,7 +54,7 @@ export function AboutPage() {
               direction="slide-up"
               duration={1000}
               className={[
-                'relative aspect-[3/4] rounded-[clamp(1rem,1vw+0.5rem,1.75rem)] overflow-hidden',
+                'group relative aspect-[3/4] rounded-[clamp(1rem,1vw+0.5rem,1.75rem)] overflow-hidden',
                 'ring-1 ring-silver/15',
                 'shadow-haptic-focal',
                 'bg-elevated'
@@ -71,7 +71,7 @@ export function AboutPage() {
                   })}
                   loading="eager"
                   decoding="async"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover-zoom-target"
                 />
               </picture>
               <div

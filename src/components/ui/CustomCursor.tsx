@@ -106,9 +106,28 @@ export function CustomCursor() {
       <div
         ref={ringRef}
         aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-[70] h-9 w-9 rounded-full border border-silver/45 mix-blend-difference will-change-transform transition-[border-color,background-color,opacity] duration-200 ease-out data-[hover=true]:border-gold/80 data-[hover=true]:bg-gold/5"
+        className="group pointer-events-none fixed left-0 top-0 z-[70] h-9 w-9 rounded-full border border-silver/45 mix-blend-difference will-change-transform transition-[border-color,background-color,opacity] duration-200 ease-out data-[hover=true]:border-gold/80 data-[hover=true]:bg-gold/5"
         style={{ transitionProperty: 'border-color, background-color, opacity, scale' }}
-      />
+      >
+        {/* Arrow glyph — fades + scales in only when hovering an interactive
+            element. Centered in the ring via flex. Gold for premium contrast. */}
+        <span className="absolute inset-0 flex items-center justify-center opacity-0 scale-50 transition-all duration-200 ease-out group-data-[hover=true]:opacity-100 group-data-[hover=true]:scale-100">
+          <svg
+            viewBox="0 0 24 24"
+            width="10"
+            height="10"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-gold"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </span>
+      </div>
       <div
         ref={dotRef}
         aria-hidden="true"

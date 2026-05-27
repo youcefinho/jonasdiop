@@ -1,4 +1,5 @@
 import { ArrowRight, Star } from 'lucide-react';
+import { CountUp } from '@/components/ui/CountUp';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
@@ -189,25 +190,31 @@ export function Hero() {
             uppercase silver, all visible in same viewport as Hero. */}
         <ul className="mt-md grid grid-cols-3 gap-md sm:gap-xl w-full max-w-[820px]">
           <li className="flex flex-col items-center text-center gap-2">
-            <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
-              857+
-            </span>
+            <CountUp
+              to={857}
+              suffix="+"
+              className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none tabular-nums"
+            />
             <span className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
               {t({ fr: 'Entrepreneurs accompagnés', en: 'Entrepreneurs supported' })}
             </span>
           </li>
           <li className="flex flex-col items-center text-center gap-2">
-            <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
-              31M$+
-            </span>
+            <CountUp
+              to={31}
+              suffix="M$+"
+              className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none tabular-nums"
+            />
             <span className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
               {t({ fr: 'Généré pour nos clients', en: 'Generated for clients' })}
             </span>
           </li>
           <li className="flex flex-col items-center text-center gap-2">
-            <span className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none">
-              15 ANS
-            </span>
+            <CountUp
+              to={15}
+              suffix=" ANS"
+              className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none tabular-nums"
+            />
             <span className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
               {t({ fr: "D'expertise stratégique", en: 'Of strategic expertise' })}
             </span>
