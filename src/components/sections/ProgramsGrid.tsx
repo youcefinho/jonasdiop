@@ -94,11 +94,13 @@ export function ProgramsGrid() {
                   />
                 </div>
 
-                {/* Cards grid — auto-fit 1/2/3 cols + stagger reveal 100ms */}
+                {/* Cards grid — auto-fit 1/2/3 cols + stagger reveal 100ms.
+                    `data-card-group` enables CSS `:has()` sibling-dim on hover. */}
                 <StaggerReveal
                   as="div"
                   className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md"
                   staggerMs={100}
+                  data-card-group="programs"
                 >
                   {cards.map((p) => (
                     <ProgramCard

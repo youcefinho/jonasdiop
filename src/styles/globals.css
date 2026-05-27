@@ -381,6 +381,73 @@
     filter: brightness(1.05);
   }
 
+  /* Eyebrow gold dot pulse — gentle 3s opacity + scale breath on the gold
+   * dot inside `<Eyebrow>` badges. Adds quiet "alive" signal without being
+   * marketing-loud. Use sparingly via `animate-eyebrow-dot-pulse` (already
+   * applied by Eyebrow component to the dot only, not the surrounding pill). */
+  @keyframes eyebrow-dot-pulse {
+    0%,
+    100% {
+      opacity: 0.85;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.25);
+    }
+  }
+  .animate-eyebrow-dot-pulse {
+    animation: eyebrow-dot-pulse 3000ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+
+  /* Card siblings dim on hover — when one card in a `[data-card-group]`
+   * grid is hovered, sibling cards subtly fade + scale down. Uses CSS
+   * `:has()` (Chromium 105+, Safari 15.4+, Firefox 121+). Falls back to
+   * no-effect on older browsers (no JS dependency). GPU-safe (opacity +
+   * transform only). */
+  [data-card-group]:has(> *:hover) > *:not(:hover) {
+    opacity: 0.55;
+    transform: scale(0.985);
+    transition:
+      opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  [data-card-group] > * {
+    transition:
+      opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Click ripple — single transient circle that expands + fades from the
+   * exact click position. Mounted via ClickRipple.tsx (rendered per click,
+   * removed when animation ends). Gold radial, GPU-safe. */
+  @keyframes click-ripple-out {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.65;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(8);
+      opacity: 0;
+    }
+  }
+  .click-ripple {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    background: radial-gradient(
+      circle,
+      oklch(0.74 0.085 75 / 0.6) 0%,
+      oklch(0.74 0.085 75 / 0.25) 45%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 80;
+    mix-blend-mode: screen;
+    animation: click-ripple-out 720ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
   /* CTA secondary ink-fill — silver/8 pane that rises from bottom of the
    * button on hover, then settles. Replaces the static `hover:bg-silver/X`
    * fill with a cinematic upward sweep. Apply to silver-secondary/outline
@@ -582,6 +649,21 @@
     .link-sweep:hover::after {
       transform: scaleX(1);
       transition: none;
+    }
+    .animate-eyebrow-dot-pulse {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    [data-card-group]:has(> *:hover) > *:not(:hover),
+    [data-card-group] > * {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .click-ripple {
+      animation: none;
+      opacity: 0;
     }
   }
 }

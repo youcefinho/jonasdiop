@@ -5,6 +5,7 @@ import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { MobileSignatureBar } from '@/components/layout/MobileSignatureBar';
 import { StickyFloatingCTA } from '@/components/layout/StickyFloatingCTA';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
+import { ClickRipple } from '@/components/ui/ClickRipple';
 import { CustomCursor } from '@/components/ui/CustomCursor';
 import { GrainOverlay } from '@/components/ui/GrainOverlay';
 import { PageTransition } from '@/components/ui/PageTransition';
@@ -63,6 +64,7 @@ function RootLayout() {
         <GrainOverlay />
         <ScrollProgressBar />
         <CustomCursor />
+        <ClickRipple />
         <PageTransition pathname={pathname} />
         <Outlet />
         <MobileSignatureBar />
@@ -83,6 +85,7 @@ function NotFoundLayout() {
         <GrainOverlay />
         <ScrollProgressBar />
         <CustomCursor />
+        <ClickRipple />
         <PageTransition pathname={pathname} />
         <NotFoundPage />
         <CookieBanner />

@@ -67,8 +67,9 @@ export function StickyFloatingCTA() {
         'hidden md:inline-flex',
         // Position bottom-right, above modals z-30 but below MobileSignatureBar
         'fixed bottom-6 right-6 z-30',
-        // Pill style with gold metallic gradient + haptic shadow
-        'items-center gap-2 px-md py-[0.65rem] rounded-pill',
+        // Pill style with gold metallic gradient + haptic shadow + breathing
+        // halo pulse (cta-halo-pulse adds `::after` gold radial breath).
+        'items-center gap-2 px-md py-[0.65rem] rounded-pill cta-halo-pulse',
         'bg-[linear-gradient(180deg,oklch(0.86_0.085_75)_0%,oklch(0.66_0.085_75)_100%)]',
         'text-base shadow-haptic-card',
         'text-eyebrow uppercase tracking-wider font-display font-semibold text-xs',

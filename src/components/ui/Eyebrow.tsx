@@ -28,7 +28,7 @@ export function Eyebrow({ children, goldDot = true, variant = 'pill', className 
           <span
             data-eyebrow-dot
             aria-hidden="true"
-            className="inline-block h-1.5 w-1.5 rounded-full bg-gold"
+            className="inline-block h-1.5 w-1.5 rounded-full bg-gold animate-eyebrow-dot-pulse"
           />
         )}
         <span className="text-eyebrow uppercase tracking-widest text-silver font-display">
@@ -52,7 +52,7 @@ export function Eyebrow({ children, goldDot = true, variant = 'pill', className 
         <span
           data-eyebrow-dot
           aria-hidden="true"
-          className="inline-block h-1.5 w-1.5 rounded-full bg-gold"
+          className="inline-block h-1.5 w-1.5 rounded-full bg-gold animate-eyebrow-dot-pulse"
         />
       )}
       <span className="text-eyebrow uppercase tracking-widest text-silver font-display">
