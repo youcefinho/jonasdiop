@@ -193,7 +193,7 @@ export function ContactPage() {
                     type="text"
                     disabled
                     placeholder={t(contactCopy.form.fields.name.placeholder)}
-                    className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary placeholder:text-silver/30 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:border-silver/40"
+                    className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary placeholder:text-silver/30 disabled:cursor-not-allowed disabled:opacity-60 input-focus-premium focus:outline-none"
                   />
                 </div>
 
@@ -212,7 +212,7 @@ export function ContactPage() {
                       type="email"
                       disabled
                       placeholder={t(contactCopy.form.fields.email.placeholder)}
-                      className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary placeholder:text-silver/30 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:border-silver/40"
+                      className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary placeholder:text-silver/30 disabled:cursor-not-allowed disabled:opacity-60 input-focus-premium focus:outline-none"
                     />
                   </div>
 
@@ -229,7 +229,7 @@ export function ContactPage() {
                       type="tel"
                       disabled
                       placeholder={t(contactCopy.form.fields.phone.placeholder)}
-                      className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary placeholder:text-silver/30 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:border-silver/40"
+                      className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary placeholder:text-silver/30 disabled:cursor-not-allowed disabled:opacity-60 input-focus-premium focus:outline-none"
                     />
                   </div>
                 </div>
@@ -246,7 +246,7 @@ export function ContactPage() {
                     id="contact-revenue"
                     name="revenueRange"
                     disabled
-                    className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:border-silver/40"
+                    className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary disabled:cursor-not-allowed disabled:opacity-60 input-focus-premium focus:outline-none"
                   >
                     {contactCopy.form.fields.revenueRange.options.map((opt) => (
                       <option key={opt.fr} value={opt.fr}>
@@ -270,7 +270,7 @@ export function ContactPage() {
                     rows={6}
                     disabled
                     placeholder={t(contactCopy.form.fields.message.placeholder)}
-                    className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary placeholder:text-silver/30 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:border-silver/40 resize-none"
+                    className="px-md py-sm bg-elevated border border-silver/15 rounded-lg text-body text-primary placeholder:text-silver/30 disabled:cursor-not-allowed disabled:opacity-60 input-focus-premium focus:outline-none resize-none"
                   />
                 </div>
 

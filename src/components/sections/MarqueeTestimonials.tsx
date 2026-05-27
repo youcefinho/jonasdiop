@@ -37,11 +37,11 @@ export function MarqueeTestimonials() {
         className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[120px] bg-gradient-to-l from-base to-transparent"
       />
 
-      {/* Marquee track — animated translateX, pauses on hover. Cursor grab
-          signals draggable feel even though the marquee runs on its own ;
-          per-card hover lift + ring boost focus the dwell-point. */}
+      {/* Marquee track — animated translateX, pauses on hover. Per-card hover
+          lift + ring boost focus the dwell-point. (Removed cursor-grab UX
+          lie : no actual drag handler was wired.) */}
       <div
-        className="flex animate-marquee hover:[animation-play-state:paused] gap-md w-max cursor-grab active:cursor-grabbing"
+        className="flex animate-marquee hover:[animation-play-state:paused] gap-md w-max"
         data-cursor-label="Témoignages"
       >
         {doubled.map((testimonial, idx) => (

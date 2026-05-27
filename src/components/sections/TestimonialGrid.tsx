@@ -54,8 +54,12 @@ export function TestimonialGrid() {
           </p>
         </div>
 
-        {/* Asymmetric focal grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-md mt-xl items-center">
+        {/* Asymmetric focal grid — `data-card-group` enables CSS `:has()`
+            sibling-dim on hover (Sprint 10F polish). */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-12 gap-md mt-xl items-center"
+          data-card-group="testimonials"
+        >
           {/* Flank LEFT — Sophie Martin */}
           <div className="md:col-span-3 md:translate-y-3">
             <TestimonialRealCard testimonial={flankLeft} />

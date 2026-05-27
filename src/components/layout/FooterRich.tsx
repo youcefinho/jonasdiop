@@ -116,7 +116,7 @@ export function FooterRich() {
               <Link
                 key={p.id}
                 to={ROUTES[p.hrefKey][locale]}
-                className="hover:text-primary transition-colors"
+                className="link-sweep hover:text-primary transition-colors"
               >
                 {t(p.name)}
               </Link>
@@ -135,20 +135,32 @@ export function FooterRich() {
           >
             <Link
               to={ROUTES['methodologie-cdt'][locale]}
-              className="hover:text-primary transition-colors"
+              className="link-sweep hover:text-primary transition-colors"
             >
               {t({ fr: 'Méthodologie CDT™', en: 'CDT™ Methodology' })}
             </Link>
-            <Link to={ROUTES.ressources[locale]} className="hover:text-primary transition-colors">
+            <Link
+              to={ROUTES.ressources[locale]}
+              className="link-sweep hover:text-primary transition-colors"
+            >
               {t({ fr: 'Articles', en: 'Articles' })}
             </Link>
-            <Link to={ROUTES.podcast[locale]} className="hover:text-primary transition-colors">
+            <Link
+              to={ROUTES.podcast[locale]}
+              className="link-sweep hover:text-primary transition-colors"
+            >
               {t({ fr: 'Podcast The Game Changer', en: 'The Game Changer Podcast' })}
             </Link>
-            <Link to={ROUTES.livre[locale]} className="hover:text-primary transition-colors">
+            <Link
+              to={ROUTES.livre[locale]}
+              className="link-sweep hover:text-primary transition-colors"
+            >
               {t({ fr: 'Livre (à venir)', en: 'Book (coming)' })}
             </Link>
-            <Link to={ROUTES.evenements[locale]} className="hover:text-primary transition-colors">
+            <Link
+              to={ROUTES.evenements[locale]}
+              className="link-sweep hover:text-primary transition-colors"
+            >
               {t({ fr: 'Événements', en: 'Events' })}
             </Link>
           </nav>

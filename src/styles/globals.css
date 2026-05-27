@@ -381,6 +381,42 @@
     filter: brightness(1.05);
   }
 
+  /* Input focus premium — gold focus ring + smooth border transition for
+   * form fields. Builds on Tailwind's default focus styles : on `:focus`,
+   * the border lifts from silver/15 to gold/50, and a thin outer halo
+   * appears (box-shadow 0 0 0 3px gold/12). Combined with bg subtle shift
+   * for the "input awakens" feel. GPU-safe (color + box-shadow only). */
+  .input-focus-premium {
+    transition:
+      border-color 240ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 240ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .input-focus-premium:focus,
+  .input-focus-premium:focus-visible {
+    outline: none;
+    border-color: oklch(0.74 0.085 75 / 0.55);
+    box-shadow:
+      0 0 0 3px oklch(0.74 0.085 75 / 0.12),
+      inset 0 1px 1px oklch(1 0 0 / 0.04);
+    background-color: oklch(0.29 0.005 80);
+  }
+
+  /* Image lazy fade-in — wraps any <img loading="lazy"> with a gentle fade
+   * from opacity 0 → 1 over 700ms when the `complete` state flips. Avoids
+   * the harsh "pop-in" of bare lazy images. Combined with `aspect-ratio`
+   * placeholder, gives a polished load experience. Pure CSS via the
+   * built-in `complete` pseudo-class fallback : we use `[data-loaded]` toggled
+   * by ImgLazyFade.tsx OR by inline onLoad. */
+  .img-lazy-fade {
+    opacity: 0;
+    transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .img-lazy-fade[data-loaded="true"],
+  .img-lazy-fade.is-complete {
+    opacity: 1;
+  }
+
   /* Eyebrow gold dot pulse — gentle 3s opacity + scale breath on the gold
    * dot inside `<Eyebrow>` badges. Adds quiet "alive" signal without being
    * marketing-loud. Use sparingly via `animate-eyebrow-dot-pulse` (already
@@ -667,6 +703,15 @@
     .click-ripple {
       animation: none;
       opacity: 0;
+    }
+    .input-focus-premium,
+    .input-focus-premium:focus,
+    .input-focus-premium:focus-visible {
+      transition: none;
+    }
+    .img-lazy-fade {
+      opacity: 1;
+      transition: none;
     }
   }
 }
