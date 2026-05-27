@@ -2,6 +2,7 @@ import { defaultSchema } from 'hast-util-sanitize';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import rehypeSanitize from 'rehype-sanitize';
 import remarkGfm from 'remark-gfm';
+import { ReadingProgress } from '@/components/ui/ReadingProgress';
 import type { Article } from '@/lib/content/types';
 
 interface ArticleRendererProps {
@@ -180,6 +181,7 @@ export function ArticleRenderer({ article }: ArticleRendererProps) {
       data-article-renderer
       className="max-w-content mx-auto px-md py-2xl flex flex-col gap-lg"
     >
+      <ReadingProgress target="[data-article-body]" />
       {/* Header */}
       <header className="flex flex-col gap-md max-w-[65ch] mx-auto w-full">
         {article.category && (

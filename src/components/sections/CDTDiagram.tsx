@@ -1,6 +1,87 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { methodologieCdtCopy } from '@/data/copy/methodologie-cdt';
 import { useT } from '@/lib/i18n/useT';
+
+/**
+ * ConnectingPaths — SVG lines drawn from each pillar towards the central orb.
+ * stroke-dashoffset animation : the lines "draw in" when the diagram enters
+ * the viewport. Decorative, hidden from screen readers. Hidden on mobile
+ * where pillars are stacked (no orbit visual).
+ */
+function ConnectingPaths() {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [drawn, setDrawn] = useState(false);
+
+  useEffect(() => {
+    const el = svgRef.current;
+    if (!el) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDrawn(true);
+      return;
+    }
+
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      window.requestAnimationFrame(() => setDrawn(true));
+      return;
+    }
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        obs.disconnect();
+        setDrawn(true);
+      },
+      { threshold: 0.2 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const pathStyle = {
+    strokeDasharray: 280,
+    strokeDashoffset: drawn ? 0 : 280,
+    transition: 'stroke-dashoffset 1400ms cubic-bezier(0.22, 1, 0.36, 1), opacity 700ms ease-out',
+    opacity: drawn ? 1 : 0
+  };
+
+  return (
+    <svg
+      ref={svgRef}
+      aria-hidden="true"
+      viewBox="0 0 1000 400"
+      preserveAspectRatio="none"
+      className="pointer-events-none absolute inset-0 hidden md:block h-full w-full"
+    >
+      <defs>
+        <linearGradient id="cdt-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="oklch(0.79 0.005 270 / 0.05)" />
+          <stop offset="50%" stopColor="oklch(0.74 0.085 75 / 0.45)" />
+          <stop offset="100%" stopColor="oklch(0.79 0.005 270 / 0.05)" />
+        </linearGradient>
+      </defs>
+      {/* Left pillar → center orb */}
+      <path
+        d="M 200 200 Q 350 200 500 200"
+        fill="none"
+        stroke="url(#cdt-line-grad)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        style={{ ...pathStyle, transitionDelay: '120ms' }}
+      />
+      {/* Right pillar → center orb */}
+      <path
+        d="M 800 200 Q 650 200 500 200"
+        fill="none"
+        stroke="url(#cdt-line-grad)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        style={{ ...pathStyle, transitionDelay: '240ms' }}
+      />
+    </svg>
+  );
+}
 
 /**
  * CDTDiagram — 3 piliers hexagones SVG avec halo gold radial center.
@@ -215,6 +296,9 @@ export function CDTDiagram() {
           }}
         />
       </div>
+
+      {/* SVG connecting paths from flanks → center orb (decorative draw-in) */}
+      <ConnectingPaths />
 
       {/* 3 pillar grid — asymmetric Z-axis cascade: center slightly elevated */}
       <div className="relative grid grid-cols-1 md:grid-cols-3 gap-[clamp(0.75rem,1.5vw,1.5rem)] items-center">

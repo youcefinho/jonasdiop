@@ -5,7 +5,9 @@ import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { MobileSignatureBar } from '@/components/layout/MobileSignatureBar';
 import { StickyFloatingCTA } from '@/components/layout/StickyFloatingCTA';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
+import { CustomCursor } from '@/components/ui/CustomCursor';
 import { GrainOverlay } from '@/components/ui/GrainOverlay';
+import { PageTransition } from '@/components/ui/PageTransition';
 import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
 import { CookieConsentProvider } from '@/lib/consent/CookieConsentContext';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
@@ -60,6 +62,8 @@ function RootLayout() {
       <CookieConsentProvider>
         <GrainOverlay />
         <ScrollProgressBar />
+        <CustomCursor />
+        <PageTransition pathname={pathname} />
         <Outlet />
         <MobileSignatureBar />
         <StickyFloatingCTA />
@@ -78,6 +82,8 @@ function NotFoundLayout() {
       <CookieConsentProvider>
         <GrainOverlay />
         <ScrollProgressBar />
+        <CustomCursor />
+        <PageTransition pathname={pathname} />
         <NotFoundPage />
         <CookieBanner />
         <CookieSettingsModal />

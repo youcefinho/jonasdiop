@@ -373,3 +373,49 @@
     }
   }
 }
+
+/* === CUSTOM CURSOR — hide native cursor on fine-pointer devices when active.
+ * Only applied via .has-custom-cursor class set by CustomCursor.tsx itself
+ * (which already gated on pointer:fine + no reduced-motion). Touch / coarse
+ * pointer / reduced-motion users keep their native cursor untouched. */
+@media (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button,
+  html.has-custom-cursor [role="button"],
+  html.has-custom-cursor input,
+  html.has-custom-cursor textarea,
+  html.has-custom-cursor select,
+  html.has-custom-cursor label {
+    cursor: none;
+  }
+}
+
+/* === VIEW TRANSITIONS API — soft cross-fade on route change.
+ * Chromium 111+, Safari 18+. Firefox = silently ignored (no regression).
+ * Only :root::view-transition-* pseudos are styled — no JS animation
+ * library needed. Snappy 280ms cross-fade, no scale to keep it subtle. */
+@media not (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 280ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  ::view-transition-old(root) {
+    animation-name: vt-fade-out;
+  }
+  ::view-transition-new(root) {
+    animation-name: vt-fade-in;
+  }
+  @keyframes vt-fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes vt-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
