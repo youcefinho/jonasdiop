@@ -1,4 +1,13 @@
-import { Children, isValidElement, type ReactNode, useEffect, useRef } from 'react';
+import {
+  Children,
+  cloneElement,
+  isValidElement,
+  type ReactElement,
+  type ReactNode,
+  type Ref,
+  useEffect,
+  useRef
+} from 'react';
 
 interface StaggerRevealProps {
   children: ReactNode;
@@ -11,6 +20,10 @@ interface StaggerRevealProps {
   /** Container element. Default `div`. */
   as?: 'div' | 'section' | 'ul' | 'ol';
   className?: string;
+  /** Pass-through aria-label on the container. */
+  'aria-label'?: string;
+  /** Pass-through data-* hooks (tests / analytics) on the container. */
+  [dataAttr: `data-${string}`]: string | undefined;
 }
 
 /**
@@ -33,8 +46,17 @@ export function StaggerReveal({
   offset = 24,
   threshold = 0.1,
   as: Tag = 'div',
-  className
+  className,
+  ...rest
 }: StaggerRevealProps) {
+  // Whitelist `aria-*` + `data-*` only — don't forward unknown props that
+  // could clash with the ref or `data-stagger-reveal` marker.
+  const passthrough: Record<string, string> = {};
+  for (const [k, v] of Object.entries(rest)) {
+    if (typeof v === 'string' && (k.startsWith('data-') || k.startsWith('aria-'))) {
+      passthrough[k] = v;
+    }
+  }
   const containerRef = useRef<HTMLDivElement>(null);
   const childRefs = useRef<HTMLDivElement[]>([]);
   childRefs.current = [];
@@ -87,7 +109,15 @@ export function StaggerReveal({
     return () => observer.disconnect();
   }, [staggerMs, offset, threshold]);
 
-  const childArray = Children.toArray(children).filter(isValidElement);
+  const childArray = Children.toArray(children).filter(isValidElement) as ReactElement<{
+    ref?: Ref<HTMLElement>;
+  }>[];
+
+  // When the container is a list (`ul`/`ol`), wrapping children in a `<div>`
+  // produces invalid HTML (`<ul><div><li/></div></ul>`) and triggers axe
+  // `listitem` violations. In that case, clone each child and attach the
+  // animation ref directly to the `<li>` itself — no wrapper.
+  const skipWrapper = Tag === 'ul' || Tag === 'ol';
 
   return (
     <Tag
@@ -95,23 +125,45 @@ export function StaggerReveal({
       ref={containerRef as unknown as React.Ref<any>}
       className={className}
       data-stagger-reveal
+      {...passthrough}
     >
-      {childArray.map((child, idx) => (
-        <div
-          // biome-ignore lint/suspicious/noArrayIndexKey: stable order children
-          key={idx}
-          ref={(el) => {
-            if (el) childRefs.current[idx] = el;
-          }}
-          // Wrapper carries the stagger animation. Uses display: contents
-          // when possible (children inherit grid/flex position from container),
-          // but transforms work since rAF + IO apply to this wrapper directly
-          // via JS. NOTE : if you need the wrapper as a real layout element
-          // for a grid, omit `display: contents` (current behaviour).
-        >
-          {child}
-        </div>
-      ))}
+      {skipWrapper
+        ? childArray.map((child, idx) => {
+            // React 19 : ref is a prop on the element itself, not stripped.
+            // Access it via `props.ref` (typed) — fall back to the deprecated
+            // `child.ref` shape via cast for older React versions.
+            const existingRef = (child.props as { ref?: Ref<HTMLElement> }).ref as
+              | Ref<HTMLElement>
+              | undefined;
+            return cloneElement(child, {
+              // biome-ignore lint/suspicious/noArrayIndexKey: stable order children
+              key: idx,
+              ref: (el: HTMLElement | null) => {
+                if (el) childRefs.current[idx] = el as unknown as HTMLDivElement;
+                // Forward to any existing ref the caller attached to the child
+                if (typeof existingRef === 'function') existingRef(el);
+                else if (existingRef && 'current' in existingRef) {
+                  (existingRef as { current: HTMLElement | null }).current = el;
+                }
+              }
+            });
+          })
+        : childArray.map((child, idx) => (
+            <div
+              // biome-ignore lint/suspicious/noArrayIndexKey: stable order children
+              key={idx}
+              ref={(el) => {
+                if (el) childRefs.current[idx] = el;
+              }}
+              // Wrapper carries the stagger animation. Uses display: contents
+              // when possible (children inherit grid/flex position from container),
+              // but transforms work since rAF + IO apply to this wrapper directly
+              // via JS. NOTE : if you need the wrapper as a real layout element
+              // for a grid, omit `display: contents` (current behaviour).
+            >
+              {child}
+            </div>
+          ))}
     </Tag>
   );
 }

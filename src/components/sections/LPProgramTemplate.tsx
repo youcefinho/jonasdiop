@@ -5,6 +5,8 @@ import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import type { BilingualLax } from '@/lib/i18n/types';
 import { useT } from '@/lib/i18n/useT';
@@ -184,29 +186,31 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
         {/* PROMISE (optional)                                               */}
         {/* ---------------------------------------------------------------- */}
         {copy.promise && (
-          <section
-            aria-label={t(copy.promise.eyebrow)}
-            className="py-2xl bg-elevated border-y border-silver/10"
-          >
-            <div className="max-w-content mx-auto px-md flex flex-col gap-lg">
-              <div className="flex flex-col gap-sm">
-                <Eyebrow>{t(copy.promise.eyebrow)}</Eyebrow>
-                <MaskRevealHeading as="h2">{t(copy.promise.title)}</MaskRevealHeading>
+          <ScrollReveal>
+            <section
+              aria-label={t(copy.promise.eyebrow)}
+              className="py-2xl bg-elevated border-y border-silver/10"
+            >
+              <div className="max-w-content mx-auto px-md flex flex-col gap-lg">
+                <div className="flex flex-col gap-sm">
+                  <Eyebrow>{t(copy.promise.eyebrow)}</Eyebrow>
+                  <MaskRevealHeading as="h2">{t(copy.promise.title)}</MaskRevealHeading>
+                </div>
+                <div className="max-w-[65ch]">
+                  {t(copy.promise.body)
+                    .split('\n\n')
+                    .map((para) => (
+                      <p
+                        key={para.slice(0, 40)}
+                        className="text-body text-silver opacity-80 text-pretty mb-md last:mb-0"
+                      >
+                        {para}
+                      </p>
+                    ))}
+                </div>
               </div>
-              <div className="max-w-[65ch]">
-                {t(copy.promise.body)
-                  .split('\n\n')
-                  .map((para) => (
-                    <p
-                      key={para.slice(0, 40)}
-                      className="text-body text-silver opacity-80 text-pretty mb-md last:mb-0"
-                    >
-                      {para}
-                    </p>
-                  ))}
-              </div>
-            </div>
-          </section>
+            </section>
+          </ScrollReveal>
         )}
 
         {/* ---------------------------------------------------------------- */}
@@ -215,82 +219,84 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
         {/* Renders only when copy.forWho is present                        */}
         {/* ---------------------------------------------------------------- */}
         {copy.forWho && (
-          <section
-            aria-label={t({ fr: 'Critères de qualification', en: 'Qualification criteria' })}
-            className="py-2xl bg-base"
-          >
-            <div
-              className={`max-w-default mx-auto px-md grid grid-cols-1 gap-xl ${copy.forWho.disqualif ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-content'}`}
+          <ScrollReveal>
+            <section
+              aria-label={t({ fr: 'Critères de qualification', en: 'Qualification criteria' })}
+              className="py-2xl bg-base"
             >
-              {/* Pour vous */}
-              <div className="flex flex-col gap-sm">
-                <Eyebrow>{t(copy.forWho.eyebrow)}</Eyebrow>
-                <h2 className="text-h3 text-primary font-display text-balance">
-                  {t(copy.forWho.title)}
-                </h2>
-                <ul className="flex flex-col gap-sm mt-md" aria-label={t(copy.forWho.eyebrow)}>
-                  {copy.forWho.qualif.map((item) => (
-                    <li
-                      key={item.fr.slice(0, 40)}
-                      className="flex items-start gap-3 text-body text-silver"
-                    >
-                      <span
-                        data-qualif-check
-                        aria-hidden="true"
-                        className="mt-0.5 h-5 w-5 max-w-none shrink-0 text-gold"
-                      >
-                        <Check className="h-5 w-5 max-w-none" />
-                      </span>
-                      <span className="text-pretty">{t(item)}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Pas pour vous — only renders when disqualif list exists */}
-              {copy.forWho.disqualif && (
+              <div
+                className={`max-w-default mx-auto px-md grid grid-cols-1 gap-xl ${copy.forWho.disqualif ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-content'}`}
+              >
+                {/* Pour vous */}
                 <div className="flex flex-col gap-sm">
-                  <Eyebrow goldDot={false}>
-                    {t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
-                  </Eyebrow>
+                  <Eyebrow>{t(copy.forWho.eyebrow)}</Eyebrow>
                   <h2 className="text-h3 text-primary font-display text-balance">
-                    {t({
-                      fr: "Ce n'est pas pour vous si vous...",
-                      en: "This isn't for you if you..."
-                    })}
+                    {t(copy.forWho.title)}
                   </h2>
-                  <ul
-                    className="flex flex-col gap-sm mt-md"
-                    aria-label={t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
-                  >
-                    {copy.forWho.disqualif.map((item) => (
+                  <ul className="flex flex-col gap-sm mt-md" aria-label={t(copy.forWho.eyebrow)}>
+                    {copy.forWho.qualif.map((item) => (
                       <li
                         key={item.fr.slice(0, 40)}
-                        className="flex items-start gap-3 text-body text-silver opacity-60"
+                        className="flex items-start gap-3 text-body text-silver"
                       >
                         <span
-                          data-disqualif-x
+                          data-qualif-check
                           aria-hidden="true"
-                          className="mt-0.5 h-5 w-5 max-w-none shrink-0 text-silver/50"
+                          className="mt-0.5 h-5 w-5 max-w-none shrink-0 text-gold"
                         >
-                          <X className="h-5 w-5 max-w-none" />
+                          <Check className="h-5 w-5 max-w-none" />
                         </span>
                         <span className="text-pretty">{t(item)}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              )}
-            </div>
 
-            {/* Honnêteté radicale disclaimer — signature Jonas */}
-            <p className="text-sm text-silver/50 text-center mt-xl max-w-content mx-auto px-md text-pretty">
-              {t({
-                fr: "Honnêteté radicale. Si vous n'êtes pas un bon fit, on vous le dira.",
-                en: "Radical honesty. If you're not a good fit, we'll tell you."
-              })}
-            </p>
-          </section>
+                {/* Pas pour vous — only renders when disqualif list exists */}
+                {copy.forWho.disqualif && (
+                  <div className="flex flex-col gap-sm">
+                    <Eyebrow goldDot={false}>
+                      {t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
+                    </Eyebrow>
+                    <h2 className="text-h3 text-primary font-display text-balance">
+                      {t({
+                        fr: "Ce n'est pas pour vous si vous...",
+                        en: "This isn't for you if you..."
+                      })}
+                    </h2>
+                    <ul
+                      className="flex flex-col gap-sm mt-md"
+                      aria-label={t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
+                    >
+                      {copy.forWho.disqualif.map((item) => (
+                        <li
+                          key={item.fr.slice(0, 40)}
+                          className="flex items-start gap-3 text-body text-silver opacity-60"
+                        >
+                          <span
+                            data-disqualif-x
+                            aria-hidden="true"
+                            className="mt-0.5 h-5 w-5 max-w-none shrink-0 text-silver/50"
+                          >
+                            <X className="h-5 w-5 max-w-none" />
+                          </span>
+                          <span className="text-pretty">{t(item)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              {/* Honnêteté radicale disclaimer — signature Jonas */}
+              <p className="text-sm text-silver/50 text-center mt-xl max-w-content mx-auto px-md text-pretty">
+                {t({
+                  fr: "Honnêteté radicale. Si vous n'êtes pas un bon fit, on vous le dira.",
+                  en: "Radical honesty. If you're not a good fit, we'll tell you."
+                })}
+              </p>
+            </section>
+          </ScrollReveal>
         )}
 
         {/* ---------------------------------------------------------------- */}
@@ -298,73 +304,75 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
         {/* Renders only when copy.modules is present                       */}
         {/* ---------------------------------------------------------------- */}
         {copy.modules && (
-          <section
-            aria-label={t(copy.modules.eyebrow)}
-            className="relative py-2xl bg-elevated border-y border-silver/10"
-          >
-            <FiligraneNumber number="03" position="right" />
-            <div className="relative max-w-default mx-auto px-md">
-              <div className="text-center flex flex-col items-center gap-sm mb-xl">
-                <Eyebrow>{t(copy.modules.eyebrow)}</Eyebrow>
-                <MaskRevealHeading as="h2">{t(copy.modules.title)}</MaskRevealHeading>
+          <ScrollReveal>
+            <section
+              aria-label={t(copy.modules.eyebrow)}
+              className="relative py-2xl bg-section-elevated border-y border-silver/10"
+            >
+              <FiligraneNumber number="03" position="right" />
+              <div className="relative max-w-default mx-auto px-md">
+                <div className="text-center flex flex-col items-center gap-sm mb-xl">
+                  <Eyebrow>{t(copy.modules.eyebrow)}</Eyebrow>
+                  <MaskRevealHeading as="h2">{t(copy.modules.title)}</MaskRevealHeading>
+                </div>
+
+                {/* Stitch board 03 curriculum pattern : stacked full-width cards
+                    (vertical list, not grid). Each card horizontal :
+                    - Large gold filigrane number (col-span-2)
+                    - Eyebrow weeks + title + body (col-span-10)
+                    Hover : subtle gold border-left accent + scale.
+                    Mobile : stacks vertically inside each card.
+                    StaggerReveal wraps the <ol> with per-item fade-up. */}
+                <StaggerReveal as="ol" className="flex flex-col gap-md" staggerMs={100}>
+                  {copy.modules.items.map((module, idx) => (
+                    <li key={module.id ?? idx} className="list-none">
+                      <article
+                        data-module-card
+                        className={[
+                          'group relative grid grid-cols-1 md:grid-cols-12 gap-md items-center',
+                          'px-lg py-md bg-base border border-silver/15 rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
+                          'hover-lift shadow-haptic-card shadow-haptic-card-hover transition-all duration-base hover:border-gold/30'
+                        ].join(' ')}
+                      >
+                        {/* Gold filigrane number — large, left col */}
+                        <div className="md:col-span-2 flex items-center md:justify-center">
+                          <span
+                            aria-hidden="true"
+                            className="text-[clamp(3rem,2.5rem+2.5vw,5rem)] font-display font-bold leading-none tracking-tight select-none text-gold/25 group-hover:text-gold/40 transition-colors duration-base"
+                          >
+                            {String(idx + 1).padStart(2, '0')}
+                          </span>
+                        </div>
+
+                        {/* Content — right col */}
+                        <div className="md:col-span-10 flex flex-col gap-sm">
+                          {module.weeks && (
+                            <div className="flex items-center gap-sm">
+                              <span
+                                aria-hidden="true"
+                                className="inline-block h-1 w-1 rounded-full bg-gold"
+                              />
+                              <p className="text-eyebrow uppercase tracking-widest text-gold/80 font-display text-xs">
+                                {t(module.weeks)}
+                              </p>
+                            </div>
+                          )}
+
+                          <h3 className="text-h3 text-primary font-display text-balance leading-[1.15]">
+                            {t(module.title)}
+                          </h3>
+
+                          <p className="text-body text-silver opacity-75 text-pretty max-w-[72ch]">
+                            {t(module.body)}
+                          </p>
+                        </div>
+                      </article>
+                    </li>
+                  ))}
+                </StaggerReveal>
               </div>
-
-              {/* Stitch board 03 curriculum pattern : stacked full-width cards
-                  (vertical list, not grid). Each card horizontal :
-                  - Large gold filigrane number (col-span-2)
-                  - Eyebrow weeks + title + body (col-span-10)
-                  Hover : subtle gold border-left accent + scale.
-                  Mobile : stacks vertically inside each card. */}
-              <ol className="flex flex-col gap-md">
-                {copy.modules.items.map((module, idx) => (
-                  <li key={module.id ?? idx} className="list-none">
-                    <article
-                      data-module-card
-                      className={[
-                        'group relative grid grid-cols-1 md:grid-cols-12 gap-md items-center',
-                        'px-lg py-md bg-base border border-silver/15 rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
-                        'transition-all duration-base hover:border-gold/30 hover:translate-x-[2px]',
-                        'shadow-[inset_0_1px_1px_oklch(1_0_0/0.04)]'
-                      ].join(' ')}
-                    >
-                      {/* Gold filigrane number — large, left col */}
-                      <div className="md:col-span-2 flex items-center md:justify-center">
-                        <span
-                          aria-hidden="true"
-                          className="text-[clamp(3rem,2.5rem+2.5vw,5rem)] font-display font-bold leading-none tracking-tight select-none text-gold/25 group-hover:text-gold/40 transition-colors duration-base"
-                        >
-                          {String(idx + 1).padStart(2, '0')}
-                        </span>
-                      </div>
-
-                      {/* Content — right col */}
-                      <div className="md:col-span-10 flex flex-col gap-sm">
-                        {module.weeks && (
-                          <div className="flex items-center gap-sm">
-                            <span
-                              aria-hidden="true"
-                              className="inline-block h-1 w-1 rounded-full bg-gold"
-                            />
-                            <p className="text-eyebrow uppercase tracking-widest text-gold/80 font-display text-xs">
-                              {t(module.weeks)}
-                            </p>
-                          </div>
-                        )}
-
-                        <h3 className="text-h3 text-primary font-display text-balance leading-[1.15]">
-                          {t(module.title)}
-                        </h3>
-
-                        <p className="text-body text-silver opacity-75 text-pretty max-w-[72ch]">
-                          {t(module.body)}
-                        </p>
-                      </div>
-                    </article>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
+            </section>
+          </ScrollReveal>
         )}
 
         {/* ---------------------------------------------------------------- */}
@@ -372,89 +380,93 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
         {/* Renders only when copy.format is present                        */}
         {/* ---------------------------------------------------------------- */}
         {copy.format && (
-          <section aria-label={t(copy.format.eyebrow)} className="py-2xl bg-base">
-            <div className="max-w-default mx-auto px-md">
-              <div className="text-center flex flex-col items-center gap-sm mb-xl">
-                <Eyebrow>{t(copy.format.eyebrow)}</Eyebrow>
-                <MaskRevealHeading as="h2">{t(copy.format.title)}</MaskRevealHeading>
-              </div>
+          <ScrollReveal>
+            <section aria-label={t(copy.format.eyebrow)} className="py-2xl bg-section-base">
+              <div className="max-w-default mx-auto px-md">
+                <div className="text-center flex flex-col items-center gap-sm mb-xl">
+                  <Eyebrow>{t(copy.format.eyebrow)}</Eyebrow>
+                  <MaskRevealHeading as="h2">{t(copy.format.title)}</MaskRevealHeading>
+                </div>
 
-              <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md max-w-default mx-auto">
-                {copy.format.details.map((detail) => (
-                  <div
-                    key={detail.label.fr}
-                    className="flex flex-col gap-2 p-md border-l-2 border-gold/30 bg-elevated rounded-r-lg"
-                  >
-                    <dt className="text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs">
-                      {t(detail.label)}
-                    </dt>
-                    <dd className="text-body text-primary font-display font-medium">
-                      {t(detail.value)}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </section>
+                <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md max-w-default mx-auto">
+                  {copy.format.details.map((detail) => (
+                    <div
+                      key={detail.label.fr}
+                      className="flex flex-col gap-2 p-md border-l-2 border-gold/30 bg-elevated rounded-r-lg"
+                    >
+                      <dt className="text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs">
+                        {t(detail.label)}
+                      </dt>
+                      <dd className="text-body text-primary font-display font-medium">
+                        {t(detail.value)}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </section>
+          </ScrollReveal>
         )}
 
         {/* ---------------------------------------------------------------- */}
         {/* RESULTS (optional) — milestone timeline                         */}
         {/* ---------------------------------------------------------------- */}
         {copy.results && (
-          <section
-            aria-label={t(copy.results.eyebrow)}
-            className="py-2xl bg-elevated border-y border-silver/10"
-          >
-            <div className="max-w-content mx-auto px-md">
-              <div className="text-center flex flex-col items-center gap-sm mb-xl">
-                <Eyebrow>{t(copy.results.eyebrow)}</Eyebrow>
-                {copy.results.title && (
-                  <MaskRevealHeading as="h2">{t(copy.results.title)}</MaskRevealHeading>
+          <ScrollReveal>
+            <section
+              aria-label={t(copy.results.eyebrow)}
+              className="py-2xl bg-section-elevated border-y border-silver/10"
+            >
+              <div className="max-w-content mx-auto px-md">
+                <div className="text-center flex flex-col items-center gap-sm mb-xl">
+                  <Eyebrow>{t(copy.results.eyebrow)}</Eyebrow>
+                  {copy.results.title && (
+                    <MaskRevealHeading as="h2">{t(copy.results.title)}</MaskRevealHeading>
+                  )}
+                </div>
+
+                {/* Milestone timeline — for group programs */}
+                {copy.results.milestones && (
+                  <ol className="flex flex-col gap-sm" aria-label={t(copy.results.eyebrow)}>
+                    {copy.results.milestones.map((milestone) => (
+                      <li
+                        key={milestone.timeframe.fr}
+                        className="flex items-start gap-md p-md bg-base border border-silver/15 rounded-lg hover-lift shadow-haptic-card shadow-haptic-card-hover transition-all duration-base"
+                      >
+                        <span className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs shrink-0 pt-0.5 min-w-[5rem]">
+                          {t(milestone.timeframe)}
+                        </span>
+                        <p className="text-body text-silver opacity-80 text-pretty">
+                          {t(milestone.label)}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
                 )}
+
+                {/* Bullet list — for training programs (e.g. Focus & Flow) */}
+                {copy.results.items && (
+                  <ul className="flex flex-col gap-sm" aria-label={t(copy.results.eyebrow)}>
+                    {copy.results.items.map((item) => (
+                      <li
+                        key={item.fr.slice(0, 40)}
+                        className="flex items-start gap-3 p-md bg-base border border-silver/15 rounded-lg text-body text-silver opacity-80 hover-lift shadow-haptic-card shadow-haptic-card-hover transition-all duration-base"
+                      >
+                        <span aria-hidden="true" className="mt-0.5 text-gold/60 shrink-0">
+                          ✦
+                        </span>
+                        <span className="text-pretty">{t(item)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <p className="text-xs text-silver/40 text-center mt-lg text-pretty">
+                  {t(copy.results.disclaimer)}
+                </p>
               </div>
-
-              {/* Milestone timeline — for group programs */}
-              {copy.results.milestones && (
-                <ol className="flex flex-col gap-sm" aria-label={t(copy.results.eyebrow)}>
-                  {copy.results.milestones.map((milestone) => (
-                    <li
-                      key={milestone.timeframe.fr}
-                      className="flex items-start gap-md p-md bg-base border border-silver/15 rounded-lg"
-                    >
-                      <span className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs shrink-0 pt-0.5 min-w-[5rem]">
-                        {t(milestone.timeframe)}
-                      </span>
-                      <p className="text-body text-silver opacity-80 text-pretty">
-                        {t(milestone.label)}
-                      </p>
-                    </li>
-                  ))}
-                </ol>
-              )}
-
-              {/* Bullet list — for training programs (e.g. Focus & Flow) */}
-              {copy.results.items && (
-                <ul className="flex flex-col gap-sm" aria-label={t(copy.results.eyebrow)}>
-                  {copy.results.items.map((item) => (
-                    <li
-                      key={item.fr.slice(0, 40)}
-                      className="flex items-start gap-3 p-md bg-base border border-silver/15 rounded-lg text-body text-silver opacity-80"
-                    >
-                      <span aria-hidden="true" className="mt-0.5 text-gold/60 shrink-0">
-                        ✦
-                      </span>
-                      <span className="text-pretty">{t(item)}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              <p className="text-xs text-silver/40 text-center mt-lg text-pretty">
-                {t(copy.results.disclaimer)}
-              </p>
-            </div>
-          </section>
+            </section>
+          </ScrollReveal>
         )}
 
         {/* ---------------------------------------------------------------- */}
@@ -462,61 +474,65 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
         {/* Renders only when copy.faq is present                           */}
         {/* ---------------------------------------------------------------- */}
         {copy.faq && (
-          <section aria-label={t(copy.faq.title)} className="py-2xl bg-base">
-            <div className="max-w-content mx-auto px-md">
-              <div className="text-center flex flex-col items-center gap-sm mb-xl">
-                <MaskRevealHeading as="h2">{t(copy.faq.title)}</MaskRevealHeading>
-              </div>
+          <ScrollReveal>
+            <section aria-label={t(copy.faq.title)} className="py-2xl bg-section-base">
+              <div className="max-w-content mx-auto px-md">
+                <div className="text-center flex flex-col items-center gap-sm mb-xl">
+                  <MaskRevealHeading as="h2">{t(copy.faq.title)}</MaskRevealHeading>
+                </div>
 
-              <div className="flex flex-col gap-sm">
-                {copy.faq.items.map((item, idx) => (
-                  <details
-                    key={item.id ?? idx}
-                    className="group p-md bg-elevated border border-silver/15 rounded-lg"
-                  >
-                    <summary className="cursor-pointer flex items-center justify-between gap-sm text-body text-primary font-display font-medium list-none [&::-webkit-details-marker]:hidden">
-                      <span className="text-pretty">{t(item.question)}</span>
-                      <span
-                        aria-hidden="true"
-                        className="text-gold text-xl font-bold shrink-0 transition-transform duration-base group-open:rotate-45 select-none"
-                      >
-                        +
-                      </span>
-                    </summary>
-                    <p className="text-body text-silver opacity-75 text-pretty mt-md">
-                      {t(item.answer)}
-                    </p>
-                  </details>
-                ))}
+                <StaggerReveal className="flex flex-col gap-sm" staggerMs={90}>
+                  {copy.faq.items.map((item, idx) => (
+                    <details
+                      key={item.id ?? idx}
+                      className="group p-md bg-elevated border border-silver/15 rounded-lg"
+                    >
+                      <summary className="cursor-pointer flex items-center justify-between gap-sm text-body text-primary font-display font-medium list-none [&::-webkit-details-marker]:hidden">
+                        <span className="text-pretty">{t(item.question)}</span>
+                        <span
+                          aria-hidden="true"
+                          className="text-gold text-xl font-bold shrink-0 transition-transform duration-base group-open:rotate-45 select-none"
+                        >
+                          +
+                        </span>
+                      </summary>
+                      <p className="text-body text-silver opacity-75 text-pretty mt-md">
+                        {t(item.answer)}
+                      </p>
+                    </details>
+                  ))}
+                </StaggerReveal>
               </div>
-            </div>
-          </section>
+            </section>
+          </ScrollReveal>
         )}
 
         {/* ---------------------------------------------------------------- */}
         {/* FINAL CTA                                                        */}
         {/* ---------------------------------------------------------------- */}
-        <section
-          aria-label={t(copy.finalCta.eyebrow)}
-          className="py-2xl bg-elevated border-t border-silver/10"
-        >
-          <div className="max-w-content mx-auto px-md text-center flex flex-col items-center gap-md">
-            <Eyebrow>{t(copy.finalCta.eyebrow)}</Eyebrow>
+        <ScrollReveal>
+          <section
+            aria-label={t(copy.finalCta.eyebrow)}
+            className="py-2xl bg-section-elevated border-t border-silver/10"
+          >
+            <div className="max-w-content mx-auto px-md text-center flex flex-col items-center gap-md">
+              <Eyebrow>{t(copy.finalCta.eyebrow)}</Eyebrow>
 
-            <MaskRevealHeading as="h2">{t(copy.finalCta.title)}</MaskRevealHeading>
+              <MaskRevealHeading as="h2">{t(copy.finalCta.title)}</MaskRevealHeading>
 
-            <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[55ch]">
-              {t(copy.finalCta.sub)}
-            </p>
+              <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[55ch]">
+                {t(copy.finalCta.sub)}
+              </p>
 
-            <div className="mt-md">
-              <CTAPill variant={ctaVariant} href={ROUTES.contact[locale]}>
-                {t(copy.finalCta.ctaLabel)}
-                <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
-              </CTAPill>
+              <div className="mt-md">
+                <CTAPill variant={ctaVariant} href={ROUTES.contact[locale]}>
+                  {t(copy.finalCta.ctaLabel)}
+                  <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
+                </CTAPill>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </ScrollReveal>
       </main>
       <FooterRich />
     </>
