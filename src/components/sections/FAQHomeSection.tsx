@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { faqCopy } from '@/data/copy/faq';
 import type { BilingualLax } from '@/lib/i18n/types';
@@ -75,8 +76,12 @@ export function FAQHomeSection() {
           </p>
         </div>
 
-        {/* 5 accordions flat — no categories */}
-        <div className="flex flex-col gap-sm max-w-[var(--container-content)] mx-auto w-full">
+        {/* 5 accordions flat — no categories + stagger reveal 90ms */}
+        <StaggerReveal
+          as="div"
+          className="flex flex-col gap-sm max-w-[var(--container-content)] mx-auto w-full"
+          staggerMs={90}
+        >
           {previewItems.map((item) => (
             <details
               key={item.id}
@@ -100,7 +105,7 @@ export function FAQHomeSection() {
               </div>
             </details>
           ))}
-        </div>
+        </StaggerReveal>
 
         {/* CTA → full FAQ page */}
         <div className="flex justify-center">

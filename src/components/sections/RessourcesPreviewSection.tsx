@@ -2,6 +2,7 @@ import { ArrowRight, FileText } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { useT } from '@/lib/i18n/useT';
 
@@ -69,8 +70,8 @@ export function RessourcesPreviewSection() {
           ))}
         </ul>
 
-        {/* 3 placeholder article cards — empty state until GHL Blog API wired */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+        {/* 3 placeholder article cards — empty state + stagger reveal 100ms */}
+        <StaggerReveal as="div" className="grid grid-cols-1 md:grid-cols-3 gap-md" staggerMs={100}>
           {[1, 2, 3].map((idx) => (
             <article
               key={idx}
@@ -100,7 +101,7 @@ export function RessourcesPreviewSection() {
               </p>
             </article>
           ))}
-        </div>
+        </StaggerReveal>
 
         {/* CTA */}
         <div className="flex justify-center">

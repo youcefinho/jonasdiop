@@ -2,6 +2,7 @@ import { ArrowRight, Headphones } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { useT } from '@/lib/i18n/useT';
 
@@ -65,8 +66,12 @@ export function PodcastPreviewSection() {
           </p>
         </div>
 
-        {/* Platforms grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-md max-w-[var(--container-content)] mx-auto w-full">
+        {/* Platforms grid + stagger reveal 110ms */}
+        <StaggerReveal
+          as="div"
+          className="grid grid-cols-1 md:grid-cols-3 gap-md max-w-[var(--container-content)] mx-auto w-full"
+          staggerMs={110}
+        >
           {PLATFORMS.map((platform) => (
             <article
               key={platform.name}
@@ -92,7 +97,7 @@ export function PodcastPreviewSection() {
               </p>
             </article>
           ))}
-        </div>
+        </StaggerReveal>
 
         {/* CTA */}
         <div className="flex justify-center">

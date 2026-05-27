@@ -51,6 +51,23 @@ export function Hero() {
           motion fall back to static centered). */}
       <MouseFollowSpotlight color="oklch(0.88 0.012 80)" size={360} intensity={0.08} />
 
+      {/* Diagonal light beam shaft — subtle stage-lighting cinematic feel.
+          Linear-gradient at -25deg, narrow band of cream light cutting across
+          the section from top-right to bottom-left. GPU-safe pseudo-only. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div
+          className="absolute -top-1/4 -right-1/4 w-[80%] h-[150%] origin-top-right"
+          style={{
+            background:
+              'linear-gradient(115deg, transparent 40%, oklch(0.88 0.012 80 / 0.07) 48%, oklch(0.92 0.012 80 / 0.09) 50%, oklch(0.88 0.012 80 / 0.07) 52%, transparent 60%)',
+            transform: 'rotate(-12deg)'
+          }}
+        />
+      </div>
+
       {/* Silver/cream "stage spotlight" centré sur la zone CTAs — Stitch board 13.
           Composition 2 couches concentrées exactement sur les CTAs (~55%Y du section) :
             L1 — bright silver/cream core (ellipse 30%×16% at 50% 55%) @ 32% opacity

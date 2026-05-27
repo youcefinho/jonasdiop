@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { ProgramCard } from '@/components/ui/ProgramCard';
+import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { type ProgrammeVariant, programmes } from '@/data/programmes';
 import type { BilingualLax } from '@/lib/i18n/types';
@@ -93,8 +94,12 @@ export function ProgramsGrid() {
                   />
                 </div>
 
-                {/* Cards grid — auto-fit 1/2/3 cols */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+                {/* Cards grid — auto-fit 1/2/3 cols + stagger reveal 100ms */}
+                <StaggerReveal
+                  as="div"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md"
+                  staggerMs={100}
+                >
                   {cards.map((p) => (
                     <ProgramCard
                       key={p.id}
@@ -105,7 +110,7 @@ export function ProgramsGrid() {
                       description={p.description}
                     />
                   ))}
-                </div>
+                </StaggerReveal>
               </div>
             );
           })}
