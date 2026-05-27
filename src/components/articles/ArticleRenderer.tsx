@@ -87,7 +87,7 @@ const componentsMap: Components = {
     return (
       <a
         href={href}
-        className="text-gold hover:underline underline-offset-2 transition-colors duration-base"
+        className="link-sweep text-gold transition-colors duration-base"
         {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
       >
         {children}

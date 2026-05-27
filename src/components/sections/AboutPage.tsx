@@ -57,7 +57,7 @@ export function AboutPage() {
                 'group relative aspect-[3/4] rounded-[clamp(1rem,1vw+0.5rem,1.75rem)] overflow-hidden',
                 'ring-1 ring-silver/15',
                 'shadow-haptic-focal',
-                'bg-elevated'
+                'bg-elevated image-grain'
               ].join(' ')}
             >
               <picture>

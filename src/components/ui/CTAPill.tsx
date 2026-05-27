@@ -54,10 +54,12 @@ const variantClasses: Record<CTAVariant, string> = {
   // Pour Hero + FinalCTA. Halo warm gold permanent + slow breathing pulse
   // (cta-halo-pulse `::after`) + brightness boost hover.
   'gold-primary': `bg-[linear-gradient(180deg,oklch(0.86_0.085_75)_0%,oklch(0.66_0.085_75)_100%)] text-base shadow-haptic-card hover:scale-[1.02] hover:brightness-110 cta-halo-pulse ${goldHalo}`,
+  // Secondary variants — replace static `hover:bg-silver/X` with cta-ink-fill
+  // cinematic upward sweep on hover (silver/8 pane rises from bottom over 360ms).
   'silver-secondary':
-    'bg-transparent border border-silver/40 text-silver hover:border-silver hover:bg-silver/5 transition-colors duration-base',
+    'bg-transparent border border-silver/40 text-silver hover:border-silver transition-colors duration-base cta-ink-fill',
   'silver-outline':
-    'bg-transparent border border-silver/60 text-silver hover:bg-silver/10 transition-colors duration-base'
+    'bg-transparent border border-silver/60 text-silver transition-colors duration-base cta-ink-fill'
 };
 
 /**

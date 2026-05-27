@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { CookieSettingsLink } from '@/components/consent/CookieSettingsLink';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { LogoWordmark } from '@/components/ui/LogoWordmark';
+import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SocialIcon } from '@/components/ui/SocialIcon';
 import { clientConfig } from '@/config/clientConfig';
 import { ROUTES } from '@/config/routes';
@@ -15,7 +16,10 @@ export function FooterRich() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-base border-t border-silver/10 pt-2xl pb-md">
+    <footer className="bg-base border-t border-silver/10 pt-2xl pb-md relative">
+      {/* Gold thread accent at top of footer — draws horizontally on viewport
+          enter. Layered over the border-t silver line for premium signature. */}
+      <SectionDivider variant="gold" className="absolute top-0 left-0 right-0 -translate-y-px" />
       <div className="max-w-wide mx-auto px-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
         {/* Col 1 — Logo + tagline + socials */}
         <div className="flex flex-col gap-sm">

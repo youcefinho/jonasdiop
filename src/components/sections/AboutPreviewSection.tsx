@@ -36,7 +36,7 @@ export function AboutPreviewSection() {
               'group relative aspect-[3/4] rounded-[clamp(1rem,1vw+0.5rem,1.75rem)] overflow-hidden',
               'ring-1 ring-silver/15',
               'shadow-[0_24px_72px_-12px_oklch(0_0_0/0.6),_inset_0_1px_1px_oklch(1_0_0/0.05)]',
-              'bg-base'
+              'bg-base image-grain'
             ].join(' ')}
           >
             <picture>
