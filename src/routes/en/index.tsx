@@ -5,6 +5,7 @@ import { AboutPreviewSection } from '@/components/sections/AboutPreviewSection';
 import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { Hero } from '@/components/sections/Hero';
+import { HowItWorksTimeline } from '@/components/sections/HowItWorksTimeline';
 import { MarqueeTestimonials } from '@/components/sections/MarqueeTestimonials';
 import { MethodologieCDTPreviewSection } from '@/components/sections/MethodologieCDTPreviewSection';
 import { PodcastPreviewSection } from '@/components/sections/PodcastPreviewSection';
@@ -29,6 +30,9 @@ function HomeEN() {
         </ScrollReveal>
         <ScrollReveal>
           <ProgramsGrid />
+        </ScrollReveal>
+        <ScrollReveal>
+          <HowItWorksTimeline />
         </ScrollReveal>
         <ScrollReveal>
           <TestimonialGrid />

@@ -5,6 +5,7 @@ import { CookieSettingsModal } from '@/components/consent/CookieSettingsModal';
 import { MobileSignatureBar } from '@/components/layout/MobileSignatureBar';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
 import { GrainOverlay } from '@/components/ui/GrainOverlay';
+import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
 import { CookieConsentProvider } from '@/lib/consent/CookieConsentContext';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import { localeFromPath } from '@/lib/i18n/translations';
@@ -57,6 +58,7 @@ function RootLayout() {
     <LanguageProvider locale={locale}>
       <CookieConsentProvider>
         <GrainOverlay />
+        <ScrollProgressBar />
         <Outlet />
         <MobileSignatureBar />
         <CookieBanner />
@@ -73,6 +75,7 @@ function NotFoundLayout() {
     <LanguageProvider locale={locale}>
       <CookieConsentProvider>
         <GrainOverlay />
+        <ScrollProgressBar />
         <NotFoundPage />
         <CookieBanner />
         <CookieSettingsModal />

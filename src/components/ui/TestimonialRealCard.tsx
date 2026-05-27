@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
 import { Quote } from 'lucide-react';
 import type { TestimonialReal } from '@/data/testimonials';
+import { useTilt3D } from '@/hooks/useTilt3D';
 import { useT } from '@/lib/i18n/useT';
 
 interface TestimonialRealCardProps {
@@ -22,15 +23,21 @@ interface TestimonialRealCardProps {
  */
 export function TestimonialRealCard({ testimonial, focal = false }: TestimonialRealCardProps) {
   const { t } = useT();
+  // 3D tilt mouse follow uniquement sur card focal (1× max per page pour ne
+  // pas surstimuler). Subtle 5deg max + perspective 1200.
+  const tiltRef = useTilt3D<HTMLElement>({ maxTilt: 5, perspective: 1200, glowIntensity: 0 });
   return (
     <article
+      ref={focal ? tiltRef : undefined}
       aria-label={t({
         fr: `Témoignage de ${testimonial.name}`,
         en: `Testimonial from ${testimonial.name}`
       })}
       className={clsx(
         'group relative flex flex-col overflow-hidden rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)]',
-        'bg-elevated transition-all duration-base hover-lift',
+        'bg-elevated transition-all duration-base',
+        // hover-lift uniquement sur flank cards (focal a son propre tilt 3D)
+        !focal && 'hover-lift',
         // Haptic depth shadows extracted jonasdiop.com — focal card uses
         // gold-glow focal shadow, flank cards use multi-layer card shadow.
         focal
