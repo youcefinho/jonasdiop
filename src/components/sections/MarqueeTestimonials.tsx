@@ -37,8 +37,13 @@ export function MarqueeTestimonials() {
         className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[120px] bg-gradient-to-l from-base to-transparent"
       />
 
-      {/* Marquee track — animated translateX, pauses on hover */}
-      <div className="flex animate-marquee hover:[animation-play-state:paused] gap-md w-max">
+      {/* Marquee track — animated translateX, pauses on hover. Cursor grab
+          signals draggable feel even though the marquee runs on its own ;
+          per-card hover lift + ring boost focus the dwell-point. */}
+      <div
+        className="flex animate-marquee hover:[animation-play-state:paused] gap-md w-max cursor-grab active:cursor-grabbing"
+        data-cursor-label="Témoignages"
+      >
         {doubled.map((testimonial, idx) => (
           <article
             // Each item appears twice in `doubled` (×2 for seamless loop) ;
@@ -49,7 +54,9 @@ export function MarqueeTestimonials() {
               'flex items-start gap-sm shrink-0 w-[clamp(280px,32vw,420px)]',
               'p-md bg-elevated rounded-[clamp(0.5rem,0.5vw+0.3rem,0.875rem)]',
               'ring-1 ring-silver/15',
-              'shadow-[inset_0_1px_1px_oklch(1_0_0/0.04)]'
+              'shadow-[inset_0_1px_1px_oklch(1_0_0/0.04)]',
+              'transition-all duration-base',
+              'hover:ring-gold/30 hover:scale-[1.015] hover:-translate-y-0.5'
             ].join(' ')}
           >
             {/* Small portrait */}

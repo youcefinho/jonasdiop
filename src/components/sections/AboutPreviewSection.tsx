@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { HeadingAccent } from '@/components/ui/HeadingAccent';
 import { ImageReveal } from '@/components/ui/ImageReveal';
 import { ROUTES } from '@/config/routes';
 import { useParallax } from '@/hooks/useParallax';
@@ -70,6 +71,7 @@ export function AboutPreviewSection() {
               en: 'Jonas Diop. 15 years observing what actually scales.'
             })}
           </h2>
+          <HeadingAccent variant="gold" />
           <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[60ch]">
             {t({
               fr: "Architecte d'affaires basé à Montréal. 857+ entrepreneurs accompagnés. 31M$+ générés pour ses clients. La méthodologie CDT™ — Compression Dynamique du Temps — est née de 15 ans d'observation : les entrepreneurs qui réussissent le mieux sont aussi ceux qui s'épuisent le plus.",

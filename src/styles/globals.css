@@ -338,6 +338,39 @@
     filter: brightness(1.05);
   }
 
+  /* CTA gold halo breathing — pulsing gold radial behind a primary CTA,
+   * adds attention pull without being aggressive. 4s ease-in-out breath
+   * (opacity 0.6→1, scale 1→1.08). Layered as `::after` so it stacks WITH
+   * the existing `before:` static halo on gold-primary (no conflict).
+   * Use sparingly : Hero primary CTA + FinalCTA primary only. */
+  .cta-halo-pulse::after {
+    content: "";
+    position: absolute;
+    inset: -1.75rem;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle,
+      oklch(0.74 0.085 75 / 0.22) 0%,
+      oklch(0.74 0.085 75 / 0.06) 50%,
+      transparent 75%
+    );
+    filter: blur(16px);
+    z-index: -2;
+    pointer-events: none;
+    animation: cta-halo-breath 4400ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  @keyframes cta-halo-breath {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+  }
+
   /* Hover border sweep — single-pass conic gradient sweep on hover. Different
    * from `.border-glow` (which rotates continuously). Use for focal cards
    * that should signal interactivity without permanent motion. Requires the
@@ -463,6 +496,11 @@
     .hover-border-sweep:hover::after {
       animation: none;
       opacity: 0;
+    }
+    .cta-halo-pulse::after {
+      animation: none;
+      opacity: 0.55;
+      transform: none;
     }
   }
 }

@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { HeadingAccent } from '@/components/ui/HeadingAccent';
 import { ImageReveal } from '@/components/ui/ImageReveal';
 import { MeshGradient } from '@/components/ui/MeshGradient';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
@@ -74,6 +75,7 @@ export function MethodologieCDTPreviewSection() {
               en: 'Dynamic Time Compression.'
             })}
           </h2>
+          <HeadingAccent variant="gold" align="center" />
           <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[58ch]">
             {t({
               fr: "Chaque heure investie dans une entreprise bien architecturée produit 3 à 5× plus de résultats qu'une heure investie dans une entreprise mal câblée. C'est l'ingénierie qui change la donne, pas l'effort.",

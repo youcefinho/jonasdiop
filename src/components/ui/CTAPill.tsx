@@ -51,8 +51,9 @@ const variantClasses: Record<CTAVariant, string> = {
   // + shadow-haptic-card pour depth + halo permanent silver derrière.
   'silver-primary': `bg-[linear-gradient(180deg,oklch(0.96_0.005_85/0.96)_0%,oklch(0.74_0.005_270)_100%)] text-base shadow-haptic-card hover:scale-[1.02] hover:brightness-110 ${silverHalo}`,
   // EXCEPTIONAL primary — METALLIC GOLD GRADIENT (warmer cream → amber).
-  // Pour Hero + FinalCTA. Halo warm gold permanent + brightness boost hover.
-  'gold-primary': `bg-[linear-gradient(180deg,oklch(0.86_0.085_75)_0%,oklch(0.66_0.085_75)_100%)] text-base shadow-haptic-card hover:scale-[1.02] hover:brightness-110 ${goldHalo}`,
+  // Pour Hero + FinalCTA. Halo warm gold permanent + slow breathing pulse
+  // (cta-halo-pulse `::after`) + brightness boost hover.
+  'gold-primary': `bg-[linear-gradient(180deg,oklch(0.86_0.085_75)_0%,oklch(0.66_0.085_75)_100%)] text-base shadow-haptic-card hover:scale-[1.02] hover:brightness-110 cta-halo-pulse ${goldHalo}`,
   'silver-secondary':
     'bg-transparent border border-silver/40 text-silver hover:border-silver hover:bg-silver/5 transition-colors duration-base',
   'silver-outline':

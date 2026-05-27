@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { HeadingAccent } from '@/components/ui/HeadingAccent';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { faqCopy } from '@/data/copy/faq';
@@ -68,6 +69,7 @@ export function FAQHomeSection() {
               en: 'The 5 questions we get asked the most.'
             })}
           </h2>
+          <HeadingAccent variant="gold" align="center" />
           <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[55ch]">
             {t({
               fr: 'Aperçu. La FAQ complète est sur la page dédiée.',
