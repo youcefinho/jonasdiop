@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { ImageReveal } from '@/components/ui/ImageReveal';
 import { ROUTES } from '@/config/routes';
 import { useParallax } from '@/hooks/useParallax';
 import { useT } from '@/lib/i18n/useT';
@@ -24,9 +25,12 @@ export function AboutPreviewSection() {
     >
       <FiligraneNumber number="01" position="right" />
       <div className="relative max-w-default mx-auto px-md grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
-        {/* Portrait — parallax drift on scroll (speed 0.12 = subtle) */}
+        {/* Portrait — parallax drift on scroll (speed 0.12 = subtle) +
+            ImageReveal slide-up clip-path animation on viewport entry. */}
         <div ref={parallaxRef} className="lg:col-span-5 relative">
-          <div
+          <ImageReveal
+            direction="slide-up"
+            duration={1000}
             className={[
               'relative aspect-[3/4] rounded-[clamp(1rem,1vw+0.5rem,1.75rem)] overflow-hidden',
               'ring-1 ring-silver/15',
@@ -52,7 +56,7 @@ export function AboutPreviewSection() {
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/40 via-transparent to-transparent"
             />
-          </div>
+          </ImageReveal>
         </div>
 
         {/* Content */}

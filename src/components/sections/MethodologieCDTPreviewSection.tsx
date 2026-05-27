@@ -2,7 +2,9 @@ import { ArrowRight } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
+import { ImageReveal } from '@/components/ui/ImageReveal';
 import { MeshGradient } from '@/components/ui/MeshGradient';
+import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { useParallax } from '@/hooks/useParallax';
 import { useT } from '@/lib/i18n/useT';
@@ -81,9 +83,12 @@ export function MethodologieCDTPreviewSection() {
         </div>
 
         {/* Signature image — Jonas speaking authority shot (real photo 2026-05-26).
-            Parallax subtle drift on scroll (speed 0.10). */}
+            Parallax subtle drift on scroll (speed 0.10) + ImageReveal clip-path
+            expansion on enter viewport. */}
         <figure ref={parallaxRef} className="relative max-w-[var(--container-default)] mx-auto">
-          <div
+          <ImageReveal
+            direction="expand"
+            duration={900}
             className={[
               'relative aspect-[16/9] rounded-[clamp(0.75rem,0.8vw+0.4rem,1.5rem)] overflow-hidden',
               'ring-1 ring-silver/10',
@@ -108,11 +113,11 @@ export function MethodologieCDTPreviewSection() {
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/50 via-transparent to-transparent"
             />
-          </div>
+          </ImageReveal>
         </figure>
 
-        {/* 3 piliers inline grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+        {/* 3 piliers inline grid avec stagger reveal */}
+        <StaggerReveal as="div" className="grid grid-cols-1 md:grid-cols-3 gap-md" staggerMs={120}>
           {PILLARS.map((pillar) => (
             <article
               key={pillar.number}
@@ -134,7 +139,7 @@ export function MethodologieCDTPreviewSection() {
               <p className="text-body text-silver opacity-80 text-pretty">{t(pillar.body)}</p>
             </article>
           ))}
-        </div>
+        </StaggerReveal>
 
         {/* CTA */}
         <div className="flex justify-center">
