@@ -127,10 +127,10 @@ export function LPConsultationsTemplate({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
-              {/* Pour vous */}
+              {/* Pour toi */}
               <div className="flex flex-col gap-sm p-md bg-elevated border border-silver/15 rounded-lg">
                 <h3 className="text-h3 text-primary font-display text-balance">
-                  {t({ fr: 'Pour vous si...', en: 'For you if...' })}
+                  {t({ fr: 'Pour toi si...', en: 'For you if...' })}
                 </h3>
                 <ul
                   className="flex flex-col gap-sm mt-sm"
@@ -153,10 +153,10 @@ export function LPConsultationsTemplate({
                 </ul>
               </div>
 
-              {/* Pas pour vous */}
+              {/* Pas pour toi */}
               <div className="flex flex-col gap-sm p-md bg-elevated border border-silver/15 rounded-lg">
                 <h3 className="text-h3 text-primary font-display text-balance opacity-70">
-                  {t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
+                  {t({ fr: 'Pas pour toi si...', en: 'Not for you if...' })}
                 </h3>
                 <ul
                   className="flex flex-col gap-sm mt-sm"
@@ -184,7 +184,7 @@ export function LPConsultationsTemplate({
           {/* Honnêteté radicale disclaimer */}
           <p className="text-sm text-silver/50 text-center mt-xl max-w-content mx-auto px-md text-pretty">
             {t({
-              fr: "Honnêteté radicale. Si vous n'êtes pas un bon fit, on vous le dira directement.",
+              fr: "Honnêteté radicale. Si tu n'es pas un bon fit, on te le dira directement.",
               en: 'Radical honesty. If you are not a good fit, we will tell you directly.'
             })}
           </p>

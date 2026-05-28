@@ -40,7 +40,7 @@ export const cashScaleCopy = {
       en: 'The problem that kills growing businesses'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Vous êtes rentable sur papier. Mais votre compte en banque ne le sait pas.',
+      fr: 'Tu es rentable sur papier. Mais ton compte en banque ne le sait pas.',
       en: 'You are profitable on paper. But your bank account does not know it.'
     } satisfies BilingualLax<string>,
     body: {
@@ -51,7 +51,7 @@ export const cashScaleCopy = {
 
   forWho: {
     eyebrow: {
-      fr: 'Pour vous si...',
+      fr: 'Pour toi si...',
       en: 'For you if...'
     } satisfies BilingualLax<string>,
     title: {
@@ -60,19 +60,19 @@ export const cashScaleCopy = {
     } satisfies BilingualLax<string>,
     qualif: [
       {
-        fr: 'Votre CA croît mais vous avez régulièrement des fins de mois difficiles',
+        fr: 'Ton CA croît mais tu as régulièrement des fins de mois difficiles',
         en: 'Your revenue is growing but you regularly have tight month-ends'
       },
       {
-        fr: 'Vous avez du mal à prévoir votre trésorerie à 30-90 jours',
+        fr: 'Tu as du mal à prévoir ta trésorerie à 30-90 jours',
         en: 'You struggle to forecast your cash flow at 30-90 days'
       },
       {
-        fr: "Vous réinjectez systématiquement vos profits dans l'opération sans stratégie claire",
+        fr: "Tu réinjectes systématiquement tes profits dans l'opération sans stratégie claire",
         en: 'You systematically reinject profits back into operations without a clear strategy'
       },
       {
-        fr: 'Vous voulez utiliser le levier financier (dette, investissement) sans prendre de risques mal maîtrisés',
+        fr: 'Tu veux utiliser le levier financier (dette, investissement) sans prendre de risques mal maîtrisés',
         en: 'You want to use financial leverage (debt, investment) without taking poorly understood risks'
       }
     ]
@@ -84,7 +84,7 @@ export const cashScaleCopy = {
       en: '5 modules · self-paced'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Ce que vous allez maîtriser.',
+      fr: 'Ce que tu vas maîtriser.',
       en: 'What you will master.'
     } satisfies BilingualLax<string>,
     items: [
@@ -96,7 +96,7 @@ export const cashScaleCopy = {
           en: 'Cash flow forecast'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Construire un modèle de prévision de trésorerie simple et opérationnel à 13 semaines. Identifier les cycles de cash dans votre secteur. Anticiper les tensions de trésorerie avant qu'elles deviennent des crises.",
+          fr: "Construire un modèle de prévision de trésorerie simple et opérationnel à 13 semaines. Identifier les cycles de cash dans ton secteur. Anticiper les tensions de trésorerie avant qu'elles deviennent des crises.",
           en: 'Build a simple, operational 13-week cash flow forecast model. Identify cash cycles in your sector. Anticipate cash crunches before they become crises.'
         } satisfies BilingualLax<string>
       },
@@ -108,7 +108,7 @@ export const cashScaleCopy = {
           en: 'Unit economics'
         } satisfies BilingualLax<string>,
         body: {
-          fr: 'LTV, CAC, payback period, contribution margin. Comprendre les vrais moteurs financiers de votre entreprise. Identifier les offres qui génèrent du cash vs celles qui le consomment.',
+          fr: 'LTV, CAC, payback period, contribution margin. Comprendre les vrais moteurs financiers de ton entreprise. Identifier les offres qui génèrent du cash vs celles qui le consomment.',
           en: 'LTV, CAC, payback period, contribution margin. Understand the real financial drivers of your business. Identify which offers generate cash vs which ones consume it.'
         } satisfies BilingualLax<string>
       },
@@ -120,7 +120,7 @@ export const cashScaleCopy = {
           en: 'Pricing & margins'
         } satisfies BilingualLax<string>,
         body: {
-          fr: 'Comment structurer vos prix pour maximiser la marge, pas seulement le CA. Analyse de la structure de coûts. Identifier les offres à fort volume mais faible marge qui épuisent votre trésorerie.',
+          fr: 'Comment structurer tes prix pour maximiser la marge, pas seulement le CA. Analyse de la structure de coûts. Identifier les offres à fort volume mais faible marge qui épuisent ta trésorerie.',
           en: 'How to structure your prices to maximize margin, not just revenue. Cost structure analysis. Identify high-volume, low-margin offers that drain your cash.'
         } satisfies BilingualLax<string>
       },
@@ -144,7 +144,7 @@ export const cashScaleCopy = {
           en: 'Reinvestment vs distribution'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Comment décider combien garder dans l'entreprise vs combien vous payer. Stratégie de réserves de trésorerie. Comment bâtir un coussin financier sans bloquer la croissance.",
+          fr: "Comment décider combien garder dans l'entreprise vs combien te payer. Stratégie de réserves de trésorerie. Comment bâtir un coussin financier sans bloquer la croissance.",
           en: 'How to decide how much to keep in the business vs how much to pay yourself. Cash reserve strategy. How to build a financial cushion without blocking growth.'
         } satisfies BilingualLax<string>
       }
@@ -178,7 +178,7 @@ export const cashScaleCopy = {
       {
         label: { fr: 'Call live', en: 'Live call' } satisfies BilingualLax<string>,
         value: {
-          fr: '1 call live avec Jonas (Q&R + révision de votre situation)',
+          fr: '1 call live avec Jonas (Q&R + révision de ta situation)',
           en: '1 live call with Jonas (Q&A + review of your situation)'
         } satisfies BilingualLax<string>
       },

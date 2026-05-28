@@ -199,16 +199,16 @@ Results presented are representative of entrepreneurs who fully completed the pr
       en: 'Next step'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Voir si on peut faire partie de votre histoire.',
+      fr: 'Voir si on peut faire partie de ton histoire.',
       en: 'See if we can be part of your story.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Un appel de qualification pour évaluer si votre situation correspond à nos programmes — et si les résultats présentés ici sont transposables à votre architecture.',
+      fr: 'Un appel de qualification pour évaluer si ta situation correspond à nos programmes — et si les résultats présentés ici sont transposables à ton architecture.',
       en: 'A qualification call to assess whether your situation fits our programs — and whether the results shown here are transposable to your architecture.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
-      fr: "Réserver l'appel de qualification",
-      en: 'Book the qualification call'
+      fr: 'Réserver mon appel stratégique',
+      en: 'Book my strategy call'
     } satisfies BilingualLax<string>
   }
 } as const;

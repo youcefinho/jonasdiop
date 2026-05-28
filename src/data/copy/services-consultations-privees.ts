@@ -48,7 +48,7 @@ export const consultationsPriveesCopy = {
       en: 'A strategic engagement. Not a program.'
     } satisfies BilingualLax<string>,
     body: {
-      fr: "Les Consultations Privées ne sont pas un programme de groupe avec un accès prioritaire. Ce ne sont pas des sessions de coaching hebdomadaires génériques.\n\nC'est un mandat stratégique 1:1 sur 90 jours avec Jonas Diop directement. Un audit complet de votre situation. Un plan d'action sur-mesure. Un accès direct pour les décisions qui comptent.\n\nLe format est conçu pour des entrepreneurs et experts qui ont déjà validé leur marché, qui opèrent à un niveau où les décisions stratégiques ont des conséquences réelles, et qui ont besoin d'un regard externe précis — pas de réassurance générique.",
+      fr: "Les Consultations Privées ne sont pas un programme de groupe avec un accès prioritaire. Ce ne sont pas des sessions de coaching hebdomadaires génériques.\n\nC'est un mandat stratégique 1:1 sur 90 jours avec Jonas Diop directement. Un audit complet de ta situation. Un plan d'action sur-mesure. Un accès direct pour les décisions qui comptent.\n\nLe format est conçu pour des entrepreneurs et experts qui ont déjà validé leur marché, qui opèrent à un niveau où les décisions stratégiques ont des conséquences réelles, et qui ont besoin d'un regard externe précis — pas de réassurance générique.",
       en: 'Private Consultations are not a group program with priority access. They are not generic weekly coaching sessions.\n\nThis is a 1:1 strategic engagement over 90 days directly with Jonas Diop. A complete audit of your situation. A bespoke action plan. Direct access for decisions that matter.\n\nThe format is designed for entrepreneurs and experts who have already validated their market, who operate at a level where strategic decisions have real consequences, and who need a precise external perspective — not generic reassurance.'
     } satisfies BilingualLax<string>
   },
@@ -72,7 +72,7 @@ export const consultationsPriveesCopy = {
         en: 'Validated revenue : $1M+ CAD (or imminent approach)'
       },
       {
-        fr: 'Vision stratégique claire de votre prochaine étape',
+        fr: 'Vision stratégique claire de ta prochaine étape',
         en: 'Clear strategic vision of your next stage'
       },
       {
@@ -80,7 +80,7 @@ export const consultationsPriveesCopy = {
         en: 'Execution resources available (team, budget, time)'
       },
       {
-        fr: 'Prêt à remettre en question des hypothèses fondamentales de votre modèle',
+        fr: 'Prêt à remettre en question des hypothèses fondamentales de ton modèle',
         en: 'Ready to question fundamental assumptions about your model'
       },
       {
@@ -106,7 +106,7 @@ export const consultationsPriveesCopy = {
 
   format: {
     eyebrow: {
-      fr: 'Ce que vous obtenez',
+      fr: 'Ce que tu obtiens',
       en: 'What you get'
     } satisfies BilingualLax<string>,
     title: {
@@ -117,7 +117,7 @@ export const consultationsPriveesCopy = {
       {
         label: { fr: "Audit d'entrée", en: 'Entry audit' } satisfies BilingualLax<string>,
         value: {
-          fr: 'Audit complet de votre architecture (offre, systèmes, équipe, finances) avant le début du mandat',
+          fr: 'Audit complet de ton architecture (offre, systèmes, équipe, finances) avant le début du mandat',
           en: 'Complete architecture audit (offer, systems, team, finances) before the engagement begins'
         } satisfies BilingualLax<string>
       },
@@ -187,7 +187,7 @@ export const consultationsPriveesCopy = {
           en: 'Pre-call qualification'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Appel de 20-30 minutes pour évaluer si votre situation correspond au format Consultations Privées. On vous dira directement si ce n'est pas le bon moment ou le bon format.",
+          fr: "Appel de 20-30 minutes pour évaluer si ta situation correspond au format Consultations Privées. On te dira directement si ce n'est pas le bon moment ou le bon format.",
           en: 'A 20-30 minute call to assess whether your situation fits the Private Consultations format. We will tell you directly if it is not the right time or format.'
         } satisfies BilingualLax<string>
       },
@@ -235,7 +235,7 @@ export const consultationsPriveesCopy = {
       en: 'Apply for the interview.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Le formulaire prend 10 minutes. Si votre profil correspond, vous serez contacté dans les 48h pour un pré-call de qualification.',
+      fr: 'Le formulaire prend 10 minutes. Si ton profil correspond, tu seras contacté dans les 48h pour un pré-call de qualification.',
       en: 'The form takes 10 minutes. If your profile fits, you will be contacted within 48h for a pre-qualification call.'
     } satisfies BilingualLax<string>,
     ctaLabel: {

@@ -106,7 +106,7 @@ export function Hero() {
         <Eyebrow>{t({ fr: "Architecte d'affaires", en: 'Business Architect' })}</Eyebrow>
 
         {/* H1 size + width tuned to force 2 lignes balanced per Stitch board 13 :
-            - max-w-[26ch] permet "Ajouter un zéro à votre" (23) + "chiffre d'affaires." (19)
+            - max-w-[26ch] permet "Ajoute un zéro à ton" (20) + "chiffre d'affaires." (19)
             - clamp 2.5→5rem = impact visuel matching Stitch (impactful, pas timide)
             - font-normal + tracking serré = poids visuel light/élégant pas bold/lourd */}
         <MaskRevealHeading
@@ -119,7 +119,7 @@ export function Hero() {
               wrapper's translateY animation). */}
           <span className="text-shimmer">
             {t({
-              fr: "Ajouter un zéro à votre chiffre d'affaires.",
+              fr: "Ajoute un zéro à ton chiffre d'affaires.",
               en: 'Add a zero to your revenue.'
             })}
           </span>
@@ -180,7 +180,7 @@ export function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-sm mt-md">
           <CTAPill variant="gold-primary" href={ROUTES.contact[locale]}>
-            {t({ fr: 'Prendre rendez-vous', en: 'Book a call' })}
+            {t({ fr: 'Réserver mon appel stratégique', en: 'Book my strategy call' })}
             <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
           </CTAPill>
           <CTAPill variant="silver-secondary" onClick={() => scrollTo('#methodologie')}>

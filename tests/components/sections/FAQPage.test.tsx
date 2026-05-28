@@ -57,9 +57,9 @@ describe('FAQPage — accordion items', () => {
 
   it('renders some verbatim brief questions', () => {
     render(<FAQPage />, { wrapper: wrapper('fr') });
-    expect(screen.getByText(/Pour qui sont conçus vos programmes/i)).toBeInTheDocument();
-    expect(screen.getByText(/Quels sont vos tarifs/i)).toBeInTheDocument();
-    expect(screen.getByText(/Offrez-vous une garantie de résultats/i)).toBeInTheDocument();
+    expect(screen.getByText(/Pour qui sont conçus tes programmes/i)).toBeInTheDocument();
+    expect(screen.getByText(/Quels sont tes tarifs/i)).toBeInTheDocument();
+    expect(screen.getByText(/Offres-tu une garantie de résultats/i)).toBeInTheDocument();
   });
 
   it('answer text appears inside details/summary structure', () => {
@@ -70,9 +70,9 @@ describe('FAQPage — accordion items', () => {
 });
 
 describe('FAQPage — finalCta', () => {
-  it('renders final CTA "Réserver un appel" (FR)', () => {
+  it('renders final CTA "Réserver mon appel stratégique" (FR)', () => {
     render(<FAQPage />, { wrapper: wrapper('fr') });
-    expect(screen.getByText('Réserver un appel')).toBeInTheDocument();
+    expect(screen.getByText('Réserver mon appel stratégique')).toBeInTheDocument();
   });
 
   it('final CTA links to /contact', () => {

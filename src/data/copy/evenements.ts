@@ -116,7 +116,7 @@ The intimate format is intentional. Beyond 12 people, the quality of individual 
           en: 'Architecture workshop'
         } satisfies BilingualLax<string>,
         body: {
-          fr: 'Sessions de travail intensives sur les 3 piliers CDT™. Application directe sur votre situation, pas de théorie générale.',
+          fr: 'Sessions de travail intensives sur les 3 piliers CDT™. Application directe sur ta situation, pas de théorie générale.',
           en: 'Intensive working sessions on CDT™ 3 pillars. Direct application to your situation, no general theory.'
         } satisfies BilingualLax<string>
       },
@@ -155,11 +155,11 @@ The intimate format is intentional. Beyond 12 people, the quality of individual 
       en: 'Upcoming events.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: 'Calendrier complet et lieux confirmés à chaque ouverture de cohorte. Inscrivez-vous pour être notifié dès qu’une date est annoncée.',
+      fr: 'Calendrier complet et lieux confirmés à chaque ouverture de cohorte. Inscris-toi pour être notifié dès qu’une date est annoncée.',
       en: 'Full calendar and venues confirmed at each cohort opening. Sign up to be notified as soon as a date is announced.'
     } satisfies BilingualLax<string>,
     emptyState: {
-      fr: "Aucun événement annoncé pour l'instant. Inscrivez-vous pour être notifié en premier.",
+      fr: "Aucun événement annoncé pour l'instant. Inscris-toi pour être notifié en premier.",
       en: 'No events announced yet. Sign up to be notified first.'
     } satisfies BilingualLax<string>
   },
@@ -197,15 +197,15 @@ Spots are limited. Early notification via the list below is the best way to secu
       en: 'Event notifications'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Soyez notifié avant les annonces publiques.',
+      fr: 'Sois notifié avant les annonces publiques.',
       en: 'Get notified before public announcements.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Inscrivez-vous pour recevoir les notifications événements en priorité — dates, lieux et places disponibles — avant la communication générale.',
+      fr: 'Inscris-toi pour recevoir les notifications événements en priorité — dates, lieux et places disponibles — avant la communication générale.',
       en: 'Sign up to receive event notifications with priority — dates, venues, and available spots — before the general announcement.'
     } satisfies BilingualLax<string>,
     emailPlaceholder: {
-      fr: 'votre@email.com',
+      fr: 'ton@email.com',
       en: 'your@email.com'
     } satisfies BilingualLax<string>,
     submitLabel: {
@@ -224,7 +224,7 @@ Spots are limited. Early notification via the list below is the best way to secu
       en: 'Interested in upcoming events.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Remplissez votre email pour être notifié en priorité — ou réservez un appel si vous voulez discuter de votre candidature directement.',
+      fr: 'Remplis ton email pour être notifié en priorité — ou réserve un appel si tu veux discuter de ta candidature directement.',
       en: 'Add your email to be notified first — or book a call if you want to discuss your application directly.'
     } satisfies BilingualLax<string>,
     primaryCtaLabel: {

@@ -35,7 +35,7 @@ export const podcastCopy = {
         en: 'The Game Changer — Podcast coming soon | Jonas Diop'
       } satisfies BilingualLax<string>,
       description: {
-        fr: "Le podcast de Jonas Diop sur l'architecture d'affaires arrive prochainement. Inscrivez-vous pour être notifié dès le premier épisode.",
+        fr: "Le podcast de Jonas Diop sur l'architecture d'affaires arrive prochainement. Inscris-toi pour être notifié dès le premier épisode.",
         en: "Jonas Diop's podcast on business architecture is coming soon. Sign up to be notified at the first episode."
       } satisfies BilingualLax<string>
     }
@@ -119,7 +119,7 @@ No generic conversations about "entrepreneurial motivation." Exchanges with foun
         en: 'Latest episodes.'
       } satisfies BilingualLax<string>,
       placeholder: {
-        fr: 'Liste des derniers épisodes en cours de connexion. Réessayez dans quelques instants ou écoutez directement sur votre plateforme préférée.',
+        fr: 'Liste des derniers épisodes en cours de connexion. Réessaie dans quelques instants ou écoute directement sur ta plateforme préférée.',
         en: 'Latest episode list is connecting. Try again shortly or listen directly on your preferred platform.'
       } satisfies BilingualLax<string>
     },
@@ -210,7 +210,7 @@ Launch date announced first to waitlist subscribers.`
         en: 'Planned format'
       } satisfies BilingualLax<string>,
       title: {
-        fr: 'Ce que vous pouvez attendre.',
+        fr: 'Ce que tu peux attendre.',
         en: 'What to expect.'
       } satisfies BilingualLax<string>,
       items: [
@@ -250,15 +250,15 @@ Launch date announced first to waitlist subscribers.`
         en: 'Notified at launch'
       } satisfies BilingualLax<string>,
       title: {
-        fr: 'Soyez notifié dès le premier épisode.',
+        fr: 'Sois notifié dès le premier épisode.',
         en: 'Be notified at the first episode.'
       } satisfies BilingualLax<string>,
       sub: {
-        fr: 'Inscrivez votre email pour recevoir une notification dès que le premier épisode est disponible.',
+        fr: 'Inscris ton email pour recevoir une notification dès que le premier épisode est disponible.',
         en: 'Add your email to receive a notification as soon as the first episode is available.'
       } satisfies BilingualLax<string>,
       emailPlaceholder: {
-        fr: 'votre@email.com',
+        fr: 'ton@email.com',
         en: 'your@email.com'
       } satisfies BilingualLax<string>,
       submitLabel: {
@@ -266,7 +266,7 @@ Launch date announced first to waitlist subscribers.`
         en: 'Notify me at launch'
       } satisfies BilingualLax<string>,
       confirmationMessage: {
-        fr: "C'est noté. On vous écrit dès le premier épisode.",
+        fr: "C'est noté. On t'écrit dès le premier épisode.",
         en: "Got it. We'll reach out at the first episode."
       } satisfies BilingualLax<string>
     }
@@ -284,7 +284,7 @@ Launch date announced first to waitlist subscribers.`
         en: 'Never miss an episode'
       } satisfies BilingualLax<string>,
       title: {
-        fr: "S'abonner sur votre plateforme préférée.",
+        fr: "S'abonner sur ta plateforme préférée.",
         en: 'Subscribe on your preferred platform.'
       } satisfies BilingualLax<string>,
       sub: {
@@ -307,7 +307,7 @@ Launch date announced first to waitlist subscribers.`
         en: 'New episode notifications.'
       } satisfies BilingualLax<string>,
       sub: {
-        fr: 'Inscrivez-vous pour être parmi les premiers à écouter dès le lancement.',
+        fr: 'Inscris-toi pour être parmi les premiers à écouter dès le lancement.',
         en: 'Sign up to be among the first to listen at launch.'
       } satisfies BilingualLax<string>,
       ctaLabel: {

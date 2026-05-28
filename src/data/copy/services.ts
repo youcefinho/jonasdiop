@@ -28,7 +28,7 @@ export const servicesCopy = {
       en: 'Three formats. One standard of execution.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: "Que vous ayez besoin d'un programme de transformation intensif, d'une compétence spécifique, ou d'un accompagnement stratégique 1:1 — chaque format est conçu pour des résultats mesurables, pas pour la théorie.",
+      fr: "Que tu aies besoin d'un programme de transformation intensif, d'une compétence spécifique, ou d'un accompagnement stratégique 1:1 — chaque format est conçu pour des résultats mesurables, pas pour la théorie.",
       en: 'Whether you need an intensive transformation program, a specific skill, or 1:1 strategic advisory — every format is built for measurable results, not theory.'
     } satisfies BilingualLax<string>
   },
@@ -93,7 +93,7 @@ export const servicesCopy = {
         en: 'One skill. Applied immediately.'
       } satisfies BilingualLax<string>,
       description: {
-        fr: "Formations autonomes sur des compétences à fort impact : closing haute valeur, productivité d'élite, optimisation cash flow. Format modulaire — commencer quand vous voulez, avancer à votre rythme. Résultats applicables dès le premier module.",
+        fr: "Formations autonomes sur des compétences à fort impact : closing haute valeur, productivité d'élite, optimisation cash flow. Format modulaire — commencer quand tu veux, avancer à ton rythme. Résultats applicables dès le premier module.",
         en: 'Self-paced trainings on high-impact skills : high-value closing, elite productivity, cash flow optimization. Modular format — start anytime, move at your pace. Results applicable from the first module.'
       } satisfies BilingualLax<string>,
       programmes: [
@@ -116,7 +116,7 @@ export const servicesCopy = {
           name: { fr: 'Focus & Flow', en: 'Focus & Flow' } satisfies BilingualLax<string>,
           badge: { fr: '5 modules', en: '5 modules' } satisfies BilingualLax<string>,
           tagline: {
-            fr: "Productivité d'élite : récupérer 50% de votre temps via l'ingénierie systémique.",
+            fr: "Productivité d'élite : récupérer 50% de ton temps via l'ingénierie systémique.",
             en: 'Elite productivity : reclaim 50% of your time via systemic engineering.'
           } satisfies BilingualLax<string>,
           fit: {
@@ -179,7 +179,7 @@ export const servicesCopy = {
 
   comparisonTable: {
     eyebrow: {
-      fr: 'Quel format vous correspond ?',
+      fr: 'Quel format te correspond ?',
       en: 'Which format fits you?'
     } satisfies BilingualLax<string>,
     title: {
@@ -300,43 +300,43 @@ export const servicesCopy = {
       en: 'All our programs require a qualification call.'
     } satisfies BilingualLax<string>,
     body: {
-      fr: "Nous ne travaillons pas avec tout le monde. Pas parce que c'est un argument de vente — mais parce que nos programmes sont conçus pour des entrepreneurs qui ont la capacité et la volonté d'exécuter.\n\nL'appel de qualification (20-30 min) permet de vérifier si votre situation correspond à nos formats et si vous êtes au bon moment pour vous y engager. Si ce n'est pas le cas, on vous le dira directement.",
+      fr: "Nous ne travaillons pas avec tout le monde. Pas parce que c'est un argument de vente — mais parce que nos programmes sont conçus pour des entrepreneurs qui ont la capacité et la volonté d'exécuter.\n\nL'appel de qualification (20-30 min) permet de vérifier si ta situation correspond à nos formats et si tu es au bon moment pour t'y engager. Si ce n'est pas le cas, on te le dira directement.",
       en: 'We do not work with everyone. Not as a sales argument — but because our programs are built for entrepreneurs with the capacity and will to execute.\n\nThe qualification call (20-30 min) verifies whether your situation fits our formats and whether the timing is right. If it is not, we will tell you directly.'
     } satisfies BilingualLax<string>,
     qualifPour: {
-      title: { fr: 'Pour vous si...', en: 'For you if...' } satisfies BilingualLax<string>,
+      title: { fr: 'Pour toi si...', en: 'For you if...' } satisfies BilingualLax<string>,
       items: [
         {
-          fr: "Vous générez déjà entre 100K$ et 1M$ de chiffre d'affaires",
+          fr: "Tu génères déjà entre 100K$ et 1M$ de chiffre d'affaires",
           en: 'You are already generating between $100K and $1M CAD in revenue'
         },
         {
-          fr: 'Vous voulez scaler sans vous épuiser davantage',
+          fr: "Tu veux scaler sans t'épuiser davantage",
           en: 'You want to scale without burning out further'
         },
         {
-          fr: 'Vous êtes prêt à investir dans une transformation structurelle',
+          fr: 'Tu es prêt à investir dans une transformation structurelle',
           en: 'You are ready to invest in structural transformation'
         },
         {
-          fr: "Vous avez la capacité d'exécuter, pas seulement d'apprendre",
+          fr: "Tu as la capacité d'exécuter, pas seulement d'apprendre",
           en: 'You have the capacity to execute, not just to learn'
         }
       ]
     },
     pasPour: {
-      title: { fr: 'Pas pour vous si...', en: 'Not for you if...' } satisfies BilingualLax<string>,
+      title: { fr: 'Pas pour toi si...', en: 'Not for you if...' } satisfies BilingualLax<string>,
       items: [
         {
-          fr: 'Vous cherchez des raccourcis ou des formules magiques',
+          fr: 'Tu cherches des raccourcis ou des formules magiques',
           en: 'You are looking for shortcuts or magic formulas'
         },
         {
-          fr: "Vous n'êtes pas prêt à remettre en question votre modèle actuel",
+          fr: "Tu n'es pas prêt à remettre en question ton modèle actuel",
           en: 'You are not ready to question your current model'
         },
         {
-          fr: 'Vous démarrez votre activité (moins de 50K$ CA)',
+          fr: 'Tu démarres ton activité (moins de 50K$ CA)',
           en: 'You are just starting out (under $50K CAD revenue)'
         }
       ]
@@ -349,16 +349,16 @@ export const servicesCopy = {
       en: 'Get started'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Quel programme est fait pour vous ?',
+      fr: 'Quel programme est fait pour toi ?',
       en: 'Which program is right for you?'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Un appel de 20 minutes pour identifier le bon format selon votre situation actuelle.',
+      fr: 'Un appel de 20 minutes pour identifier le bon format selon ta situation actuelle.',
       en: 'A 20-minute call to identify the right format for your current situation.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
-      fr: 'Réserver un appel',
-      en: 'Book a call'
+      fr: 'Réserver mon appel stratégique',
+      en: 'Book my strategy call'
     } satisfies BilingualLax<string>
   }
 } as const;

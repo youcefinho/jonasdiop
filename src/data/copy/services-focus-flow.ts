@@ -13,7 +13,7 @@ export const focusFlowCopy = {
       en: 'Focus & Flow — Elite Productivity | Jonas Diop'
     } satisfies BilingualLax<string>,
     description: {
-      fr: "Formation spécialisée productivité. Récupérer 50% de votre temps via l'ingénierie systémique. Pour entrepreneurs débordés malgré leur croissance. 5 modules.",
+      fr: "Formation spécialisée productivité. Récupérer 50% de ton temps via l'ingénierie systémique. Pour entrepreneurs débordés malgré leur croissance. 5 modules.",
       en: 'Specialized productivity training. Reclaim 50% of your time through systemic engineering. For overwhelmed entrepreneurs despite their growth. 5 modules.'
     } satisfies BilingualLax<string>
   },
@@ -28,7 +28,7 @@ export const focusFlowCopy = {
       en: 'Focus & Flow'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: "Productivité d'élite : récupérer 50% de votre temps via l'ingénierie systémique.",
+      fr: "Productivité d'élite : récupérer 50% de ton temps via l'ingénierie systémique.",
       en: 'Elite productivity : reclaim 50% of your time via systemic engineering.'
     } satisfies BilingualLax<string>
   },
@@ -39,31 +39,31 @@ export const focusFlowCopy = {
       en: 'The growth paradox'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Plus vous réussissez, moins vous avez de temps.',
+      fr: 'Plus tu réussis, moins tu as de temps.',
       en: 'The more you succeed, the less time you have.'
     } satisfies BilingualLax<string>,
     body: {
-      fr: "C'est l'un des paradoxes les plus frustrants de l'entrepreneuriat : votre entreprise grandit, et pourtant vous vous sentez plus débordé qu'avant.\n\nPlus de clients. Plus de revenus. Mais aussi plus de réunions, plus d'urgences, plus d'interruptions. L'agenda explose et les choses importantes ne se font plus jamais.\n\nFocus & Flow est une formation d'ingénierie du temps — pas de productivité personnelle générique. On part de votre situation réelle et on reconstruit votre rapport au temps pour que votre croissance ne vienne plus au prix de votre vie.",
+      fr: "C'est l'un des paradoxes les plus frustrants de l'entrepreneuriat : ton entreprise grandit, et pourtant tu te sens plus débordé qu'avant.\n\nPlus de clients. Plus de revenus. Mais aussi plus de réunions, plus d'urgences, plus d'interruptions. L'agenda explose et les choses importantes ne se font plus jamais.\n\nFocus & Flow est une formation d'ingénierie du temps — pas de productivité personnelle générique. On part de ta situation réelle et on reconstruit ton rapport au temps pour que ta croissance ne vienne plus au prix de ta vie.",
       en: 'This is one of the most frustrating paradoxes of entrepreneurship : your business grows, and yet you feel more overwhelmed than before.\n\nMore clients. More revenue. But also more meetings, more emergencies, more interruptions. The calendar explodes and the important things never get done.\n\nFocus & Flow is a time engineering training — not generic personal productivity. We start from your real situation and rebuild your relationship with time so your growth no longer comes at the cost of your life.'
     } satisfies BilingualLax<string>
   },
 
   forWho: {
     eyebrow: {
-      fr: 'Pour vous si...',
+      fr: 'Pour toi si...',
       en: 'For you if...'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Ce format correspond à votre situation si...',
+      fr: 'Ce format correspond à ta situation si...',
       en: 'This format fits your situation if...'
     } satisfies BilingualLax<string>,
     qualif: [
       {
-        fr: "Votre entreprise croît mais vous avez l'impression de courir après votre agenda",
+        fr: "Ton entreprise croît mais tu as l'impression de courir après ton agenda",
         en: 'Your business is growing but you feel like you are chasing your calendar'
       },
       {
-        fr: 'Vous travaillez plus de 50-60h par semaine sans voir le bout',
+        fr: 'Tu travailles plus de 50-60h par semaine sans voir le bout',
         en: 'You work more than 50-60h per week with no end in sight'
       },
       {
@@ -71,7 +71,7 @@ export const focusFlowCopy = {
         en: 'High-leverage tasks (strategy, development, sales) never get done — crushed by operations'
       },
       {
-        fr: "Vous savez ce que vous devriez faire mais vous n'arrivez pas à le faire",
+        fr: "Tu sais ce que tu devrais faire mais tu n'arrives pas à le faire",
         en: 'You know what you should be doing but cannot make yourself do it'
       }
     ]
@@ -83,7 +83,7 @@ export const focusFlowCopy = {
       en: '5 modules · self-paced'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Ce que vous allez mettre en place.',
+      fr: 'Ce que tu vas mettre en place.',
       en: 'What you will put in place.'
     } satisfies BilingualLax<string>,
     items: [
@@ -95,7 +95,7 @@ export const focusFlowCopy = {
           en: 'Time-leak diagnostic'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Cartographier précisément où votre temps part chaque semaine. Identifier les 3 à 5 sources principales de perte de temps dans votre opération. Pas d'intuition — des données.",
+          fr: "Cartographier précisément où ton temps part chaque semaine. Identifier les 3 à 5 sources principales de perte de temps dans ton opération. Pas d'intuition — des données.",
           en: 'Map precisely where your time goes each week. Identify the 3 to 5 main time-loss sources in your operation. Not intuition — data.'
         } satisfies BilingualLax<string>
       },
@@ -107,7 +107,7 @@ export const focusFlowCopy = {
           en: 'Prioritization system'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Framework de décision pour prioriser sans angoisser. Comment distinguer l'urgent du vraiment important. Comment structurer votre semaine autour des 20% d'actions qui génèrent 80% des résultats.",
+          fr: "Framework de décision pour prioriser sans angoisser. Comment distinguer l'urgent du vraiment important. Comment structurer ta semaine autour des 20% d'actions qui génèrent 80% des résultats.",
           en: 'Decision framework to prioritize without anxiety. How to distinguish the urgent from the truly important. How to structure your week around the 20% of actions that generate 80% of results.'
         } satisfies BilingualLax<string>
       },
@@ -131,7 +131,7 @@ export const focusFlowCopy = {
           en: 'Systemic delegation'
         } satisfies BilingualLax<string>,
         body: {
-          fr: 'Comment déléguer sans micro-gérer ni perdre de la qualité. Protocoles de transfert de tâches. Comment identifier ce que vous seul devez faire vs ce que votre équipe peut prendre en charge sans vous.',
+          fr: 'Comment déléguer sans micro-gérer ni perdre de la qualité. Protocoles de transfert de tâches. Comment identifier ce que toi seul dois faire vs ce que ton équipe peut prendre en charge sans toi.',
           en: 'How to delegate without micromanaging or losing quality. Task transfer protocols. How to identify what only you must do vs what your team can handle without you.'
         } satisfies BilingualLax<string>
       },
@@ -193,7 +193,7 @@ export const focusFlowCopy = {
 
   results: {
     eyebrow: {
-      fr: 'Ce que vous visez',
+      fr: 'Ce que tu vises',
       en: 'What you are aiming for'
     } satisfies BilingualLax<string>,
     items: [

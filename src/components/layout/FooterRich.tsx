@@ -193,7 +193,7 @@ export function FooterRich() {
           </div>
           <div className="mt-sm">
             <CTAPill variant="silver-outline" href={ROUTES.contact[locale]}>
-              {t({ fr: 'Prendre rendez-vous', en: 'Book a call' })}
+              {t({ fr: 'Réserver mon appel stratégique', en: 'Book my strategy call' })}
             </CTAPill>
           </div>
         </div>

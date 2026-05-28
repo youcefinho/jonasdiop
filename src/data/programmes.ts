@@ -59,7 +59,7 @@ export const programmes: readonly Programme[] = [
     eyebrow: { fr: 'Formation spécialisée', en: 'Specialized training' },
     name: { fr: 'Focus & Flow', en: 'Focus & Flow' },
     description: {
-      fr: "Productivité d'élite : récupérer 50% de votre temps via l'ingénierie systémique.",
+      fr: "Productivité d'élite : récupérer 50% de ton temps via l'ingénierie systémique.",
       en: 'Elite productivity : reclaim 50% of your time via systemic engineering.'
     },
     hrefKey: 'services-focus-flow'

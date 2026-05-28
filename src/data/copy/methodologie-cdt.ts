@@ -14,7 +14,7 @@ export const methodologieCdtCopy = {
       en: 'CDT™ — Dynamic Time Compression | Jonas Diop'
     } satisfies BilingualLax<string>,
     description: {
-      fr: "La CDT™ : méthodologie propriétaire de Jonas Diop. Architecture d'affaires, ingénierie systémique et offres à fort levier pour passer de 6 à 7 figures en récupérant 50% de votre temps. Résultats structurels en 30 jours, financiers en 60-90 jours.",
+      fr: "La CDT™ : méthodologie propriétaire de Jonas Diop. Architecture d'affaires, ingénierie systémique et offres à fort levier pour passer de 6 à 7 figures en récupérant 50% de ton temps. Résultats structurels en 30 jours, financiers en 60-90 jours.",
       en: "CDT™ : Jonas Diop's proprietary methodology. Business architecture, systemic engineering and high-leverage offers to move from 6 to 7 figures while reclaiming 50% of your time. Structural results in 30 days, financial results in 60-90 days."
     } satisfies BilingualLax<string>
   },
@@ -29,7 +29,7 @@ export const methodologieCdtCopy = {
       en: 'CDT™ : Dynamic Time Compression'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: "Ajouter un zéro à votre chiffre d'affaires en récupérant 50% de votre temps. Pas en travaillant plus — en travaillant avec plus de levier.",
+      fr: "Ajoute un zéro à ton chiffre d'affaires en récupérant 50% de ton temps. Pas en travaillant plus — en travaillant avec plus de levier.",
       en: 'Add a zero to your revenue while reclaiming 50% of your time. Not by working more — by working with more leverage.'
     } satisfies BilingualLax<string>
   },
@@ -48,7 +48,7 @@ export const methodologieCdtCopy = {
 
 Le principe central : chaque heure investie dans une entreprise bien architecturée produit 3 à 5 fois plus de résultats qu'une heure investie dans une entreprise mal câblée — peu importe le talent ou l'effort de son fondateur.
 
-La CDT™ intervient à trois niveaux simultanément : l'offre (est-ce que vous vendez quelque chose à fort levier ?), les systèmes (est-ce que votre opération tourne avec ou sans vous ?), et le temps (est-ce que vous passez votre temps sur ce que vous seul pouvez faire ?).
+La CDT™ intervient à trois niveaux simultanément : l'offre (est-ce que tu vends quelque chose à fort levier ?), les systèmes (est-ce que ton opération tourne avec ou sans toi ?), et le temps (est-ce que tu passes ton temps sur ce que toi seul peux faire ?).
 
 Quand les trois s'alignent, la croissance devient structurelle. Pas conjoncturelle.`,
       en: `Dynamic Time Compression is not a shortcut. It is not a personal productivity method. It is a systemic engineering approach applied to business architecture.
@@ -118,14 +118,14 @@ When all three align, growth becomes structural. Not circumstantial.`
       en: 'Two axes. One multiplier.'
     } satisfies BilingualLax<string>,
     body: {
-      fr: "On agit toujours sur les deux mêmes axes : l'échelle — le nombre de personnes que vous pouvez réellement servir — et la monétisation — le prix et la valeur perçue de chaque offre. Ce ne sont pas des intuitions. Tweakez les deux avec méthode et le chiffre d'affaires se multiplie sans ajouter d'heures.",
+      fr: "On agit toujours sur les deux mêmes axes : l'échelle — le nombre de personnes que tu peux réellement servir — et la monétisation — le prix et la valeur perçue de chaque offre. Ce ne sont pas des intuitions. Tweake les deux avec méthode et le chiffre d'affaires se multiplie sans ajouter d'heures.",
       en: 'We always act on the same two axes : scale — the number of people you can actually serve — and monetization — the price and perceived value of each offer. These are not intuitions. Tweak both methodically and revenue multiplies without adding hours.'
     } satisfies BilingualLax<string>,
     axes: {
       x: {
         label: { fr: 'Échelle', en: 'Scale' } satisfies BilingualLax<string>,
         sub: {
-          fr: 'Combien de personnes vous touchez',
+          fr: 'Combien de personnes tu touches',
           en: 'How many people you reach'
         } satisfies BilingualLax<string>
       },
@@ -321,16 +321,16 @@ When all three align, growth becomes structural. Not circumstantial.`
       en: 'Next step'
     } satisfies BilingualLax<string>,
     title: {
-      fr: "Découvrir comment la CDT™ s'applique à votre situation.",
+      fr: "Découvrir comment la CDT™ s'applique à ta situation.",
       en: 'Discover how CDT™ applies to your situation.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Un appel de qualification pour évaluer votre architecture actuelle et identifier vos 3 leviers prioritaires.',
+      fr: 'Un appel de qualification pour évaluer ton architecture actuelle et identifier tes 3 leviers prioritaires.',
       en: 'A qualification call to assess your current architecture and identify your 3 priority levers.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
-      fr: 'Réserver un appel de qualification',
-      en: 'Book a qualification call'
+      fr: 'Réserver mon appel stratégique',
+      en: 'Book my strategy call'
     } satisfies BilingualLax<string>
   }
 } as const;

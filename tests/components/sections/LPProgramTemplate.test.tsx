@@ -70,7 +70,7 @@ describe('LPProgramTemplate — hero', () => {
 describe('LPProgramTemplate — promise', () => {
   it('renders promise eyebrow', () => {
     render(<LPProgramTemplate copy={gamechangerScalingCopy} />, { wrapper: wrapper('fr') });
-    expect(screen.getByText(/Ce que vous allez construire/i)).toBeInTheDocument();
+    expect(screen.getByText(/Ce que tu vas construire/i)).toBeInTheDocument();
   });
 
   it('renders promise title H2', () => {
@@ -95,10 +95,10 @@ describe('LPProgramTemplate — promise', () => {
 // Qualification split — signature "Dan Martell" pattern
 // ---------------------------------------------------------------------------
 describe('LPProgramTemplate — qualification split', () => {
-  it('renders forWho eyebrow "Pour vous si..."', () => {
+  it('renders forWho eyebrow "Pour toi si..."', () => {
     render(<LPProgramTemplate copy={gamechangerScalingCopy} />, { wrapper: wrapper('fr') });
     // Multiple elements may contain this text (eyebrow + aria-label on ul)
-    const matches = screen.getAllByText(/Pour vous si/i);
+    const matches = screen.getAllByText(/Pour toi si/i);
     expect(matches.length).toBeGreaterThanOrEqual(1);
   });
 
@@ -119,13 +119,13 @@ describe('LPProgramTemplate — qualification split', () => {
     expect(checkIcons.length).toBe(5);
   });
 
-  it('renders disqualif heading "Pas pour vous si..."', () => {
+  it('renders disqualif heading "Pas pour toi si..."', () => {
     const { container } = render(<LPProgramTemplate copy={gamechangerScalingCopy} />, {
       wrapper: wrapper('fr')
     });
-    // The eyebrow span is the authoritative "Pas pour vous si..." element
+    // The eyebrow span is the authoritative "Pas pour toi si..." element
     const eyebrowSpan = Array.from(container.querySelectorAll('span')).find((el) =>
-      el.textContent?.includes('Pas pour vous si')
+      el.textContent?.includes('Pas pour toi si')
     );
     expect(eyebrowSpan).toBeInTheDocument();
   });

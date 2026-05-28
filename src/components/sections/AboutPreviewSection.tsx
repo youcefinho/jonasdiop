@@ -81,7 +81,7 @@ export function AboutPreviewSection() {
           </p>
           <p className="text-body text-silver opacity-75 text-pretty max-w-[60ch]">
             {t({
-              fr: "Pas une théorie. Une approche d'ingénierie systémique pour ajouter un zéro à votre chiffre d'affaires en récupérant 50% de votre temps.",
+              fr: "Pas une théorie. Une approche d'ingénierie systémique pour ajouter un zéro à ton chiffre d'affaires en récupérant 50% de ton temps.",
               en: 'Not a theory. A systemic engineering approach to add a zero to your revenue while reclaiming 50% of your time.'
             })}
           </p>

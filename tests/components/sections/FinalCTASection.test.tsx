@@ -36,7 +36,7 @@ describe('FinalCTASection', () => {
     expect(screen.getByText(/Next step/i)).toBeInTheDocument();
     expect(screen.getByText(/Ready to add a zero/i)).toBeInTheDocument();
     expect(screen.getByText(/Free qualification call/i)).toBeInTheDocument();
-    expect(screen.getByText(/Book my call/i)).toBeInTheDocument();
+    expect(screen.getByText(/Book my strategy call/i)).toBeInTheDocument();
   });
 
   it('CTA href points to /contact (FR)', () => {

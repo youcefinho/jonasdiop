@@ -252,21 +252,21 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
                   </ul>
                 </div>
 
-                {/* Pas pour vous — only renders when disqualif list exists */}
+                {/* Pas pour toi — only renders when disqualif list exists */}
                 {copy.forWho.disqualif && (
                   <div className="flex flex-col gap-sm">
                     <Eyebrow goldDot={false}>
-                      {t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
+                      {t({ fr: 'Pas pour toi si...', en: 'Not for you if...' })}
                     </Eyebrow>
                     <h2 className="text-h3 text-primary font-display text-balance">
                       {t({
-                        fr: "Ce n'est pas pour vous si vous...",
+                        fr: "Ce n'est pas pour toi si tu...",
                         en: "This isn't for you if you..."
                       })}
                     </h2>
                     <ul
                       className="flex flex-col gap-sm mt-md"
-                      aria-label={t({ fr: 'Pas pour vous si...', en: 'Not for you if...' })}
+                      aria-label={t({ fr: 'Pas pour toi si...', en: 'Not for you if...' })}
                     >
                       {copy.forWho.disqualif.map((item) => (
                         <li
@@ -291,7 +291,7 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
               {/* Honnêteté radicale disclaimer — signature Jonas */}
               <p className="text-sm text-silver/50 text-center mt-xl max-w-content mx-auto px-md text-pretty">
                 {t({
-                  fr: "Honnêteté radicale. Si vous n'êtes pas un bon fit, on vous le dira.",
+                  fr: "Honnêteté radicale. Si tu n'es pas un bon fit, on te le dira.",
                   en: "Radical honesty. If you're not a good fit, we'll tell you."
                 })}
               </p>

@@ -26,7 +26,7 @@ describe('ContactPage — hero', () => {
   it('renders H1 from copy.hero.h1 (FR)', () => {
     render(<ContactPage />, { wrapper: wrapper('fr') });
     const h1 = screen.getByRole('heading', { level: 1 });
-    expect(h1.textContent).toContain('Parlons de votre architecture');
+    expect(h1.textContent).toContain('Parlons de ton architecture');
   });
 
   it('renders H1 from copy.hero.h1 (EN)', () => {
@@ -142,8 +142,6 @@ describe('ContactPage — contactAlternatives 3 items', () => {
 describe('ContactPage — finalCta', () => {
   it('renders final CTA gold button label (FR)', () => {
     render(<ContactPage />, { wrapper: wrapper('fr') });
-    expect(screen.getAllByText(/Réserver l.appel de qualification/i).length).toBeGreaterThanOrEqual(
-      1
-    );
+    expect(screen.getAllByText(/Réserver mon appel stratégique/i).length).toBeGreaterThanOrEqual(1);
   });
 });

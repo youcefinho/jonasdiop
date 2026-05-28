@@ -19,7 +19,7 @@ const DEFAULT_META: PageMetaInput = {
     en: 'Jonas Diop — Business Architect & Strategic Scaling Montréal | DIOP Stratégies Internationales'
   },
   description: {
-    fr: "Ajouter un zéro à votre chiffre d'affaires en récupérant 50% de votre temps. Méthodologie CDT™ et scaling stratégique pour entrepreneurs, coachs et experts générant 100K$ à 1M$ — Montréal, Québec & Worldwide.",
+    fr: "Ajoute un zéro à ton chiffre d'affaires en récupérant 50% de ton temps. Méthodologie CDT™ et scaling stratégique pour entrepreneurs, coachs et experts générant 100K$ à 1M$ — Montréal, Québec & Worldwide.",
     en: 'Add a zero to your revenue while reclaiming 50% of your time. CDT™ methodology and strategic scaling for entrepreneurs, coaches and experts generating $100K to $1M — Montréal, Québec & Worldwide.'
   }
 };

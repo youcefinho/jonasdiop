@@ -30,7 +30,7 @@ export const livreCopy = {
       en: 'Business Architecture : the manual.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'En préparation. Inscrivez-vous pour être notifié dès que le manuel est disponible.',
+      fr: 'En préparation. Inscris-toi pour être notifié dès que le manuel est disponible.',
       en: 'In preparation. Sign up to be notified the moment the manual is available.'
     } satisfies BilingualLax<string>
   },
@@ -45,9 +45,9 @@ export const livreCopy = {
       en: 'CDT™ complete. Laid out. Executable.'
     } satisfies BilingualLax<string>,
     body: {
-      fr: `Ce livre est la version écrite de ce que 15 ans d'accompagnement ont produit : une méthodologie complète d'architecture d'affaires, accessible à n'importe quel entrepreneur sérieux — que vous ayez accès aux programmes ou non.
+      fr: `Ce livre est la version écrite de ce que 15 ans d'accompagnement ont produit : une méthodologie complète d'architecture d'affaires, accessible à n'importe quel entrepreneur sérieux — que tu aies accès aux programmes ou non.
 
-Ce n'est pas un livre de motivation. C'est un manuel de travail. Chaque chapitre se termine par des exercices d'application directe sur votre architecture réelle.
+Ce n'est pas un livre de motivation. C'est un manuel de travail. Chaque chapitre se termine par des exercices d'application directe sur ton architecture réelle.
 
 La CDT™ en profondeur. Les frameworks que les clients des programmes reçoivent. Des case studies clients avec métriques réelles. Des outils d'autodiagnostic applicables dès la lecture.`,
       en: `This book is the written version of what 15 years of advisory has produced : a complete business architecture methodology, accessible to any serious entrepreneur — whether or not you have access to the programs.
@@ -94,7 +94,7 @@ Not a lead magnet. A real working tool.`
       {
         number: '01',
         title: {
-          fr: 'Pourquoi votre architecture vous ralentit',
+          fr: 'Pourquoi ton architecture te ralentit',
           en: 'Why your architecture is slowing you down'
         } satisfies BilingualLax<string>,
         sub: {
@@ -142,7 +142,7 @@ Not a lead magnet. A real working tool.`
           en: 'Pillar 3 : Systems compression'
         } satisfies BilingualLax<string>,
         sub: {
-          fr: 'Automatiser ce qui peut tourner sans vous',
+          fr: 'Automatiser ce qui peut tourner sans toi',
           en: 'Automate what can run without you'
         } satisfies BilingualLax<string>
       },
@@ -230,11 +230,11 @@ Not a lead magnet. A real working tool.`
       en: 'Be the first to know.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: "Inscrivez-vous pour recevoir une notification dès que le livre est disponible — et bénéficier d'un accès prioritaire au lancement.",
+      fr: "Inscris-toi pour recevoir une notification dès que le livre est disponible — et bénéficier d'un accès prioritaire au lancement.",
       en: 'Sign up to receive a notification as soon as the book is available — and benefit from priority access at launch.'
     } satisfies BilingualLax<string>,
     emailPlaceholder: {
-      fr: 'votre@email.com',
+      fr: 'ton@email.com',
       en: 'your@email.com'
     } satisfies BilingualLax<string>,
     submitLabel: {
@@ -242,7 +242,7 @@ Not a lead magnet. A real working tool.`
       en: 'Add me to the waitlist'
     } satisfies BilingualLax<string>,
     confirmationMessage: {
-      fr: 'Vous êtes sur la liste. On vous écrit dès la sortie.',
+      fr: "Tu es sur la liste. On t'écrit dès la sortie.",
       en: "You're on the list. We'll reach out as soon as it launches."
     } satisfies BilingualLax<string>
   },

@@ -65,7 +65,7 @@ export const aboutCopy = {
         en: 'The founding insight'
       } satisfies BilingualLax<string>,
       title: {
-        fr: 'Le succès ne devrait pas coûter votre temps.',
+        fr: 'Le succès ne devrait pas coûter ton temps.',
         en: 'Success should not cost your time.'
       } satisfies BilingualLax<string>,
       body: {
@@ -117,7 +117,7 @@ That's where I began codifying what would become CDT™.`
       body: {
         fr: `La Compression Dynamique du Temps n'est pas un raccourci. C'est une méthodologie d'ingénierie.
 
-L'idée centrale : si vous pouvez identifier avec précision où votre temps fuit, où votre offre perd de la puissance, et où votre équipe tourne à vide — vous pouvez reconstruire l'architecture pour que chaque heure investie produit 3 à 5 fois plus de résultats.
+L'idée centrale : si tu peux identifier avec précision où ton temps fuit, où ton offre perd de la puissance, et où ton équipe tourne à vide — tu peux reconstruire l'architecture pour que chaque heure investie produit 3 à 5 fois plus de résultats.
 
 Pas en travaillant plus. En travaillant avec plus de levier.
 
@@ -193,16 +193,16 @@ Three values guide every engagement : **Pragmatism. Vision. Leverage.**`
       en: 'Next step'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Parlons de votre architecture.',
+      fr: 'Parlons de ton architecture.',
       en: "Let's talk about your architecture."
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Un appel de qualification pour évaluer si votre situation correspond à nos programmes.',
+      fr: 'Un appel de qualification pour évaluer si ta situation correspond à nos programmes.',
       en: 'A qualification call to assess whether your situation fits our programs.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
-      fr: 'Réserver un appel',
-      en: 'Book a call'
+      fr: 'Réserver mon appel stratégique',
+      en: 'Book my strategy call'
     } satisfies BilingualLax<string>
   }
 } as const;

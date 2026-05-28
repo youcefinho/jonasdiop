@@ -39,7 +39,7 @@ export const masterClosingCopy = {
       en: 'The real problem'
     } satisfies BilingualLax<string>,
     title: {
-      fr: "Ce n'est pas votre offre qui bloque. C'est votre closing.",
+      fr: "Ce n'est pas ton offre qui bloque. C'est ton closing.",
       en: 'It is not your offer that is blocking you. It is your closing.'
     } satisfies BilingualLax<string>,
     body: {
@@ -50,7 +50,7 @@ export const masterClosingCopy = {
 
   forWho: {
     eyebrow: {
-      fr: 'Pour vous si...',
+      fr: 'Pour toi si...',
       en: 'For you if...'
     } satisfies BilingualLax<string>,
     title: {
@@ -59,19 +59,19 @@ export const masterClosingCopy = {
     } satisfies BilingualLax<string>,
     qualif: [
       {
-        fr: 'Vous êtes entrepreneur ou responsable commercial qui vend des offres >5K$ (coaching, consulting, formation, B2B)',
+        fr: 'Tu es entrepreneur ou responsable commercial qui vend des offres >5K$ (coaching, consulting, formation, B2B)',
         en: 'You are an entrepreneur or sales lead selling offers >$5K (coaching, consulting, training, B2B)'
       },
       {
-        fr: 'Votre taux de closing en appel est inférieur à 40%',
+        fr: 'Ton taux de closing en appel est inférieur à 40%',
         en: 'Your call closing rate is below 40%'
       },
       {
-        fr: 'Vous perdez des deals sur les objections prix ou "je dois y réfléchir"',
+        fr: 'Tu perds des deals sur les objections prix ou "je dois y réfléchir"',
         en: 'You are losing deals on price objections or "I need to think about it"'
       },
       {
-        fr: 'Vous voulez standardiser votre processus de vente pour que votre équipe puisse le répliquer',
+        fr: 'Tu veux standardiser ton processus de vente pour que ton équipe puisse le répliquer',
         en: 'You want to standardize your sales process so your team can replicate it'
       }
     ]
@@ -83,7 +83,7 @@ export const masterClosingCopy = {
       en: '6 modules · self-paced'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Ce que vous allez maîtriser.',
+      fr: 'Ce que tu vas maîtriser.',
       en: 'What you will master.'
     } satisfies BilingualLax<string>,
     items: [
@@ -143,7 +143,7 @@ export const masterClosingCopy = {
           en: 'Pipeline & post-call follow-up'
         } satisfies BilingualLax<string>,
         body: {
-          fr: 'Comment structurer votre pipeline de vente haute valeur. Protocoles de suivi post-appel qui relancent sans relancer. Comment qualifier les prospects en amont pour ne pas perdre de temps sur des appels non qualifiés.',
+          fr: 'Comment structurer ton pipeline de vente haute valeur. Protocoles de suivi post-appel qui relancent sans relancer. Comment qualifier les prospects en amont pour ne pas perdre de temps sur des appels non qualifiés.',
           en: 'How to structure your high-value sales pipeline. Post-call follow-up protocols that re-engage without nagging. How to qualify prospects upfront to avoid wasting time on unqualified calls.'
         } satisfies BilingualLax<string>
       },
@@ -155,7 +155,7 @@ export const masterClosingCopy = {
           en: 'Scripts & implementation'
         } satisfies BilingualLax<string>,
         body: {
-          fr: 'Templates de scripts adaptables à votre offre et votre style. Comment personnaliser les frameworks à votre marché. Mise en application immédiate avec les 2 calls live de la formation.',
+          fr: 'Templates de scripts adaptables à ton offre et ton style. Comment personnaliser les frameworks à ton marché. Mise en application immédiate avec les 2 calls live de la formation.',
           en: 'Script templates adaptable to your offer and style. How to customize frameworks for your market. Immediate application with the 2 live calls included in the training.'
         } satisfies BilingualLax<string>
       }
@@ -216,7 +216,7 @@ export const masterClosingCopy = {
           en: 'How to register for Master Closing?'
         } satisfies BilingualLax<string>,
         answer: {
-          fr: "Réserver un appel de découverte via le bouton ci-dessous. L'appel permet de valider que la formation correspond à votre situation et vous donne accès aux détails d'investissement.",
+          fr: "Réserve un appel de découverte via le bouton ci-dessous. L'appel permet de valider que la formation correspond à ta situation et te donne accès aux détails d'investissement.",
           en: 'Book a discovery call via the button below. The call validates that the training fits your situation and gives you access to investment details.'
         } satisfies BilingualLax<string>
       },
@@ -244,7 +244,7 @@ export const masterClosingCopy = {
       en: 'Book a demo.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Un appel de 20 minutes pour valider que Master Closing correspond à votre situation.',
+      fr: 'Un appel de 20 minutes pour valider que Master Closing correspond à ta situation.',
       en: 'A 20-minute call to validate that Master Closing fits your situation.'
     } satisfies BilingualLax<string>,
     ctaLabel: {

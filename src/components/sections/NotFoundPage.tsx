@@ -74,7 +74,7 @@ export function NotFoundPage() {
 
         <p className="text-body-lg text-silver opacity-80 text-pretty max-w-[55ch]">
           {t({
-            fr: "La page que vous cherchez n'existe pas — ou a été déplacée. Pas de souci, voici ce qui peut vous être utile.",
+            fr: "La page que tu cherches n'existe pas — ou a été déplacée. Pas de souci, voici ce qui peut t'être utile.",
             en: 'The page you are looking for does not exist — or has moved. No worries, here is what might help.'
           })}
         </p>

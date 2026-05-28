@@ -39,22 +39,22 @@ export const gamechangerScalingCopy = {
 
   promise: {
     eyebrow: {
-      fr: 'Ce que vous allez construire',
+      fr: 'Ce que tu vas construire',
       en: 'What you will build'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'En 12 semaines : une architecture qui génère de la croissance sans vous dévorer.',
+      fr: 'En 12 semaines : une architecture qui génère de la croissance sans te dévorer.',
       en: 'In 12 weeks : an architecture that generates growth without consuming you.'
     } satisfies BilingualLax<string>,
     body: {
-      fr: "Gamechanger Scaling n'est pas un programme de motivation. Ce n'est pas un mastermind de networking. C'est un programme de travail.\n\nEn 12 semaines, vous allez diagnostiquer votre architecture actuelle, identifier vos 5 leviers à fort retour, reconstruire votre offre et vos systèmes pour le scaling, et mettre en place une exécution mesurable semaine après semaine.\n\nÀ la fin du programme, votre entreprise doit pouvoir croître sans que vous travailliez plus.",
+      fr: "Gamechanger Scaling n'est pas un programme de motivation. Ce n'est pas un mastermind de networking. C'est un programme de travail.\n\nEn 12 semaines, tu vas diagnostiquer ton architecture actuelle, identifier tes 5 leviers à fort retour, reconstruire ton offre et tes systèmes pour le scaling, et mettre en place une exécution mesurable semaine après semaine.\n\nÀ la fin du programme, ton entreprise doit pouvoir croître sans que tu travailles plus.",
       en: 'Gamechanger Scaling is not a motivation program. It is not a networking mastermind. It is a working program.\n\nIn 12 weeks, you will diagnose your current architecture, identify your 5 high-return levers, rebuild your offer and systems for scaling, and establish measurable execution week by week.\n\nBy the end of the program, your business must be able to grow without you working more.'
     } satisfies BilingualLax<string>
   },
 
   forWho: {
     eyebrow: {
-      fr: 'Pour vous si...',
+      fr: 'Pour toi si...',
       en: 'For you if...'
     } satisfies BilingualLax<string>,
     title: {
@@ -63,37 +63,37 @@ export const gamechangerScalingCopy = {
     } satisfies BilingualLax<string>,
     qualif: [
       {
-        fr: 'Vous générez entre 100K$ et 1M$ de CA (ou approchez ce seuil)',
+        fr: 'Tu génères entre 100K$ et 1M$ de CA (ou approches ce seuil)',
         en: 'You generate between $100K and $1M CAD in revenue (or are approaching that threshold)'
       },
       {
-        fr: 'Votre croissance est réelle mais vous sentez que le modèle actuel ne peut pas scaler sans vous épuiser',
+        fr: "Ta croissance est réelle mais tu sens que le modèle actuel ne peut pas scaler sans t'épuiser",
         en: 'Your growth is real but you feel the current model cannot scale without burning you out'
       },
       {
-        fr: "Vous voulez une transformation d'architecture, pas juste des conseils à la pièce",
+        fr: "Tu veux une transformation d'architecture, pas juste des conseils à la pièce",
         en: 'You want an architecture transformation, not just piecemeal advice'
       },
       {
-        fr: 'Vous êtes prêt à exécuter, pas seulement à apprendre',
+        fr: 'Tu es prêt à exécuter, pas seulement à apprendre',
         en: 'You are ready to execute, not just learn'
       },
       {
-        fr: 'Vous êtes disponible pour des sessions live hebdomadaires sur 12 semaines',
+        fr: 'Tu es disponible pour des sessions live hebdomadaires sur 12 semaines',
         en: 'You are available for weekly live sessions over 12 weeks'
       }
     ],
     disqualif: [
       {
-        fr: 'Vous démarrez votre activité (moins de 50K$ CA)',
+        fr: 'Tu démarres ton activité (moins de 50K$ CA)',
         en: 'You are just starting out (under $50K CAD revenue)'
       },
       {
-        fr: 'Vous cherchez un programme de motivation ou de personal development',
+        fr: 'Tu cherches un programme de motivation ou de personal development',
         en: 'You are looking for a motivation or personal development program'
       },
       {
-        fr: "Vous n'êtes pas prêt à remettre en question votre modèle actuel",
+        fr: "Tu n'es pas prêt à remettre en question ton modèle actuel",
         en: 'You are not ready to question your current model'
       }
     ]
@@ -117,7 +117,7 @@ export const gamechangerScalingCopy = {
           en: '01 · Architecture diagnostic'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Cartographie complète de votre architecture actuelle. Identification des fuites de temps, des leviers cachés, des goulots d'étranglement. Rapport de diagnostic personnalisé avec vos 5 priorités.",
+          fr: "Cartographie complète de ton architecture actuelle. Identification des fuites de temps, des leviers cachés, des goulots d'étranglement. Rapport de diagnostic personnalisé avec tes 5 priorités.",
           en: 'Complete mapping of your current architecture. Identification of time leaks, hidden levers, bottlenecks. Personalized diagnostic report with your 5 priorities.'
         } satisfies BilingualLax<string>
       },
@@ -129,7 +129,7 @@ export const gamechangerScalingCopy = {
           en: '02 · Offer architecture'
         } satisfies BilingualLax<string>,
         body: {
-          fr: 'Reconstruction de votre offre autour de la valeur réelle. Positioning, prix, format de livraison. Élimination des offres à faible marge ou à forte friction opérationnelle.',
+          fr: 'Reconstruction de ton offre autour de la valeur réelle. Positioning, prix, format de livraison. Élimination des offres à faible marge ou à forte friction opérationnelle.',
           en: 'Rebuild your offer around real value. Positioning, pricing, delivery format. Elimination of low-margin or high-friction offers.'
         } satisfies BilingualLax<string>
       },
@@ -141,7 +141,7 @@ export const gamechangerScalingCopy = {
           en: '03 · Team architecture'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Réaffectation des rôles et responsabilités. Définir ce que vous seul pouvez faire vs ce que l'équipe peut prendre. Protocoles de délégation sans friction.",
+          fr: "Réaffectation des rôles et responsabilités. Définir ce que toi seul peux faire vs ce que l'équipe peut prendre. Protocoles de délégation sans friction.",
           en: 'Reassignment of roles and responsibilities. Define what only you can do vs what the team can take. Frictionless delegation protocols.'
         } satisfies BilingualLax<string>
       },
@@ -153,7 +153,7 @@ export const gamechangerScalingCopy = {
           en: '04 · Operations compression'
         } satisfies BilingualLax<string>,
         body: {
-          fr: 'Automatisations prioritaires. Élimination des tâches à faible rendement. Mise en place des systèmes qui tournent sans votre présence constante.',
+          fr: 'Automatisations prioritaires. Élimination des tâches à faible rendement. Mise en place des systèmes qui tournent sans ta présence constante.',
           en: 'Priority automations. Elimination of low-yield tasks. Implementation of systems that run without your constant presence.'
         } satisfies BilingualLax<string>
       },
@@ -245,7 +245,7 @@ export const gamechangerScalingCopy = {
       en: 'Expected results'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'À quoi vous attendre en 12 semaines.',
+      fr: "À quoi t'attendre en 12 semaines.",
       en: 'What to expect in 12 weeks.'
     } satisfies BilingualLax<string>,
     disclaimer: {
@@ -297,7 +297,7 @@ export const gamechangerScalingCopy = {
           en: 'When does the next cohort start?'
         } satisfies BilingualLax<string>,
         answer: {
-          fr: "Les cohortes ont une disponibilité limitée et démarrent par vagues. Les dates exactes des prochaines cohortes sont communiquées lors de l'appel de qualification, en fonction de votre situation et du calendrier en cours.",
+          fr: "Les cohortes ont une disponibilité limitée et démarrent par vagues. Les dates exactes des prochaines cohortes sont communiquées lors de l'appel de qualification, en fonction de ta situation et du calendrier en cours.",
           en: 'Cohorts have limited availability and launch in waves. Exact next cohort dates are shared during the qualification call, based on your situation and the current schedule.'
         } satisfies BilingualLax<string>
       },
@@ -308,7 +308,7 @@ export const gamechangerScalingCopy = {
           en: 'What is the investment for Gamechanger Scaling?'
         } satisfies BilingualLax<string>,
         answer: {
-          fr: "L'investissement n'est pas affiché publiquement. Il est communiqué lors de l'appel de qualification, une fois que nous avons évalué si le programme est le bon fit pour votre situation.",
+          fr: "L'investissement n'est pas affiché publiquement. Il est communiqué lors de l'appel de qualification, une fois que nous avons évalué si le programme est le bon fit pour ta situation.",
           en: 'The investment is not publicly listed. It is shared during the qualification call, once we have assessed whether the program is the right fit for your situation.'
         } satisfies BilingualLax<string>
       },
@@ -319,7 +319,7 @@ export const gamechangerScalingCopy = {
           en: 'Do you need to have completed another program before Gamechanger Scaling?'
         } satisfies BilingualLax<string>,
         answer: {
-          fr: "Non. Gamechanger Scaling est conçu comme un programme complet et autonome. Le prérequis principal est votre situation réelle : un CA de 100K$+ et la volonté de transformer votre architecture. L'appel de qualification permet de valider ce prérequis.",
+          fr: "Non. Gamechanger Scaling est conçu comme un programme complet et autonome. Le prérequis principal est ta situation réelle : un CA de 100K$+ et la volonté de transformer ton architecture. L'appel de qualification permet de valider ce prérequis.",
           en: 'No. Gamechanger Scaling is designed as a complete, standalone program. The main prerequisite is your real situation : $100K+ CAD revenue and the willingness to transform your architecture. The qualification call validates this.'
         } satisfies BilingualLax<string>
       }
@@ -336,7 +336,7 @@ export const gamechangerScalingCopy = {
       en: 'Apply for the next cohort.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Cohorte restreinte à 8-12 personnes. Un appel de qualification est requis pour valider votre candidature.',
+      fr: 'Cohorte restreinte à 8-12 personnes. Un appel de qualification est requis pour valider ta candidature.',
       en: 'Cohort limited to 8-12 people. A qualification call is required to validate your application.'
     } satisfies BilingualLax<string>,
     ctaLabel: {

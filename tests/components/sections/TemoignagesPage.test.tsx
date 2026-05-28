@@ -75,9 +75,9 @@ describe('TemoignagesPage — disclaimer', () => {
 });
 
 describe('TemoignagesPage — finalCta', () => {
-  it('renders final CTA "Réserver l\'appel de qualification" (FR)', () => {
+  it('renders final CTA "Réserver mon appel stratégique" (FR)', () => {
     render(<TemoignagesPage />, { wrapper: wrapper('fr') });
-    expect(screen.getAllByText(/Réserver l.appel/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Réserver mon appel stratégique/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it('final CTA links to /contact', () => {

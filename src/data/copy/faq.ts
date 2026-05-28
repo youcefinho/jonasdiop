@@ -45,22 +45,22 @@ export const faqCopy = {
         {
           id: 'pour-qui',
           question: {
-            fr: 'Pour qui sont conçus vos programmes ?',
+            fr: 'Pour qui sont conçus tes programmes ?',
             en: 'Who are your programs designed for?'
           } satisfies BilingualLax<string>,
           answer: {
-            fr: "Nos programmes sont conçus pour des entrepreneurs, des coachs et des experts générant déjà entre 100K$ et 1M$ de chiffre d'affaires, qui veulent scaler sans s'épuiser et bâtir un écosystème à fort levier.\n\nCe ne sont pas des programmes pour débutants. Vous avez déjà prouvé que vous savez vendre et livrer. Notre rôle est de vous aider à faire plus avec ce que vous avez — pas à partir de zéro.",
+            fr: "Nos programmes sont conçus pour des entrepreneurs, des coachs et des experts générant déjà entre 100K$ et 1M$ de chiffre d'affaires, qui veulent scaler sans s'épuiser et bâtir un écosystème à fort levier.\n\nCe ne sont pas des programmes pour débutants. Tu as déjà prouvé que tu sais vendre et livrer. Notre rôle est de t'aider à faire plus avec ce que tu as — pas à partir de zéro.",
             en: 'Our programs are designed for entrepreneurs, coaches, and experts already generating between $100K and $1M CAD in revenue, who want to scale without burning out and build a high-leverage ecosystem.\n\nThese are not beginner programs. You have already proven you can sell and deliver. Our role is to help you do more with what you have — not start from scratch.'
           } satisfies BilingualLax<string>
         },
         {
           id: 'approche-differente',
           question: {
-            fr: 'En quoi votre approche est-elle différente des autres consultants en croissance ?',
+            fr: 'En quoi ton approche est-elle différente des autres consultants en croissance ?',
             en: 'How is your approach different from other growth consultants?'
           } satisfies BilingualLax<string>,
           answer: {
-            fr: "Notre approche repose sur trois piliers distincts : architecture d'affaires, ingénierie systémique et CDT™ (Compression Dynamique du Temps).\n\nCe n'est pas de la théorie générique. Pas de cadres copiés-collés d'un livre de management. On part de votre architecture réelle, on identifie les leviers précis dans votre situation, et on exécute avec vous.\n\nLe pragmatisme et l'exécution mesurable ne sont pas des arguments marketing — c'est ce qui distingue un résultat d'une présentation PowerPoint.",
+            fr: "Notre approche repose sur trois piliers distincts : architecture d'affaires, ingénierie systémique et CDT™ (Compression Dynamique du Temps).\n\nCe n'est pas de la théorie générique. Pas de cadres copiés-collés d'un livre de management. On part de ton architecture réelle, on identifie les leviers précis dans ta situation, et on exécute avec toi.\n\nLe pragmatisme et l'exécution mesurable ne sont pas des arguments marketing — c'est ce qui distingue un résultat d'une présentation PowerPoint.",
             en: 'Our approach rests on three distinct pillars : business architecture, systemic engineering, and CDT™ (Dynamic Time Compression).\n\nNo generic theory. No frameworks copy-pasted from a management book. We start from your actual architecture, identify the precise levers in your situation, and execute with you.\n\nPragmatism and measurable execution are not marketing arguments — they are what distinguishes a result from a PowerPoint presentation.'
           } satisfies BilingualLax<string>
         },
@@ -78,11 +78,11 @@ export const faqCopy = {
         {
           id: 'selectivite',
           question: {
-            fr: 'Travaillez-vous avec tout le monde ?',
+            fr: 'Travailles-tu avec tout le monde ?',
             en: 'Do you work with everyone?'
           } satisfies BilingualLax<string>,
           answer: {
-            fr: "Non. Nous travaillons uniquement avec des entrepreneurs sérieux, prêts à investir dans leur croissance et à exécuter. Un appel de qualification est requis avant toute collaboration.\n\nCe n'est pas une posture commerciale. C'est une réalité opérationnelle : nos programmes sont conçus pour produire des résultats structurels. Si vous n'êtes pas prêt à remettre en question votre modèle et à exécuter, nous ne sommes pas le bon partenaire — et on vous le dira.",
+            fr: "Non. Nous travaillons uniquement avec des entrepreneurs sérieux, prêts à investir dans leur croissance et à exécuter. Un appel de qualification est requis avant toute collaboration.\n\nCe n'est pas une posture commerciale. C'est une réalité opérationnelle : nos programmes sont conçus pour produire des résultats structurels. Si tu n'es pas prêt à remettre en question ton modèle et à exécuter, nous ne sommes pas le bon partenaire — et on te le dira.",
             en: 'No. We work exclusively with serious entrepreneurs who are ready to invest in their growth and execute. A qualification call is required before any collaboration.\n\nThis is not a sales posture. It is an operational reality : our programs are built to produce structural results. If you are not ready to question your model and execute, we are not the right partner — and we will say so.'
           } satisfies BilingualLax<string>
         }
@@ -98,7 +98,7 @@ export const faqCopy = {
         {
           id: 'formats-programmes',
           question: {
-            fr: "Quels sont vos formats d'accompagnement ?",
+            fr: "Quels sont tes formats d'accompagnement ?",
             en: 'What are your advisory formats?'
           } satisfies BilingualLax<string>,
           answer: {
@@ -113,7 +113,7 @@ export const faqCopy = {
             en: 'What is the difference between group programs and trainings?'
           } satisfies BilingualLax<string>,
           answer: {
-            fr: "Les programmes de groupe (Gamechanger Scaling, The Shift) sont des transformations intensives sur plusieurs semaines. Vous participez en cohorte restreinte, avec des sessions live hebdomadaires, un accès Slack privé et un accompagnement actif pendant toute la durée. C'est le format le plus complet pour une transformation d'architecture.\n\nLes formations spécialisées sont autonomes et centrées sur une compétence précise (closing, productivité, cash flow). Vous avancez à votre rythme avec accès aux modules vidéo, aux ressources et à des calls live ponctuels selon la formation.",
+            fr: "Les programmes de groupe (Gamechanger Scaling, The Shift) sont des transformations intensives sur plusieurs semaines. Tu participes en cohorte restreinte, avec des sessions live hebdomadaires, un accès Slack privé et un accompagnement actif pendant toute la durée. C'est le format le plus complet pour une transformation d'architecture.\n\nLes formations spécialisées sont autonomes et centrées sur une compétence précise (closing, productivité, cash flow). Tu avances à ton rythme avec accès aux modules vidéo, aux ressources et à des calls live ponctuels selon la formation.",
             en: 'Group programs (Gamechanger Scaling, The Shift) are intensive multi-week transformations. You participate in a small cohort with weekly live sessions, private Slack access, and active support throughout. This is the most comprehensive format for architecture transformation.\n\nSpecialized trainings are self-paced and focused on a specific skill (closing, productivity, cash flow). You move at your own pace with access to video modules, resources, and occasional live calls depending on the training.'
           } satisfies BilingualLax<string>
         },
@@ -140,11 +140,11 @@ export const faqCopy = {
         {
           id: 'tarifs',
           question: {
-            fr: 'Quels sont vos tarifs ?',
+            fr: 'Quels sont tes tarifs ?',
             en: 'What are your rates?'
           } satisfies BilingualLax<string>,
           answer: {
-            fr: "Nos tarifs ne sont pas affichés publiquement. Chaque programme a une structure de prix qui dépend du format, de la durée et de l'accès inclus.\n\nLes détails d'investissement sont communiqués lors de l'appel de qualification, une fois que nous avons évalué si votre situation correspond au bon programme. Réserver un appel est la meilleure façon d'obtenir une information précise et adaptée.",
+            fr: "Nos tarifs ne sont pas affichés publiquement. Chaque programme a une structure de prix qui dépend du format, de la durée et de l'accès inclus.\n\nLes détails d'investissement sont communiqués lors de l'appel de qualification, une fois que nous avons évalué si ta situation correspond au bon programme. Réserver un appel est la meilleure façon d'obtenir une information précise et adaptée.",
             en: 'Our rates are not publicly listed. Each program has a pricing structure that depends on the format, duration, and included access.\n\nInvestment details are shared during the qualification call, once we have assessed whether your situation matches the right program. Booking a call is the best way to get accurate, relevant information.'
           } satisfies BilingualLax<string>
         },
@@ -155,7 +155,7 @@ export const faqCopy = {
             en: 'What are the payment terms?'
           } satisfies BilingualLax<string>,
           answer: {
-            fr: "Nos options de paiement sont présentées en détail lors de l'appel de qualification — paiement intégral ou versements, en fonction de votre situation et du programme retenu.",
+            fr: "Nos options de paiement sont présentées en détail lors de l'appel de qualification — paiement intégral ou versements, en fonction de ta situation et du programme retenu.",
             en: 'Payment options are presented in detail during the qualification call — full payment or installments, based on your situation and the program selected.'
           } satisfies BilingualLax<string>
         }
@@ -171,18 +171,18 @@ export const faqCopy = {
         {
           id: 'garanties',
           question: {
-            fr: 'Offrez-vous une garantie de résultats ?',
+            fr: 'Offres-tu une garantie de résultats ?',
             en: 'Do you offer a results guarantee?'
           } satisfies BilingualLax<string>,
           answer: {
-            fr: "Non. Et voici pourquoi c'est important à comprendre : nos programmes produisent des résultats mesurables quand les deux parties s'engagent pleinement. Jonas et l'équipe apportent la méthodologie, le cadre et l'accompagnement. Vous apportez l'exécution.\n\nNous ne pouvons pas garantir des résultats à quelqu'un qui n'exécute pas. Ce que nous garantissons : la qualité de la méthodologie CDT™, la précision du diagnostic, et l'accompagnement actif pendant toute la durée du programme.\n\nLes résultats affichés sont représentatifs des entrepreneurs qui exécutent pleinement. Résultats variables selon engagement.",
+            fr: "Non. Et voici pourquoi c'est important à comprendre : nos programmes produisent des résultats mesurables quand les deux parties s'engagent pleinement. Jonas et l'équipe apportent la méthodologie, le cadre et l'accompagnement. Tu apportes l'exécution.\n\nNous ne pouvons pas garantir des résultats à quelqu'un qui n'exécute pas. Ce que nous garantissons : la qualité de la méthodologie CDT™, la précision du diagnostic, et l'accompagnement actif pendant toute la durée du programme.\n\nLes résultats affichés sont représentatifs des entrepreneurs qui exécutent pleinement. Résultats variables selon engagement.",
             en: 'No. And here is why that matters : our programs produce measurable results when both parties are fully committed. Jonas and the team bring the methodology, the framework, and the guidance. You bring the execution.\n\nWe cannot guarantee results for someone who does not execute. What we do guarantee : the quality of the CDT™ methodology, the precision of the diagnostic, and active support throughout the program duration.\n\nDisplayed results are representative of entrepreneurs who fully execute. Results vary based on engagement.'
           } satisfies BilingualLax<string>
         },
         {
           id: 'preuves-resultats',
           question: {
-            fr: 'Comment mesurez-vous les résultats de vos clients ?',
+            fr: 'Comment mesures-tu les résultats de tes clients ?',
             en: 'How do you measure client results?'
           } satisfies BilingualLax<string>,
           answer: {
@@ -202,7 +202,7 @@ export const faqCopy = {
         {
           id: 'lieu',
           question: {
-            fr: 'Êtes-vous basés à Montréal uniquement ?',
+            fr: 'Es-tu basé à Montréal uniquement ?',
             en: 'Are you Montréal-based only?'
           } satisfies BilingualLax<string>,
           answer: {
@@ -213,7 +213,7 @@ export const faqCopy = {
         {
           id: 'langue',
           question: {
-            fr: 'Travaillez-vous en français et en anglais ?',
+            fr: 'Travailles-tu en français et en anglais ?',
             en: 'Do you work in both French and English?'
           } satisfies BilingualLax<string>,
           answer: {
@@ -242,16 +242,16 @@ export const faqCopy = {
       en: 'Another question?'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Posez-la directement.',
+      fr: 'Pose-la directement.',
       en: 'Ask it directly.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Un appel de 20 minutes pour répondre à toutes vos questions et évaluer si nos programmes correspondent à votre situation.',
+      fr: 'Un appel de 20 minutes pour répondre à toutes tes questions et évaluer si nos programmes correspondent à ta situation.',
       en: 'A 20-minute call to answer all your questions and assess whether our programs fit your situation.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
-      fr: 'Réserver un appel',
-      en: 'Book a call'
+      fr: 'Réserver mon appel stratégique',
+      en: 'Book my strategy call'
     } satisfies BilingualLax<string>
   }
 } as const;

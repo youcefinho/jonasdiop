@@ -95,7 +95,7 @@ export function RessourcesPreviewSection() {
               </h3>
               <p className="text-sm text-silver opacity-50 text-pretty">
                 {t({
-                  fr: 'Inscrivez-vous à la newsletter pour être notifié des nouvelles publications.',
+                  fr: 'Inscris-toi à la newsletter pour être notifié des nouvelles publications.',
                   en: 'Subscribe to the newsletter to be notified of new publications.'
                 })}
               </p>

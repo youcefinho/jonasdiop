@@ -14,7 +14,7 @@ export const contactCopy = {
       en: 'Contact — Book a Qualification Call | Jonas Diop, Business Architect'
     } satisfies BilingualLax<string>,
     description: {
-      fr: "Un appel de qualification gratuit de 30 minutes avec Jonas Diop, architecte d'affaires Montréal, pour évaluer si votre situation correspond à nos programmes de scaling stratégique.",
+      fr: "Un appel de qualification gratuit de 30 minutes avec Jonas Diop, architecte d'affaires Montréal, pour évaluer si ta situation correspond à nos programmes de scaling stratégique.",
       en: 'A free 30-minute qualification call with Jonas Diop, Montréal-based business architect, to assess whether your situation fits our strategic scaling programs.'
     } satisfies BilingualLax<string>
   },
@@ -25,11 +25,11 @@ export const contactCopy = {
       en: 'Contact'
     } satisfies BilingualLax<string>,
     h1: {
-      fr: 'Parlons de votre architecture.',
+      fr: 'Parlons de ton architecture.',
       en: "Let's talk about your architecture."
     } satisfies BilingualLax<string>,
     sub: {
-      fr: "Un appel de qualification de 30 minutes — gratuit, sans pression. On évalue ensemble si votre situation correspond à nos programmes. Si ce n'est pas le bon fit, on vous le dit.",
+      fr: "Un appel de qualification de 30 minutes — gratuit, sans pression. On évalue ensemble si ta situation correspond à nos programmes. Si ce n'est pas le bon fit, on te le dit.",
       en: 'A 30-minute qualification call — free, no pressure. We assess together whether your situation fits our programs. If it is not the right fit, we will say so.'
     } satisfies BilingualLax<string>
   },
@@ -51,7 +51,7 @@ export const contactCopy = {
           en: 'Book'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Choisissez un créneau directement dans l'agenda Calendly ci-dessous. Vous recevez une confirmation immédiate par email.",
+          fr: "Choisis un créneau directement dans l'agenda Calendly ci-dessous. Tu reçois une confirmation immédiate par email.",
           en: 'Choose a time slot directly in the Calendly calendar below. You receive immediate email confirmation.'
         } satisfies BilingualLax<string>
       },
@@ -62,7 +62,7 @@ export const contactCopy = {
           en: 'Pre-call qualification'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "30 minutes avec Jonas. On explore votre situation, votre chiffre d'affaires actuel, vos blocages, et ce que vous voulez construire. Pas de pitch. Pas de présentation produit.",
+          fr: "30 minutes avec Jonas. On explore ta situation, ton chiffre d'affaires actuel, tes blocages, et ce que tu veux construire. Pas de pitch. Pas de présentation produit.",
           en: '30 minutes with Jonas. We explore your situation, your current revenue, your blockers, and what you want to build. No pitch. No product presentation.'
         } satisfies BilingualLax<string>
       },
@@ -73,7 +73,7 @@ export const contactCopy = {
           en: 'Mutual decision'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "À la fin de l'appel, on décide ensemble si c'est le bon fit — vous et nous. Si oui, on vous présente le programme adapté et les prochaines étapes. Si non, vous repartez avec des pistes concrètes.",
+          fr: "À la fin de l'appel, on décide ensemble si c'est le bon fit — toi et nous. Si oui, on te présente le programme adapté et les prochaines étapes. Si non, tu repars avec des pistes concrètes.",
           en: 'At the end of the call, we decide together whether it is the right fit — you and us. If yes, we present the right program and next steps. If not, you leave with concrete direction.'
         } satisfies BilingualLax<string>
       }
@@ -140,19 +140,19 @@ export const contactCopy = {
     } satisfies BilingualLax<string>,
     items: [
       {
-        fr: "Votre situation actuelle — CA, modèle d'affaires, structure d'équipe",
+        fr: "Ta situation actuelle — CA, modèle d'affaires, structure d'équipe",
         en: 'Your current situation — revenue, business model, team structure'
       },
       {
-        fr: 'Votre vision à 12-24 mois — où vous voulez amener votre entreprise',
+        fr: 'Ta vision à 12-24 mois — où tu veux amener ton entreprise',
         en: 'Your 12-to-24 month vision — where you want to take your business'
       },
       {
-        fr: 'Vos blocages réels — pas les symptômes, la racine',
+        fr: 'Tes blocages réels — pas les symptômes, la racine',
         en: 'Your real blockers — not the symptoms, the root'
       },
       {
-        fr: 'Le fit programme — quel format correspond à votre situation et à votre timing',
+        fr: 'Le fit programme — quel format correspond à ta situation et à ton timing',
         en: 'Program fit — which format matches your situation and your timing'
       },
       {
@@ -172,7 +172,7 @@ export const contactCopy = {
       en: 'Who this is not for.'
     } satisfies BilingualLax<string>,
     body: {
-      fr: "On travaille avec des entrepreneurs sérieux. Ce n'est pas une posture — c'est une réalité opérationnelle. Si vous vous reconnaissez dans l'un de ces profils, l'appel ne sera pas utile pour vous :",
+      fr: "On travaille avec des entrepreneurs sérieux. Ce n'est pas une posture — c'est une réalité opérationnelle. Si tu te reconnais dans l'un de ces profils, l'appel ne te sera pas utile :",
       en: 'We work with serious entrepreneurs. That is not a posture — it is an operational reality. If you recognize yourself in any of these profiles, the call will not be useful for you :'
     } satisfies BilingualLax<string>,
     disqualif: [
@@ -211,11 +211,11 @@ export const contactCopy = {
     fields: {
       name: {
         label: { fr: 'Nom complet', en: 'Full name' } satisfies BilingualLax<string>,
-        placeholder: { fr: 'Votre nom', en: 'Your name' } satisfies BilingualLax<string>
+        placeholder: { fr: 'Ton nom', en: 'Your name' } satisfies BilingualLax<string>
       },
       email: {
         label: { fr: 'Courriel', en: 'Email' } satisfies BilingualLax<string>,
-        placeholder: { fr: 'votre@email.com', en: 'your@email.com' } satisfies BilingualLax<string>
+        placeholder: { fr: 'ton@email.com', en: 'your@email.com' } satisfies BilingualLax<string>
       },
       phone: {
         label: {
@@ -239,11 +239,11 @@ export const contactCopy = {
       },
       message: {
         label: {
-          fr: 'Votre situation en quelques lignes',
+          fr: 'Ta situation en quelques lignes',
           en: 'Your situation in a few lines'
         } satisfies BilingualLax<string>,
         placeholder: {
-          fr: 'Décrivez votre entreprise, votre défi principal, et ce que vous cherchez à construire.',
+          fr: 'Décris ton entreprise, ton défi principal, et ce que tu cherches à construire.',
           en: 'Describe your business, your main challenge, and what you are looking to build.'
         } satisfies BilingualLax<string>
       },
@@ -264,11 +264,11 @@ export const contactCopy = {
       en: 'Direct booking'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Choisissez votre créneau.',
+      fr: 'Choisis ton créneau.',
       en: 'Choose your time slot.'
     } satisfies BilingualLax<string>,
     fallback: {
-      fr: 'La réservation en ligne ouvre prochainement. En attendant, écrivez-nous via le formulaire ou par courriel — créneau confirmé sous 24h ouvrables.',
+      fr: 'La réservation en ligne ouvre prochainement. En attendant, écris-nous via le formulaire ou par courriel — créneau confirmé sous 24h ouvrables.',
       en: 'Online booking opens soon. In the meantime, reach us via the form or by email — slot confirmed within 24 business hours.'
     } satisfies BilingualLax<string>
   },
@@ -279,7 +279,7 @@ export const contactCopy = {
       en: 'Direct contact'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Vous préférez écrire en direct.',
+      fr: 'Tu préfères écrire en direct.',
       en: 'You prefer to reach out directly.'
     } satisfies BilingualLax<string>,
     items: [
@@ -322,8 +322,8 @@ export const contactCopy = {
       en: '30 minutes. Free. No commitment. We assess whether we can build something together.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
-      fr: "Réserver l'appel de qualification",
-      en: 'Book the qualification call'
+      fr: 'Réserver mon appel stratégique',
+      en: 'Book my strategy call'
     } satisfies BilingualLax<string>
   }
 } as const;

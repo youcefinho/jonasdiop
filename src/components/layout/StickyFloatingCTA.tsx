@@ -58,8 +58,8 @@ export function StickyFloatingCTA() {
     <Link
       to={ROUTES.contact[locale]}
       aria-label={t({
-        fr: 'Réserver un appel — bouton flottant',
-        en: 'Book a call — floating button'
+        fr: 'Réserver mon appel stratégique — bouton flottant',
+        en: 'Book my strategy call — floating button'
       })}
       data-sticky-floating-cta
       className={[

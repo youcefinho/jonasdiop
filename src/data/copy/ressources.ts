@@ -45,11 +45,11 @@ export const ressourcesCopy = {
       en: 'Latest articles.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: 'Premiers articles en préparation. Inscrivez-vous à la newsletter pour être notifié dès leur publication.',
+      fr: 'Premiers articles en préparation. Inscris-toi à la newsletter pour être notifié dès leur publication.',
       en: 'First articles in preparation. Subscribe to the newsletter to be notified at publication.'
     } satisfies BilingualLax<string>,
     emptyState: {
-      fr: 'Les premiers articles arrivent prochainement. Inscrivez-vous à la newsletter pour être notifié.',
+      fr: 'Les premiers articles arrivent prochainement. Inscris-toi à la newsletter pour être notifié.',
       en: 'First articles coming soon. Subscribe to the newsletter to be notified.'
     } satisfies BilingualLax<string>
   },
@@ -117,7 +117,7 @@ export const ressourcesCopy = {
       en: 'Free downloads.'
     } satisfies BilingualLax<string>,
     body: {
-      fr: 'Des extraits publics de la méthode CDT™. Des outils de diagnostic et de structuration que vous pouvez appliquer dès maintenant sur votre architecture.',
+      fr: 'Des extraits publics de la méthode CDT™. Des outils de diagnostic et de structuration que tu peux appliquer dès maintenant sur ton architecture.',
       en: 'Public excerpts of the CDT™ method. Diagnostic and structuring tools you can apply immediately to your architecture.'
     } satisfies BilingualLax<string>,
     disclaimer: {
@@ -125,7 +125,7 @@ export const ressourcesCopy = {
       en: 'These resources are excerpts. The complete method is in the programs.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: 'Premiers outils publics en préparation. Pour y accéder en avant-première, inscrivez-vous à la newsletter mensuelle.',
+      fr: 'Premiers outils publics en préparation. Pour y accéder en avant-première, inscris-toi à la newsletter mensuelle.',
       en: 'First public tools in preparation. To get early access, subscribe to the monthly newsletter.'
     } satisfies BilingualLax<string>,
     shells: [] as readonly {
@@ -173,7 +173,7 @@ What Jonas shares in his newsletter : an actionable CDT™ insight, an anonymize
       }
     ],
     emailPlaceholder: {
-      fr: 'votre@email.com',
+      fr: 'ton@email.com',
       en: 'your@email.com'
     } satisfies BilingualLax<string>,
     submitLabel: {
@@ -181,7 +181,7 @@ What Jonas shares in his newsletter : an actionable CDT™ insight, an anonymize
       en: 'Subscribe to monthly insights'
     } satisfies BilingualLax<string>,
     confirmationMessage: {
-      fr: 'Vous êtes abonné. Premier email à la prochaine publication.',
+      fr: 'Tu es abonné. Premier email à la prochaine publication.',
       en: "You're subscribed. First email at the next publication."
     } satisfies BilingualLax<string>
   },
@@ -192,16 +192,16 @@ What Jonas shares in his newsletter : an actionable CDT™ insight, an anonymize
       en: 'Next step'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Appliquer la méthode à votre architecture.',
+      fr: 'Appliquer la méthode à ton architecture.',
       en: 'Apply the method to your architecture.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Les ressources publiques sont des extraits. Pour appliquer la CDT™ à votre situation, un appel de qualification valide si nos programmes correspondent.',
+      fr: 'Les ressources publiques sont des extraits. Pour appliquer la CDT™ à ta situation, un appel de qualification valide si nos programmes correspondent.',
       en: 'Public resources are excerpts. To apply CDT™ to your situation, a qualification call confirms whether our programs are a fit.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
-      fr: "Réserver l'appel de qualification",
-      en: 'Book the qualification call'
+      fr: 'Réserver mon appel stratégique',
+      en: 'Book my strategy call'
     } satisfies BilingualLax<string>
   }
 } as const;

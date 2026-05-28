@@ -473,7 +473,7 @@ export function ContactPage() {
               <MaskRevealHeading as="h2">{t(contactCopy.calendly.title)}</MaskRevealHeading>
               <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[55ch]">
                 {t({
-                  fr: 'Sélectionnez un créneau qui vous convient. Réservation instantanée, sans frais, et sans engagement.',
+                  fr: 'Sélectionne un créneau qui te convient. Réservation instantanée, sans frais, et sans engagement.',
                   en: 'Pick a slot that works for you. Instant booking, no fees, no commitment.'
                 })}
               </p>

@@ -33,7 +33,7 @@ describe('Hero', () => {
   it('renders FR H1 promise', () => {
     render(<Hero />, { wrapper: wrapper('fr') });
     const h1 = screen.getByRole('heading', { level: 1 });
-    expect(h1.textContent).toContain('Ajouter un zéro');
+    expect(h1.textContent).toContain('Ajoute un zéro');
   });
 
   it('renders EN H1 when locale is en', () => {
@@ -44,7 +44,7 @@ describe('Hero', () => {
 
   it('renders two CTAs (primary gold + secondary silver)', () => {
     render(<Hero />, { wrapper: wrapper('fr') });
-    expect(screen.getByText(/Prendre rendez-vous/i)).toBeInTheDocument();
+    expect(screen.getByText(/Réserver mon appel stratégique/i)).toBeInTheDocument();
     expect(screen.getByText(/Découvrir la méthode CDT/i)).toBeInTheDocument();
   });
 

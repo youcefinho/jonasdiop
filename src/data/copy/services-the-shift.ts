@@ -43,7 +43,7 @@ export const theShiftCopy = {
       en: 'The warning signal'
     } satisfies BilingualLax<string>,
     title: {
-      fr: 'Votre modèle actuel est devenu votre plafond.',
+      fr: 'Ton modèle actuel est devenu ton plafond.',
       en: 'Your current model has become your ceiling.'
     } satisfies BilingualLax<string>,
     body: {
@@ -54,7 +54,7 @@ export const theShiftCopy = {
 
   forWho: {
     eyebrow: {
-      fr: 'Pour vous si...',
+      fr: 'Pour toi si...',
       en: 'For you if...'
     } satisfies BilingualLax<string>,
     title: {
@@ -63,29 +63,29 @@ export const theShiftCopy = {
     } satisfies BilingualLax<string>,
     qualif: [
       {
-        fr: 'Vous sentez que votre modèle actuel a atteint ses limites — pas vous',
+        fr: 'Tu sens que ton modèle actuel a atteint ses limites — pas toi',
         en: 'You feel your current model has hit its limits — not you'
       },
       {
-        fr: "Vous générez entre 100K$ et 500K$ CA mais la croissance stagne ou s'essoufle",
+        fr: "Tu génères entre 100K$ et 500K$ CA mais la croissance stagne ou s'essoufle",
         en: 'You generate between $100K and $500K CAD but growth is stalling or slowing'
       },
       {
-        fr: 'Vous voulez pivoter vers un modèle plus scalable sans tout perdre',
+        fr: 'Tu veux pivoter vers un modèle plus scalable sans tout perdre',
         en: 'You want to pivot to a more scalable model without losing everything'
       },
       {
-        fr: "Vous avez besoin d'une réarchitecture ciblée, pas d'une refonte complète",
+        fr: "Tu as besoin d'une réarchitecture ciblée, pas d'une refonte complète",
         en: 'You need targeted rearchitecture, not a full overhaul'
       }
     ],
     disqualif: [
       {
-        fr: 'Votre activité génère moins de 50K$ CA (trop tôt pour ce type de pivot)',
+        fr: 'Ton activité génère moins de 50K$ CA (trop tôt pour ce type de pivot)',
         en: 'Your business generates under $50K CAD (too early for this type of pivot)'
       },
       {
-        fr: "Vous n'avez pas encore de modèle en place à transformer",
+        fr: "Tu n'as pas encore de modèle en place à transformer",
         en: 'You do not yet have a model in place to transform'
       }
     ]
@@ -109,7 +109,7 @@ export const theShiftCopy = {
           en: '01 · Ceiling diagnostic'
         } satisfies BilingualLax<string>,
         body: {
-          fr: "Identifier précisément pourquoi votre modèle actuel ne peut pas scaler davantage. Où est le vrai plafond : l'offre, les systèmes, le positionnement ou la capacité d'exécution ? Un diagnostic honnête avant toute action.",
+          fr: "Identifier précisément pourquoi ton modèle actuel ne peut pas scaler davantage. Où est le vrai plafond : l'offre, les systèmes, le positionnement ou la capacité d'exécution ? Un diagnostic honnête avant toute action.",
           en: 'Precisely identify why your current model cannot scale further. Where is the real ceiling : the offer, systems, positioning, or execution capacity? An honest diagnostic before any action.'
         } satisfies BilingualLax<string>
       },
@@ -213,7 +213,7 @@ export const theShiftCopy = {
           en: 'What is the difference between The Shift and Gamechanger Scaling?'
         } satisfies BilingualLax<string>,
         answer: {
-          fr: "Gamechanger Scaling est une transformation d'architecture complète sur 12 semaines, idéale si vous voulez reconstruire votre entreprise de fond en comble. The Shift est un pivot stratégique ciblé sur 8 semaines, conçu pour les entrepreneurs qui ont un modèle existant qui a atteint ses limites et qui ont besoin d'une réorientation précise — pas d'une refonte totale.",
+          fr: "Gamechanger Scaling est une transformation d'architecture complète sur 12 semaines, idéale si tu veux reconstruire ton entreprise de fond en comble. The Shift est un pivot stratégique ciblé sur 8 semaines, conçu pour les entrepreneurs qui ont un modèle existant qui a atteint ses limites et qui ont besoin d'une réorientation précise — pas d'une refonte totale.",
           en: 'Gamechanger Scaling is a complete architecture transformation over 12 weeks, ideal if you want to rebuild your business from the ground up. The Shift is a targeted 8-week strategic pivot, designed for entrepreneurs who have an existing model that has hit its limits and need precise reorientation — not a full overhaul.'
         } satisfies BilingualLax<string>
       },
@@ -224,7 +224,7 @@ export const theShiftCopy = {
           en: 'When does the next The Shift cohort start?'
         } satisfies BilingualLax<string>,
         answer: {
-          fr: "Les cohortes The Shift démarrent par vagues, en capacité limitée. Les dates exactes sont communiquées lors de l'appel de qualification, en fonction du calendrier en cours et de votre profil.",
+          fr: "Les cohortes The Shift démarrent par vagues, en capacité limitée. Les dates exactes sont communiquées lors de l'appel de qualification, en fonction du calendrier en cours et de ton profil.",
           en: 'The Shift cohorts launch in waves with limited capacity. Exact dates are shared during the qualification call, based on the current schedule and your profile.'
         } satisfies BilingualLax<string>
       }

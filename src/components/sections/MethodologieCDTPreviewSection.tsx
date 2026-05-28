@@ -29,7 +29,7 @@ const PILLARS: ReadonlyArray<Pillar> = [
     number: '02',
     title: { fr: 'Ingénierie systémique', en: 'Systemic engineering' },
     body: {
-      fr: "Automatisation et délégation pour que l'opération tourne avec ou sans vous.",
+      fr: "Automatisation et délégation pour que l'opération tourne avec ou sans toi.",
       en: 'Automation and delegation so operations run with or without you.'
     }
   },
@@ -37,7 +37,7 @@ const PILLARS: ReadonlyArray<Pillar> = [
     number: '03',
     title: { fr: 'Levier stratégique', en: 'Strategic leverage' },
     body: {
-      fr: 'Identifier où votre temps produit 3 à 5× plus de résultats. Tout le reste se délègue.',
+      fr: 'Identifier où ton temps produit 3 à 5× plus de résultats. Tout le reste se délègue.',
       en: 'Identify where your time produces 3 to 5× more results. Everything else is delegated.'
     }
   }

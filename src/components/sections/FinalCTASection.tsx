@@ -12,7 +12,7 @@ export function FinalCTASection() {
   const { t, locale } = useT();
   return (
     <section
-      aria-label={t({ fr: 'Réserver un appel', en: 'Book a call' })}
+      aria-label={t({ fr: 'Réserver mon appel stratégique', en: 'Book my strategy call' })}
       className="relative py-2xl bg-elevated border-t border-silver/10"
     >
       <FiligraneNumber number="06" position="right" />
@@ -32,7 +32,7 @@ export function FinalCTASection() {
           </p>
           <div className="mt-md">
             <CTAPill variant="gold-primary" href={ROUTES.contact[locale]}>
-              {t({ fr: 'Réserver mon appel', en: 'Book my call' })}
+              {t({ fr: 'Réserver mon appel stratégique', en: 'Book my strategy call' })}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </CTAPill>
           </div>
