@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Preload primary variable fonts (latin) for LCP — Perf Vague 2.
+         Eliminates the Fontsource JS-import render-blocking chain (~580ms saved
+         per Lighthouse audit). Inter Variable = body, Space Grotesk = display.
+         The latin-ext variants charge on-demand via unicode-range when a glyph
+         outside U+0000-00FF is hit (e.g. ™ ‟ etc.). -->
+    <link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+
     <title>Jonas Diop — Architecte d'affaires</title>
   </head>
   <body class="bg-base text-primary antialiased">
