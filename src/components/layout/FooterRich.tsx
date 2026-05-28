@@ -27,7 +27,7 @@ export function FooterRich() {
           <p className="text-body text-silver opacity-80">
             {t({ fr: "Architecte d'affaires.", en: 'Business architect.' })}
           </p>
-          <p className="text-sm text-tertiary opacity-70 text-pretty">
+          <p className="text-sm text-silver/65 text-pretty">
             {t({
               fr: 'Architecture systémique pour entrepreneurs ambitieux.',
               en: 'Systemic architecture for ambitious entrepreneurs.'
@@ -200,7 +200,7 @@ export function FooterRich() {
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-wide mx-auto px-md mt-xl pt-md border-t border-silver/10 flex flex-col md:flex-row justify-between items-center gap-sm text-sm text-tertiary opacity-70">
+      <div className="max-w-wide mx-auto px-md mt-xl pt-md border-t border-silver/10 flex flex-col md:flex-row justify-between items-center gap-sm text-sm text-silver/65">
         <p>
           © {year} {client.legalName}
           {' · '}

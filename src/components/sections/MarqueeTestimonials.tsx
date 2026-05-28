@@ -79,7 +79,7 @@ export function MarqueeTestimonials() {
               <p className="text-sm text-silver opacity-90 text-pretty leading-snug line-clamp-2">
                 {t(testimonial.quote)}
               </p>
-              <p className="text-eyebrow uppercase tracking-widest text-silver opacity-55 font-display text-[10px] mt-1">
+              <p className="text-eyebrow uppercase tracking-widest text-silver/75 font-display text-[10px] mt-1">
                 {testimonial.name}
               </p>
             </div>

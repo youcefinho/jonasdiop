@@ -80,7 +80,7 @@ export function TrustedLogosBar() {
 
       {/* Disclaimer microcopy — clarifies placeholders are illustrative */}
       <div className="max-w-content mx-auto px-md text-center mt-md">
-        <span className="text-eyebrow uppercase tracking-widest text-silver opacity-30 font-display text-[10px]">
+        <span className="text-eyebrow uppercase tracking-widest text-silver/60 font-display text-[10px]">
           {t({
             fr: 'Logos illustratifs · vraies mentions médias à venir',
             en: 'Illustrative logos · real media mentions coming'
