@@ -9,6 +9,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { aboutCopy } from '@/data/copy/about';
+import { gameChangerProtocolCopy } from '@/data/copy/game-changer-protocol';
 import { jonasQuotes } from '@/data/copy/quotes';
 import { useParallax } from '@/hooks/useParallax';
 import { useT } from '@/lib/i18n/useT';
@@ -264,13 +265,60 @@ export function AboutPage() {
         </div>
       </section>
 
+      {/* ─── GAME CHANGER PROTOCOL — brand chapeau chapter ──────────────────── */}
+      <ScrollReveal>
+        <section
+          aria-label={t(gameChangerProtocolCopy.aboutChapter.eyebrow)}
+          className="relative py-2xl bg-section-base border-b border-silver/10"
+        >
+          <FiligraneNumber number="04" position="right" />
+          <div className="relative max-w-content mx-auto px-md flex flex-col gap-xl">
+            <article className="flex flex-col gap-sm max-w-[72ch]">
+              <Eyebrow>{t(gameChangerProtocolCopy.aboutChapter.eyebrow)}</Eyebrow>
+              <h2 className="text-h2 text-primary font-display text-balance">
+                {t(gameChangerProtocolCopy.aboutChapter.title)}
+              </h2>
+              <p className="text-body-lg text-silver opacity-85 text-pretty whitespace-pre-line">
+                {t(gameChangerProtocolCopy.aboutChapter.body)}
+              </p>
+            </article>
+
+            {/* 4 phases compact inline — D / I / O / P */}
+            <StaggerReveal
+              as="ol"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md list-none p-0"
+              staggerMs={100}
+              data-card-group="gcp-about-phases"
+            >
+              {gameChangerProtocolCopy.steps.map((step) => (
+                <li
+                  key={step.letter}
+                  className="flex flex-col gap-2 p-md bg-elevated border border-silver/15 rounded-lg"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="text-gold font-display font-normal text-[clamp(2rem,1.5rem+1.5vw,3rem)] leading-none tracking-tight opacity-90"
+                  >
+                    {step.letter}
+                  </span>
+                  <p className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-xs">
+                    {t(step.title)}
+                  </p>
+                  <p className="text-body text-silver opacity-75 text-pretty">{t(step.body)}</p>
+                </li>
+              ))}
+            </StaggerReveal>
+          </div>
+        </section>
+      </ScrollReveal>
+
       {/* ─── CHAPTER 5 — La mission ─────────────────────────────────────────── */}
       <ScrollReveal>
         <section
           aria-label={t({ fr: 'La mission', en: 'The mission' })}
           className="relative py-2xl bg-section-base"
         >
-          <FiligraneNumber number="04" position="left" />
+          <FiligraneNumber number="05" position="left" />
           <div className="relative max-w-content mx-auto px-md">
             {aboutCopy.sections.slice(4, 5).map((chapter) => (
               <article key={chapter.id} className="flex flex-col gap-sm max-w-[72ch]">

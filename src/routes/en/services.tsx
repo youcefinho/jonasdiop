@@ -59,23 +59,37 @@ function ServicesENPage() {
 
                 {/* Programme links within this category */}
                 <ul className="flex flex-col gap-2 mt-auto pt-sm" aria-label={t(cat.eyebrow)}>
-                  {cat.programmes.map((prog) => (
-                    <li key={prog.id}>
-                      <Link
-                        to={ROUTES[prog.hrefKey as keyof typeof ROUTES][locale]}
-                        className="inline-flex items-center gap-2 text-sm text-gold/80 hover:text-gold transition-colors duration-base font-display font-medium"
-                      >
-                        <span>{t(prog.name)}</span>
-                        <span
-                          aria-hidden="true"
-                          className="text-gold/50 text-xs font-normal font-sans"
+                  {cat.programmes.map((prog) => {
+                    const isFeatured = 'featured' in prog && prog.featured === true;
+                    return (
+                      <li key={prog.id}>
+                        <Link
+                          to={ROUTES[prog.hrefKey as keyof typeof ROUTES][locale]}
+                          className="inline-flex items-center gap-2 text-sm text-gold/80 hover:text-gold transition-colors duration-base font-display font-medium"
                         >
-                          {t(prog.badge)}
-                        </span>
-                        <ArrowRight className="h-3 w-3 max-w-none shrink-0 opacity-60" />
-                      </Link>
-                    </li>
-                  ))}
+                          {isFeatured && (
+                            <span
+                              aria-hidden="true"
+                              className="inline-block h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_oklch(0.74_0.085_75/0.6)]"
+                            />
+                          )}
+                          <span>{t(prog.name)}</span>
+                          <span
+                            aria-hidden="true"
+                            className="text-gold/50 text-xs font-normal font-sans"
+                          >
+                            {t(prog.badge)}
+                          </span>
+                          {isFeatured && (
+                            <span className="text-[9px] uppercase tracking-widest text-gold/70 font-display font-medium leading-none">
+                              {t({ fr: 'phare', en: 'featured' })}
+                            </span>
+                          )}
+                          <ArrowRight className="h-3 w-3 max-w-none shrink-0 opacity-60" />
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </article>
             ))}

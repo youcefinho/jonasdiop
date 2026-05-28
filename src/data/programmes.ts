@@ -13,6 +13,9 @@ export type ProgrammeHrefKey =
 export interface Programme {
   readonly id: string;
   readonly variant: ProgrammeVariant;
+  /** When true, programme is one of the 3 phares from brief v3 (The Shift, Master
+   * Closing, Focus & Flow) — UI highlights with gold ring + "Programme phare" badge. */
+  readonly featured?: boolean;
   readonly eyebrow: BilingualLax<string>;
   readonly name: BilingualLax<string>;
   readonly description: BilingualLax<string>;
@@ -34,6 +37,7 @@ export const programmes: readonly Programme[] = [
   {
     id: 'the-shift',
     variant: 'groupe',
+    featured: true,
     eyebrow: { fr: 'Programme de groupe · 8 semaines', en: 'Group program · 8 weeks' },
     name: { fr: 'The Shift', en: 'The Shift' },
     description: {
@@ -45,6 +49,7 @@ export const programmes: readonly Programme[] = [
   {
     id: 'master-closing',
     variant: 'formation',
+    featured: true,
     eyebrow: { fr: 'Formation spécialisée', en: 'Specialized training' },
     name: { fr: 'Master Closing', en: 'Master Closing' },
     description: {
@@ -56,6 +61,7 @@ export const programmes: readonly Programme[] = [
   {
     id: 'focus-flow',
     variant: 'formation',
+    featured: true,
     eyebrow: { fr: 'Formation spécialisée', en: 'Specialized training' },
     name: { fr: 'Focus & Flow', en: 'Focus & Flow' },
     description: {

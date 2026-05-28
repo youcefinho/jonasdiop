@@ -4,11 +4,13 @@ import { Navbar } from '@/components/layout/Navbar';
 import { AboutPreviewSection } from '@/components/sections/AboutPreviewSection';
 import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
+import { GameChangerProtocolPreview } from '@/components/sections/GameChangerProtocolPreview';
 import { Hero } from '@/components/sections/Hero';
 import { HowItWorksTimeline } from '@/components/sections/HowItWorksTimeline';
 import { MarqueeTestimonials } from '@/components/sections/MarqueeTestimonials';
 import { MethodologieCDTPreviewSection } from '@/components/sections/MethodologieCDTPreviewSection';
 import { PodcastPreviewSection } from '@/components/sections/PodcastPreviewSection';
+import { PourQuiSection } from '@/components/sections/PourQuiSection';
 import { ProgramsGrid } from '@/components/sections/ProgramsGrid';
 import { RessourcesPreviewSection } from '@/components/sections/RessourcesPreviewSection';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
@@ -30,6 +32,9 @@ function HomeFR() {
         </ScrollReveal>
         <TrustedLogosBar />
         <ScrollReveal>
+          <PourQuiSection />
+        </ScrollReveal>
+        <ScrollReveal>
           <AboutPreviewSection />
         </ScrollReveal>
         <ScrollReveal>
@@ -38,6 +43,9 @@ function HomeFR() {
         <SectionDivider variant="gold" />
         <ScrollReveal>
           <MethodologieCDTPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <GameChangerProtocolPreview />
         </ScrollReveal>
         <ScrollReveal>
           <ProgramsGrid />

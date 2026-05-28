@@ -68,6 +68,7 @@ export const servicesCopy = {
         },
         {
           id: 'the-shift',
+          featured: true,
           name: { fr: 'The Shift', en: 'The Shift' } satisfies BilingualLax<string>,
           badge: { fr: '8 semaines', en: '8 weeks' } satisfies BilingualLax<string>,
           tagline: {
@@ -99,6 +100,7 @@ export const servicesCopy = {
       programmes: [
         {
           id: 'master-closing',
+          featured: true,
           name: { fr: 'Master Closing', en: 'Master Closing' } satisfies BilingualLax<string>,
           badge: { fr: '6 modules', en: '6 modules' } satisfies BilingualLax<string>,
           tagline: {
@@ -113,6 +115,7 @@ export const servicesCopy = {
         },
         {
           id: 'focus-flow',
+          featured: true,
           name: { fr: 'Focus & Flow', en: 'Focus & Flow' } satisfies BilingualLax<string>,
           badge: { fr: '5 modules', en: '5 modules' } satisfies BilingualLax<string>,
           tagline: {

@@ -12,6 +12,8 @@ interface ProgramCardProps {
   eyebrow: BilingualLax<string>;
   title: BilingualLax<string>;
   description: BilingualLax<string>;
+  /** Phare badge + gold ring treatment for the 3 featured brief v3 programmes. */
+  featured?: boolean;
 }
 
 const variantClasses: Record<ProgramVariant, string> = {
@@ -33,9 +35,19 @@ const eyebrowColorClasses: Record<ProgramVariant, string> = {
  *   - formation: silver border, "En savoir plus" CTA
  *   - accompagnement: gold border (1 of 7 strict gold usages), "Postuler/Apply" CTA (premium tier)
  *
+ * featured: adds gold ring-1 + "Programme phare" corner badge (brief v3 3 phares :
+ * The Shift, Master Closing, Focus & Flow).
+ *
  * Renders as a TanStack Link wrapping the full card (SEO-friendly, accessible).
  */
-export function ProgramCard({ variant, href, eyebrow, title, description }: ProgramCardProps) {
+export function ProgramCard({
+  variant,
+  href,
+  eyebrow,
+  title,
+  description,
+  featured = false
+}: ProgramCardProps) {
   const { t } = useT();
   return (
     <Link
@@ -47,13 +59,24 @@ export function ProgramCard({ variant, href, eyebrow, title, description }: Prog
         'shadow-haptic-card shadow-haptic-card-hover',
         // Sheen silver diagonal hover — pseudo-element slides on hover
         "after:content-[''] after:absolute after:inset-0 after:rounded-lg after:bg-[linear-gradient(120deg,transparent_30%,oklch(0.79_0.005_270/0.08)_50%,transparent_70%)] after:bg-[length:200%_200%] after:bg-[position:200%_0] after:transition-all after:duration-[700ms] after:ease-[cubic-bezier(0.4,0,0.2,1)] after:pointer-events-none group-hover:after:bg-[position:-50%_0]",
-        variantClasses[variant]
+        variantClasses[variant],
+        featured && 'ring-1 ring-gold/25 hover:ring-gold/40'
       )}
     >
+      {featured && (
+        <span
+          aria-hidden="true"
+          className="absolute top-2.5 right-2.5 z-10 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-gold/12 border border-gold/30 text-[10px] uppercase tracking-widest text-gold font-display font-medium leading-none"
+        >
+          <span className="inline-block h-1 w-1 rounded-full bg-gold" />
+          {t({ fr: 'Programme phare', en: 'Featured program' })}
+        </span>
+      )}
       <p
         className={clsx(
           'text-eyebrow uppercase tracking-widest font-display',
-          eyebrowColorClasses[variant]
+          eyebrowColorClasses[variant],
+          featured && 'pr-[140px]'
         )}
       >
         {t(eyebrow)}

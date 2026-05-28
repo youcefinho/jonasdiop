@@ -106,6 +106,7 @@ export function ProgramsGrid() {
                     <ProgramCard
                       key={p.id}
                       variant={p.variant}
+                      featured={p.featured ?? false}
                       href={ROUTES[p.hrefKey][locale]}
                       eyebrow={p.eyebrow}
                       title={p.name}
