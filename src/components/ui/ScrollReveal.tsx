@@ -76,19 +76,18 @@ export function ScrollReveal({
       window.requestAnimationFrame(() => reveal());
     }
 
-    // rootMargin: '2000px 0px 2000px 0px' = IO root virtual size expanded 500px
-    // top + bottom. Effet : reveal fires QUAND element est encore 500px AVANT
-    // d'entrer dans le viewport. Évite les "blank black sections" si user
-    // scrolle vite, utilise Ctrl+End, ou Find/Ctrl+F jump à du texte hidden.
-    // Sans ce margin, sections wrappées étaient stuck opacity 0 le temps que
-    // IO réagisse (~16-50ms latence) — visible comme bug "site cassé".
+    // ORIGINAL behavior : threshold 0.12 sans rootMargin. Fire quand 12% du
+    // section est visible dans le viewport → user VOIT le fade-up animation
+    // cinematic 720ms PENDANT qu'il scrolle. Le rootMargin > 0 ferait fire
+    // l'animation TROP TÔT (animation finie avant que user voie) = perte de
+    // l'effet visuel premium.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
         reveal();
       },
-      { threshold, rootMargin: '2000px 0px 2000px 0px' }
+      { threshold }
     );
 
     observer.observe(el);

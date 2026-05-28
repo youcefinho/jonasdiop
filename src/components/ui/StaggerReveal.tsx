@@ -116,7 +116,7 @@ export function StaggerReveal({
         observer.disconnect();
         reveal();
       },
-      { threshold, rootMargin: '2000px 0px 2000px 0px' }
+      { threshold }
     );
 
     observer.observe(container);

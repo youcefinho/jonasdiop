@@ -111,7 +111,7 @@ export function ImageReveal({
         observer.disconnect();
         reveal();
       },
-      { threshold, rootMargin: '3000px 0px 3000px 0px' }
+      { threshold, rootMargin: '300px 0px 300px 0px' }
     );
 
     observer.observe(observeTarget);
