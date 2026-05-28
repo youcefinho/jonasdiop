@@ -98,13 +98,17 @@ export function ImageReveal({
       window.requestAnimationFrame(() => reveal());
     }
 
+    // rootMargin 500px : preload clip-path reveal AVANT que image entre dans
+    // viewport (cf. ScrollReveal pour explication). Combined avec threshold:0
+    // (clip-path bug fix), garantit que portraits sont révélés AVANT que user
+    // les voie même s'il scrolle vite.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
         reveal();
       },
-      { threshold }
+      { threshold, rootMargin: '500px 0px 500px 0px' }
     );
 
     observer.observe(el);

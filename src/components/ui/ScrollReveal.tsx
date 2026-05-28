@@ -76,13 +76,19 @@ export function ScrollReveal({
       window.requestAnimationFrame(() => reveal());
     }
 
+    // rootMargin: '500px 0px 500px 0px' = IO root virtual size expanded 500px
+    // top + bottom. Effet : reveal fires QUAND element est encore 500px AVANT
+    // d'entrer dans le viewport. Évite les "blank black sections" si user
+    // scrolle vite, utilise Ctrl+End, ou Find/Ctrl+F jump à du texte hidden.
+    // Sans ce margin, sections wrappées étaient stuck opacity 0 le temps que
+    // IO réagisse (~16-50ms latence) — visible comme bug "site cassé".
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
         reveal();
       },
-      { threshold }
+      { threshold, rootMargin: '500px 0px 500px 0px' }
     );
 
     observer.observe(el);

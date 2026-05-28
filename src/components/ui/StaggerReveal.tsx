@@ -107,13 +107,16 @@ export function StaggerReveal({
       window.requestAnimationFrame(() => reveal());
     }
 
+    // rootMargin 500px : preload reveal AVANT que container entre dans
+    // viewport. Évite stuck opacity 0 si user scrolle vite (cf. ScrollReveal
+    // pour explication détaillée).
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
         reveal();
       },
-      { threshold }
+      { threshold, rootMargin: '500px 0px 500px 0px' }
     );
 
     observer.observe(container);
