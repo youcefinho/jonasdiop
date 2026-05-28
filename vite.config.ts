@@ -1,15 +1,45 @@
 import tailwindcss from '@tailwindcss/vite';
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+
+/**
+ * Async-load the main stylesheet so it doesn't block the first paint.
+ * Perf Vague 3 : Lighthouse audit identified the Tailwind v4 compiled CSS
+ * bundle as the dominant render-blocking resource (~575ms LCP cost).
+ *
+ * Pattern : <link rel="preload" as="style" onload="rel=stylesheet"> + <noscript>
+ * fallback. Combined with inline critical CSS in index.html, this lets the
+ * page paint dark+themed immediately while the full stylesheet loads in
+ * parallel — utility classes apply once the async CSS finishes.
+ *
+ * Apply 'build' only — dev server keeps the regular sync stylesheet for HMR.
+ */
+function asyncMainCss(): Plugin {
+  return {
+    name: 'async-main-css',
+    apply: 'build',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html) {
+        return html.replace(
+          /<link\s+rel="stylesheet"([^>]*)>/g,
+          (_match, attrs) =>
+            `<link rel="preload" as="style"${attrs} onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet"${attrs}></noscript>`
+        );
+      }
+    }
+  };
+}
 
 export default defineConfig({
   plugins: [
     TanStackRouterVite({ target: 'react', autoCodeSplitting: true }),
     react(),
     tailwindcss(),
-    tsconfigPaths()
+    tsconfigPaths(),
+    asyncMainCss()
   ],
   esbuild: {
     pure: ['console.log', 'console.debug', 'console.info', 'console.trace']

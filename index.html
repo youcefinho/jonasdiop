@@ -15,6 +15,25 @@
     <link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
 
+    <!-- Critical CSS inline (Perf Vague 3) — minimal baseline so the page paints
+         dark/themed immediately while the main stylesheet loads asynchronously.
+         Keep tiny (~500 bytes) to avoid bloating HTML payload. -->
+    <style>
+      :root { color-scheme: dark; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: oklch(0.16 0.005 80);
+        color: oklch(0.94 0.005 80);
+        font-family: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-synthesis: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+      h1, h2, h3, .font-display { font-family: "Space Grotesk Variable", system-ui, sans-serif; }
+      #root { min-height: 100vh; }
+    </style>
+
     <title>Jonas Diop — Architecte d'affaires</title>
   </head>
   <body class="bg-base text-primary antialiased">
