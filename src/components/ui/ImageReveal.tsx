@@ -58,7 +58,12 @@ export function ImageReveal({
     if (!el) return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) {
+    // Auto-reveal pour images TRES loin sous viewport (>3 viewport-heights).
+    // Évite clip-path stuck si user arrive via hash deep-link / Ctrl+End.
+    // Cf. ScrollReveal pour explication détaillée.
+    const rectInit = el.getBoundingClientRect();
+    const farBelowScrollRange = rectInit.top > window.innerHeight * 3;
+    if (prefersReduced || farBelowScrollRange) {
       el.style.clipPath = 'inset(0 0 0 0)';
       return;
     }
@@ -91,8 +96,7 @@ export function ImageReveal({
      * were intersecting before the observer was attached (StrictMode double
      * mount, hydration timing, etc.).
      */
-    const rect = el.getBoundingClientRect();
-    const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    const inViewport = rectInit.top < window.innerHeight && rectInit.bottom > 0;
     if (inViewport) {
       // Use rAF to let the initial clip-path commit before we transition off.
       window.requestAnimationFrame(() => reveal());

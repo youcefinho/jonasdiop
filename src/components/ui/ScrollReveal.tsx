@@ -42,7 +42,15 @@ export function ScrollReveal({
     if (!el) return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) {
+    const rect = el.getBoundingClientRect();
+    // Auto-reveal pour sections TRES loin sous le viewport (>3 viewport-heights).
+    // Sans ça, sections au milieu d'une page longue restaient opacity:0 si user
+    // arrivait via hash deep-link / Ctrl+End / browser scroll restore — IO ne
+    // déclenchait pas avant qu'ils scrollent à travers. Avec ce guard, sections
+    // au-delà de la "scroll-through zone" raisonnable sont immédiatement visibles
+    // (pas de fade mais pas de blank screen non plus).
+    const farBelowScrollRange = rect.top > window.innerHeight * 3;
+    if (prefersReduced || farBelowScrollRange) {
       el.style.opacity = '1';
       el.style.transform = 'translate3d(0, 0, 0)';
       return;
@@ -71,7 +79,6 @@ export function ScrollReveal({
 
     // Above-the-fold guard : if element is already in viewport on mount,
     // reveal immediately via rAF (avoid IO miss on initial intersection).
-    const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
       window.requestAnimationFrame(() => reveal());
     }

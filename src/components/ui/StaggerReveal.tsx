@@ -68,7 +68,12 @@ export function StaggerReveal({
     if (items.length === 0) return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) {
+    // Auto-reveal pour containers TRES loin sous viewport (>3 viewport-heights).
+    // Sinon items restaient opacity:0 si user arrivait via hash deep-link /
+    // Ctrl+End / scroll restore. Cf. ScrollReveal pour explication détaillée.
+    const containerRect = container.getBoundingClientRect();
+    const farBelowScrollRange = containerRect.top > window.innerHeight * 3;
+    if (prefersReduced || farBelowScrollRange) {
       items.forEach((el) => {
         el.style.opacity = '1';
         el.style.transform = 'translate3d(0, 0, 0)';
@@ -102,8 +107,7 @@ export function StaggerReveal({
     };
 
     // Above-the-fold guard : container already in viewport on mount → reveal immediately
-    const rect = container.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+    if (containerRect.top < window.innerHeight && containerRect.bottom > 0) {
       window.requestAnimationFrame(() => reveal());
     }
 
