@@ -45,7 +45,17 @@
       "name": "jonas-diop-staging",
       "vars": {
         "ENVIRONMENT": "staging"
-      }
+      },
+      // KV override : staging utilise un namespace isolé du prod pour éviter
+      // que les cached articles staging polluent le cache prod. Binding garde
+      // le nom `ARTICLE_CACHE` (attendu par worker.ts) — seul l'id change.
+      // Créé via `wrangler kv namespace create ARTICLE_CACHE_STAGING` (2026-05-28).
+      "kv_namespaces": [
+        {
+          "binding": "ARTICLE_CACHE",
+          "id": "57d2b354179442d2985ec8e9045fcdc9"
+        }
+      ]
     }
   },
 
