@@ -42,25 +42,12 @@ export function ScrollReveal({
     if (!el) return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const rect = el.getBoundingClientRect();
-    // Auto-reveal pour sections TRES loin sous le viewport (>3 viewport-heights).
-    // Sans ça, sections au milieu d'une page longue restaient opacity:0 si user
-    // arrivait via hash deep-link / Ctrl+End / browser scroll restore — IO ne
-    // déclenchait pas avant qu'ils scrollent à travers. Avec ce guard, sections
-    // au-delà de la "scroll-through zone" raisonnable sont immédiatement visibles
-    // (pas de fade mais pas de blank screen non plus).
-    // Aggressive : auto-reveal pour TOUT ce qui n'est pas above-fold strict
-    // (rect.top > window.innerHeight = below first viewport). Sacrifie le
-    // fade-in animation pour la plupart des sections, mais garantit ZÉRO
-    // blank screen risk. La cause sous-jacente : Chrome IO respecte clip-path
-    // pour computer intersectionRatio, donc element avec clip:inset(100%)
-    // a ratio:0 forever → IO callback ne fire jamais via threshold.
-    const farBelowScrollRange = rect.top > window.innerHeight;
-    if (prefersReduced || farBelowScrollRange) {
+    if (prefersReduced) {
       el.style.opacity = '1';
       el.style.transform = 'translate3d(0, 0, 0)';
       return;
     }
+    const rect = el.getBoundingClientRect();
 
     // Initial hidden state
     el.style.opacity = '0';

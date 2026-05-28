@@ -68,19 +68,14 @@ export function StaggerReveal({
     if (items.length === 0) return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // Auto-reveal pour containers TRES loin sous viewport (>3 viewport-heights).
-    // Sinon items restaient opacity:0 si user arrivait via hash deep-link /
-    // Ctrl+End / scroll restore. Cf. ScrollReveal pour explication détaillée.
-    const containerRect = container.getBoundingClientRect();
-    // Aggressive : auto-reveal pour TOUT below first viewport (cf. ScrollReveal).
-    const farBelowScrollRange = containerRect.top > window.innerHeight;
-    if (prefersReduced || farBelowScrollRange) {
+    if (prefersReduced) {
       items.forEach((el) => {
         el.style.opacity = '1';
         el.style.transform = 'translate3d(0, 0, 0)';
       });
       return;
     }
+    const containerRect = container.getBoundingClientRect();
 
     // Initial hidden state for all items
     items.forEach((el) => {

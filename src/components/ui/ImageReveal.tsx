@@ -58,18 +58,11 @@ export function ImageReveal({
     if (!el) return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // Auto-reveal pour images TRES loin sous viewport (>3 viewport-heights).
-    // Évite clip-path stuck si user arrive via hash deep-link / Ctrl+End.
-    // Cf. ScrollReveal pour explication détaillée.
-    const rectInit = el.getBoundingClientRect();
-    // Aggressive : auto-reveal pour TOUT below first viewport (cf. ScrollReveal).
-    // Clip-path inset(100%) bloque IO callback (ratio:0 forever), donc IO ne
-    // peut pas sauver les below-fold ImageReveals.
-    const farBelowScrollRange = rectInit.top > window.innerHeight;
-    if (prefersReduced || farBelowScrollRange) {
+    if (prefersReduced) {
       el.style.clipPath = 'inset(0 0 0 0)';
       return;
     }
+    const rectInit = el.getBoundingClientRect();
 
     el.style.clipPath = INITIAL_CLIPS[direction];
     el.style.transition = 'none';
@@ -105,20 +98,23 @@ export function ImageReveal({
       window.requestAnimationFrame(() => reveal());
     }
 
-    // rootMargin 500px : preload clip-path reveal AVANT que image entre dans
-    // viewport (cf. ScrollReveal pour explication). Combined avec threshold:0
-    // (clip-path bug fix), garantit que portraits sont révélés AVANT que user
-    // les voie même s'il scrolle vite.
+    // CLEAN FIX : Observe le PARENT au lieu de `el`. Chrome IO respecte le
+    // clip-path du target pour intersectionRatio — avec clip:inset(100%),
+    // ratio = 0 forever, callback ne fire jamais. Le PARENT n'a pas de
+    // clip-path → ratio computé normalement → IO fire à l'entrée viewport
+    // (avec rootMargin 2000px preload, fire AVANT entrée).
+    // Fallback sur `el` si pas de parent (rare cas).
+    const observeTarget = el.parentElement ?? el;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
         reveal();
       },
-      { threshold, rootMargin: '2000px 0px 2000px 0px' }
+      { threshold, rootMargin: '3000px 0px 3000px 0px' }
     );
 
-    observer.observe(el);
+    observer.observe(observeTarget);
     return () => observer.disconnect();
   }, [direction, duration, delay, threshold]);
 
