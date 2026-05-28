@@ -135,7 +135,7 @@ describe('ContactPage — contactAlternatives 3 items', () => {
 
   it('renders 24-48h response time (FR)', () => {
     render(<ContactPage />, { wrapper: wrapper('fr') });
-    expect(screen.getByText(/24-48h/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/24-48h/i).length).toBeGreaterThanOrEqual(1);
   });
 });
 

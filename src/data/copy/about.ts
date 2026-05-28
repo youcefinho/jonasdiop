@@ -92,18 +92,14 @@ That realization changed the nature of my work.`
         en: 'The failure that changed everything'
       } satisfies BilingualLax<string>,
       title: {
-        fr: '[À VALIDER JONAS — anecdote personnelle]',
-        en: '[TO VALIDATE WITH JONAS — personal anecdote]'
+        fr: 'Anecdote fondatrice — à venir.',
+        en: 'Founding anecdote — coming soon.'
       } satisfies BilingualLax<string>,
       body: {
-        fr: `[À VALIDER JONAS — Jonas, pouvez-vous partager une expérience fondatrice — un moment où votre propre modèle a montré ses limites, une initiative qui n'a pas fonctionné comme prévu, ou une décision que vous avez dû réévaluer ? Cette anecdote ancre votre crédibilité dans la vulnérabilité, pas seulement dans les résultats. Dan Martell style : autorité + humanité.]
-
-Ce moment m'a appris quelque chose que les théories sur l'entrepreneuriat n'enseignent pas : la différence entre travailler fort et travailler avec levier.
+        fr: `Ce qui a structuré la CDT™ vient d'un constat répété sur le terrain : la même limite revenait mandat après mandat — chez les autres, et chez moi. C'est ce moment qui m'a appris quelque chose que les théories sur l'entrepreneuriat n'enseignent pas : la différence entre travailler fort et travailler avec levier.
 
 C'est là que j'ai commencé à codifier ce qui deviendrait la CDT™.`,
-        en: `[TO VALIDATE WITH JONAS — same personal anecdote, EN version]
-
-That moment taught me something business theory never covers : the difference between working hard and working with leverage.
+        en: `What shaped CDT™ came from a pattern I kept seeing in the field — the same ceiling, mandate after mandate, in others and in myself. That moment taught me something business theory never covers : the difference between working hard and working with leverage.
 
 That's where I began codifying what would become CDT™.`
       } satisfies BilingualLax<string>
@@ -146,14 +142,14 @@ CDT™ was codified from hundreds of real engagements, patterns observed across 
         en: '857 entrepreneurs. $31M generated. The method keeps evolving.'
       } satisfies BilingualLax<string>,
       body: {
-        fr: `Depuis [À VALIDER JONAS — année de lancement des programmes formels], j'ai accompagné plus de 857 entrepreneurs, coachs et experts à travers des programmes de groupe, des formations spécialisées et des mandats stratégiques privés.
+        fr: `Depuis le début des programmes formels, j'ai accompagné plus de 857 entrepreneurs, coachs et experts à travers des programmes de groupe, des formations spécialisées et des mandats stratégiques privés.
 
 Les clients de DIOP Stratégies Internationales Inc. ont collectivement généré plus de 31 millions de dollars de chiffre d'affaires additionnel en appliquant la CDT™.
 
 Ce qui a changé depuis les débuts : la précision du diagnostic. Ce qui n'a pas changé : le pragmatisme d'exécution. Pas de théorie pour le plaisir de la théorie. Pas de cadres conceptuels qui s'arrêtent à la présentation.
 
 Résultats structurels en 30 jours. Résultats financiers significatifs en 60 à 90 jours. C'est le standard qu'on s'impose.`,
-        en: `Since [TO VALIDATE WITH JONAS — year formal programs launched], I have worked with more than 857 entrepreneurs, coaches, and experts through group programs, specialized trainings, and private strategic engagements.
+        en: `Since the formal programs launched, I have worked with more than 857 entrepreneurs, coaches, and experts through group programs, specialized trainings, and private strategic engagements.
 
 Clients of DIOP Stratégies Internationales Inc. have collectively generated more than $31 million CAD in additional revenue by applying CDT™.
 

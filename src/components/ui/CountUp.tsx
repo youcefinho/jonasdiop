@@ -35,7 +35,10 @@ export function CountUp({
   locale = 'fr-CA',
   className
 }: CountUpProps) {
-  const [value, setValue] = useState(0);
+  // Initial value = `to` so SSR, no-JS crawlers, slow hydration and reduced-motion
+  // users all see the final number immediately. The animation re-winds to 0 inside
+  // useEffect (client-only) before counting back up.
+  const [value, setValue] = useState(to);
   const spanRef = useRef<HTMLSpanElement>(null);
   const startedRef = useRef(false);
 
@@ -52,6 +55,7 @@ export function CountUp({
     const run = () => {
       if (startedRef.current) return;
       startedRef.current = true;
+      setValue(0);
       const start = performance.now();
       const tick = (now: number) => {
         const elapsed = now - start;

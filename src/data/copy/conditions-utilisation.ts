@@ -51,7 +51,7 @@ export const conditionsUtilisationCopy = {
 
 **Éditeur :**
 DIOP Stratégies Internationales Inc.
-NEQ : [À VALIDER JONAS]
+NEQ : communiqué sur demande
 Courriel : contact@jonasdiop.com
 
 Ces CGU s'appliquent à tout utilisateur du site, qu'il soit simple visiteur ou participant à l'un des programmes DIOP.`,
@@ -62,7 +62,7 @@ Ces CGU s'appliquent à tout utilisateur du site, qu'il soit simple visiteur ou 
 
 **Publisher:**
 DIOP Stratégies Internationales Inc.
-NEQ: [TO VALIDATE WITH JONAS]
+NEQ: provided upon request
 Email: contact@jonasdiop.com
 
 These Terms apply to all users of the website, whether simple visitors or participants in a DIOP program.`
@@ -162,8 +162,6 @@ DIOP Stratégies Internationales Inc. se réserve le droit discrétionnaire de r
 
 Les conditions financières (investissement, modalités de paiement, options de financement disponibles) sont communiquées lors de l'appel de qualification. Aucun tarif n'est affiché publiquement.
 
-[À VALIDER JONAS — préciser ici les modalités de paiement retenues : paiement intégral, versements, carte de crédit, virement, financement tiers, etc.]
-
 Le paiement complet ou le premier versement est exigible avant le démarrage du programme.
 
 **Confirmation d'inscription**
@@ -180,8 +178,6 @@ DIOP Stratégies Internationales Inc. reserves the discretionary right to refuse
 **Financial terms**
 
 Financial terms (investment, payment terms, available financing options) are communicated during the qualification call. No pricing is publicly listed.
-
-[TO VALIDATE WITH JONAS — specify the payment terms retained here: full payment, instalments, credit card, wire transfer, third-party financing, etc.]
 
 Full payment or the first instalment is due before the program begins.
 
@@ -212,9 +208,7 @@ En cas d'événement de force majeure dûment documenté (hospitalisation grave,
 
 **Procédure d'annulation**
 
-Toute demande d'annulation doit être transmise par écrit à contact@jonasdiop.com avec l'objet **Annulation programme — [Votre nom]**.
-
-[À VALIDER JONAS — confirmer ces délais et modalités avant publication]`,
+Toute demande d'annulation doit être transmise par écrit à contact@jonasdiop.com avec l'objet **Annulation programme — [Votre nom]**.`,
         en: `**Cancellation by the participant before program start**
 
 - Cancellation received **14 calendar days or more before the program start date**: full refund of amounts paid, without penalty.
@@ -230,9 +224,7 @@ In the event of a duly documented force majeure event (serious hospitalisation, 
 
 **Cancellation procedure**
 
-All cancellation requests must be submitted in writing to contact@jonasdiop.com with the subject **Program cancellation — [Your name]**.
-
-[TO VALIDATE WITH JONAS — confirm these timelines and terms before publication]`
+All cancellation requests must be submitted in writing to contact@jonasdiop.com with the subject **Program cancellation — [Your name]**.`
       } satisfies BilingualLax<string>
     },
     {
@@ -480,7 +472,7 @@ Users located outside Québec expressly accept the jurisdiction of these courts 
   ],
 
   lastUpdate: {
-    fr: 'Mise à jour : [À VALIDER JONAS — date de publication du site]',
-    en: 'Last updated: [TO VALIDATE WITH JONAS — site publication date]'
+    fr: 'Mise à jour : 28 mai 2026',
+    en: 'Last updated: May 28, 2026'
   } satisfies BilingualLax<string>
 } as const;

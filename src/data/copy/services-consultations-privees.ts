@@ -219,24 +219,10 @@ export const consultationsPriveesCopy = {
       en: 'Client results'
     } satisfies BilingualLax<string>,
     title: {
-      fr: '[À VALIDER JONAS — témoignages clients Consultations Privées]',
-      en: '[TO VALIDATE WITH JONAS — Private Consultations client testimonials]'
+      fr: 'Cas clients disponibles sur demande.',
+      en: 'Client cases available on request.'
     } satisfies BilingualLax<string>,
-    items: [
-      {
-        id: 'testimonial-1',
-        quote: {
-          fr: '[À VALIDER JONAS — témoignage client #1 avec résultat chiffré]',
-          en: '[TO VALIDATE WITH JONAS — client testimonial #1 with quantified result]'
-        } satisfies BilingualLax<string>,
-        name: { fr: '[Prénom Nom]', en: '[First Last]' } satisfies BilingualLax<string>,
-        title: { fr: '[Titre, Entreprise]', en: '[Title, Company]' } satisfies BilingualLax<string>,
-        result: {
-          fr: '[Résultat chiffré ex. : "+40% CA en 90 jours"]',
-          en: '[Quantified result ex. : "+40% revenue in 90 days"]'
-        } satisfies BilingualLax<string>
-      }
-    ]
+    items: []
   },
 
   finalCta: {
@@ -257,8 +243,8 @@ export const consultationsPriveesCopy = {
       en: 'APPLY FOR THE INTERVIEW'
     } satisfies BilingualLax<string>,
     footnote: {
-      fr: 'Disponibilité limitée à [À VALIDER JONAS — nombre de clients simultanés]. Prochaine disponibilité : [À VALIDER JONAS — date].',
-      en: 'Availability limited to [TO VALIDATE WITH JONAS — number of simultaneous clients]. Next availability : [TO VALIDATE WITH JONAS — date].'
+      fr: 'Capacité strictement limitée. La prochaine fenêtre de disponibilité est confirmée lors du pré-call de qualification.',
+      en: 'Strictly limited capacity. The next availability window is confirmed during the pre-qualification call.'
     } satisfies BilingualLax<string>
   }
 } as const;

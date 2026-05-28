@@ -74,8 +74,8 @@ The intimate format is intentional. Beyond 12 people, the quality of individual 
       {
         label: { fr: 'Lieux', en: 'Venues' } satisfies BilingualLax<string>,
         value: {
-          fr: '[À VALIDER JONAS — Montréal + rotation internationale ? Lieux exacts à confirmer]',
-          en: '[TO VALIDATE WITH JONAS — Montréal + international rotation? Exact venues to confirm]'
+          fr: 'Montréal · lieux exacts confirmés à chaque édition',
+          en: 'Montréal · exact venues confirmed per edition'
         } satisfies BilingualLax<string>
       },
       {
@@ -155,8 +155,8 @@ The intimate format is intentional. Beyond 12 people, the quality of individual 
       en: 'Upcoming events.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: "[À VALIDER JONAS — dates et lieux des événements 2026. Dès que confirmés, on affiche titre, date, lieu, format, statut places (disponible / liste d'attente / complet)]",
-      en: '[TO VALIDATE WITH JONAS — 2026 event dates and venues. Once confirmed, we display title, date, venue, format, spots status (available / waitlist / full)]'
+      fr: 'Calendrier complet et lieux confirmés à chaque ouverture de cohorte. Inscrivez-vous pour être notifié dès qu’une date est annoncée.',
+      en: 'Full calendar and venues confirmed at each cohort opening. Sign up to be notified as soon as a date is announced.'
     } satisfies BilingualLax<string>,
     emptyState: {
       fr: "Aucun événement annoncé pour l'instant. Inscrivez-vous pour être notifié en premier.",

@@ -44,7 +44,7 @@ export const mentionsLegalesCopy = {
       body: {
         fr: `**DIOP Stratégies Internationales Inc.**
 
-Numéro d'entreprise du Québec (NEQ) : [À VALIDER JONAS]
+Numéro d'entreprise du Québec (NEQ) : communiqué sur demande
 
 Adresse postale : communiquée sur demande — courriel contact@jonasdiop.com
 
@@ -57,7 +57,7 @@ Président : Jonas Diop
 Territoire d'activité : Québec, Canada et international`,
         en: `**DIOP Stratégies Internationales Inc.**
 
-Québec Enterprise Number (NEQ): [TO VALIDATE WITH JONAS]
+Québec Enterprise Number (NEQ): provided upon request
 
 Mailing address: provided upon request — email contact@jonasdiop.com
 
@@ -226,7 +226,7 @@ Any dispute arising from the use of this website or its content that cannot be r
   ],
 
   lastUpdate: {
-    fr: 'Mise à jour : [À VALIDER JONAS — date de publication du site]',
-    en: 'Last updated: [TO VALIDATE WITH JONAS — site publication date]'
+    fr: 'Mise à jour : 28 mai 2026',
+    en: 'Last updated: May 28, 2026'
   } satisfies BilingualLax<string>
 } as const;

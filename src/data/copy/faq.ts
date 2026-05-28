@@ -155,8 +155,8 @@ export const faqCopy = {
             en: 'What are the payment terms?'
           } satisfies BilingualLax<string>,
           answer: {
-            fr: "[À VALIDER JONAS — modalités de paiement précises : paiement complet, versements, plans, cartes acceptées, etc.]\n\nNos options de paiement sont discutées lors de l'appel de qualification.",
-            en: '[TO VALIDATE WITH JONAS — precise payment terms : full payment, installments, plans, accepted cards, etc.]\n\nPayment options are discussed during the qualification call.'
+            fr: "Nos options de paiement sont présentées en détail lors de l'appel de qualification — paiement intégral ou versements, en fonction de votre situation et du programme retenu.",
+            en: 'Payment options are presented in detail during the qualification call — full payment or installments, based on your situation and the program selected.'
           } satisfies BilingualLax<string>
         }
       ]

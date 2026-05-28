@@ -297,8 +297,8 @@ export const gamechangerScalingCopy = {
           en: 'When does the next cohort start?'
         } satisfies BilingualLax<string>,
         answer: {
-          fr: '[À VALIDER JONAS — dates des prochaines cohortes]. Les cohortes ont une disponibilité limitée. Réserver un appel de qualification pour confirmer les dates et votre place.',
-          en: '[TO VALIDATE WITH JONAS — next cohort dates]. Cohorts have limited availability. Book a qualification call to confirm dates and your spot.'
+          fr: "Les cohortes ont une disponibilité limitée et démarrent par vagues. Les dates exactes des prochaines cohortes sont communiquées lors de l'appel de qualification, en fonction de votre situation et du calendrier en cours.",
+          en: 'Cohorts have limited availability and launch in waves. Exact next cohort dates are shared during the qualification call, based on your situation and the current schedule.'
         } satisfies BilingualLax<string>
       },
       {

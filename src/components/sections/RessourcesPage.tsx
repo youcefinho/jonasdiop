@@ -4,6 +4,7 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
+import { ROUTES } from '@/config/routes';
 import { ressourcesCopy } from '@/data/copy/ressources';
 import { useT } from '@/lib/i18n/useT';
 
@@ -18,7 +19,7 @@ import { useT } from '@/lib/i18n/useT';
  * Newsletter inscriptions = GHL custom field upsert via /api/newsletter Sprint 6.
  */
 export function RessourcesPage() {
-  const { t } = useT();
+  const { t, locale } = useT();
 
   return (
     <>
@@ -96,63 +97,65 @@ export function RessourcesPage() {
         </section>
       </ScrollReveal>
 
-      {/* FRAMEWORKS — 2 PDF shells */}
-      <ScrollReveal>
-        <section
-          aria-label={t(ressourcesCopy.frameworks.eyebrow)}
-          className="py-2xl bg-elevated border-y border-silver/10"
-        >
-          <div className="max-w-default mx-auto px-md flex flex-col gap-lg">
-            <div className="flex flex-col gap-sm">
-              <Eyebrow>{t(ressourcesCopy.frameworks.eyebrow)}</Eyebrow>
-              <MaskRevealHeading as="h2">{t(ressourcesCopy.frameworks.title)}</MaskRevealHeading>
-              <p className="text-body text-silver opacity-80 text-pretty max-w-[65ch]">
-                {t(ressourcesCopy.frameworks.body)}
+      {/* FRAMEWORKS — public PDF downloads, rendered only when shells are published */}
+      {ressourcesCopy.frameworks.shells.length > 0 && (
+        <ScrollReveal>
+          <section
+            aria-label={t(ressourcesCopy.frameworks.eyebrow)}
+            className="py-2xl bg-elevated border-y border-silver/10"
+          >
+            <div className="max-w-default mx-auto px-md flex flex-col gap-lg">
+              <div className="flex flex-col gap-sm">
+                <Eyebrow>{t(ressourcesCopy.frameworks.eyebrow)}</Eyebrow>
+                <MaskRevealHeading as="h2">{t(ressourcesCopy.frameworks.title)}</MaskRevealHeading>
+                <p className="text-body text-silver opacity-80 text-pretty max-w-[65ch]">
+                  {t(ressourcesCopy.frameworks.body)}
+                </p>
+              </div>
+
+              <StaggerReveal
+                as="ul"
+                data-frameworks-list="true"
+                className="grid grid-cols-1 md:grid-cols-2 gap-md mt-md"
+                aria-label={t(ressourcesCopy.frameworks.title)}
+                staggerMs={120}
+              >
+                {ressourcesCopy.frameworks.shells.map((shell) => (
+                  <li
+                    key={shell.id}
+                    className="hover-lift shadow-haptic-card shadow-haptic-card-hover transition-all duration-base flex flex-col gap-sm p-md bg-base border border-silver/15 rounded-lg"
+                  >
+                    <p className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs">
+                      {shell.format}
+                    </p>
+                    <h3 className="text-h3 text-primary font-display text-balance">
+                      {t(shell.title)}
+                    </h3>
+                    <p className="text-body text-silver opacity-70 text-pretty">
+                      {t(shell.description)}
+                    </p>
+                    <button
+                      type="button"
+                      disabled
+                      className="inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-transparent border border-silver/40 text-silver disabled:cursor-not-allowed disabled:opacity-50 mt-auto self-start"
+                    >
+                      <Download className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
+                      {t(shell.ctaLabel)}
+                    </button>
+                  </li>
+                ))}
+              </StaggerReveal>
+
+              <p className="text-sm text-silver/50 italic text-center mt-md text-pretty">
+                {t(ressourcesCopy.frameworks.disclaimer)}
+              </p>
+              <p className="text-xs text-silver/40 text-center text-pretty">
+                {t(ressourcesCopy.frameworks.placeholder)}
               </p>
             </div>
-
-            <StaggerReveal
-              as="ul"
-              data-frameworks-list="true"
-              className="grid grid-cols-1 md:grid-cols-2 gap-md mt-md"
-              aria-label={t(ressourcesCopy.frameworks.title)}
-              staggerMs={120}
-            >
-              {ressourcesCopy.frameworks.shells.map((shell) => (
-                <li
-                  key={shell.id}
-                  className="hover-lift shadow-haptic-card shadow-haptic-card-hover transition-all duration-base flex flex-col gap-sm p-md bg-base border border-silver/15 rounded-lg"
-                >
-                  <p className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs">
-                    {shell.format}
-                  </p>
-                  <h3 className="text-h3 text-primary font-display text-balance">
-                    {t(shell.title)}
-                  </h3>
-                  <p className="text-body text-silver opacity-70 text-pretty">
-                    {t(shell.description)}
-                  </p>
-                  <button
-                    type="button"
-                    disabled
-                    className="inline-flex items-center justify-center gap-2 rounded-pill px-md py-sm text-eyebrow uppercase tracking-wider font-display bg-transparent border border-silver/40 text-silver disabled:cursor-not-allowed disabled:opacity-50 mt-auto self-start"
-                  >
-                    <Download className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
-                    {t(shell.ctaLabel)}
-                  </button>
-                </li>
-              ))}
-            </StaggerReveal>
-
-            <p className="text-sm text-silver/50 italic text-center mt-md text-pretty">
-              {t(ressourcesCopy.frameworks.disclaimer)}
-            </p>
-            <p className="text-xs text-silver/40 text-center text-pretty">
-              {t(ressourcesCopy.frameworks.placeholder)}
-            </p>
-          </div>
-        </section>
-      </ScrollReveal>
+          </section>
+        </ScrollReveal>
+      )}
 
       {/* NEWSLETTER — email capture mockup (Sprint 6 GHL wire) */}
       <ScrollReveal>
@@ -241,21 +244,7 @@ export function RessourcesPage() {
               {t(ressourcesCopy.finalCta.sub)}
             </p>
             <div className="mt-md">
-              <CTAPill
-                variant="silver-primary"
-                onClick={() => {
-                  if (typeof window !== 'undefined') {
-                    const form = document.querySelector(
-                      '[data-newsletter-form]'
-                    ) as HTMLElement | null;
-                    if (form) {
-                      form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } else {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                  }
-                }}
-              >
+              <CTAPill variant="silver-primary" href={ROUTES.contact[locale]}>
                 {t(ressourcesCopy.finalCta.ctaLabel)}
                 <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
               </CTAPill>

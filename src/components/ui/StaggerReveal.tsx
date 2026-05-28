@@ -120,7 +120,27 @@ export function StaggerReveal({
     );
 
     observer.observe(container);
-    return () => observer.disconnect();
+
+    // Safety fallback : if the observer never fires (very tall containers,
+    // sections that stay below the threshold for the full page, anchor jumps
+    // that skip them), force every item to its visible state without
+    // animation after 5s so critical content is never permanently hidden.
+    const safetyTimer = window.setTimeout(() => {
+      if (revealed) return;
+      revealed = true;
+      observer.disconnect();
+      items.forEach((el) => {
+        el.style.transition = 'none';
+        el.style.opacity = '1';
+        el.style.transform = 'translate3d(0, 0, 0)';
+        el.style.willChange = 'auto';
+      });
+    }, 5000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(safetyTimer);
+    };
   }, [staggerMs, offset, threshold]);
 
   const childArray = Children.toArray(children).filter(isValidElement) as ReactElement<{

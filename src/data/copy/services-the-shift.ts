@@ -224,8 +224,8 @@ export const theShiftCopy = {
           en: 'When does the next The Shift cohort start?'
         } satisfies BilingualLax<string>,
         answer: {
-          fr: '[À VALIDER JONAS — dates des prochaines cohortes The Shift]. Un appel de qualification est requis pour confirmer les dates et votre place.',
-          en: '[TO VALIDATE WITH JONAS — next The Shift cohort dates]. A qualification call is required to confirm dates and your spot.'
+          fr: "Les cohortes The Shift démarrent par vagues, en capacité limitée. Les dates exactes sont communiquées lors de l'appel de qualification, en fonction du calendrier en cours et de votre profil.",
+          en: 'The Shift cohorts launch in waves with limited capacity. Exact dates are shared during the qualification call, based on the current schedule and your profile.'
         } satisfies BilingualLax<string>
       }
     ]

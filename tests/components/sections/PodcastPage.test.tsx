@@ -52,7 +52,7 @@ describe('PodcastPageLive (Scenario A)', () => {
 
   it('renders episodes placeholder', () => {
     render(<PodcastPageLive />, { wrapper: wrapper('fr') });
-    expect(screen.getAllByText(/embed Spotify/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/derniers épisodes en cours/i)).toBeInTheDocument();
   });
 
   it('renders final CTA Scenario A label', () => {

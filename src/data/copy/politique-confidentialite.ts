@@ -47,7 +47,7 @@ export const politiqueConfidentialiteCopy = {
       body: {
         fr: `**DIOP Stratégies Internationales Inc.**
 
-NEQ : [À VALIDER JONAS]
+NEQ : communiqué sur demande
 
 Courriel : contact@jonasdiop.com
 
@@ -58,7 +58,7 @@ Site web : jonasdiop.com
 DIOP Stratégies Internationales Inc. est le responsable du traitement de vos renseignements personnels au sens de la *Loi sur la protection des renseignements personnels dans le secteur privé* du Québec (Loi 25, RSQ c P-39.1) et de la *Loi sur la protection des renseignements personnels et les documents électroniques* (LPRPDE) au niveau fédéral.`,
         en: `**DIOP Stratégies Internationales Inc.**
 
-NEQ: [TO VALIDATE WITH JONAS]
+NEQ: provided upon request
 
 Email: contact@jonasdiop.com
 
@@ -78,7 +78,7 @@ DIOP Stratégies Internationales Inc. is the data controller for your personal i
       body: {
         fr: `Conformément à l'article 3.1 de la Loi 25, DIOP Stratégies Internationales Inc. a désigné un responsable de la protection des renseignements personnels.
 
-**Responsable désigné :** [À VALIDER JONAS — Jonas Diop lui-même ou délégué externe à confirmer]
+**Responsable désigné :** Jonas Diop, Président, DIOP Stratégies Internationales Inc.
 
 **Pour exercer vos droits ou toute question relative à la protection de vos renseignements personnels :**
 
@@ -87,7 +87,7 @@ Courriel : contact@jonasdiop.com — objet : **Protection RP**
 Toute demande reçue à cette adresse avec la mention « Protection RP » en objet fera l'objet d'un traitement prioritaire, dans un délai maximum de **30 jours** calendaires.`,
         en: `In accordance with section 3.1 of Act 25, DIOP Stratégies Internationales Inc. has designated a person responsible for the protection of personal information.
 
-**Designated responsible person:** [TO VALIDATE WITH JONAS — Jonas Diop himself or an external delegate to confirm]
+**Designated responsible person:** Jonas Diop, President, DIOP Stratégies Internationales Inc.
 
 **To exercise your rights or for any question regarding the protection of your personal information:**
 
@@ -423,12 +423,12 @@ The effective date of the current version appears at the bottom of this page. We
   ],
 
   effectiveDate: {
-    fr: "Date d'entrée en vigueur : [À VALIDER JONAS — date de publication du site]",
-    en: 'Effective date: [TO VALIDATE WITH JONAS — site publication date]'
+    fr: "Date d'entrée en vigueur : 28 mai 2026",
+    en: 'Effective date: May 28, 2026'
   } satisfies BilingualLax<string>,
 
   lastUpdate: {
-    fr: 'Dernière mise à jour : [À VALIDER JONAS — date de publication du site]',
-    en: 'Last updated: [TO VALIDATE WITH JONAS — site publication date]'
+    fr: 'Dernière mise à jour : 28 mai 2026',
+    en: 'Last updated: May 28, 2026'
   } satisfies BilingualLax<string>
 } as const;

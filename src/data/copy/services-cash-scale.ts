@@ -202,8 +202,8 @@ export const cashScaleCopy = {
       en: 'Register for the next session.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: '[À VALIDER JONAS — prochaine date de lancement/session live Cash & Scale™]',
-      en: '[TO VALIDATE WITH JONAS — next Cash & Scale™ launch/live session date]'
+      fr: "Date de la prochaine session live confirmée à l'inscription.",
+      en: 'Next live session date confirmed at registration.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
       fr: "S'inscrire à la prochaine session",

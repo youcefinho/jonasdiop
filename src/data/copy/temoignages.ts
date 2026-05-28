@@ -68,8 +68,8 @@ Results presented are representative of entrepreneurs who fully completed the pr
       en: 'Filter by profile.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: '[Filtres actifs Sprint 5 — par programme / par CA / par industrie]',
-      en: '[Active filters Sprint 5 — by program / by revenue / by industry]'
+      fr: 'Filtres bientôt actifs — par programme, par CA, par industrie.',
+      en: 'Filters coming soon — by program, by revenue, by industry.'
     } satisfies BilingualLax<string>,
     categories: {
       byProgram: {
@@ -124,65 +124,52 @@ Results presented are representative of entrepreneurs who fully completed the pr
     shells: [
       {
         id: 'shell-01',
-        name: '[À VALIDER JONAS — Prénom Nom]',
-        title: {
-          fr: '[Titre / Fondateur(trice) de Entreprise]',
-          en: '[Title / Founder of Company]'
-        } satisfies BilingualLax<string>,
+        pending: true,
+        name: '',
+        title: { fr: '', en: '' } satisfies BilingualLax<string>,
         program: {
           fr: 'Gamechanger Scaling',
           en: 'Gamechanger Scaling'
         } satisfies BilingualLax<string>,
-        result: {
-          fr: '[À VALIDER JONAS — ex : 240K$ → 1.2M$ en 14 mois]',
-          en: '[TO VALIDATE WITH JONAS — e.g. $240K → $1.2M in 14 months]'
-        } satisfies BilingualLax<string>,
-        quote: {
-          fr: '[À VALIDER JONAS — témoignage verbatim client #1 avec chiffres]',
-          en: '[TO VALIDATE WITH JONAS — verbatim client testimonial #1 with metrics]'
-        } satisfies BilingualLax<string>
+        result: { fr: '', en: '' } satisfies BilingualLax<string>,
+        quote: { fr: '', en: '' } satisfies BilingualLax<string>
       },
       {
         id: 'shell-02',
-        name: '[À VALIDER JONAS — Prénom Nom]',
-        title: {
-          fr: '[Titre / Fondateur(trice) de Entreprise]',
-          en: '[Title / Founder of Company]'
-        } satisfies BilingualLax<string>,
+        pending: true,
+        name: '',
+        title: { fr: '', en: '' } satisfies BilingualLax<string>,
         program: {
           fr: 'The Shift',
           en: 'The Shift'
         } satisfies BilingualLax<string>,
-        result: {
-          fr: '[À VALIDER JONAS — ex : 15h/semaine récupérées + CA +40%]',
-          en: '[TO VALIDATE WITH JONAS — e.g. 15h/week reclaimed + 40% revenue increase]'
-        } satisfies BilingualLax<string>,
-        quote: {
-          fr: '[À VALIDER JONAS — témoignage verbatim client #2 avec chiffres]',
-          en: '[TO VALIDATE WITH JONAS — verbatim client testimonial #2 with metrics]'
-        } satisfies BilingualLax<string>
+        result: { fr: '', en: '' } satisfies BilingualLax<string>,
+        quote: { fr: '', en: '' } satisfies BilingualLax<string>
       },
       {
         id: 'shell-03',
-        name: '[À VALIDER JONAS — Prénom Nom]',
-        title: {
-          fr: '[Titre / Fondateur(trice) de Entreprise]',
-          en: '[Title / Founder of Company]'
-        } satisfies BilingualLax<string>,
+        pending: true,
+        name: '',
+        title: { fr: '', en: '' } satisfies BilingualLax<string>,
         program: {
           fr: 'Consultations Privées',
           en: 'Private Consultations'
         } satisfies BilingualLax<string>,
-        result: {
-          fr: '[À VALIDER JONAS — ex : 800K$ → 1.8M$ en 9 mois]',
-          en: '[TO VALIDATE WITH JONAS — e.g. $800K → $1.8M in 9 months]'
-        } satisfies BilingualLax<string>,
-        quote: {
-          fr: '[À VALIDER JONAS — témoignage verbatim client #3 avec chiffres]',
-          en: '[TO VALIDATE WITH JONAS — verbatim client testimonial #3 with metrics]'
-        } satisfies BilingualLax<string>
+        result: { fr: '', en: '' } satisfies BilingualLax<string>,
+        quote: { fr: '', en: '' } satisfies BilingualLax<string>
       }
     ]
+  },
+
+  onRequest: {
+    title: {
+      fr: 'Cas clients disponibles sur demande.',
+      en: 'Client cases available on request.'
+    } satisfies BilingualLax<string>,
+    body: {
+      fr: "Les retours détaillés avec métriques chiffrées sont communiqués lors de l'appel de qualification, dans le respect de la confidentialité de chaque mandat.",
+      en: 'Detailed feedback with quantified metrics is shared during the qualification call, with full respect for each mandate’s confidentiality.'
+    } satisfies BilingualLax<string>
   },
 
   disclaimer: {
@@ -197,22 +184,13 @@ Results presented are representative of entrepreneurs who fully completed the pr
   },
 
   caseStudy: {
+    pending: true,
     eyebrow: {
       fr: 'Étude de cas',
       en: 'Case study'
     } satisfies BilingualLax<string>,
-    title: {
-      fr: '[À VALIDER JONAS — 1 étude de cas détaillée à confirmer]',
-      en: '[TO VALIDATE WITH JONAS — 1 detailed case study to confirm]'
-    } satisfies BilingualLax<string>,
-    teaser: {
-      fr: '[À VALIDER JONAS — exemple : [Prénom client] passe de 240K$ à 1.2M$ en 14 mois. Diagnostic architecture → restructuration offre → équipe réalignée → scaling activé. Étude complète avec métriques, timeline et leviers identifiés.]',
-      en: '[TO VALIDATE WITH JONAS — example : [Client first name] goes from $240K to $1.2M in 14 months. Architecture diagnostic → offer restructuring → team realignment → scaling activated. Full case study with metrics, timeline, and identified levers.]'
-    } satisfies BilingualLax<string>,
-    placeholder: {
-      fr: '[Section case study complète à développer une fois 1 cas client confirmé par Jonas + autorisation publi]',
-      en: '[Full case study section to develop once 1 client case confirmed by Jonas + publication authorization]'
-    } satisfies BilingualLax<string>
+    title: { fr: '', en: '' } satisfies BilingualLax<string>,
+    teaser: { fr: '', en: '' } satisfies BilingualLax<string>
   },
 
   finalCta: {

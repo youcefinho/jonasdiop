@@ -156,8 +156,8 @@ export const contactCopy = {
       en: 'A direct message.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: '[Formulaire wire Sprint 6 — GHL integration. Champs : nom, email, téléphone (optionnel), fourchette CA, message]',
-      en: '[Form wire Sprint 6 — GHL integration. Fields : name, email, phone (optional), revenue range, message]'
+      fr: 'Quelques détails pour qu’on prépare l’appel — réponse sous 24-48h ouvrables.',
+      en: 'A few details so we can prepare the call — reply within 24-48 business hours.'
     } satisfies BilingualLax<string>,
     fields: {
       name: {
@@ -218,9 +218,9 @@ export const contactCopy = {
       fr: 'Choisissez votre créneau.',
       en: 'Choose your time slot.'
     } satisfies BilingualLax<string>,
-    placeholder: {
-      fr: '[À VALIDER JONAS — URL Calendly à fournir. Embed iframe Sprint 6.]',
-      en: '[TO VALIDATE WITH JONAS — Calendly URL to provide. Embed iframe Sprint 6.]'
+    fallback: {
+      fr: 'La réservation en ligne ouvre prochainement. En attendant, écrivez-nous via le formulaire ou par courriel — créneau confirmé sous 24h ouvrables.',
+      en: 'Online booking opens soon. In the meantime, reach us via the form or by email — slot confirmed within 24 business hours.'
     } satisfies BilingualLax<string>
   },
 

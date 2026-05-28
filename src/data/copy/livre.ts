@@ -15,8 +15,8 @@ export const livreCopy = {
       en: 'The Book — Business Architecture : the manual | Jonas Diop'
     } satisfies BilingualLax<string>,
     description: {
-      fr: '[À VALIDER JONAS — description meta selon statut livre]. La méthodologie CDT™ complète en livre — frameworks, case studies, exécution.',
-      en: '[TO VALIDATE WITH JONAS — meta description per book status]. The complete CDT™ methodology in book form — frameworks, case studies, execution.'
+      fr: 'La méthodologie CDT™ complète en livre — frameworks, case studies, exécution. En préparation.',
+      en: 'The complete CDT™ methodology in book form — frameworks, case studies, execution. In preparation.'
     } satisfies BilingualLax<string>
   },
 
@@ -30,8 +30,8 @@ export const livreCopy = {
       en: 'Business Architecture : the manual.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: "[À VALIDER JONAS — statut livre : écrit / en cours d'écriture / projet pour 2026-2027. Cette ligne change complètement selon le statut réel.]",
-      en: '[TO VALIDATE WITH JONAS — book status : written / in progress / project for 2026-2027. This line changes entirely depending on actual status.]'
+      fr: 'En préparation. Inscrivez-vous pour être notifié dès que le manuel est disponible.',
+      en: 'In preparation. Sign up to be notified the moment the manual is available.'
     } satisfies BilingualLax<string>
   },
 
@@ -87,8 +87,8 @@ Not a lead magnet. A real working tool.`
       en: 'The 7 chapters.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: '[À VALIDER JONAS — structure finale du livre à confirmer. Proposition alignée CDT™ 3 piliers :]',
-      en: '[TO VALIDATE WITH JONAS — final book structure to confirm. Proposal aligned with CDT™ 3 pillars :]'
+      fr: 'Sommaire prévisionnel — version définitive à confirmer à la finalisation.',
+      en: 'Provisional outline — final version confirmed at completion.'
     } satisfies BilingualLax<string>,
     chapters: [
       {
@@ -184,8 +184,8 @@ Not a lead magnet. A real working tool.`
       {
         format: 'Print',
         description: {
-          fr: 'Édition physique — disponible via [À VALIDER JONAS — Amazon / distributeur]',
-          en: 'Physical edition — available via [TO VALIDATE WITH JONAS — Amazon / distributor]'
+          fr: 'Édition physique — distributeur annoncé à la publication.',
+          en: 'Physical edition — distributor announced at publication.'
         } satisfies BilingualLax<string>
       },
       {
@@ -198,8 +198,8 @@ Not a lead magnet. A real working tool.`
       {
         format: 'Audiobook',
         description: {
-          fr: '[À VALIDER JONAS — audiobook narré par Jonas lui-même ? Plateformes : Spotify / Audible ?]',
-          en: '[TO VALIDATE WITH JONAS — audiobook narrated by Jonas himself? Platforms : Spotify / Audible?]'
+          fr: 'Version audio prévue. Plateformes et narration confirmées au lancement.',
+          en: 'Audio version planned. Platforms and narration confirmed at launch.'
         } satisfies BilingualLax<string>
       }
     ]
@@ -211,12 +211,12 @@ Not a lead magnet. A real working tool.`
       en: 'Release'
     } satisfies BilingualLax<string>,
     title: {
-      fr: '[À VALIDER JONAS — date de sortie estimée]',
-      en: '[TO VALIDATE WITH JONAS — estimated release date]'
+      fr: 'Date de sortie annoncée prochainement.',
+      en: 'Release date announced soon.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: '[À VALIDER JONAS — Q4 2026 ? Q1 2027 ? Selon statut réel du livre. Si livre déjà écrit : date de publication annoncée. Si en cours : date estimée finition. Si projet : horizon.]',
-      en: '[TO VALIDATE WITH JONAS — Q4 2026? Q1 2027? Based on actual book status. If already written: announced publication date. If in progress: estimated completion. If project: horizon.]'
+      fr: "Les abonnés à la liste d'attente seront notifiés en premier — accès prioritaire au lancement.",
+      en: 'Waitlist subscribers are notified first — priority access at launch.'
     } satisfies BilingualLax<string>
   },
 

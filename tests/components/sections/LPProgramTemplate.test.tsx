@@ -279,7 +279,7 @@ describe('LPProgramTemplate — FAQ', () => {
 
   it('renders FAQ answer text', () => {
     render(<LPProgramTemplate copy={gamechangerScalingCopy} />, { wrapper: wrapper('fr') });
-    expect(screen.getByText(/À VALIDER JONAS/i)).toBeInTheDocument();
+    expect(screen.getByText(/cohortes ont une disponibilité limitée/i)).toBeInTheDocument();
   });
 });
 

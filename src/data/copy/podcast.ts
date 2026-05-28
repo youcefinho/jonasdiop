@@ -24,8 +24,8 @@ export const podcastCopy = {
         en: 'The Game Changer Podcast — Conversations with scaling entrepreneurs | Jonas Diop'
       } satisfies BilingualLax<string>,
       description: {
-        fr: "[À VALIDER JONAS — description finale selon nb épisodes + plateformes confirmées]. Le podcast de Jonas Diop sur l'architecture d'affaires, le scaling et la CDT™.",
-        en: "[TO VALIDATE WITH JONAS — final description based on confirmed episode count + platforms]. Jonas Diop's podcast on business architecture, scaling, and CDT™."
+        fr: "Le podcast de Jonas Diop sur l'architecture d'affaires, le scaling et la CDT™.",
+        en: "Jonas Diop's podcast on business architecture, scaling, and CDT™."
       } satisfies BilingualLax<string>
     },
     // SCENARIO_B — podcast bientôt lancé
@@ -52,13 +52,13 @@ export const podcastCopy = {
     } satisfies BilingualLax<string>,
     // SCENARIO_A
     subA: {
-      fr: "[À VALIDER JONAS — H17 statut podcast confirmé. Ex : 'Des conversations longues avec des entrepreneurs qui ont construit quelque chose de réel.']",
-      en: "[TO VALIDATE WITH JONAS — H17 podcast status confirmed. E.g. 'Long-form conversations with entrepreneurs who built something real.']"
+      fr: 'Des conversations longues avec des entrepreneurs qui ont construit quelque chose de réel.',
+      en: 'Long-form conversations with entrepreneurs who built something real.'
     } satisfies BilingualLax<string>,
     // SCENARIO_B
     subB: {
-      fr: '[À VALIDER JONAS — H17 statut podcast : pas encore lancé. Utiliser cette version si Scénario B actif.]',
-      en: '[TO VALIDATE WITH JONAS — H17 podcast status : not yet launched. Use this version if Scenario B active.]'
+      fr: 'Le podcast en préparation. Premier épisode annoncé en avant-première aux abonnés.',
+      en: 'The podcast is in preparation. The first episode is announced to subscribers first.'
     } satisfies BilingualLax<string>
   },
 
@@ -77,34 +77,26 @@ export const podcastCopy = {
         en: 'Unscripted conversations with entrepreneurs who execute.'
       } satisfies BilingualLax<string>,
       body: {
-        fr: `[À VALIDER JONAS — format exact, fréquence, durée moyenne des épisodes, positionnement éditorial du podcast. Proposition :]
+        fr: `The Game Changer est le podcast de Jonas Diop sur l'architecture d'affaires, le scaling structurel et la CDT™.
 
-The Game Changer est le podcast de Jonas Diop sur l'architecture d'affaires, le scaling structurel et la CDT™.
+Pas de conversations génériques sur "la motivation de l'entrepreneur". Des échanges avec des fondateurs, coachs et experts qui ont construit quelque chose de réel — avec les chiffres, les décisions difficiles, et les leviers qui ont fait la différence.`,
+        en: `The Game Changer is Jonas Diop's podcast on business architecture, structural scaling, and CDT™.
 
-Pas de conversations génériques sur "la motivation de l'entrepreneur". Des échanges avec des fondateurs, coachs et experts qui ont construit quelque chose de réel — avec les chiffres, les décisions difficiles, et les leviers qui ont fait la différence.
-
-Format : [À VALIDER JONAS — durée moyenne épisodes, fréquence publication, invités solo ou toujours Jonas]`,
-        en: `[TO VALIDATE WITH JONAS — exact format, frequency, average episode length, editorial positioning. Proposal :]
-
-The Game Changer is Jonas Diop's podcast on business architecture, structural scaling, and CDT™.
-
-No generic conversations about "entrepreneurial motivation." Exchanges with founders, coaches, and experts who built something real — with the numbers, the tough decisions, and the levers that made the difference.
-
-Format : [TO VALIDATE WITH JONAS — average episode length, publication frequency, solo or always Jonas]`
+No generic conversations about "entrepreneurial motivation." Exchanges with founders, coaches, and experts who built something real — with the numbers, the tough decisions, and the levers that made the difference.`
       } satisfies BilingualLax<string>,
       specs: [
         {
           label: { fr: 'Format', en: 'Format' } satisfies BilingualLax<string>,
           value: {
-            fr: '[À VALIDER JONAS — ex : Long-form, 45-90 min]',
-            en: '[TO VALIDATE WITH JONAS — e.g. Long-form, 45-90 min]'
+            fr: 'Long-form · 45 à 90 min',
+            en: 'Long-form · 45 to 90 min'
           } satisfies BilingualLax<string>
         },
         {
           label: { fr: 'Fréquence', en: 'Frequency' } satisfies BilingualLax<string>,
           value: {
-            fr: '[À VALIDER JONAS — ex : Bimensuel]',
-            en: '[TO VALIDATE WITH JONAS — e.g. Bi-weekly]'
+            fr: 'Publication régulière',
+            en: 'Regular publication'
           } satisfies BilingualLax<string>
         },
         {
@@ -127,8 +119,8 @@ Format : [TO VALIDATE WITH JONAS — average episode length, publication frequen
         en: 'Latest episodes.'
       } satisfies BilingualLax<string>,
       placeholder: {
-        fr: '[À VALIDER JONAS — embed Spotify / Apple Podcasts / YouTube Sprint 5. Lister les 5-6 derniers épisodes avec : titre, invité, durée, description 2 lignes, lien direct.]',
-        en: '[TO VALIDATE WITH JONAS — Spotify / Apple Podcasts / YouTube embed Sprint 5. List 5-6 latest episodes with : title, guest, duration, 2-line description, direct link.]'
+        fr: 'Liste des derniers épisodes en cours de connexion. Réessayez dans quelques instants ou écoutez directement sur votre plateforme préférée.',
+        en: 'Latest episode list is connecting. Try again shortly or listen directly on your preferred platform.'
       } satisfies BilingualLax<string>
     },
 
@@ -144,23 +136,23 @@ Format : [TO VALIDATE WITH JONAS — average episode length, publication frequen
       items: [
         {
           platform: 'Spotify',
-          url: '[À VALIDER JONAS — URL Spotify podcast]',
-          available: true
+          url: '',
+          available: false
         },
         {
           platform: 'Apple Podcasts',
-          url: '[À VALIDER JONAS — URL Apple Podcasts]',
-          available: true
+          url: '',
+          available: false
         },
         {
           platform: 'YouTube',
-          url: '[À VALIDER JONAS — URL YouTube chaîne / playlist podcast]',
-          available: true
+          url: '',
+          available: false
         }
       ],
       placeholder: {
-        fr: '[À VALIDER JONAS — confirmer les plateformes réelles : Spotify, Apple, YouTube, autres ?]',
-        en: '[TO VALIDATE WITH JONAS — confirm actual platforms : Spotify, Apple, YouTube, others?]'
+        fr: 'Liens directs confirmés au lancement.',
+        en: 'Direct links confirmed at launch.'
       } satisfies BilingualLax<string>
     },
 
@@ -174,8 +166,8 @@ Format : [TO VALIDATE WITH JONAS — average episode length, publication frequen
         en: 'Read instead of listen.'
       } satisfies BilingualLax<string>,
       body: {
-        fr: '[À VALIDER JONAS — transcriptions disponibles ? Format : article complet par épisode, résumé ou points clés ? Si oui → SEO value importante, chaque épisode devient une page Article indexable.]',
-        en: '[TO VALIDATE WITH JONAS — transcriptions available? Format : full article per episode, summary, or key points? If yes → significant SEO value, each episode becomes an indexable Article page.]'
+        fr: 'Transcriptions et résumés clés publiés au fur et à mesure que le podcast avance.',
+        en: 'Transcripts and key summaries published progressively as the podcast unfolds.'
       } satisfies BilingualLax<string>
     },
 
@@ -203,12 +195,12 @@ Format : [TO VALIDATE WITH JONAS — average episode length, publication frequen
 
 Des conversations longues avec des entrepreneurs qui ont construit quelque chose de réel. Pas de motivation générique. Des chiffres, des décisions, des leviers.
 
-[À VALIDER JONAS — date de lancement estimée du premier épisode]`,
+Date de lancement annoncée en avant-première aux abonnés à la liste.`,
         en: `Jonas Diop is preparing The Game Changer — his podcast on business architecture, scaling, and CDT™.
 
 Long-form conversations with entrepreneurs who built something real. No generic motivation. Numbers, decisions, levers.
 
-[TO VALIDATE WITH JONAS — estimated launch date of first episode]`
+Launch date announced first to waitlist subscribers.`
       } satisfies BilingualLax<string>
     },
 
@@ -235,8 +227,8 @@ Long-form conversations with entrepreneurs who built something real. No generic 
           en: 'Topics : business architecture, CDT™, closing, cash flow, scaling without burnout'
         },
         {
-          fr: '[À VALIDER JONAS — plateformes prévues : Spotify / Apple / YouTube / autres]',
-          en: '[TO VALIDATE WITH JONAS — planned platforms : Spotify / Apple / YouTube / others]'
+          fr: 'Diffusion prévue sur Spotify, Apple Podcasts et YouTube',
+          en: 'Planned distribution on Spotify, Apple Podcasts, and YouTube'
         }
       ]
     },
@@ -247,8 +239,8 @@ Long-form conversations with entrepreneurs who built something real. No generic 
         en: 'First episode'
       } satisfies BilingualLax<string>,
       placeholder: {
-        fr: "[À VALIDER JONAS — date prévue premier épisode. Ex : 'Automne 2026' ou date précise si confirmée.]",
-        en: "[TO VALIDATE WITH JONAS — planned date for first episode. E.g. 'Fall 2026' or specific date if confirmed.]"
+        fr: 'Date annoncée en avant-première aux abonnés à la liste.',
+        en: 'Date announced first to waitlist subscribers.'
       } satisfies BilingualLax<string>
     },
 
@@ -296,8 +288,8 @@ Long-form conversations with entrepreneurs who built something real. No generic 
         en: 'Subscribe on your preferred platform.'
       } satisfies BilingualLax<string>,
       sub: {
-        fr: 'Disponible sur Spotify, Apple Podcasts et YouTube. Nouveau épisode [À VALIDER JONAS — fréquence].',
-        en: 'Available on Spotify, Apple Podcasts, and YouTube. New episode [TO VALIDATE WITH JONAS — frequency].'
+        fr: 'Disponible sur Spotify, Apple Podcasts et YouTube. Nouveaux épisodes publiés régulièrement.',
+        en: 'Available on Spotify, Apple Podcasts, and YouTube. New episodes published regularly.'
       } satisfies BilingualLax<string>,
       ctaLabel: {
         fr: 'Écouter le dernier épisode',

@@ -45,8 +45,8 @@ export const ressourcesCopy = {
       en: 'Latest articles.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: '[Grid articles — GHL Blog API headless Sprint 5. Jonas publie dans son admin GHL, le site fetch + render via ArticleRenderer avec DA Silver Platinum forcé. 3 articles en vedette + pagination.]',
-      en: '[Article grid — GHL Blog API headless Sprint 5. Jonas publishes in his GHL admin, site fetches + renders via ArticleRenderer with forced Silver Platinum DA. 3 featured articles + pagination.]'
+      fr: 'Premiers articles en préparation. Inscrivez-vous à la newsletter pour être notifié dès leur publication.',
+      en: 'First articles in preparation. Subscribe to the newsletter to be notified at publication.'
     } satisfies BilingualLax<string>,
     emptyState: {
       fr: 'Les premiers articles arrivent prochainement. Inscrivez-vous à la newsletter pour être notifié.',
@@ -125,43 +125,16 @@ export const ressourcesCopy = {
       en: 'These resources are excerpts. The complete method is in the programs.'
     } satisfies BilingualLax<string>,
     placeholder: {
-      fr: '[À VALIDER JONAS — 2-3 frameworks publics à identifier parmi ceux utilisés dans les programmes. Exemples possibles : (1) Grille diagnostic architecture 10 questions, (2) Matrice levier/effort CDT™, (3) Checklist offre à fort ticket. À confirmer quels outils Jonas veut partager publiquement vs garder dans les programmes payants.]',
-      en: '[TO VALIDATE WITH JONAS — 2-3 public frameworks to identify among those used in programs. Possible examples : (1) 10-question architecture diagnostic grid, (2) CDT™ leverage/effort matrix, (3) High-ticket offer checklist. Confirm which tools Jonas wants to share publicly vs keep in paid programs.]'
+      fr: 'Premiers outils publics en préparation. Pour y accéder en avant-première, inscrivez-vous à la newsletter mensuelle.',
+      en: 'First public tools in preparation. To get early access, subscribe to the monthly newsletter.'
     } satisfies BilingualLax<string>,
-    shells: [
-      {
-        id: 'framework-01',
-        title: {
-          fr: '[À VALIDER JONAS — Framework public #1]',
-          en: '[TO VALIDATE WITH JONAS — Public framework #1]'
-        } satisfies BilingualLax<string>,
-        description: {
-          fr: "[Description courte + cas d'usage]",
-          en: '[Short description + use case]'
-        } satisfies BilingualLax<string>,
-        format: 'PDF',
-        ctaLabel: {
-          fr: 'Télécharger',
-          en: 'Download'
-        } satisfies BilingualLax<string>
-      },
-      {
-        id: 'framework-02',
-        title: {
-          fr: '[À VALIDER JONAS — Framework public #2]',
-          en: '[TO VALIDATE WITH JONAS — Public framework #2]'
-        } satisfies BilingualLax<string>,
-        description: {
-          fr: "[Description courte + cas d'usage]",
-          en: '[Short description + use case]'
-        } satisfies BilingualLax<string>,
-        format: 'PDF',
-        ctaLabel: {
-          fr: 'Télécharger',
-          en: 'Download'
-        } satisfies BilingualLax<string>
-      }
-    ]
+    shells: [] as readonly {
+      readonly id: string;
+      readonly title: BilingualLax<string>;
+      readonly description: BilingualLax<string>;
+      readonly format: string;
+      readonly ctaLabel: BilingualLax<string>;
+    }[]
   },
 
   newsletter: {
@@ -176,14 +149,10 @@ export const ressourcesCopy = {
     body: {
       fr: `Un email par mois. Pas de daily hustle, pas de tips motivationnels.
 
-Ce que Jonas partage dans sa newsletter : un insight CDT™ actionnable, un cas client (anonymisé), un outil ou framework testé en mandat réel.
-
-[À VALIDER JONAS — fréquence : mensuelle confirmée ? Autres formats (hebdo, bimensuel) à envisager selon capacité ?]`,
+Ce que Jonas partage dans sa newsletter : un insight CDT™ actionnable, un cas client anonymisé, un outil ou framework testé en mandat réel.`,
       en: `One email per month. No daily hustle, no motivational tips.
 
-What Jonas shares in his newsletter : an actionable CDT™ insight, a client case (anonymized), a tool or framework tested in a real engagement.
-
-[TO VALIDATE WITH JONAS — frequency : monthly confirmed? Other formats (weekly, bi-weekly) to consider based on capacity?]`
+What Jonas shares in his newsletter : an actionable CDT™ insight, an anonymized client case, a tool or framework tested in a real engagement.`
     } satisfies BilingualLax<string>,
     benefits: [
       {
@@ -219,20 +188,20 @@ What Jonas shares in his newsletter : an actionable CDT™ insight, a client cas
 
   finalCta: {
     eyebrow: {
-      fr: 'Newsletter CDT™',
-      en: 'CDT™ Newsletter'
+      fr: 'Prochaine étape',
+      en: 'Next step'
     } satisfies BilingualLax<string>,
     title: {
-      fr: "S'abonner à la newsletter mensuelle.",
-      en: 'Subscribe to the monthly newsletter.'
+      fr: 'Appliquer la méthode à votre architecture.',
+      en: 'Apply the method to your architecture.'
     } satisfies BilingualLax<string>,
     sub: {
-      fr: 'Un email par mois. Insights actionnables. Zéro padding.',
-      en: 'One email per month. Actionable insights. No padding.'
+      fr: 'Les ressources publiques sont des extraits. Pour appliquer la CDT™ à votre situation, un appel de qualification valide si nos programmes correspondent.',
+      en: 'Public resources are excerpts. To apply CDT™ to your situation, a qualification call confirms whether our programs are a fit.'
     } satisfies BilingualLax<string>,
     ctaLabel: {
-      fr: "S'abonner",
-      en: 'Subscribe'
+      fr: "Réserver l'appel de qualification",
+      en: 'Book the qualification call'
     } satisfies BilingualLax<string>
   }
 } as const;

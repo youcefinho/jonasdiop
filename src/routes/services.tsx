@@ -92,8 +92,8 @@ function ServicesPage() {
               <MaskRevealHeading as="h2">{t(servicesCopy.comparisonTable.title)}</MaskRevealHeading>
             </div>
 
-            {/* Desktop table */}
-            <div className="overflow-x-auto -mx-md px-md">
+            {/* Desktop / tablet : full comparison table */}
+            <div className="hidden md:block overflow-x-auto -mx-md px-md">
               <table className="w-full min-w-[640px] border-collapse text-sm">
                 <thead>
                   <tr className="border-b-2 border-gold/30">
@@ -138,6 +138,42 @@ function ServicesPage() {
                 </tbody>
               </table>
             </div>
+
+            {/* Mobile : stacked cards (one per programme) — all 5 fields visible */}
+            <ul className="md:hidden flex flex-col gap-md list-none p-0">
+              {servicesCopy.comparisonTable.rows.map((row) => (
+                <li
+                  key={row.name.fr}
+                  className="flex flex-col gap-sm p-md bg-elevated border border-silver/15 rounded-lg"
+                >
+                  <p className="text-h3 text-primary font-display text-balance">{t(row.name)}</p>
+                  <dl className="grid grid-cols-[max-content_1fr] gap-x-md gap-y-1 text-sm">
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                      {t(servicesCopy.comparisonTable.headers.format)}
+                    </dt>
+                    <dd className="text-body text-silver opacity-80 text-pretty">
+                      {t(row.format)}
+                    </dd>
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                      {t(servicesCopy.comparisonTable.headers.duree)}
+                    </dt>
+                    <dd className="text-body text-silver opacity-80 text-pretty">{t(row.duree)}</dd>
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                      {t(servicesCopy.comparisonTable.headers.intensite)}
+                    </dt>
+                    <dd className="text-body text-silver opacity-80 text-pretty">
+                      {t(row.intensite)}
+                    </dd>
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                      {t(servicesCopy.comparisonTable.headers.idealPour)}
+                    </dt>
+                    <dd className="text-body text-silver opacity-80 text-pretty">
+                      {t(row.idealPour)}
+                    </dd>
+                  </dl>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

@@ -91,7 +91,25 @@ export function ScrollReveal({
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Safety fallback : if the observer never fires (e.g. very tall sections,
+    // sections that stay below the threshold for the entire page, anchor jumps
+    // that skip the section), force the element to its visible state without
+    // animation after 5s so critical content is never permanently hidden.
+    const safetyTimer = window.setTimeout(() => {
+      if (revealed) return;
+      revealed = true;
+      observer.disconnect();
+      el.style.transition = 'none';
+      el.style.opacity = '1';
+      el.style.transform = 'translate3d(0, 0, 0)';
+      el.style.willChange = 'auto';
+    }, 5000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(safetyTimer);
+    };
   }, [delay, offset, threshold]);
 
   // Dynamic Tag union ('div' | 'section' | 'article' | 'span') makes the ref

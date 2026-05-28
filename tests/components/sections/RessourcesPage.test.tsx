@@ -61,20 +61,11 @@ describe('RessourcesPage — 5 categories', () => {
   });
 });
 
-describe('RessourcesPage — 2 frameworks shells', () => {
-  it('renders 2 framework cards with PDF format label', () => {
+describe('RessourcesPage — frameworks shells (pending validation)', () => {
+  it('hides the frameworks list while no shells are published', () => {
     const { container } = render(<RessourcesPage />, { wrapper: wrapper('fr') });
     const list = container.querySelector('ul[data-frameworks-list]');
-    expect(list?.querySelectorAll('li').length).toBe(2);
-  });
-
-  it('renders disabled download buttons', () => {
-    const { container } = render(<RessourcesPage />, { wrapper: wrapper('fr') });
-    const buttons = container.querySelectorAll('ul[data-frameworks-list] button');
-    expect(buttons.length).toBe(2);
-    for (const btn of buttons) {
-      expect(btn).toBeDisabled();
-    }
+    expect(list).toBeNull();
   });
 });
 

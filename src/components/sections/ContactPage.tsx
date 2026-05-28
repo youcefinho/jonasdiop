@@ -478,7 +478,7 @@ export function ContactPage() {
                   ))}
                 </div>
 
-                {/* Center loading state */}
+                {/* Center fallback state — booking opens later */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-md gap-sm">
                   <div
                     aria-hidden="true"
@@ -493,12 +493,12 @@ export function ContactPage() {
                   </div>
                   <p className="text-body text-primary font-display tracking-tight max-w-[42ch] text-pretty">
                     {t({
-                      fr: 'Le calendrier interactif est en cours de connexion.',
-                      en: 'The interactive calendar is connecting.'
+                      fr: 'Réservation en ligne — bientôt disponible.',
+                      en: 'Online booking — coming soon.'
                     })}
                   </p>
-                  <p className="text-sm text-silver opacity-60 text-pretty max-w-[48ch]">
-                    {t(contactCopy.calendly.placeholder)}
+                  <p className="text-sm text-silver opacity-60 text-pretty max-w-[52ch]">
+                    {t(contactCopy.calendly.fallback)}
                   </p>
                 </div>
               </div>

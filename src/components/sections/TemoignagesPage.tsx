@@ -6,6 +6,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { temoignagesCopy } from '@/data/copy/temoignages';
+import { isUnvalidatedContent } from '@/lib/content/isUnvalidatedContent';
 import { useT } from '@/lib/i18n/useT';
 
 /**
@@ -19,6 +20,19 @@ import { useT } from '@/lib/i18n/useT';
  */
 export function TemoignagesPage() {
   const { t, locale } = useT();
+
+  const renderableShells = temoignagesCopy.grid.shells.filter(
+    (shell) =>
+      !shell.pending &&
+      !isUnvalidatedContent(t(shell.result)) &&
+      !isUnvalidatedContent(t(shell.quote)) &&
+      !isUnvalidatedContent(shell.name)
+  );
+
+  const caseStudyReady =
+    !temoignagesCopy.caseStudy.pending &&
+    !isUnvalidatedContent(t(temoignagesCopy.caseStudy.title)) &&
+    !isUnvalidatedContent(t(temoignagesCopy.caseStudy.teaser));
 
   return (
     <>
@@ -124,34 +138,47 @@ export function TemoignagesPage() {
               <MaskRevealHeading as="h2">{t(temoignagesCopy.grid.title)}</MaskRevealHeading>
             </div>
 
-            <StaggerReveal
-              as="div"
-              data-shells-grid="true"
-              className="grid grid-cols-1 md:grid-cols-3 gap-md items-stretch"
-              staggerMs={100}
-            >
-              {temoignagesCopy.grid.shells.map((shell) => (
-                <article
-                  key={shell.id}
-                  data-shell-card
-                  className="hover-lift shadow-haptic-card shadow-haptic-card-hover transition-all duration-base flex flex-col gap-sm p-md bg-base border border-silver/15 rounded-lg"
-                >
-                  <p className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs">
-                    {t(shell.program)}
-                  </p>
-                  <p className="text-h3 text-primary font-display text-balance">
-                    {t(shell.result)}
-                  </p>
-                  <blockquote className="text-body text-silver opacity-70 text-pretty italic mt-sm border-l-2 border-gold/20 pl-md">
-                    {t(shell.quote)}
-                  </blockquote>
-                  <div className="mt-auto pt-md border-t border-silver/10">
-                    <p className="text-body text-primary font-display font-medium">{shell.name}</p>
-                    <p className="text-sm text-silver/60 text-pretty">{t(shell.title)}</p>
-                  </div>
-                </article>
-              ))}
-            </StaggerReveal>
+            {renderableShells.length > 0 ? (
+              <StaggerReveal
+                as="div"
+                data-shells-grid="true"
+                className="grid grid-cols-1 md:grid-cols-3 gap-md items-stretch"
+                staggerMs={100}
+              >
+                {renderableShells.map((shell) => (
+                  <article
+                    key={shell.id}
+                    data-shell-card
+                    className="hover-lift shadow-haptic-card shadow-haptic-card-hover transition-all duration-base flex flex-col gap-sm p-md bg-base border border-silver/15 rounded-lg"
+                  >
+                    <p className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs">
+                      {t(shell.program)}
+                    </p>
+                    <p className="text-h3 text-primary font-display text-balance">
+                      {t(shell.result)}
+                    </p>
+                    <blockquote className="text-body text-silver opacity-70 text-pretty italic mt-sm border-l-2 border-gold/20 pl-md">
+                      {t(shell.quote)}
+                    </blockquote>
+                    <div className="mt-auto pt-md border-t border-silver/10">
+                      <p className="text-body text-primary font-display font-medium">
+                        {shell.name}
+                      </p>
+                      <p className="text-sm text-silver/60 text-pretty">{t(shell.title)}</p>
+                    </div>
+                  </article>
+                ))}
+              </StaggerReveal>
+            ) : (
+              <div className="max-w-[58ch] mx-auto text-center flex flex-col items-center gap-md py-lg">
+                <p className="text-h3 text-primary font-display text-balance">
+                  {t(temoignagesCopy.onRequest.title)}
+                </p>
+                <p className="text-body text-silver opacity-80 text-pretty">
+                  {t(temoignagesCopy.onRequest.body)}
+                </p>
+              </div>
+            )}
 
             {/* Disclaimer */}
             <div className="mt-xl text-center flex flex-col items-center gap-sm max-w-[65ch] mx-auto">
@@ -166,25 +193,24 @@ export function TemoignagesPage() {
         </section>
       </ScrollReveal>
 
-      {/* CASE STUDY placeholder */}
-      <ScrollReveal>
-        <section aria-label={t(temoignagesCopy.caseStudy.eyebrow)} className="py-2xl bg-base">
-          <div className="max-w-content mx-auto px-md">
-            <div className="text-center flex flex-col items-center gap-sm mb-lg">
-              <Eyebrow>{t(temoignagesCopy.caseStudy.eyebrow)}</Eyebrow>
-              <MaskRevealHeading as="h2">{t(temoignagesCopy.caseStudy.title)}</MaskRevealHeading>
+      {/* CASE STUDY — rendered only when validated */}
+      {caseStudyReady && (
+        <ScrollReveal>
+          <section aria-label={t(temoignagesCopy.caseStudy.eyebrow)} className="py-2xl bg-base">
+            <div className="max-w-content mx-auto px-md">
+              <div className="text-center flex flex-col items-center gap-sm mb-lg">
+                <Eyebrow>{t(temoignagesCopy.caseStudy.eyebrow)}</Eyebrow>
+                <MaskRevealHeading as="h2">{t(temoignagesCopy.caseStudy.title)}</MaskRevealHeading>
+              </div>
+              <div className="border border-dashed border-silver/20 rounded-lg p-xl bg-elevated/50 flex flex-col gap-md">
+                <p className="text-body text-silver opacity-80 text-pretty">
+                  {t(temoignagesCopy.caseStudy.teaser)}
+                </p>
+              </div>
             </div>
-            <div className="border border-dashed border-silver/20 rounded-lg p-xl bg-elevated/50 flex flex-col gap-md">
-              <p className="text-body text-silver opacity-80 text-pretty">
-                {t(temoignagesCopy.caseStudy.teaser)}
-              </p>
-              <p className="text-sm text-silver/50 italic text-pretty">
-                {t(temoignagesCopy.caseStudy.placeholder)}
-              </p>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
+          </section>
+        </ScrollReveal>
+      )}
 
       {/* FINAL CTA */}
       <ScrollReveal>

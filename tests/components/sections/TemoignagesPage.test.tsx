@@ -54,18 +54,16 @@ describe('TemoignagesPage — filters', () => {
   });
 });
 
-describe('TemoignagesPage — grid 3 shells', () => {
-  it('renders 3 shell cards', () => {
+describe('TemoignagesPage — grid 3 shells (pending validation)', () => {
+  it('hides shell cards while shells are pending Jonas validation', () => {
     const { container } = render(<TemoignagesPage />, { wrapper: wrapper('fr') });
     const shells = container.querySelectorAll('[data-shell-card]');
-    expect(shells.length).toBe(3);
+    expect(shells.length).toBe(0);
   });
 
-  it('renders 3 programme labels (Gamechanger, The Shift, Consultations Privées)', () => {
+  it('renders the on-request fallback heading instead', () => {
     render(<TemoignagesPage />, { wrapper: wrapper('fr') });
-    expect(screen.getAllByText('Gamechanger Scaling').length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText('The Shift').length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText('Consultations Privées').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/Cas clients disponibles sur demande/i)).toBeInTheDocument();
   });
 });
 

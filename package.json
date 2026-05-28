@@ -18,6 +18,7 @@
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit",
     "check:bundle-size": "bun scripts/check-bundle-size.ts",
+    "check:no-leaks": "bun scripts/check-no-leaks.ts",
     "prepare": "husky"
   },
   "devDependencies": {
