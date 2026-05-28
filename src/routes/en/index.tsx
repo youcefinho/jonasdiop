@@ -27,55 +27,48 @@ function HomeEN() {
       <Navbar />
       <main className="pt-[80px]">
         <Hero />
-        {/* Below-fold sections : `cv-defer` (content-visibility:auto) — browser
-            skips paint/layout off-screen, dramatically reducing initial DOMSize
-            cost. See globals.css for details. */}
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <VslPlaceholderSection id="vsl-method" />
         </ScrollReveal>
-        <div className="cv-defer">
-          <TrustedLogosBar />
-        </div>
-        <ScrollReveal className="cv-defer">
+        <TrustedLogosBar />
+        <ScrollReveal>
           <PourQuiSection />
         </ScrollReveal>
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <AboutPreviewSection />
         </ScrollReveal>
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <PullQuote source={jonasQuotes.system} variant="panel" />
         </ScrollReveal>
         <SectionDivider variant="gold" />
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <MethodologieCDTPreviewSection />
         </ScrollReveal>
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <GameChangerProtocolPreview />
         </ScrollReveal>
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <ProgramsGrid />
         </ScrollReveal>
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <HowItWorksTimeline />
         </ScrollReveal>
         <SectionDivider variant="silver" />
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <TestimonialGrid />
         </ScrollReveal>
-        <div className="cv-defer">
-          <MarqueeTestimonials />
-        </div>
-        <ScrollReveal className="cv-defer">
+        <MarqueeTestimonials />
+        <ScrollReveal>
           <RessourcesPreviewSection />
         </ScrollReveal>
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <PodcastPreviewSection />
         </ScrollReveal>
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <FAQHomeSection />
         </ScrollReveal>
         <SectionDivider variant="gold" />
-        <ScrollReveal className="cv-defer">
+        <ScrollReveal>
           <FinalCTASection />
         </ScrollReveal>
       </main>
