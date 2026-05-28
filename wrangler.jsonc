@@ -42,7 +42,12 @@
 
   "env": {
     "staging": {
-      "name": "jonas-diop-staging",
+      // Worker name "jonas-diop" : Rochdi's Cloudflare account (intralysqc)
+      // est l'env de dev/preview avant livraison client. Pas de "-staging" dans
+      // l'URL pour ressembler à la prod. La livraison client = `wrangler login`
+      // sur compte client + `bun run deploy:prod` qui réutilise le même worker
+      // name sur un autre compte CF (accounts isolés, aucun conflit).
+      "name": "jonas-diop",
       "vars": {
         "ENVIRONMENT": "staging"
       },
