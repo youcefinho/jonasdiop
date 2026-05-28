@@ -50,6 +50,12 @@ export function Navbar() {
             {t({ fr: 'Programmes', en: 'Programs' })}
           </Link>
           <Link
+            to={ROUTES.conferences[locale]}
+            className="text-silver hover:text-primary transition-colors"
+          >
+            {t({ fr: 'Conférences', en: 'Speaking' })}
+          </Link>
+          <Link
             to={ROUTES.about[locale]}
             className="text-silver hover:text-primary transition-colors"
           >

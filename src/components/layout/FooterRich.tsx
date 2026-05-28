@@ -140,6 +140,12 @@ export function FooterRich() {
               {t({ fr: 'Méthodologie CDT™', en: 'CDT™ Methodology' })}
             </Link>
             <Link
+              to={ROUTES.conferences[locale]}
+              className="link-sweep hover:text-primary transition-colors"
+            >
+              {t({ fr: 'Conférences B2B', en: 'B2B Speaking' })}
+            </Link>
+            <Link
               to={ROUTES.ressources[locale]}
               className="link-sweep hover:text-primary transition-colors"
             >

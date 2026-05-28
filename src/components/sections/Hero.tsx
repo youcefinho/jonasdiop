@@ -113,7 +113,7 @@ export function Hero() {
           as="h1"
           priority="lcp"
           delay={heroEntranceTimings.h1MaskReveal}
-          className="font-normal tracking-[-0.045em] text-[clamp(2.5rem,1.5rem+3.5vw,5rem)] leading-[1.05] max-w-[26ch]"
+          className="hero-h1-lcp font-normal tracking-[-0.045em] text-[clamp(2.5rem,1.5rem+3.5vw,5rem)] leading-[1.05] max-w-[26ch]"
         >
           {/* Shimmer span — wraps the H1 text. Placed INSIDE the MaskReveal
               inner span so the gradient stays in sync with the text (not the

@@ -90,6 +90,13 @@ export function MobileNavDrawer() {
             {t({ fr: 'Programmes', en: 'Programs' })}
           </Link>
           <Link
+            to={ROUTES.conferences[locale]}
+            onClick={() => setOpen(false)}
+            className="py-sm border-b border-silver/10 text-silver hover:text-primary transition-colors"
+          >
+            {t({ fr: 'Conférences', en: 'Speaking' })}
+          </Link>
+          <Link
             to={ROUTES.about[locale]}
             onClick={() => setOpen(false)}
             className="py-sm border-b border-silver/10 text-silver hover:text-primary transition-colors"
