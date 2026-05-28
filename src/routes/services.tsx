@@ -79,7 +79,7 @@ function ServicesPage() {
                           <span>{t(prog.name)}</span>
                           <span
                             aria-hidden="true"
-                            className="text-gold/50 text-xs font-normal font-sans"
+                            className="text-gold/80 text-xs font-normal font-sans"
                           >
                             {t(prog.badge)}
                           </span>
@@ -114,19 +114,19 @@ function ServicesPage() {
               <table className="w-full min-w-[640px] border-collapse text-sm">
                 <thead>
                   <tr className="border-b-2 border-gold/30">
-                    <th className="text-left py-sm pr-md text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs font-medium">
+                    <th className="text-left py-sm pr-md text-eyebrow uppercase tracking-widest text-silver/85 font-display text-xs font-medium">
                       {t(servicesCopy.comparisonTable.headers.programme)}
                     </th>
-                    <th className="text-left py-sm pr-md text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs font-medium">
+                    <th className="text-left py-sm pr-md text-eyebrow uppercase tracking-widest text-silver/85 font-display text-xs font-medium">
                       {t(servicesCopy.comparisonTable.headers.format)}
                     </th>
-                    <th className="text-left py-sm pr-md text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs font-medium">
+                    <th className="text-left py-sm pr-md text-eyebrow uppercase tracking-widest text-silver/85 font-display text-xs font-medium">
                       {t(servicesCopy.comparisonTable.headers.duree)}
                     </th>
-                    <th className="text-left py-sm pr-md text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs font-medium">
+                    <th className="text-left py-sm pr-md text-eyebrow uppercase tracking-widest text-silver/85 font-display text-xs font-medium">
                       {t(servicesCopy.comparisonTable.headers.intensite)}
                     </th>
-                    <th className="text-left py-sm text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs font-medium">
+                    <th className="text-left py-sm text-eyebrow uppercase tracking-widest text-silver/85 font-display text-xs font-medium">
                       {t(servicesCopy.comparisonTable.headers.idealPour)}
                     </th>
                   </tr>
@@ -165,23 +165,23 @@ function ServicesPage() {
                 >
                   <p className="text-h3 text-primary font-display text-balance">{t(row.name)}</p>
                   <dl className="grid grid-cols-[max-content_1fr] gap-x-md gap-y-1 text-sm">
-                    <dt className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/80 font-display text-xs">
                       {t(servicesCopy.comparisonTable.headers.format)}
                     </dt>
                     <dd className="text-body text-silver opacity-80 text-pretty">
                       {t(row.format)}
                     </dd>
-                    <dt className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/80 font-display text-xs">
                       {t(servicesCopy.comparisonTable.headers.duree)}
                     </dt>
                     <dd className="text-body text-silver opacity-80 text-pretty">{t(row.duree)}</dd>
-                    <dt className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/80 font-display text-xs">
                       {t(servicesCopy.comparisonTable.headers.intensite)}
                     </dt>
                     <dd className="text-body text-silver opacity-80 text-pretty">
                       {t(row.intensite)}
                     </dd>
-                    <dt className="text-eyebrow uppercase tracking-widest text-silver/50 font-display text-xs">
+                    <dt className="text-eyebrow uppercase tracking-widest text-silver/80 font-display text-xs">
                       {t(servicesCopy.comparisonTable.headers.idealPour)}
                     </dt>
                     <dd className="text-body text-silver opacity-80 text-pretty">
@@ -266,7 +266,7 @@ function ServicesPage() {
                   {servicesCopy.qualification.pasPour.items.map((item) => (
                     <li
                       key={item.fr.slice(0, 40)}
-                      className="flex items-start gap-3 text-body text-silver opacity-60"
+                      className="flex items-start gap-3 text-body text-silver opacity-80"
                     >
                       <span
                         aria-hidden="true"

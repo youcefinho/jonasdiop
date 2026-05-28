@@ -68,7 +68,7 @@ export function TrustedLogosBar() {
             <span
               className={[
                 'text-eyebrow uppercase tracking-widest font-display',
-                'text-silver opacity-40 hover:opacity-70 transition-opacity duration-base',
+                'text-silver opacity-70 hover:opacity-95 transition-opacity duration-base',
                 'text-sm sm:text-base whitespace-nowrap'
               ].join(' ')}
             >
@@ -80,7 +80,7 @@ export function TrustedLogosBar() {
 
       {/* Disclaimer microcopy — clarifies placeholders are illustrative */}
       <div className="max-w-content mx-auto px-md text-center mt-md">
-        <span className="text-eyebrow uppercase tracking-widest text-silver/60 font-display text-[10px]">
+        <span className="text-eyebrow uppercase tracking-widest text-silver/80 font-display text-[10px]">
           {t({
             fr: 'Logos illustratifs · vraies mentions médias à venir',
             en: 'Illustrative logos · real media mentions coming'
