@@ -15,12 +15,12 @@ interface PageMetaInput {
  */
 const DEFAULT_META: PageMetaInput = {
   title: {
-    fr: "Jonas Diop — Architecte d'affaires | DIOP Stratégies Internationales Inc.",
-    en: 'Jonas Diop — Business Architect | DIOP Stratégies Internationales Inc.'
+    fr: "Jonas Diop — Architecte d'affaires & scaling stratégique Montréal | DIOP Stratégies Internationales",
+    en: 'Jonas Diop — Business Architect & Strategic Scaling Montréal | DIOP Stratégies Internationales'
   },
   description: {
-    fr: "Ajouter un zéro à votre chiffre d'affaires en récupérant 50% de votre temps. Méthodologie CDT™ pour entrepreneurs sérieux générant 100K$ à 1M$ de CA.",
-    en: 'Add a zero to your revenue while reclaiming 50% of your time. CDT™ methodology for serious entrepreneurs generating $100K to $1M CAD.'
+    fr: "Ajouter un zéro à votre chiffre d'affaires en récupérant 50% de votre temps. Méthodologie CDT™ et scaling stratégique pour entrepreneurs, coachs et experts générant 100K$ à 1M$ — Montréal, Québec & Worldwide.",
+    en: 'Add a zero to your revenue while reclaiming 50% of your time. CDT™ methodology and strategic scaling for entrepreneurs, coaches and experts generating $100K to $1M — Montréal, Québec & Worldwide.'
   }
 };
 

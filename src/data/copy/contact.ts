@@ -14,8 +14,8 @@ export const contactCopy = {
       en: 'Contact — Book a Qualification Call | Jonas Diop, Business Architect'
     } satisfies BilingualLax<string>,
     description: {
-      fr: 'Un appel de qualification gratuit de 30 minutes pour évaluer si votre situation correspond à nos programmes. Réservez directement via Calendly.',
-      en: 'A free 30-minute qualification call to assess whether your situation fits our programs. Book directly via Calendly.'
+      fr: "Un appel de qualification gratuit de 30 minutes avec Jonas Diop, architecte d'affaires Montréal, pour évaluer si votre situation correspond à nos programmes de scaling stratégique.",
+      en: 'A free 30-minute qualification call with Jonas Diop, Montréal-based business architect, to assess whether your situation fits our strategic scaling programs.'
     } satisfies BilingualLax<string>
   },
 

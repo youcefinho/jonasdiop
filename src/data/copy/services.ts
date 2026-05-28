@@ -13,8 +13,8 @@ export const servicesCopy = {
       en: 'Programs & Advisory — Jonas Diop | DIOP Stratégies Internationales'
     } satisfies BilingualLax<string>,
     description: {
-      fr: 'Programmes de groupe, formations spécialisées et consultations privées. Trois formats pour scaler votre entreprise sans vous épuiser — via la CDT™.',
-      en: 'Group programs, specialized trainings, and private consultations. Three formats to scale your business without burning out — through CDT™.'
+      fr: "Programme de scaling 12 semaines (Gamechanger Scaling), formation closing haute valeur (Master Closing), consultations privées 1:1. Six formats pour entrepreneurs, coachs et experts qui veulent scaler sans s'épuiser — méthodologie CDT™, Montréal & Worldwide.",
+      en: '12-week scaling program (Gamechanger Scaling), high-value closing training (Master Closing), 1:1 private consultations. Six formats for entrepreneurs, coaches and experts who want to scale without burning out — CDT™ methodology, Montréal & Worldwide.'
     } satisfies BilingualLax<string>
   },
 

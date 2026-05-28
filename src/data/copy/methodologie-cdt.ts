@@ -14,8 +14,8 @@ export const methodologieCdtCopy = {
       en: 'CDT™ — Dynamic Time Compression | Jonas Diop'
     } satisfies BilingualLax<string>,
     description: {
-      fr: "La CDT™ : méthodologie propriétaire de Jonas Diop. Architecture d'affaires + ingénierie systémique pour ajouter un zéro à votre CA en récupérant 50% de votre temps.",
-      en: "CDT™ : Jonas Diop's proprietary methodology. Business architecture + systemic engineering to add a zero to your revenue while reclaiming 50% of your time."
+      fr: "La CDT™ : méthodologie propriétaire de Jonas Diop. Architecture d'affaires, ingénierie systémique et offres à fort levier pour passer de 6 à 7 figures en récupérant 50% de votre temps. Résultats structurels en 30 jours, financiers en 60-90 jours.",
+      en: "CDT™ : Jonas Diop's proprietary methodology. Business architecture, systemic engineering and high-leverage offers to move from 6 to 7 figures while reclaiming 50% of your time. Structural results in 30 days, financial results in 60-90 days."
     } satisfies BilingualLax<string>
   },
 

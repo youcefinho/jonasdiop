@@ -14,8 +14,8 @@ export const aboutCopy = {
       en: 'About — Jonas Diop, Business Architect | DIOP Stratégies Internationales'
     } satisfies BilingualLax<string>,
     description: {
-      fr: "15 ans, 857+ entrepreneurs accompagnés, 31M$+ générés. L'histoire de Jonas Diop et de la naissance de la CDT™ — Compression Dynamique du Temps.",
-      en: '15 years, 857+ entrepreneurs supported, $31M+ generated. The story behind Jonas Diop and the birth of the CDT™ — Dynamic Time Compression.'
+      fr: "15+ ans, 857+ entrepreneurs accompagnés, 31M$+ générés. L'histoire de Jonas Diop, architecte d'affaires basé à Montréal, et de la naissance de la CDT™ — Compression Dynamique du Temps pour scaler sans s'épuiser.",
+      en: '15+ years, 857+ entrepreneurs supported, $31M+ generated. The story behind Jonas Diop, business architect based in Montréal, and the birth of CDT™ — Dynamic Time Compression to scale without burning out.'
     } satisfies BilingualLax<string>
   },
 

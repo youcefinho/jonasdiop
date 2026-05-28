@@ -220,11 +220,14 @@ export function Hero() {
           <li className="flex flex-col items-center text-center gap-2">
             <CountUp
               to={15}
-              suffix=" ANS"
+              suffix="+ ANS"
               className="text-gold font-display font-normal text-[clamp(2.25rem,1.6rem+2vw,3.5rem)] tracking-tight leading-none tabular-nums"
             />
-            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-[10px] sm:text-xs leading-tight max-w-[18ch]">
-              {t({ fr: "D'expertise stratégique", en: 'Of strategic expertise' })}
+            <span className="text-eyebrow uppercase tracking-widest text-silver opacity-75 font-display text-[10px] sm:text-xs leading-tight max-w-[20ch]">
+              {t({
+                fr: "D'expérience en stratégie d'affaires",
+                en: 'Of business strategy experience'
+              })}
             </span>
           </li>
         </ul>

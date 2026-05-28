@@ -56,8 +56,8 @@ export const faqCopy = {
         {
           id: 'approche-differente',
           question: {
-            fr: 'En quoi votre approche est-elle différente ?',
-            en: 'How is your approach different?'
+            fr: 'En quoi votre approche est-elle différente des autres consultants en croissance ?',
+            en: 'How is your approach different from other growth consultants?'
           } satisfies BilingualLax<string>,
           answer: {
             fr: "Notre approche repose sur trois piliers distincts : architecture d'affaires, ingénierie systémique et CDT™ (Compression Dynamique du Temps).\n\nCe n'est pas de la théorie générique. Pas de cadres copiés-collés d'un livre de management. On part de votre architecture réelle, on identifie les leviers précis dans votre situation, et on exécute avec vous.\n\nLe pragmatisme et l'exécution mesurable ne sont pas des arguments marketing — c'est ce qui distingue un résultat d'une présentation PowerPoint.",
@@ -98,8 +98,8 @@ export const faqCopy = {
         {
           id: 'formats-programmes',
           question: {
-            fr: "Quels formats d'accompagnement proposez-vous ?",
-            en: 'What advisory formats do you offer?'
+            fr: "Quels sont vos formats d'accompagnement ?",
+            en: 'What are your advisory formats?'
           } satisfies BilingualLax<string>,
           answer: {
             fr: 'Nous proposons trois formats distincts :\n\n**Programmes de groupe** : Gamechanger Scaling (12 semaines) et The Shift (8 semaines) — pour une transformation structurelle complète, en cohorte restreinte avec sessions live hebdomadaires.\n\n**Formations spécialisées** : Master Closing, Focus & Flow, Cash & Scale™ — formations autonomes sur des compétences à fort impact, disponibles sur inscription.\n\n**Consultations Privées** : accompagnement stratégique 1:1 avec accès direct à Jonas, sur dossier uniquement, pour entrepreneurs 1M$+ CA.',
