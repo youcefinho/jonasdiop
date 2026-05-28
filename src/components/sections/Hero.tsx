@@ -111,6 +111,7 @@ export function Hero() {
             - font-normal + tracking serré = poids visuel light/élégant pas bold/lourd */}
         <MaskRevealHeading
           as="h1"
+          priority="lcp"
           delay={heroEntranceTimings.h1MaskReveal}
           className="font-normal tracking-[-0.045em] text-[clamp(2.5rem,1.5rem+3.5vw,5rem)] leading-[1.05] max-w-[26ch]"
         >
