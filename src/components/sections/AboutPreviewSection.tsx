@@ -48,8 +48,9 @@ export function AboutPreviewSection() {
                   fr: "Jonas Diop, Architecte d'affaires, fondateur de DIOP Stratégies Internationales Inc.",
                   en: 'Jonas Diop, Business Architect, founder of DIOP Stratégies Internationales Inc.'
                 })}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                fetchPriority="high"
                 className="w-full h-full object-cover hover-zoom-target"
               />
             </picture>

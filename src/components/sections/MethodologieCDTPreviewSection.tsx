@@ -106,8 +106,9 @@ export function MethodologieCDTPreviewSection() {
                   fr: "Jonas Diop devant un public d'entrepreneurs — présentation de la méthodologie CDT™.",
                   en: 'Jonas Diop in front of an entrepreneur audience — presenting the CDT™ methodology.'
                 })}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                fetchPriority="high"
                 className="w-full h-full object-cover hover-zoom-target"
               />
             </picture>
