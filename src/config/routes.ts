@@ -14,6 +14,7 @@ export type RouteKey =
   | 'services-focus-flow'
   | 'services-cash-scale'
   | 'services-consultations-privees'
+  | 'conferences'
   | 'faq'
   | 'contact'
   | 'temoignages'
@@ -44,6 +45,7 @@ export const ROUTES: RoutePaths = {
     fr: '/services/consultations-privees',
     en: '/en/services/private-consultations'
   },
+  conferences: { fr: '/conferences', en: '/en/conferences' },
   faq: { fr: '/faq', en: '/en/faq' },
   contact: { fr: '/contact', en: '/en/contact' },
   temoignages: { fr: '/temoignages', en: '/en/testimonials' },
