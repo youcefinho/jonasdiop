@@ -4,10 +4,12 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { ImageReveal } from '@/components/ui/ImageReveal';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
+import { PullQuote } from '@/components/ui/PullQuote';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { aboutCopy } from '@/data/copy/about';
+import { jonasQuotes } from '@/data/copy/quotes';
 import { useParallax } from '@/hooks/useParallax';
 import { useT } from '@/lib/i18n/useT';
 
@@ -134,6 +136,11 @@ export function AboutPage() {
             ))}
           </StaggerReveal>
         </section>
+      </ScrollReveal>
+
+      {/* ─── PULL QUOTE — Jonas's "lungs and heart" line ──────────────────── */}
+      <ScrollReveal>
+        <PullQuote source={jonasQuotes.poumonCoeur} variant="panel" />
       </ScrollReveal>
 
       {/* ─── 📷 SIGNATURE BREAK 1 — Watch movement ─────────────────────────── */}

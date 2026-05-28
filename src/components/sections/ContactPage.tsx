@@ -123,6 +123,50 @@ export function ContactPage() {
       </ScrollReveal>
 
       {/* ---------------------------------------------------------------- */}
+      {/* DIOP METHOD — Diagnostic · Implémentation · Optimisation · Propulser */}
+      {/* ---------------------------------------------------------------- */}
+      <ScrollReveal>
+        <section aria-label={t(contactCopy.diopMethod.eyebrow)} className="py-2xl bg-base">
+          <div className="max-w-default mx-auto px-md">
+            <div className="text-center flex flex-col items-center gap-sm mb-xl">
+              <Eyebrow>{t(contactCopy.diopMethod.eyebrow)}</Eyebrow>
+              <MaskRevealHeading as="h2">{t(contactCopy.diopMethod.title)}</MaskRevealHeading>
+              <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[58ch]">
+                {t(contactCopy.diopMethod.sub)}
+              </p>
+            </div>
+
+            <StaggerReveal
+              as="ol"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md"
+              staggerMs={100}
+              aria-label={t(contactCopy.diopMethod.title)}
+            >
+              {contactCopy.diopMethod.steps.map((step) => (
+                <li
+                  key={step.letter}
+                  className="hover-lift flex flex-col gap-sm p-md bg-elevated border border-silver/15 rounded-lg"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="text-[2.75rem] font-display font-bold text-gold/55 leading-none select-none"
+                  >
+                    {step.letter}
+                  </span>
+                  <h3 className="text-h3 text-primary font-display text-balance">
+                    {t(step.title)}
+                  </h3>
+                  <p className="text-body text-silver opacity-75 text-pretty hyphens-auto">
+                    {t(step.body)}
+                  </p>
+                </li>
+              ))}
+            </StaggerReveal>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* ---------------------------------------------------------------- */}
       {/* NOT FOR WHO — 4 disqualif items                                  */}
       {/* ---------------------------------------------------------------- */}
       <ScrollReveal>

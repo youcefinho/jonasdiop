@@ -61,6 +61,84 @@ When all three align, growth becomes structural. Not circumstantial.`
     } satisfies BilingualLax<string>
   },
 
+  lesTroisS: {
+    eyebrow: {
+      fr: 'Les 3 S de la CDT™',
+      en: 'The 3 S of CDT™'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Structure. Stratégie. Système.',
+      en: 'Structure. Strategy. System.'
+    } satisfies BilingualLax<string>,
+    sub: {
+      fr: 'Les trois dimensions concrètes sur lesquelles la CDT™ agit — et qui transforment un effort linéaire en croissance structurelle.',
+      en: 'The three concrete dimensions CDT™ acts on — turning linear effort into structural growth.'
+    } satisfies BilingualLax<string>,
+    items: [
+      {
+        id: 'structure',
+        letter: 'S',
+        title: { fr: 'Structure', en: 'Structure' } satisfies BilingualLax<string>,
+        eyebrow: { fr: 'Fondation', en: 'Foundation' } satisfies BilingualLax<string>,
+        body: {
+          fr: "Une offre claire, des départements bien définis, un positionnement précis. Avant toute stratégie, la fondation doit tenir : c'est elle qui permet à chaque décision suivante d'avoir un point d'ancrage.",
+          en: 'A clear offer, well-defined departments, a precise positioning. Before any strategy, the foundation must hold : it is what gives every later decision an anchor point.'
+        } satisfies BilingualLax<string>
+      },
+      {
+        id: 'strategie',
+        letter: 'S',
+        title: { fr: 'Stratégie', en: 'Strategy' } satisfies BilingualLax<string>,
+        eyebrow: { fr: 'Vision', en: 'Vision' } satisfies BilingualLax<string>,
+        body: {
+          fr: "Une vision d'ensemble, des étapes nommées, des milestones mesurables et des KPIs pour garder le cap. La stratégie n'est pas un déclaratif — c'est ce qui permet à l'opération de tenir la trajectoire quand le quotidien tire ailleurs.",
+          en: 'A whole-picture view, named milestones, measurable KPIs to hold the line. Strategy is not a statement — it is what lets the operation stay on course when daily noise pulls elsewhere.'
+        } satisfies BilingualLax<string>
+      },
+      {
+        id: 'systeme',
+        letter: 'S',
+        title: { fr: 'Système', en: 'System' } satisfies BilingualLax<string>,
+        eyebrow: { fr: 'Exécution', en: 'Execution' } satisfies BilingualLax<string>,
+        body: {
+          fr: "Le système, c'est ce qui te permet de suivre, d'être au courant et d'être omniscient de ton business — sans avoir à tout porter toi-même. C'est le levier qui transforme la structure et la stratégie en résultats répétables.",
+          en: 'The system is what lets you track, stay informed, and remain omniscient of your business — without carrying everything yourself. It is the lever that turns structure and strategy into repeatable results.'
+        } satisfies BilingualLax<string>
+      }
+    ]
+  },
+
+  loiImpact: {
+    eyebrow: {
+      fr: 'La loi de l’impact',
+      en: 'The law of impact'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Deux axes. Un multiplicateur.',
+      en: 'Two axes. One multiplier.'
+    } satisfies BilingualLax<string>,
+    body: {
+      fr: "On agit toujours sur les deux mêmes axes : l'échelle — le nombre de personnes que vous pouvez réellement servir — et la monétisation — le prix et la valeur perçue de chaque offre. Ce ne sont pas des intuitions. Tweakez les deux avec méthode et le chiffre d'affaires se multiplie sans ajouter d'heures.",
+      en: 'We always act on the same two axes : scale — the number of people you can actually serve — and monetization — the price and perceived value of each offer. These are not intuitions. Tweak both methodically and revenue multiplies without adding hours.'
+    } satisfies BilingualLax<string>,
+    axes: {
+      x: {
+        label: { fr: 'Échelle', en: 'Scale' } satisfies BilingualLax<string>,
+        sub: {
+          fr: 'Combien de personnes vous touchez',
+          en: 'How many people you reach'
+        } satisfies BilingualLax<string>
+      },
+      y: {
+        label: { fr: 'Monétisation', en: 'Monetization' } satisfies BilingualLax<string>,
+        sub: {
+          fr: 'Le prix et la valeur perçue',
+          en: 'Price and perceived value'
+        } satisfies BilingualLax<string>
+      }
+    }
+  },
+
   pillars: {
     eyebrow: {
       fr: 'Les 3 piliers',

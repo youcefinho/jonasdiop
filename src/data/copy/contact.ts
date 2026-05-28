@@ -80,6 +80,55 @@ export const contactCopy = {
     ]
   },
 
+  diopMethod: {
+    eyebrow: {
+      fr: 'La méthode DIOP',
+      en: 'The DIOP method'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Diagnostic. Implémentation. Optimisation. Propulser.',
+      en: 'Diagnostic. Implementation. Optimization. Propel.'
+    } satisfies BilingualLax<string>,
+    sub: {
+      fr: "Une fois engagé, voici comment se déroule l'accompagnement — quatre temps, alignés avec les initiales DIOP.",
+      en: 'Once engaged, here is how the mandate unfolds — four phases, aligned with the DIOP initials.'
+    } satisfies BilingualLax<string>,
+    steps: [
+      {
+        letter: 'D',
+        title: { fr: 'Diagnostic', en: 'Diagnostic' } satisfies BilingualLax<string>,
+        body: {
+          fr: "On cartographie l'architecture actuelle : où le temps fuit, où l'offre perd de la valeur, où l'opération tourne à vide. Pas de présomption — chaque levier est documenté avec des chiffres.",
+          en: 'We map the current architecture : where time leaks, where the offer loses value, where the operation runs idle. No assumptions — every lever is documented with numbers.'
+        } satisfies BilingualLax<string>
+      },
+      {
+        letter: 'I',
+        title: { fr: 'Implémentation', en: 'Implementation' } satisfies BilingualLax<string>,
+        body: {
+          fr: "Les leviers prioritaires passent en exécution : nouvelle architecture d'offre, refonte des systèmes, réalignement de l'équipe. Pas de PowerPoint — on installe ce qui doit tourner.",
+          en: 'Priority levers move into execution : new offer architecture, system refactor, team realignment. No PowerPoint — we install what must run.'
+        } satisfies BilingualLax<string>
+      },
+      {
+        letter: 'O',
+        title: { fr: 'Optimisation', en: 'Optimization' } satisfies BilingualLax<string>,
+        body: {
+          fr: "On mesure, on ajuste, on raffine. Les premiers résultats structurels sont là — l'objectif devient de compresser le temps et d'augmenter la marge sans ajouter de complexité.",
+          en: 'We measure, adjust, refine. First structural results are in — the goal becomes compressing time and increasing margin without adding complexity.'
+        } satisfies BilingualLax<string>
+      },
+      {
+        letter: 'P',
+        title: { fr: 'Propulser', en: 'Propel' } satisfies BilingualLax<string>,
+        body: {
+          fr: "L'architecture tient seule. Le scaling devient commercial, pas opérationnel. C'est le moment où l'on bascule du levier individuel au levier systémique — durable, mesurable, transmissible.",
+          en: 'The architecture holds on its own. Scaling becomes commercial, not operational. This is when we move from individual leverage to systemic leverage — durable, measurable, transmissible.'
+        } satisfies BilingualLax<string>
+      }
+    ]
+  },
+
   callExplore: {
     eyebrow: {
       fr: "Ce qu'on va explorer",

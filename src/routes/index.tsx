@@ -14,8 +14,10 @@ import { RessourcesPreviewSection } from '@/components/sections/RessourcesPrevie
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
 import { TrustedLogosBar } from '@/components/sections/TrustedLogosBar';
 import { VslPlaceholderSection } from '@/components/sections/VslPlaceholderSection';
+import { PullQuote } from '@/components/ui/PullQuote';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SectionDivider } from '@/components/ui/SectionDivider';
+import { jonasQuotes } from '@/data/copy/quotes';
 
 function HomeFR() {
   return (
@@ -29,6 +31,9 @@ function HomeFR() {
         <TrustedLogosBar />
         <ScrollReveal>
           <AboutPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <PullQuote source={jonasQuotes.system} variant="panel" />
         </ScrollReveal>
         <SectionDivider variant="gold" />
         <ScrollReveal>

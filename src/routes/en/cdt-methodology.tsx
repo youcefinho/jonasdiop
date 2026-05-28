@@ -4,9 +4,13 @@ import { Navbar } from '@/components/layout/Navbar';
 import { CDTDiagram } from '@/components/sections/CDTDiagram';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { LoiImpactDiagram } from '@/components/ui/LoiImpactDiagram';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
+import { PullQuote } from '@/components/ui/PullQuote';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { ROUTES } from '@/config/routes';
 import { methodologieCdtCopy } from '@/data/copy/methodologie-cdt';
+import { jonasQuotes } from '@/data/copy/quotes';
 import { useT } from '@/lib/i18n/useT';
 
 /**
@@ -65,6 +69,73 @@ function MethodologieCdtENPage() {
                   </p>
                 ))}
             </div>
+          </div>
+        </section>
+
+        {/* ─── 3 S of CDT™ — Structure · Strategy · System ─────────────────── */}
+        <section
+          aria-label={t(copy.lesTroisS.eyebrow)}
+          className="py-[clamp(3.5rem,7vw,8rem)] bg-base"
+        >
+          <div className="max-w-[var(--container-default)] mx-auto px-[clamp(1rem,4vw,3rem)]">
+            <div className="text-center flex flex-col items-center gap-[clamp(0.75rem,1.5vw,1.25rem)] mb-[clamp(2rem,4vw,4rem)]">
+              <Eyebrow>{t(copy.lesTroisS.eyebrow)}</Eyebrow>
+              <h2 className="text-h2 text-primary font-display text-balance max-w-[var(--container-content)]">
+                {t(copy.lesTroisS.title)}
+              </h2>
+              <p className="text-body-lg text-silver opacity-75 text-pretty max-w-[58ch]">
+                {t(copy.lesTroisS.sub)}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
+              {copy.lesTroisS.items.map((item) => (
+                <article
+                  key={item.id}
+                  aria-label={t(item.title)}
+                  className={[
+                    'relative flex flex-col gap-[clamp(0.625rem,1vw,0.875rem)]',
+                    'px-[clamp(1.25rem,2vw,1.75rem)] py-[clamp(1.5rem,2.5vw,2.25rem)]',
+                    'rounded-[clamp(0.75rem,1vw,1.25rem)]',
+                    'ring-1 ring-silver/10 bg-elevated'
+                  ].join(' ')}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="font-display leading-none tracking-[-0.04em] select-none text-[clamp(2.5rem,2rem+2.2vw,3.75rem)] text-gold opacity-65"
+                  >
+                    {item.letter}
+                  </span>
+                  <span className="text-eyebrow uppercase tracking-widest text-silver opacity-50 font-display text-[clamp(0.625rem,0.58rem+0.22vw,0.75rem)]">
+                    {t(item.eyebrow)}
+                  </span>
+                  <h3 className="text-h3 text-primary font-display text-balance leading-[1.15]">
+                    {t(item.title)}
+                  </h3>
+                  <p className="text-body text-silver opacity-75 text-pretty hyphens-auto">
+                    {t(item.body)}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── LAW OF IMPACT ─────────────────────────────────────────────────── */}
+        <section
+          aria-label={t(copy.loiImpact.eyebrow)}
+          className="py-[clamp(3.5rem,7vw,8rem)] bg-elevated border-y border-silver/10"
+        >
+          <div className="max-w-[var(--container-default)] mx-auto px-[clamp(1rem,4vw,3rem)] grid grid-cols-1 md:grid-cols-2 gap-[clamp(2rem,4vw,4rem)] items-center">
+            <div className="flex flex-col gap-[clamp(0.75rem,1.5vw,1.25rem)] max-w-[55ch]">
+              <Eyebrow>{t(copy.loiImpact.eyebrow)}</Eyebrow>
+              <h2 className="text-h2 text-primary font-display text-balance">
+                {t(copy.loiImpact.title)}
+              </h2>
+              <p className="text-body-lg text-silver opacity-80 text-pretty">
+                {t(copy.loiImpact.body)}
+              </p>
+            </div>
+            <LoiImpactDiagram axes={copy.loiImpact.axes} />
           </div>
         </section>
 
@@ -135,6 +206,11 @@ function MethodologieCdtENPage() {
             </div>
           </div>
         </section>
+
+        {/* ─── PULL QUOTE — Jonas's "doing better" line ───────────────────── */}
+        <ScrollReveal>
+          <PullQuote source={jonasQuotes.fairePlusFaireMieux} variant="panel" />
+        </ScrollReveal>
 
         {/* ─── RESULTS ───────────────────────────────────────────────────────── */}
         <section

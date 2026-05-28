@@ -5,7 +5,10 @@ import { Navbar } from '@/components/layout/Navbar';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
+import { PullQuote } from '@/components/ui/PullQuote';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { ROUTES } from '@/config/routes';
+import { jonasQuotes } from '@/data/copy/quotes';
 import { servicesCopy } from '@/data/copy/services';
 import { useT } from '@/lib/i18n/useT';
 
@@ -176,6 +179,11 @@ function ServicesPage() {
             </ul>
           </div>
         </section>
+
+        {/* ─── PULL QUOTE — Jonas's "planifier l'échec" line ────────────── */}
+        <ScrollReveal>
+          <PullQuote source={jonasQuotes.planifierEchec} variant="panel" />
+        </ScrollReveal>
 
         {/* ---------------------------------------------------------------- */}
         {/* QUALIFICATION SPLIT                                               */}
