@@ -72,7 +72,8 @@ export function StaggerReveal({
     // Sinon items restaient opacity:0 si user arrivait via hash deep-link /
     // Ctrl+End / scroll restore. Cf. ScrollReveal pour explication détaillée.
     const containerRect = container.getBoundingClientRect();
-    const farBelowScrollRange = containerRect.top > window.innerHeight * 3;
+    // Aggressive : auto-reveal pour TOUT below first viewport (cf. ScrollReveal).
+    const farBelowScrollRange = containerRect.top > window.innerHeight;
     if (prefersReduced || farBelowScrollRange) {
       items.forEach((el) => {
         el.style.opacity = '1';

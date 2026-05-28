@@ -49,7 +49,13 @@ export function ScrollReveal({
     // déclenchait pas avant qu'ils scrollent à travers. Avec ce guard, sections
     // au-delà de la "scroll-through zone" raisonnable sont immédiatement visibles
     // (pas de fade mais pas de blank screen non plus).
-    const farBelowScrollRange = rect.top > window.innerHeight * 3;
+    // Aggressive : auto-reveal pour TOUT ce qui n'est pas above-fold strict
+    // (rect.top > window.innerHeight = below first viewport). Sacrifie le
+    // fade-in animation pour la plupart des sections, mais garantit ZÉRO
+    // blank screen risk. La cause sous-jacente : Chrome IO respecte clip-path
+    // pour computer intersectionRatio, donc element avec clip:inset(100%)
+    // a ratio:0 forever → IO callback ne fire jamais via threshold.
+    const farBelowScrollRange = rect.top > window.innerHeight;
     if (prefersReduced || farBelowScrollRange) {
       el.style.opacity = '1';
       el.style.transform = 'translate3d(0, 0, 0)';

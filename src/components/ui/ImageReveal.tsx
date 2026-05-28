@@ -62,7 +62,10 @@ export function ImageReveal({
     // Évite clip-path stuck si user arrive via hash deep-link / Ctrl+End.
     // Cf. ScrollReveal pour explication détaillée.
     const rectInit = el.getBoundingClientRect();
-    const farBelowScrollRange = rectInit.top > window.innerHeight * 3;
+    // Aggressive : auto-reveal pour TOUT below first viewport (cf. ScrollReveal).
+    // Clip-path inset(100%) bloque IO callback (ratio:0 forever), donc IO ne
+    // peut pas sauver les below-fold ImageReveals.
+    const farBelowScrollRange = rectInit.top > window.innerHeight;
     if (prefersReduced || farBelowScrollRange) {
       el.style.clipPath = 'inset(0 0 0 0)';
       return;
