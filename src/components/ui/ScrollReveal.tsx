@@ -83,7 +83,7 @@ export function ScrollReveal({
       window.requestAnimationFrame(() => reveal());
     }
 
-    // rootMargin: '500px 0px 500px 0px' = IO root virtual size expanded 500px
+    // rootMargin: '2000px 0px 2000px 0px' = IO root virtual size expanded 500px
     // top + bottom. Effet : reveal fires QUAND element est encore 500px AVANT
     // d'entrer dans le viewport. Évite les "blank black sections" si user
     // scrolle vite, utilise Ctrl+End, ou Find/Ctrl+F jump à du texte hidden.
@@ -95,7 +95,7 @@ export function ScrollReveal({
         observer.disconnect();
         reveal();
       },
-      { threshold, rootMargin: '500px 0px 500px 0px' }
+      { threshold, rootMargin: '2000px 0px 2000px 0px' }
     );
 
     observer.observe(el);
