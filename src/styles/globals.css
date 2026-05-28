@@ -149,7 +149,12 @@
    * Apply via className="text-shimmer" on a heading element. Falls back to
    * solid text-primary if browser doesn't support background-clip:text. */
   .text-shimmer {
-    background: linear-gradient(
+    /* CRITICAL : utiliser `background-image:` au lieu de `background:` shorthand.
+     * Lightning CSS (Vite minifier) génère un fallback duplicate rule pour les
+     * couleurs oklch() qui utilise `background:` shorthand → wipe les
+     * background-clip et autres props. Avec `background-image:`, la duplication
+     * fallback ne touche que image, les autres props sont préservées. */
+    background-image: linear-gradient(
       100deg,
       var(--text-primary) 0%,
       var(--text-primary) 35%,
