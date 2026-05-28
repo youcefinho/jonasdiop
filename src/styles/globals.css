@@ -764,3 +764,25 @@
     }
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Perf Vague 4 — content-visibility utility.
+ *
+ * Browser-native rendering deferral for below-the-fold sections : when
+ * .cv-defer is applied, the browser skips style/layout/paint for off-screen
+ * content until it nears the viewport. Massive DOMSize / paint-cost win on
+ * long pages (Home rend 17 sections eagerly).
+ *
+ * contain-intrinsic-size: auto 700px — reserves 700px estimated height so
+ * the browser knows roughly how much to scroll past + avoid layout shift
+ * when content rolls in. Sections that are visually shorter are fine ; the
+ * "auto" keyword tells the browser to learn actual rendered size after
+ * 1st render and replay it on re-skip.
+ *
+ * Supported : Chrome/Edge 85+, Safari 18+, Firefox 125+ (April 2024). Older
+ * browsers ignore the property — no regression, just no perf gain.
+ * ────────────────────────────────────────────────────────────────────────── */
+.cv-defer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}

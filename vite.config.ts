@@ -48,6 +48,15 @@ export default defineConfig({
     target: ['es2022', 'edge100', 'firefox100', 'chrome100', 'safari16'],
     cssMinify: true,
     sourcemap: true,
+    // Filter route-only chunks out of <link rel="modulepreload"> emitted in
+    // index.html. Without this, Vite preloads the markdown stack (155kB/46kB
+    // gz) on every page, even though it's only needed on /ressources/:slug
+    // article detail pages. Same logic guards future route-only chunks.
+    modulePreload: {
+      resolveDependencies(_filename, deps) {
+        return deps.filter((dep) => !dep.includes('markdown') && !dep.includes('sentry'));
+      }
+    },
     rollupOptions: {
       output: {
         manualChunks: (id) => {
