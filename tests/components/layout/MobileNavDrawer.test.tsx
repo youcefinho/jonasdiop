@@ -65,13 +65,23 @@ describe('MobileNavDrawer', () => {
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
   });
 
-  it('renders 5 nav links when open (FR)', () => {
+  it('renders brief v3 sitemap onglets when open (FR)', () => {
     render(<MobileNavDrawer />, { wrapper: wrapper('fr') });
     fireEvent.click(screen.getByLabelText(/Ouvrir le menu/i));
-    expect(screen.getByText('Méthodologie')).toBeInTheDocument();
     expect(screen.getByText('Programmes')).toBeInTheDocument();
-    expect(screen.getByText('À propos')).toBeInTheDocument();
+    expect(screen.getByText('Conférences')).toBeInTheDocument();
+    expect(screen.getByText('Livres')).toBeInTheDocument();
+    expect(screen.getByText('Événements')).toBeInTheDocument();
     expect(screen.getByText('Ressources')).toBeInTheDocument();
+    expect(screen.getByText('À propos')).toBeInTheDocument();
     expect(screen.getByText('Contact')).toBeInTheDocument();
+  });
+
+  it('renders 3 intent group headings (FR)', () => {
+    render(<MobileNavDrawer />, { wrapper: wrapper('fr') });
+    fireEvent.click(screen.getByLabelText(/Ouvrir le menu/i));
+    expect(screen.getByText('Travailler avec moi')).toBeInTheDocument();
+    expect(screen.getByText(/Apprendre.*s'inspirer/i)).toBeInTheDocument();
+    expect(screen.getByText('Découvrir')).toBeInTheDocument();
   });
 });

@@ -34,27 +34,31 @@ describe('Navbar', () => {
     expect(screen.getByText(/JONAS DIOP/i)).toBeInTheDocument();
   });
 
-  it('renders 5 desktop nav links (FR)', () => {
+  it('renders brief v3 sitemap onglets (FR)', () => {
     // Both desktop nav AND mobile drawer aside render same labels (drawer hidden via translate),
     // so getAllByText returns multiple — verify >= 1 for each.
     render(<Navbar />, { wrapper: wrapper('fr') });
-    expect(screen.getAllByText(/Méthodologie/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/Programmes/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/À propos/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Programmes/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Événements/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Livres/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Conférences/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/Ressources/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/Contact/i).length).toBeGreaterThanOrEqual(1);
   });
 
-  it('renders Consultation CTA', () => {
+  it('renders "Réserver mon appel" CTA', () => {
     render(<Navbar />, { wrapper: wrapper('fr') });
-    expect(screen.getAllByText(/Consultation/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Réserver mon appel/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it('renders EN nav labels when locale en', () => {
     render(<Navbar />, { wrapper: wrapper('en') });
-    expect(screen.getAllByText(/Methodology/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/Programs/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/About/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Programs/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Events/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Books/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Speaking/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/Resources/i).length).toBeGreaterThanOrEqual(1);
   });
 

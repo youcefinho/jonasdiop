@@ -2,11 +2,27 @@ import { Link } from '@tanstack/react-router';
 import { clsx } from 'clsx';
 import { useEffect, useState } from 'react';
 import { MobileNavDrawer } from '@/components/layout/MobileNavDrawer';
+import { type DropdownItem, NavbarDropdown } from '@/components/layout/NavbarDropdown';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { LogoWordmark } from '@/components/ui/LogoWordmark';
 import { ROUTES } from '@/config/routes';
+import type { BilingualLax } from '@/lib/i18n/types';
 import { useT } from '@/lib/i18n/useT';
 
+/**
+ * Navbar — desktop top-level navigation per brief v3 sitemap.
+ *
+ * 8 onglets structure (parent + optional subs):
+ *   À propos · Programmes ▼ · Événements ▼ · Livres · Conférences · Ressources ▼ · Contact
+ *   (Accueil reached via logo wordmark on the left)
+ *
+ * Dropdowns (Programmes / Événements / Ressources) open on hover (desktop)
+ * or click (keyboard/touch) via NavbarDropdown component. See brief v3
+ * section 2 "Sitemap final" for the parent/sub-page mapping.
+ *
+ * Mobile uses MobileNavDrawer with organisation par intention :
+ *   Travailler avec moi · Apprendre & s'inspirer · Découvrir.
+ */
 export function Navbar() {
   const { t, locale } = useT();
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +33,76 @@ export function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // ─── Dropdown data — Programmes ──────────────────────────────────────────
+  const programmesItems: readonly DropdownItem[] = [
+    {
+      to: ROUTES['services-the-shift'][locale],
+      label: { fr: 'The Shift', en: 'The Shift' },
+      description: { fr: '8 semaines · pivot stratégique', en: '8 weeks · strategic pivot' }
+    },
+    {
+      to: ROUTES['services-master-closing'][locale],
+      label: { fr: 'Master Closing', en: 'Master Closing' },
+      description: {
+        fr: '6 modules · closing haute valeur',
+        en: '6 modules · high-value closing'
+      }
+    },
+    {
+      to: ROUTES['services-focus-flow'][locale],
+      label: { fr: 'Focus & Flow', en: 'Focus & Flow' },
+      description: {
+        fr: "5 modules · productivité d'élite",
+        en: '5 modules · elite productivity'
+      }
+    }
+  ];
+
+  // ─── Dropdown data — Événements ──────────────────────────────────────────
+  // Sub-routes not yet built — link to anchors within /evenements parent
+  // until dedicated /evenements/bootcamps etc. are created.
+  const evenementsItems: readonly DropdownItem[] = [
+    {
+      to: `${ROUTES.evenements[locale]}#bootcamps`,
+      label: { fr: 'Bootcamps', en: 'Bootcamps' },
+      description: { fr: 'Intensifs 2-3 jours', en: 'Intensive 2-3 days' }
+    },
+    {
+      to: `${ROUTES.evenements[locale]}#retraites`,
+      label: { fr: 'Retraites', en: 'Retreats' },
+      description: { fr: 'Immersifs 5-7 jours', en: 'Immersive 5-7 days' }
+    },
+    {
+      to: `${ROUTES.evenements[locale]}#masterclass`,
+      label: { fr: 'Masterclass · en ligne', en: 'Masterclass · online' },
+      description: { fr: 'Court & accessible', en: 'Short & accessible' }
+    }
+  ];
+
+  // ─── Dropdown data — Ressources ──────────────────────────────────────────
+  const ressourcesItems: readonly DropdownItem[] = [
+    {
+      to: ROUTES.podcast[locale],
+      label: { fr: 'Podcast', en: 'Podcast' },
+      description: { fr: 'The Game Changer', en: 'The Game Changer' }
+    },
+    {
+      to: ROUTES.ressources[locale],
+      label: { fr: 'Blog', en: 'Blog' },
+      description: { fr: 'Articles & frameworks', en: 'Articles & frameworks' }
+    },
+    {
+      to: `${ROUTES.ressources[locale]}#videos`,
+      label: { fr: 'Vidéos', en: 'Videos' },
+      description: { fr: 'Interviews · extraits', en: 'Interviews · clips' }
+    }
+  ];
+
+  const ctaPillLabel: BilingualLax<string> = {
+    fr: 'Réserver mon appel',
+    en: 'Book my call'
+  };
 
   return (
     <nav
@@ -36,37 +122,55 @@ export function Navbar() {
           <LogoWordmark size="md" />
         </Link>
 
-        <div className="hidden md:flex items-center gap-md text-eyebrow uppercase tracking-wider font-display">
-          <Link
-            to={ROUTES['methodologie-cdt'][locale]}
-            className="text-silver hover:text-primary transition-colors"
-          >
-            {t({ fr: 'Méthodologie', en: 'Methodology' })}
-          </Link>
-          <Link
-            to={ROUTES.services[locale]}
-            className="text-silver hover:text-primary transition-colors"
-          >
-            {t({ fr: 'Programmes', en: 'Programs' })}
-          </Link>
-          <Link
-            to={ROUTES.conferences[locale]}
-            className="text-silver hover:text-primary transition-colors"
-          >
-            {t({ fr: 'Conférences', en: 'Speaking' })}
-          </Link>
+        <div className="hidden lg:flex items-center gap-md text-eyebrow uppercase tracking-wider font-display">
           <Link
             to={ROUTES.about[locale]}
             className="text-silver hover:text-primary transition-colors"
           >
             {t({ fr: 'À propos', en: 'About' })}
           </Link>
+
+          <NavbarDropdown
+            label={{ fr: 'Programmes', en: 'Programs' }}
+            items={programmesItems}
+            seeAll={{
+              to: ROUTES.services[locale],
+              label: { fr: 'Voir tous les programmes', en: 'View all programs' }
+            }}
+          />
+
+          <NavbarDropdown
+            label={{ fr: 'Événements', en: 'Events' }}
+            items={evenementsItems}
+            seeAll={{
+              to: ROUTES.evenements[locale],
+              label: { fr: 'Voir tous les événements', en: 'View all events' }
+            }}
+          />
+
           <Link
-            to={ROUTES.ressources[locale]}
+            to={ROUTES.livre[locale]}
             className="text-silver hover:text-primary transition-colors"
           >
-            {t({ fr: 'Ressources', en: 'Resources' })}
+            {t({ fr: 'Livres', en: 'Books' })}
           </Link>
+
+          <Link
+            to={ROUTES.conferences[locale]}
+            className="text-silver hover:text-primary transition-colors"
+          >
+            {t({ fr: 'Conférences', en: 'Speaking' })}
+          </Link>
+
+          <NavbarDropdown
+            label={{ fr: 'Ressources', en: 'Resources' }}
+            items={ressourcesItems}
+            seeAll={{
+              to: ROUTES.ressources[locale],
+              label: { fr: 'Voir toutes les ressources', en: 'View all resources' }
+            }}
+          />
+
           <Link
             to={ROUTES.contact[locale]}
             className="text-silver hover:text-primary transition-colors"
@@ -75,15 +179,13 @@ export function Navbar() {
           </Link>
         </div>
 
-        <div className="hidden md:block">
-          {/* CONSULTATION pill — silver-primary filled per Stitch board 13
-              (prominent cream/silver pill top-right, not outline transparent). */}
+        <div className="hidden lg:block">
           <CTAPill variant="silver-primary" href={ROUTES.contact[locale]}>
-            {t({ fr: 'Consultation', en: 'Consultation' })}
+            {t(ctaPillLabel)}
           </CTAPill>
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <MobileNavDrawer />
         </div>
       </div>
