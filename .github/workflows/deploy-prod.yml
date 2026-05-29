@@ -1,7 +1,16 @@
 name: Deploy Production
 
-# Manual trigger only — safety against accidental prod deploys
+# Auto-trigger on push to main + manual dispatch fallback. The all-green
+# CI gates (typecheck, lint, tests, build, bundle budget) keep "push =
+# deploy" safe — if any gate fails, the deploy step is never reached.
 on:
+  push:
+    branches: [main]
+    # Skip deploy when only docs/CI files change — keeps deploy noise low.
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
+      - 'docs/**'
   workflow_dispatch:
 
 jobs:
