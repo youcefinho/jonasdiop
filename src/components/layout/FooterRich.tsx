@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { type FormEvent, useId, useState } from 'react';
 import { CookieSettingsLink } from '@/components/consent/CookieSettingsLink';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -9,12 +10,42 @@ import { SocialIcon } from '@/components/ui/SocialIcon';
 import { clientConfig } from '@/config/clientConfig';
 import { ROUTES } from '@/config/routes';
 import { programmes } from '@/data/programmes';
+import { submitWaitlist } from '@/lib/api/waitlist';
 import { useT } from '@/lib/i18n/useT';
 
 export function FooterRich() {
   const { t, locale } = useT();
   const { client } = clientConfig;
   const year = new Date().getFullYear();
+
+  // Newsletter capture — wired to /api/waitlist (source='footer').
+  const honeypotId = useId();
+  const [email, setEmail] = useState('');
+  const [state, setState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [error, setError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState('');
+
+  const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email || state === 'submitting') return;
+    if (honeypot) return; // bot — silent drop
+    setState('submitting');
+    setError(null);
+    const route = typeof window !== 'undefined' ? window.location.pathname : '/';
+    const result = await submitWaitlist({
+      email,
+      route,
+      source: 'footer',
+      locale,
+      consent: true
+    });
+    if (result.ok) {
+      setState('success');
+    } else {
+      setState('error');
+      setError(result.error ?? null);
+    }
+  };
 
   return (
     <footer className="bg-base border-t border-silver/10 pt-2xl pb-md relative">
@@ -48,44 +79,76 @@ export function FooterRich() {
             </p>
           </div>
 
-          <form
-            action="#"
-            method="post"
-            aria-label={t({
-              fr: 'Inscription à la newsletter hebdomadaire',
-              en: 'Subscribe to the weekly newsletter'
-            })}
-            className="flex flex-col sm:flex-row gap-sm w-full md:w-auto md:min-w-[26rem] md:shrink-0"
-          >
-            <label htmlFor="footer-newsletter-email" className="sr-only">
-              {t({ fr: 'Adresse email', en: 'Email address' })}
-            </label>
-            <input
-              id="footer-newsletter-email"
-              type="email"
-              name="email"
-              required
-              autoComplete="email"
-              placeholder={t({ fr: 'ton@email.com', en: 'your@email.com' })}
-              disabled
-              className="flex-1 min-w-0 px-md py-sm rounded-pill bg-base border border-silver/20 text-body text-primary placeholder:text-silver/40 focus:outline-none focus-visible:border-gold/40 focus-visible:ring-2 focus-visible:ring-gold/20 transition-colors duration-base disabled:opacity-60 disabled:cursor-not-allowed"
-            />
-            <button
-              type="submit"
-              disabled
-              className="inline-flex items-center justify-center gap-2 px-md py-sm rounded-pill bg-gold/10 border border-gold/30 text-eyebrow uppercase tracking-wider text-gold font-display font-medium hover:bg-gold/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/40 transition-colors duration-base disabled:opacity-60 disabled:cursor-not-allowed"
+          {state === 'success' ? (
+            <p
+              role="status"
+              aria-live="polite"
+              className="text-body text-primary font-display text-pretty w-full md:w-auto md:min-w-[26rem]"
             >
-              <Mail className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
-              {t({ fr: "S'abonner", en: 'Subscribe' })}
-            </button>
-          </form>
+              {t({
+                fr: 'Inscrit. À la semaine prochaine.',
+                en: "You're in. See you next week."
+              })}
+            </p>
+          ) : (
+            <form
+              onSubmit={handleNewsletterSubmit}
+              aria-label={t({
+                fr: 'Inscription à la newsletter hebdomadaire',
+                en: 'Subscribe to the weekly newsletter'
+              })}
+              className="flex flex-col sm:flex-row gap-sm w-full md:w-auto md:min-w-[26rem] md:shrink-0"
+            >
+              <label htmlFor="footer-newsletter-email" className="sr-only">
+                {t({ fr: 'Adresse email', en: 'Email address' })}
+              </label>
+              <input
+                id="footer-newsletter-email"
+                type="email"
+                name="email"
+                required
+                autoComplete="email"
+                placeholder={t({ fr: 'ton@email.com', en: 'your@email.com' })}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={state === 'submitting'}
+                className="flex-1 min-w-0 px-md py-sm rounded-pill bg-base border border-silver/20 text-body text-primary placeholder:text-silver/40 focus:outline-none focus-visible:border-gold/40 focus-visible:ring-2 focus-visible:ring-gold/20 transition-colors duration-base disabled:opacity-60 disabled:cursor-not-allowed"
+              />
+              {/* Honeypot — hidden from humans + screen readers. */}
+              <input
+                id={honeypotId}
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] h-px w-px overflow-hidden"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+              <button
+                type="submit"
+                disabled={state === 'submitting' || !email}
+                className="inline-flex items-center justify-center gap-2 px-md py-sm rounded-pill bg-gold/10 border border-gold/30 text-eyebrow uppercase tracking-wider text-gold font-display font-medium hover:bg-gold/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/40 transition-colors duration-base disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                <Mail className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
+                {t({ fr: "S'abonner", en: 'Subscribe' })}
+              </button>
+            </form>
+          )}
         </div>
-        <p className="text-sm text-silver/75 mt-sm md:text-right">
-          {t({
-            fr: 'Plateforme email en cours d’intégration · disponible au lancement',
-            en: 'Email platform integration in progress · available at launch'
-          })}
-        </p>
+        {state === 'error' && error ? (
+          <p role="alert" className="text-sm text-gold/90 mt-sm md:text-right">
+            {error}
+          </p>
+        ) : (
+          <p className="text-sm text-silver/75 mt-sm md:text-right">
+            {t({
+              fr: 'En t’inscrivant, tu acceptes d’être contacté (Loi 25). Désabonnement 1 clic.',
+              en: 'By subscribing, you agree to be contacted (Quebec Law 25). 1-click unsubscribe.'
+            })}
+          </p>
+        )}
       </section>
 
       <div className="max-w-wide mx-auto px-md pt-lg border-t border-silver/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
@@ -108,7 +171,7 @@ export function FooterRich() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="hover:text-primary transition-colors"
+                className="inline-flex h-6 w-6 items-center justify-center hover:text-primary transition-colors"
               >
                 <SocialIcon name="facebook" className="h-5 w-5 max-w-none shrink-0" />
               </a>
@@ -119,7 +182,7 @@ export function FooterRich() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="hover:text-primary transition-colors"
+                className="inline-flex h-6 w-6 items-center justify-center hover:text-primary transition-colors"
               >
                 <SocialIcon name="instagram" className="h-5 w-5 max-w-none shrink-0" />
               </a>
@@ -130,7 +193,7 @@ export function FooterRich() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="hover:text-primary transition-colors"
+                className="inline-flex h-6 w-6 items-center justify-center hover:text-primary transition-colors"
               >
                 <SocialIcon name="linkedin" className="h-5 w-5 max-w-none shrink-0" />
               </a>
@@ -141,7 +204,7 @@ export function FooterRich() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"
-                className="hover:text-primary transition-colors"
+                className="inline-flex h-6 w-6 items-center justify-center hover:text-primary transition-colors"
               >
                 <SocialIcon name="x" className="h-5 w-5 max-w-none shrink-0" />
               </a>
@@ -152,7 +215,7 @@ export function FooterRich() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="hover:text-primary transition-colors"
+                className="inline-flex h-6 w-6 items-center justify-center hover:text-primary transition-colors"
               >
                 <SocialIcon name="tiktok" className="h-5 w-5 max-w-none shrink-0" />
               </a>
@@ -163,7 +226,7 @@ export function FooterRich() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="hover:text-primary transition-colors"
+                className="inline-flex h-6 w-6 items-center justify-center hover:text-primary transition-colors"
               >
                 <SocialIcon name="youtube" className="h-5 w-5 max-w-none shrink-0" />
               </a>

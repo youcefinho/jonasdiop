@@ -1,5 +1,6 @@
 import { Mail, X } from 'lucide-react';
-import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import { type FormEvent, useCallback, useEffect, useId, useRef, useState } from 'react';
+import { detectBootcampSlugFromPath, submitWaitlist } from '@/lib/api/waitlist';
 import { useT } from '@/lib/i18n/useT';
 
 const SESSION_FLAG = 'exitIntentDismissed';
@@ -98,8 +99,15 @@ function useExitIntent(onIntent: () => void) {
  * Stacking two z-50 dialogs on first paint = bad UX, and the cookie banner
  * is the legally-required one.
  */
+// Bootcamp slug → display name (used by route-aware popup copy).
+const BOOTCAMP_NAMES = {
+  'an-army-of-one': 'An Army of One™',
+  'the-edge': 'The Edge™',
+  'the-activation': 'The Activation™'
+} as const;
+
 export function ExitIntentPopup() {
-  const { t } = useT();
+  const { t, locale } = useT();
   const [isOpen, setIsOpen] = useState(false);
   // Two-phase mount : `isOpen` flips first → element renders with the
   // "from" styles (opacity-0, scale-95) → on next frame `isMounted` flips
@@ -109,13 +117,35 @@ export function ExitIntentPopup() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const titleId = useId();
+  const honeypotId = useId();
+
+  // Form state — wired to /api/waitlist.
+  const [email, setEmail] = useState('');
+  const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success' | 'error'>(
+    'idle'
+  );
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState('');
+
+  // Route-aware variant : detect bootcamp slug at open time (snapshot).
+  const [bootcampSlug, setBootcampSlug] = useState<
+    'an-army-of-one' | 'the-edge' | 'the-activation' | null
+  >(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     setPrefersReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
 
-  const open = useCallback(() => setIsOpen(true), []);
+  const open = useCallback(() => {
+    // Snapshot current pathname at open time so route-aware copy stays stable
+    // even if the user navigates inside the popup's lifetime (unlikely but
+    // safe). Falls back to null → generic '7 leviers' offer.
+    if (typeof window !== 'undefined') {
+      setBootcampSlug(detectBootcampSlugFromPath(window.location.pathname));
+    }
+    setIsOpen(true);
+  }, []);
   const close = useCallback(() => {
     setIsOpen(false);
     setIsMounted(false);
@@ -154,6 +184,29 @@ export function ExitIntentPopup() {
     const id = window.setTimeout(() => closeButtonRef.current?.focus(), 0);
     return () => window.clearTimeout(id);
   }, [isOpen]);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email || submitState === 'submitting') return;
+    if (honeypot) return; // bot — silent drop
+    setSubmitState('submitting');
+    setSubmitError(null);
+    const route = typeof window !== 'undefined' ? window.location.pathname : '/';
+    const result = await submitWaitlist({
+      email,
+      route,
+      source: bootcampSlug ? 'popup-bootcamp' : 'popup',
+      locale,
+      consent: true,
+      ...(bootcampSlug ? { context: bootcampSlug } : {})
+    });
+    if (result.ok) {
+      setSubmitState('success');
+    } else {
+      setSubmitState('error');
+      setSubmitError(result.error ?? null);
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -201,61 +254,110 @@ export function ExitIntentPopup() {
             {t({ fr: 'Avant de partir…', en: 'Before you go…' })}
           </p>
           <h2 id={titleId} className="text-h3 text-primary font-display text-balance leading-tight">
-            {t({
-              fr: "Les 7 leviers pour ajouter un zéro à ton chiffre d'affaires.",
-              en: 'The 7 levers to add a zero to your revenue.'
-            })}
+            {bootcampSlug
+              ? t({
+                  fr: `Sois notifié·e dès l'ouverture des inscriptions pour ${BOOTCAMP_NAMES[bootcampSlug]}.`,
+                  en: `Get notified the moment ${BOOTCAMP_NAMES[bootcampSlug]} registration opens.`
+                })
+              : t({
+                  fr: "Les 7 leviers pour ajouter un zéro à ton chiffre d'affaires.",
+                  en: 'The 7 levers to add a zero to your revenue.'
+                })}
           </h2>
           <p className="text-sm text-silver opacity-80 text-pretty">
-            {t({
-              fr: 'PDF stratégique gratuit. Pas de spam.',
-              en: 'Free strategic PDF. No spam.'
-            })}
+            {bootcampSlug
+              ? t({
+                  fr: 'Priorité d’accès + tarif fondateur. Pas de spam.',
+                  en: 'Priority access + founder pricing. No spam.'
+                })
+              : t({
+                  fr: 'PDF stratégique gratuit. Pas de spam.',
+                  en: 'Free strategic PDF. No spam.'
+                })}
           </p>
         </div>
 
-        <form
-          action="#"
-          method="post"
-          onSubmit={(e) => e.preventDefault()}
-          aria-describedby={`${titleId}-note`}
-          className="flex flex-col gap-sm mt-sm"
-        >
-          <label htmlFor={`${titleId}-email`} className="sr-only">
-            {t({ fr: 'Adresse courriel', en: 'Email address' })}
-          </label>
-          <div className="relative">
-            <Mail
-              className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 max-w-none shrink-0 text-silver/50 pointer-events-none"
-              aria-hidden="true"
-            />
-            <input
-              id={`${titleId}-email`}
-              type="email"
-              name="email"
-              required
-              autoComplete="email"
-              placeholder={t({ fr: 'ton@courriel.com', en: 'your@email.com' })}
-              disabled
-              className="w-full rounded-lg bg-base border border-silver/20 pl-10 pr-3 py-3 text-body text-primary font-display placeholder:text-silver/40 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold/40 transition-colors duration-base disabled:opacity-60 disabled:cursor-not-allowed"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled
-            className="rounded-pill px-md py-3 text-eyebrow uppercase tracking-wider font-display text-xs bg-silver text-base hover:shadow-[0_0_24px_oklch(0.79_0.005_270/0.30)] transition-all duration-base disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:shadow-none"
+        {submitState === 'success' ? (
+          <p
+            role="status"
+            aria-live="polite"
+            className="text-body text-primary font-display text-pretty mt-sm"
           >
-            {t({ fr: 'Recevoir le PDF', en: 'Get the PDF' })}
-          </button>
-
-          <p id={`${titleId}-note`} className="text-xs text-silver/60 text-pretty text-center">
-            {t({
-              fr: 'Plateforme email en cours d’intégration · disponible au lancement.',
-              en: 'Email platform integration in progress · available at launch.'
-            })}
+            {bootcampSlug
+              ? t({
+                  fr: 'Inscrit. Tu seras notifié·e en priorité.',
+                  en: "You're in. We'll notify you first."
+                })
+              : t({
+                  fr: 'Inscrit. Le PDF arrive dès le lancement.',
+                  en: "You're in. The PDF lands at launch."
+                })}
           </p>
-        </form>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            aria-describedby={`${titleId}-note`}
+            className="flex flex-col gap-sm mt-sm"
+          >
+            <label htmlFor={`${titleId}-email`} className="sr-only">
+              {t({ fr: 'Adresse courriel', en: 'Email address' })}
+            </label>
+            <div className="relative">
+              <Mail
+                className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 max-w-none shrink-0 text-silver/50 pointer-events-none"
+                aria-hidden="true"
+              />
+              <input
+                id={`${titleId}-email`}
+                type="email"
+                name="email"
+                required
+                autoComplete="email"
+                placeholder={t({ fr: 'ton@courriel.com', en: 'your@email.com' })}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={submitState === 'submitting'}
+                className="w-full rounded-lg bg-base border border-silver/20 pl-10 pr-3 py-3 text-body text-primary font-display placeholder:text-silver/40 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold/40 transition-colors duration-base disabled:opacity-60 disabled:cursor-not-allowed"
+              />
+            </div>
+
+            {/* Honeypot — hidden from humans + screen readers. */}
+            <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+              <label htmlFor={honeypotId}>Website</label>
+              <input
+                id={honeypotId}
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={submitState === 'submitting' || !email}
+              className="rounded-pill px-md py-3 text-eyebrow uppercase tracking-wider font-display text-xs bg-silver text-base hover:shadow-[0_0_24px_oklch(0.79_0.005_270/0.30)] transition-all duration-base disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:shadow-none"
+            >
+              {bootcampSlug
+                ? t({ fr: 'Sois notifié·e', en: 'Notify me' })
+                : t({ fr: 'Recevoir le PDF', en: 'Get the PDF' })}
+            </button>
+
+            {submitState === 'error' && submitError ? (
+              <p role="alert" className="text-xs text-gold/90 text-pretty text-center">
+                {submitError}
+              </p>
+            ) : null}
+
+            <p id={`${titleId}-note`} className="text-xs text-silver/60 text-pretty text-center">
+              {t({
+                fr: 'En soumettant, tu acceptes d’être notifié·e (Loi 25). Désabonnement 1 clic.',
+                en: 'By submitting, you agree to be notified (Quebec Law 25). 1-click unsubscribe.'
+              })}
+            </p>
+          </form>
+        )}
       </div>
     </div>
   );

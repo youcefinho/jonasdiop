@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { FooterRich } from '@/components/layout/FooterRich';
 import { Navbar } from '@/components/layout/Navbar';
 import { AboutPreviewSection } from '@/components/sections/AboutPreviewSection';
+import { BootcampsAlternativeNudge } from '@/components/sections/BootcampsAlternativeNudge';
 import { ConferencierPreviewSection } from '@/components/sections/ConferencierPreviewSection';
 import { EvenementsUpcomingSection } from '@/components/sections/EvenementsUpcomingSection';
 import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
@@ -52,6 +53,9 @@ function HomeEN() {
         </ScrollReveal>
         <ScrollReveal>
           <ProgramsGrid />
+        </ScrollReveal>
+        <ScrollReveal>
+          <BootcampsAlternativeNudge />
         </ScrollReveal>
         <ScrollReveal>
           <HowItWorksTimeline />

@@ -58,6 +58,14 @@ const META_LOADERS: Partial<Record<RouteKey, MetaLoader>> = {
   temoignages: async () => (await import('@/data/copy/temoignages')).temoignagesCopy.meta,
   livre: async () => (await import('@/data/copy/livre')).livreCopy.meta,
   evenements: async () => (await import('@/data/copy/evenements')).evenementsCopy.meta,
+  'evenements-bootcamps': async () =>
+    (await import('@/data/copy/evenementsBootcamps')).evenementsBootcampsCopy.meta,
+  'evenements-bootcamp-an-army-of-one': async () =>
+    (await import('@/data/copy/bootcamps/anArmyOfOne')).anArmyOfOneCopy.meta,
+  'evenements-bootcamp-the-edge': async () =>
+    (await import('@/data/copy/bootcamps/theEdge')).theEdgeCopy.meta,
+  'evenements-bootcamp-the-activation': async () =>
+    (await import('@/data/copy/bootcamps/theActivation')).theActivationCopy.meta,
   ressources: async () => (await import('@/data/copy/ressources')).ressourcesCopy.meta,
   podcast: async () => {
     const mod = await import('@/data/copy/podcast');

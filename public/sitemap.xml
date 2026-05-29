@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://jonas-diop.intralys.dev/</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/a-propos</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/a-propos"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/about</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/a-propos"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/methodologie-cdt</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/methodologie-cdt"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/cdt-methodology"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/methodologie-cdt"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/cdt-methodology</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/methodologie-cdt"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/cdt-methodology"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/methodologie-cdt"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/services</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/services</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/services/gamechanger-scaling</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/gamechanger-scaling"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/gamechanger-scaling"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/gamechanger-scaling"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/services/gamechanger-scaling</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/gamechanger-scaling"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/gamechanger-scaling"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/gamechanger-scaling"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/services/the-shift</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/the-shift"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/the-shift"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/the-shift"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/services/the-shift</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/the-shift"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/the-shift"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/the-shift"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/services/master-closing</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/master-closing"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/master-closing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/master-closing"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/services/master-closing</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/master-closing"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/master-closing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/master-closing"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/services/focus-flow</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/focus-flow"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/focus-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/focus-flow"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/services/focus-flow</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/focus-flow"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/focus-flow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/focus-flow"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/services/cash-scale</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/cash-scale"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/cash-scale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/cash-scale"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/services/cash-scale</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/cash-scale"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/cash-scale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/cash-scale"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/services/consultations-privees</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/consultations-privees"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/private-consultations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/consultations-privees"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/services/private-consultations</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/services/consultations-privees"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/services/private-consultations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/services/consultations-privees"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/conferences</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/conferences"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/conferences"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/conferences"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/conferences</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/conferences"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/conferences"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/conferences"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/faq</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/faq"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/faq"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/faq</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/faq"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/faq"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/contact</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/contact"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/contact"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/contact</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/contact"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/contact"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/temoignages</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/temoignages"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/testimonials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/temoignages"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/testimonials</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/temoignages"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/testimonials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/temoignages"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/livre</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/livre"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/book"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/livre"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/book</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/livre"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/book"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/livre"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/evenements</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/events</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/evenements/bootcamps</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/bootcamps"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/bootcamps"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/events/bootcamps</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/bootcamps"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/bootcamps"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/evenements/bootcamps/an-army-of-one</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/bootcamps/an-army-of-one"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/bootcamps/an-army-of-one"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps/an-army-of-one"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/events/bootcamps/an-army-of-one</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/bootcamps/an-army-of-one"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/bootcamps/an-army-of-one"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps/an-army-of-one"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/evenements/bootcamps/the-edge</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-edge"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/bootcamps/the-edge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-edge"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/events/bootcamps/the-edge</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-edge"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/bootcamps/the-edge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-edge"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/evenements/bootcamps/the-activation</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-activation"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/bootcamps/the-activation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-activation"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/events/bootcamps/the-activation</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-activation"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/bootcamps/the-activation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-activation"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/ressources</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/ressources"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/ressources"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/resources</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/ressources"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/ressources"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/podcast</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/podcast"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/podcast"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/podcast"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/podcast</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/podcast"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/podcast"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/podcast"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/mentions-legales</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/mentions-legales"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/legal-notice</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/mentions-legales"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/politique-confidentialite</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/politique-confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/politique-confidentialite"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/privacy-policy</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/politique-confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/politique-confidentialite"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/conditions-utilisation</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/conditions-utilisation"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/terms-of-use"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/conditions-utilisation"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/terms-of-use</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/conditions-utilisation"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/terms-of-use"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/conditions-utilisation"/>
+  </url>
+</urlset>

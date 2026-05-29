@@ -152,25 +152,26 @@ export const evenementsCopy = {
         id: 'bootcamps',
         anchorId: 'bootcamps',
         eyebrow: {
-          fr: 'Format intensif',
-          en: 'Intensive format'
+          fr: 'Bootcamps tactiques intensifs',
+          en: 'Intensive tactical bootcamps'
         } satisfies BilingualLax<string>,
         title: {
-          fr: 'Bootcamps · 2 à 3 jours',
-          en: 'Bootcamps · 2 to 3 days'
+          fr: 'La Trilogie — 3 leviers, 3 jours chacun',
+          en: 'The Trilogy — 3 levers, 3 days each'
         } satisfies BilingualLax<string>,
         description: {
-          fr: 'Le shot de mise à niveau. Tu arrives avec un blocage précis, tu repars avec le plan de déblocage. Format dense, format dur — destiné aux entrepreneurs qui veulent un résultat immédiat sans dégager une semaine entière.',
-          en: 'The upgrade shot. You arrive with a precise blocker, you leave with the unblock plan. Dense format, hard format — for entrepreneurs who want an immediate result without freeing up a full week.'
+          fr: 'An Army of One™ pour ton système. The Edge™ pour ta perception. The Activation™ pour ton humain complet. Méthode RISE™.',
+          en: 'An Army of One™ for your system. The Edge™ for your perception. The Activation™ for your complete human. RISE™ method.'
         } satisfies BilingualLax<string>,
         forWho: {
           fr: 'Entrepreneurs 100K$-1M$ · 8 à 12 participants',
           en: 'Entrepreneurs $100K-$1M · 8 to 12 participants'
         } satisfies BilingualLax<string>,
         ctaLabel: {
-          fr: 'Voir le bootcamp',
-          en: 'See the bootcamp'
-        } satisfies BilingualLax<string>
+          fr: 'Découvrir la Trilogie',
+          en: 'Discover the Trilogy'
+        } satisfies BilingualLax<string>,
+        ctaRouteKey: 'evenements-bootcamps'
       },
       {
         id: 'retraites',

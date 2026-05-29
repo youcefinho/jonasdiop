@@ -60,10 +60,24 @@ export function MobileNavDrawer() {
     }
   ];
 
+  // Bootcamps Trilogie : 4 sous-routes dédiées (vue d'ensemble + 3 cohortes).
+  // Retraites + Masterclass restent en ancres dans /evenements.
   const evenementsItems: readonly DropdownItem[] = [
     {
-      to: `${ROUTES.evenements[locale]}#bootcamps`,
-      label: { fr: 'Bootcamps', en: 'Bootcamps' }
+      to: ROUTES['evenements-bootcamps'][locale],
+      label: { fr: 'Bootcamps (Trilogie)', en: 'Bootcamps (Trilogy)' }
+    },
+    {
+      to: ROUTES['evenements-bootcamp-an-army-of-one'][locale],
+      label: { fr: '— An Army of One™', en: '— An Army of One™' }
+    },
+    {
+      to: ROUTES['evenements-bootcamp-the-edge'][locale],
+      label: { fr: '— The Edge™', en: '— The Edge™' }
+    },
+    {
+      to: ROUTES['evenements-bootcamp-the-activation'][locale],
+      label: { fr: '— The Activation™', en: '— The Activation™' }
     },
     {
       to: `${ROUTES.evenements[locale]}#retraites`,

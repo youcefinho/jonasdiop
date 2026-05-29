@@ -60,13 +60,29 @@ export function Navbar() {
   ];
 
   // ─── Dropdown data — Événements ──────────────────────────────────────────
-  // Sub-routes not yet built — link to anchors within /evenements parent
-  // until dedicated /evenements/bootcamps etc. are created.
+  // Bootcamps Trilogie : 4 sous-routes dédiées (vue d'ensemble + 3 cohortes).
+  // Retraites + Masterclass restent en ancres dans /evenements (pages dédiées
+  // pas encore construites — placeholders dans EvenementsPage).
   const evenementsItems: readonly DropdownItem[] = [
     {
-      to: `${ROUTES.evenements[locale]}#bootcamps`,
-      label: { fr: 'Bootcamps', en: 'Bootcamps' },
-      description: { fr: 'Intensifs 2-3 jours', en: 'Intensive 2-3 days' }
+      to: ROUTES['evenements-bootcamps'][locale],
+      label: { fr: "Vue d'ensemble (Trilogie)", en: 'Overview (Trilogy)' },
+      description: { fr: 'Les 3 bootcamps RISE™', en: 'The 3 RISE™ bootcamps' }
+    },
+    {
+      to: ROUTES['evenements-bootcamp-an-army-of-one'][locale],
+      label: { fr: 'An Army of One™', en: 'An Army of One™' },
+      description: { fr: 'Fondation · identité & posture', en: 'Foundation · identity & posture' }
+    },
+    {
+      to: ROUTES['evenements-bootcamp-the-edge'][locale],
+      label: { fr: 'The Edge™', en: 'The Edge™' },
+      description: { fr: 'Avantage · stratégie & exécution', en: 'Edge · strategy & execution' }
+    },
+    {
+      to: ROUTES['evenements-bootcamp-the-activation'][locale],
+      label: { fr: 'The Activation™', en: 'The Activation™' },
+      description: { fr: 'Activation · scale & système', en: 'Activation · scale & system' }
     },
     {
       to: `${ROUTES.evenements[locale]}#retraites`,

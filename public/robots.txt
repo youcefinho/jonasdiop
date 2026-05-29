@@ -1,3 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /dev-components
+Disallow: /en/dev-components
+
 Sitemap: https://jonas-diop.intralys.dev/sitemap.xml

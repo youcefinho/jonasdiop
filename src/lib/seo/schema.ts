@@ -136,12 +136,17 @@ interface SchemaEvent {
         '@type': 'VirtualLocation';
         url: string;
       };
+  /** Organizer — typically the Organization @id (DIOP Stratégies Internationales). */
   organizer: { '@id': string };
+  /** Performer — typically the Person @id (Jonas). Bootcamp Trilogie always has Jonas both organize + perform. */
   performer?: { '@id': string };
   inLanguage: string;
+  /** Schema.org Offer node. URL is optional (Schema.org spec) — pre-launch
+   * we emit price + currency + availability without URL so Google still indexes
+   * the offering, then add `url` when Stripe goes live. */
   offers?: {
     '@type': 'Offer';
-    url: string;
+    url?: string;
     availability:
       | 'https://schema.org/InStock'
       | 'https://schema.org/SoldOut'
@@ -151,6 +156,60 @@ interface SchemaEvent {
     validFrom?: string;
   };
   url?: string;
+}
+
+interface SchemaCourse {
+  '@type': 'Course';
+  '@id': string;
+  name: string;
+  description?: string;
+  /** Provider — Organization @id. Required by Google Rich Results "Course" guidance. */
+  provider: {
+    '@type': 'Organization';
+    '@id': string;
+    name?: string;
+    sameAs?: string;
+  };
+  /** Optional Person who designed / leads the course (Jonas Diop). */
+  instructor?: { '@id': string };
+  /** BCP-47 language tag (fr-CA / en) — same convention as WebSite + FAQ. */
+  inLanguage: string;
+  /** Schema.org educationalLevel — Bootcamps target operators 5K-1M$ → Intermediate. */
+  educationalLevel?: string;
+  /** Optional discipline tag (e.g. "Business strategy", "Sales execution"). */
+  about?: string;
+  /** Optional URL — typically the bootcamp sub-page. */
+  url?: string;
+  /** Optional hasCourseInstance for upcoming cohorts (mirrors Event node). */
+  hasCourseInstance?: {
+    '@type': 'CourseInstance';
+    '@id': string;
+    courseMode:
+      | 'https://schema.org/OnsiteEventAttendanceMode'
+      | 'https://schema.org/OnlineEventAttendanceMode'
+      | 'https://schema.org/MixedEventAttendanceMode'
+      // Schema.org Course-instance uses its own enum, but the values
+      // share semantics with EventAttendanceMode — we mirror those for clarity.
+      | 'Onsite'
+      | 'Online'
+      | 'Blended';
+    /** Approximate or exact ISO-8601 duration (e.g. `P3D` for 3 days). */
+    courseWorkload?: string;
+    /** Stable @id of the matching Event node so Google can correlate. */
+    instanceOf?: { '@id': string };
+  };
+  /** Optional offers — mirror Event offer (price + currency + availability). */
+  offers?: {
+    '@type': 'Offer';
+    url?: string;
+    price?: string;
+    priceCurrency?: string;
+    availability:
+      | 'https://schema.org/InStock'
+      | 'https://schema.org/SoldOut'
+      | 'https://schema.org/PreOrder';
+    category?: string;
+  };
 }
 
 interface SchemaPodcastSeries {
@@ -230,6 +289,7 @@ type SchemaNode =
   | SchemaFAQPage
   | SchemaBook
   | SchemaEvent
+  | SchemaCourse
   | SchemaPodcastSeries
   | SchemaPodcastEpisode
   | SchemaArticle
@@ -505,9 +565,11 @@ export interface EventInput {
   startDate: string;
   endDate?: string;
   location: EventLocation;
-  /** Offer URL (Eventbrite, custom landing, etc.). Omit if not yet wired. */
+  /** Offer URL (Stripe, Eventbrite, custom landing). Omit pre-launch — Offer is
+   * still emitted if `price` is set, just without `url`. */
   offerUrl?: string;
-  /** Defaults to `InStock` ; flip to `SoldOut` post-fill. */
+  /** Defaults to `InStock` when an offerUrl exists, else `PreOrder` if only
+   * price is given (Trilogie pre-launch state). */
   availability?: 'InStock' | 'SoldOut' | 'PreOrder';
   price?: string;
   priceCurrency?: string;
@@ -518,13 +580,31 @@ export interface EventInput {
     | 'EventCancelled'
     | 'EventMovedOnline'
     | 'EventRescheduled';
+  /** Optional Schema.org @id used inside the @graph anchor. Defaults to
+   * `${BASE_URL}${ROUTES.evenements[locale]}#event-${slug}`. Override when the
+   * event lives on a dedicated bootcamp sub-page — keeps the @id colocated with
+   * the canonical URL Google sees in the SERP. */
+  routeKeyForId?: RouteKey;
+  /** Override organizer @id. Defaults to the Organization (DIOP Stratégies
+   * Internationales) — Schema.org Event guidance recommends a legal entity
+   * over a Person for billing-bearing events. */
+  organizerId?: string;
+  /** Override performer @id. Defaults to the Person (Jonas Diop). */
+  performerId?: string;
+  /** Optional canonical event URL — typically the bootcamp sub-page. */
+  url?: string;
 }
 
 /**
- * Build an Event node. Organizer + performer both link to the global Person
- * (Jonas leads + performs every mastermind/séminaire). Offers omitted entirely
- * when no purchase URL is known yet — Google penalizes empty Offer nodes
- * harder than missing ones.
+ * Build an Event node. Defaults : organizer = Organization (DIOP), performer =
+ * Person (Jonas). Offers are emitted whenever a `price` is provided — pre-launch
+ * Trilogie state uses `PreOrder` availability with price + currency but no URL.
+ *
+ * The @id anchors to `/evenements#event-${slug}` by default ; pass `routeKeyForId`
+ * to anchor it to a dedicated sub-page (e.g. `evenements-bootcamp-an-army-of-one`).
+ *
+ * Also exported as `eventSchema` for callsites that want a more declarative
+ * naming — both names point at the same implementation.
  */
 export function buildEventNode(locale: Locale, event: EventInput): SchemaEvent {
   const id = ids(locale);
@@ -536,9 +616,13 @@ export function buildEventNode(locale: Locale, event: EventInput): SchemaEvent {
         ? 'MixedEventAttendanceMode'
         : 'OfflineEventAttendanceMode';
 
+  const idAnchor = event.routeKeyForId
+    ? id.routePath(event.routeKeyForId)
+    : id.routePath('evenements');
+
   const node: SchemaEvent = {
     '@type': 'Event',
-    '@id': `${id.routePath('evenements')}#event-${event.slug}`,
+    '@id': `${idAnchor}#event-${event.slug}`,
     name: event.name,
     startDate: event.startDate,
     eventStatus: `https://schema.org/${eventStatus}` as SchemaEvent['eventStatus'],
@@ -557,27 +641,159 @@ export function buildEventNode(locale: Locale, event: EventInput): SchemaEvent {
               ...(event.location.country ? { addressCountry: event.location.country } : {})
             }
           },
-    organizer: { '@id': id.person },
-    performer: { '@id': id.person },
+    organizer: { '@id': event.organizerId ?? id.org },
+    performer: { '@id': event.performerId ?? id.person },
     inLanguage: langTag(locale)
   };
 
   if (event.endDate) node.endDate = event.endDate;
   if (event.description) node.description = clean(event.description);
-  if (event.offerUrl) {
+  if (event.url) node.url = event.url;
+
+  // Offer emission rule (Trilogie pre-launch compatible) :
+  //  - emit Offer if `offerUrl` is set (legacy InStock path) OR `price` is set
+  //    (pre-launch path : price disclosed in PDFs but Stripe not wired).
+  //  - default availability = 'InStock' when an offerUrl is set, else 'PreOrder'
+  //    so crawlers don't claim purchase is open before Stripe is live.
+  if (event.offerUrl || event.price) {
+    const defaultAvailability: NonNullable<EventInput['availability']> = event.offerUrl
+      ? 'InStock'
+      : 'PreOrder';
     node.offers = {
       '@type': 'Offer',
-      url: event.offerUrl,
-      availability: `https://schema.org/${event.availability ?? 'InStock'}` as NonNullable<
-        SchemaEvent['offers']
-      >['availability']
+      availability: `https://schema.org/${
+        event.availability ?? defaultAvailability
+      }` as NonNullable<SchemaEvent['offers']>['availability']
     };
+    if (event.offerUrl) node.offers.url = event.offerUrl;
     if (event.price) node.offers.price = event.price;
     if (event.priceCurrency) node.offers.priceCurrency = event.priceCurrency;
   }
 
   return node;
 }
+
+/** Declarative alias for `buildEventNode` — preferred at call sites. */
+export const eventSchema = buildEventNode;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Sprint 6 — Course node (Trilogie bootcamps mirror Event with Course schema)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface CourseInput {
+  /** Stable slug — used inside @id. */
+  slug: string;
+  /** Route key the course lives on — used to anchor the @id + url. */
+  routeKey: RouteKey;
+  name: string;
+  description?: string;
+  /** Schema.org educationalLevel. Trilogie bootcamps target operators with
+   * existing revenue (5K-1M$) → defaults to `Intermediate`. */
+  educationalLevel?: string;
+  /** Discipline tag — e.g. "Business strategy", "Sales authority", "Performance engineering". */
+  about?: string;
+  /** Optional course instance (cohort) — mirrors EventInput shape. When provided,
+   * `instanceOf` auto-links to the matching Event @id so Google's Course rich
+   * result can correlate price + dates. */
+  instance?: {
+    /** Mirrors EventLocation mode — defaults to `Blended` (mixed Montréal + virtual). */
+    mode?: 'Onsite' | 'Online' | 'Blended';
+    /** ISO-8601 duration (e.g. `P3D` for the 3-day Trilogie format). */
+    workload?: string;
+    /** Optional event slug to cross-link (same slug as EventInput.slug). */
+    eventSlug?: string;
+    /** Optional event route key — used to build the cross-linked @id when
+     * `eventSlug` is set. Defaults to `routeKey`. */
+    eventRouteKey?: RouteKey;
+  };
+  /** Offer — same pre-launch contract as Event : if `price` set without `url`,
+   * availability defaults to `PreOrder`. */
+  offer?: {
+    price?: string;
+    priceCurrency?: string;
+    url?: string;
+    availability?: 'InStock' | 'SoldOut' | 'PreOrder';
+    /** Schema.org category — defaults to `Bootcamp`. */
+    category?: string;
+  };
+}
+
+/**
+ * Build a Course node. Trilogie bootcamps surface as BOTH Event (date-bound
+ * cohort metadata) AND Course (educational discipline metadata) per Google's
+ * Search Central guidance — they index distinct rich result types from each.
+ *
+ * Provider is the Organization (DIOP Stratégies Internationales). Instructor
+ * is the Person (Jonas Diop) — Trilogie is single-instructor.
+ *
+ * Pairs cleanly with `buildEventNode` : when both are emitted with matching
+ * slugs, the Course.hasCourseInstance.instanceOf points at the Event @id so
+ * Google understands they describe the same offering from different angles.
+ */
+export function buildCourseNode(locale: Locale, course: CourseInput): SchemaCourse {
+  const id = ids(locale);
+  const courseUrl = id.routePath(course.routeKey);
+  const { client } = clientConfig;
+
+  const node: SchemaCourse = {
+    '@type': 'Course',
+    '@id': `${courseUrl}#course-${course.slug}`,
+    name: course.name,
+    provider: {
+      '@type': 'Organization',
+      '@id': id.org,
+      name: 'DIOP Stratégies Internationales',
+      ...(client.socials.linkedin ? { sameAs: client.socials.linkedin } : {})
+    },
+    instructor: { '@id': id.person },
+    inLanguage: langTag(locale),
+    educationalLevel: course.educationalLevel ?? 'Intermediate',
+    url: courseUrl
+  };
+
+  if (course.description) node.description = clean(course.description);
+  if (course.about) node.about = course.about;
+
+  if (course.instance) {
+    const instanceMode = course.instance.mode ?? 'Blended';
+    // Schema.org Course-instance courseMode accepts both the legacy enum
+    // ("Onsite" / "Online" / "Blended") and the modern AttendanceMode URIs.
+    // We emit the legacy enum for maximum backward compatibility with the
+    // current Rich Results validator.
+    const eventRouteKey = course.instance.eventRouteKey ?? course.routeKey;
+    const eventAnchor = id.routePath(eventRouteKey);
+    node.hasCourseInstance = {
+      '@type': 'CourseInstance',
+      '@id': `${courseUrl}#course-instance-${course.slug}`,
+      courseMode: instanceMode,
+      ...(course.instance.workload ? { courseWorkload: course.instance.workload } : {}),
+      ...(course.instance.eventSlug
+        ? { instanceOf: { '@id': `${eventAnchor}#event-${course.instance.eventSlug}` } }
+        : {})
+    };
+  }
+
+  if (course.offer) {
+    const defaultAvailability: NonNullable<CourseInput['offer']>['availability'] = course.offer.url
+      ? 'InStock'
+      : 'PreOrder';
+    node.offers = {
+      '@type': 'Offer',
+      availability: `https://schema.org/${
+        course.offer.availability ?? defaultAvailability
+      }` as NonNullable<SchemaCourse['offers']>['availability'],
+      category: course.offer.category ?? 'Bootcamp'
+    };
+    if (course.offer.url) node.offers.url = course.offer.url;
+    if (course.offer.price) node.offers.price = course.offer.price;
+    if (course.offer.priceCurrency) node.offers.priceCurrency = course.offer.priceCurrency;
+  }
+
+  return node;
+}
+
+/** Declarative alias for `buildCourseNode` — preferred at call sites. */
+export const courseSchema = buildCourseNode;
 
 export interface PodcastSeriesInput {
   name: string;
@@ -772,8 +988,11 @@ export interface RouteSchemaOptions {
   faq?: { items: FaqItem[]; routeKey: RouteKey };
   /** Inject a Book node (used on /livre). */
   book?: BookInput;
-  /** Inject one or many Event nodes (used on /evenements). */
+  /** Inject one or many Event nodes (used on /evenements + bootcamp sub-pages). */
   events?: EventInput[];
+  /** Inject one or many Course nodes (used on bootcamp sub-pages — paired
+   * with matching Event nodes for Trilogie). */
+  courses?: CourseInput[];
   /** Inject a PodcastSeries + optional episodes (used on /podcast). */
   podcast?: { series: PodcastSeriesInput; episodes?: PodcastEpisodeInput[] };
   /** Inject one or many Article nodes (used on /ressources + article details). */
@@ -810,6 +1029,9 @@ export function buildRouteSchemaGraph(
   }
   if (options.events) {
     for (const event of options.events) extras.push(buildEventNode(locale, event));
+  }
+  if (options.courses) {
+    for (const course of options.courses) extras.push(buildCourseNode(locale, course));
   }
   if (options.podcast) {
     extras.push(buildPodcastSeriesNode(locale, options.podcast.series));

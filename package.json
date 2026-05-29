@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "prebuild": "bun run scripts/generate-sitemap.ts",
     "build": "vite build",
     "preview": "vite preview",
     "deploy:staging": "wrangler deploy --env staging",

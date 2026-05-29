@@ -20,6 +20,10 @@ export type RouteKey =
   | 'temoignages'
   | 'livre'
   | 'evenements'
+  | 'evenements-bootcamps'
+  | 'evenements-bootcamp-an-army-of-one'
+  | 'evenements-bootcamp-the-edge'
+  | 'evenements-bootcamp-the-activation'
   | 'ressources'
   | 'podcast'
   | 'mentions-legales'
@@ -51,6 +55,22 @@ export const ROUTES: RoutePaths = {
   temoignages: { fr: '/temoignages', en: '/en/testimonials' },
   livre: { fr: '/livre', en: '/en/book' },
   evenements: { fr: '/evenements', en: '/en/events' },
+  'evenements-bootcamps': {
+    fr: '/evenements/bootcamps',
+    en: '/en/events/bootcamps'
+  },
+  'evenements-bootcamp-an-army-of-one': {
+    fr: '/evenements/bootcamps/an-army-of-one',
+    en: '/en/events/bootcamps/an-army-of-one'
+  },
+  'evenements-bootcamp-the-edge': {
+    fr: '/evenements/bootcamps/the-edge',
+    en: '/en/events/bootcamps/the-edge'
+  },
+  'evenements-bootcamp-the-activation': {
+    fr: '/evenements/bootcamps/the-activation',
+    en: '/en/events/bootcamps/the-activation'
+  },
   ressources: { fr: '/ressources', en: '/en/resources' },
   podcast: { fr: '/podcast', en: '/en/podcast' },
   'mentions-legales': { fr: '/mentions-legales', en: '/en/legal-notice' },

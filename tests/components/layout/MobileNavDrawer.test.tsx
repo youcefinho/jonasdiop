@@ -84,4 +84,62 @@ describe('MobileNavDrawer', () => {
     expect(screen.getByText(/Apprendre.*s'inspirer/i)).toBeInTheDocument();
     expect(screen.getByText('Découvrir')).toBeInTheDocument();
   });
+
+  it('Événements accordion exposes 4 Bootcamps Trilogie sub-items when expanded (FR)', () => {
+    render(<MobileNavDrawer />, { wrapper: wrapper('fr') });
+    fireEvent.click(screen.getByLabelText(/Ouvrir le menu/i));
+    // Expand the Événements accordion (button label "Événements")
+    fireEvent.click(screen.getByRole('button', { name: /^Événements$/i }));
+
+    expect(screen.getByText(/Bootcamps \(Trilogie\)/i)).toBeInTheDocument();
+    expect(screen.getByText(/An Army of One/i)).toBeInTheDocument();
+    expect(screen.getByText(/The Edge/i)).toBeInTheDocument();
+    expect(screen.getByText(/The Activation/i)).toBeInTheDocument();
+    expect(screen.getByText('Retraites')).toBeInTheDocument();
+    expect(screen.getByText('Masterclass')).toBeInTheDocument();
+  });
+
+  it('Mobile Bootcamps items point to real Trilogie routes (not anchors)', () => {
+    render(<MobileNavDrawer />, { wrapper: wrapper('fr') });
+    fireEvent.click(screen.getByLabelText(/Ouvrir le menu/i));
+    fireEvent.click(screen.getByRole('button', { name: /^Événements$/i }));
+
+    expect(
+      screen
+        .getByText(/Bootcamps \(Trilogie\)/i)
+        .closest('a')
+        ?.getAttribute('href')
+    ).toBe('/evenements/bootcamps');
+    expect(
+      screen
+        .getByText(/An Army of One/i)
+        .closest('a')
+        ?.getAttribute('href')
+    ).toBe('/evenements/bootcamps/an-army-of-one');
+    expect(
+      screen
+        .getByText(/The Edge/i)
+        .closest('a')
+        ?.getAttribute('href')
+    ).toBe('/evenements/bootcamps/the-edge');
+    expect(
+      screen
+        .getByText(/The Activation/i)
+        .closest('a')
+        ?.getAttribute('href')
+    ).toBe('/evenements/bootcamps/the-activation');
+  });
+
+  it('legacy mobile #bootcamps anchor is removed', () => {
+    render(<MobileNavDrawer />, { wrapper: wrapper('fr') });
+    fireEvent.click(screen.getByLabelText(/Ouvrir le menu/i));
+    fireEvent.click(screen.getByRole('button', { name: /^Événements$/i }));
+
+    // Ensure no <a> still points to the stale #bootcamps anchor
+    const drawer = screen.getByRole('dialog');
+    const anchors = drawer.querySelectorAll('a');
+    for (const a of Array.from(anchors)) {
+      expect(a.getAttribute('href')).not.toBe('/evenements#bootcamps');
+    }
+  });
 });

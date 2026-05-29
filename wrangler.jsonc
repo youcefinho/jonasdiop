@@ -28,6 +28,17 @@
     {
       "binding": "ARTICLE_CACHE",
       "id": "REPLACE_AFTER_CREATE"
+    },
+    // Pré-lancement waitlist (Sprint 3.5 — Trilogie bootcamps email capture).
+    // Setup une seule fois sur le compte CF Jonas :
+    //   bun wrangler kv namespace create WAITLIST
+    //   bun wrangler kv namespace create WAITLIST --preview
+    // Puis remplacer les deux REPLACE_AFTER_CREATE ci-dessous par les IDs renvoyés.
+    // Tant que le binding est manquant, /api/waitlist renvoie 503 (handler safe).
+    {
+      "binding": "WAITLIST",
+      "id": "REPLACE_AFTER_CREATE",
+      "preview_id": "REPLACE_AFTER_CREATE"
     }
   ],
 
@@ -59,6 +70,13 @@
         {
           "binding": "ARTICLE_CACHE",
           "id": "57d2b354179442d2985ec8e9045fcdc9"
+        },
+        // WAITLIST staging — créer via `wrangler kv namespace create WAITLIST_STAGING`
+        // sur le compte intralysqc (Rochdi) puis coller l'id ici. Tant que vide,
+        // /api/waitlist sur staging renvoie 503.
+        {
+          "binding": "WAITLIST",
+          "id": "REPLACE_AFTER_CREATE_STAGING"
         }
       ]
     }

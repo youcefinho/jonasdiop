@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { ArrowRight, Bell, CalendarDays, MapPin, Ticket, Users } from 'lucide-react';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -159,30 +160,46 @@ export function EvenementsPage() {
               staggerMs={120}
               data-card-group="evenements-types"
             >
-              {copy.types.items.map((item) => (
-                <article
-                  key={item.id}
-                  id={item.anchorId}
-                  className="group relative scroll-mt-[120px] flex flex-col gap-sm p-md bg-elevated border border-silver/15 rounded-lg shadow-haptic-card hover:border-gold/30 transition-colors duration-base overflow-hidden"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_30%,oklch(0.74_0.085_75/0.05)_50%,transparent_70%)] bg-[length:200%_200%] bg-[position:200%_0] transition-all duration-[700ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:bg-[position:-50%_0]"
-                  />
-                  <span className="text-eyebrow uppercase tracking-widest text-gold opacity-80 font-display text-xs">
-                    {t(item.eyebrow)}
-                  </span>
-                  <h3 className="text-h3 text-primary font-display text-balance leading-[1.2]">
-                    {t(item.title)}
-                  </h3>
-                  <p className="text-body text-silver opacity-80 text-pretty">
-                    {t(item.description)}
-                  </p>
-                  <p className="mt-auto pt-sm text-eyebrow uppercase tracking-widest text-silver/60 font-display text-[10px]">
-                    {t(item.forWho)}
-                  </p>
-                </article>
-              ))}
+              {copy.types.items.map((item) => {
+                const ctaRouteKey =
+                  'ctaRouteKey' in item ? (item.ctaRouteKey as keyof typeof ROUTES) : undefined;
+                return (
+                  <article
+                    key={item.id}
+                    id={item.anchorId}
+                    className="group relative scroll-mt-[120px] flex flex-col gap-sm p-md bg-elevated border border-silver/15 rounded-lg shadow-haptic-card hover:border-gold/30 transition-colors duration-base overflow-hidden"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_30%,oklch(0.74_0.085_75/0.05)_50%,transparent_70%)] bg-[length:200%_200%] bg-[position:200%_0] transition-all duration-[700ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:bg-[position:-50%_0]"
+                    />
+                    <span className="text-eyebrow uppercase tracking-widest text-gold opacity-80 font-display text-xs">
+                      {t(item.eyebrow)}
+                    </span>
+                    <h3 className="text-h3 text-primary font-display text-balance leading-[1.2]">
+                      {t(item.title)}
+                    </h3>
+                    <p className="text-body text-silver opacity-80 text-pretty">
+                      {t(item.description)}
+                    </p>
+                    <p className="mt-auto pt-sm text-eyebrow uppercase tracking-widest text-silver/60 font-display text-[10px]">
+                      {t(item.forWho)}
+                    </p>
+                    {ctaRouteKey ? (
+                      <Link
+                        to={ROUTES[ctaRouteKey][locale]}
+                        className="relative mt-sm inline-flex items-center gap-2 self-start text-eyebrow uppercase tracking-widest text-gold font-display text-xs hover:text-gold/80 transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/40 rounded-sm"
+                      >
+                        {t(item.ctaLabel)}
+                        <ArrowRight
+                          className="h-3.5 w-3.5 max-w-none shrink-0"
+                          aria-hidden="true"
+                        />
+                      </Link>
+                    ) : null}
+                  </article>
+                );
+              })}
             </StaggerReveal>
           </div>
         </section>
