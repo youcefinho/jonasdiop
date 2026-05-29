@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { type FormEvent, useState } from 'react';
 import { BonusList } from '@/components/sections/bootcamps/BonusList';
+import { BootcampHeroPattern } from '@/components/sections/bootcamps/BootcampHeroPattern';
 import { BootcampStickyBar } from '@/components/sections/bootcamps/BootcampStickyBar';
 import { DeliverablesTable } from '@/components/sections/bootcamps/DeliverablesTable';
 import { MirrorChecklistSection } from '@/components/sections/bootcamps/MirrorChecklistSection';
@@ -254,6 +255,7 @@ export function AnArmyOfOnePage() {
         onCtaClick={scrollToCapture}
         ctaAriaLabel={sticky.ctaLabel}
         placesLabel={sticky.placesLabel}
+        variant="army"
       />
 
       {/* ─── 2. HERO ───────────────────────────────────────────────────── */}
@@ -261,15 +263,16 @@ export function AnArmyOfOnePage() {
         aria-label={t(c.hero.eyebrow)}
         className="relative min-h-[78vh] flex items-center px-md py-2xl bg-section-base overflow-hidden"
       >
+        <BootcampHeroPattern variant="army" />
         <FiligraneNumber number="01" position="right" />
         <div className="relative max-w-default mx-auto w-full px-md flex flex-col items-start gap-md max-w-[var(--container-content)]">
           <Eyebrow>{t(c.hero.eyebrow)}</Eyebrow>
           <MaskRevealHeading
             as="h1"
             priority="lcp"
-            className="font-normal tracking-[-0.04em] text-[clamp(2.5rem,1.4rem+3.2vw,4.75rem)] leading-[1.04] max-w-[24ch]"
+            className="font-normal uppercase tracking-[0.06em] text-[clamp(2.25rem,1.3rem+3vw,4.25rem)] leading-[1.04] max-w-[26ch]"
           >
-            <span className="text-shimmer">{t(c.hero.h1)}</span>
+            <span className="text-[oklch(0.92_0.04_250)]">{t(c.hero.h1)}</span>
           </MaskRevealHeading>
           <p className="text-body-lg text-silver opacity-90 text-pretty max-w-[58ch] leading-relaxed">
             {t(c.hero.sub)}
@@ -581,6 +584,7 @@ export function AnArmyOfOnePage() {
         ctaSecondaryLabel={t(c.valuePrice.ctaSecondaryLabel)}
         onCtaSecondaryClick={scrollToCapture}
         preLaunchNote={t(c.valuePrice.preLaunchNote)}
+        variant="army"
       />
 
       {/* ─── 11. PREUVE & CRÉDIBILITÉ JONAS ────────────────────────────── */}

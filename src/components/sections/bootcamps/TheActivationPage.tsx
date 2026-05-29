@@ -25,6 +25,7 @@ import { useT } from '@/lib/i18n/useT';
 import { FaqSchemaScript, SchemaScript } from '@/lib/seo/SchemaScript';
 import { VslPlaceholderSection } from '../VslPlaceholderSection';
 import { BonusList } from './BonusList';
+import { BootcampHeroPattern } from './BootcampHeroPattern';
 import { BootcampStickyBar } from './BootcampStickyBar';
 import { DeliverablesTable } from './DeliverablesTable';
 import { MirrorChecklistSection } from './MirrorChecklistSection';
@@ -196,6 +197,7 @@ export function TheActivationPage() {
         onCtaClick={handleScrollToCta}
         ctaAriaLabel={t(copy.stickyBar.cta)}
         placesLabel={t({ fr: 'Places restantes', en: 'Spots remaining' })}
+        variant="activation"
       />
 
       {/* ─── 2. HERO ────────────────────────────────────────────────────── */}
@@ -203,15 +205,16 @@ export function TheActivationPage() {
         aria-label={t(copy.hero.eyebrow)}
         className="relative min-h-[72vh] flex items-center px-md py-2xl bg-section-base overflow-hidden"
       >
+        <BootcampHeroPattern variant="activation" />
         <FiligraneNumber number="01" position="right" />
         <div className="relative max-w-default mx-auto w-full px-md flex flex-col items-start gap-md max-w-[var(--container-content)]">
           <Eyebrow>{t(copy.hero.eyebrow)}</Eyebrow>
           <MaskRevealHeading
             as="h1"
             priority="lcp"
-            className="font-normal tracking-[-0.04em] text-[clamp(2.25rem,1.4rem+3vw,4.5rem)] leading-[1.05] max-w-[26ch]"
+            className="font-normal tracking-[-0.04em] text-[clamp(2.25rem,1.4rem+3vw,4.5rem)] leading-[1.05] max-w-[26ch] bg-clip-text text-transparent bg-[linear-gradient(110deg,oklch(0.96_0.02_240)_0%,oklch(0.82_0.06_220)_45%,oklch(0.94_0.03_260)_100%)]"
           >
-            <span className="text-shimmer">{t(copy.hero.h1)}</span>
+            <span>{t(copy.hero.h1)}</span>
           </MaskRevealHeading>
 
           <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[58ch] mt-sm">
@@ -559,6 +562,7 @@ export function TheActivationPage() {
           window.location.assign(ROUTES.contact[locale]);
         }}
         preLaunchNote={t(copy.valuePrice.preLaunchNote)}
+        variant="activation"
       />
 
       {/* ─── 13. PREUVE & CRÉDIBILITÉ JONAS ────────────────────────────── */}

@@ -1,6 +1,7 @@
 import { ArrowRight, Check } from 'lucide-react';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import type { BootcampVariant } from './BootcampHeroPattern';
 
 interface ValueRow {
   /** Libellé du composant de valeur (ex. "3 jours immersifs"). */
@@ -40,6 +41,12 @@ interface ValuePriceTableProps {
   readonly onCtaSecondaryClick?: () => void;
   /** Note mode pré-lancement (ex. "Inscriptions à venir — early-bird"). */
   readonly preLaunchNote?: string;
+  /** Variant bootcamp — drives accent + section label.
+   *   - army       → "Engagement" + steel accent
+   *   - edge       → "Application" + bronze accent + roman label
+   *   - activation → "Installation" + platinum accent + version label
+   * Defaults to legacy gold when omitted. */
+  readonly variant?: BootcampVariant;
 }
 
 /**
@@ -72,8 +79,10 @@ export function ValuePriceTable({
   onCtaPrimaryClick,
   ctaSecondaryLabel,
   onCtaSecondaryClick,
-  preLaunchNote
+  preLaunchNote,
+  variant
 }: ValuePriceTableProps) {
+  const theme = variant ? variantTheme[variant] : legacyTheme;
   return (
     <ScrollReveal>
       <section
@@ -87,7 +96,7 @@ export function ValuePriceTable({
                 <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-silver/20 bg-base/40 backdrop-blur-sm shadow-haptic-inset">
                   <span
                     aria-hidden="true"
-                    className="inline-block h-1.5 w-1.5 rounded-full bg-gold animate-eyebrow-dot-pulse"
+                    className={`inline-block h-1.5 w-1.5 rounded-full animate-eyebrow-dot-pulse ${theme.dotBg}`}
                   />
                   <span className="text-eyebrow uppercase tracking-widest text-silver font-display">
                     {eyebrow}
@@ -124,7 +133,9 @@ export function ValuePriceTable({
                 </div>
               </dl>
 
-              <div className="mt-md flex flex-col items-center text-center gap-2 p-md rounded-lg bg-base border border-gold/25">
+              <div
+                className={`mt-md flex flex-col items-center text-center gap-2 p-md rounded-lg bg-base border ${theme.priceBorder}`}
+              >
                 <span className="inline-flex items-baseline gap-3">
                   <span className="sr-only">{priceRegularLabel} : </span>
                   <span
@@ -138,10 +149,14 @@ export function ValuePriceTable({
                   </span>
                 </span>
                 <p className="flex flex-col items-center gap-1">
-                  <span className="text-eyebrow uppercase tracking-widest text-gold/70 font-display text-xs">
+                  <span
+                    className={`text-eyebrow uppercase tracking-widest font-display text-xs ${theme.priceLabel}`}
+                  >
                     {priceLaunchLabel}
                   </span>
-                  <span className="text-[clamp(2.25rem,1.5rem+2.8vw,3.5rem)] text-gold font-display font-normal tracking-[-0.04em] tabular-nums leading-none">
+                  <span
+                    className={`text-[clamp(2.25rem,1.5rem+2.8vw,3.5rem)] font-display font-normal tracking-[-0.04em] tabular-nums leading-none ${theme.priceAmount}`}
+                  >
                     {priceLaunch}
                   </span>
                 </p>
@@ -155,7 +170,7 @@ export function ValuePriceTable({
                       className="flex items-start gap-2 text-body text-silver opacity-85 text-pretty"
                     >
                       <Check
-                        className="h-4 w-4 max-w-none shrink-0 mt-1 text-gold/80"
+                        className={`h-4 w-4 max-w-none shrink-0 mt-1 ${theme.checkIcon}`}
                         aria-hidden="true"
                       />
                       <span>{option}</span>
@@ -169,7 +184,7 @@ export function ValuePriceTable({
                   type="button"
                   onClick={onCtaPrimaryClick}
                   aria-label={ctaPrimaryLabel}
-                  className="relative isolate inline-flex items-center gap-2 rounded-pill px-md py-[0.65rem] text-eyebrow uppercase tracking-wider font-display transition-all duration-base bg-[linear-gradient(180deg,oklch(0.86_0.085_75)_0%,oklch(0.66_0.085_75)_100%)] text-base shadow-haptic-card hover:scale-[1.02] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  className={`relative isolate inline-flex items-center gap-2 rounded-pill px-md py-[0.65rem] text-eyebrow uppercase tracking-wider font-display transition-all duration-base text-base shadow-haptic-card hover:scale-[1.02] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 ${theme.cta}`}
                 >
                   <span>{ctaPrimaryLabel}</span>
                   <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
@@ -199,3 +214,49 @@ export function ValuePriceTable({
     </ScrollReveal>
   );
 }
+
+// ─── Theming maps ────────────────────────────────────────────────────────
+interface PriceTheme {
+  readonly dotBg: string;
+  readonly priceBorder: string;
+  readonly priceLabel: string;
+  readonly priceAmount: string;
+  readonly checkIcon: string;
+  readonly cta: string;
+}
+
+const legacyTheme: PriceTheme = {
+  dotBg: 'bg-gold',
+  priceBorder: 'border-gold/25',
+  priceLabel: 'text-gold/70',
+  priceAmount: 'text-gold',
+  checkIcon: 'text-gold/80',
+  cta: 'bg-[linear-gradient(180deg,oklch(0.86_0.085_75)_0%,oklch(0.66_0.085_75)_100%)] focus-visible:outline-gold'
+};
+
+const variantTheme: Record<BootcampVariant, PriceTheme> = {
+  army: {
+    dotBg: 'bg-[oklch(0.78_0.04_250)]',
+    priceBorder: 'border-[oklch(0.65_0.04_250)]/30',
+    priceLabel: 'text-[oklch(0.78_0.04_250)]/80',
+    priceAmount: 'text-[oklch(0.86_0.04_250)]',
+    checkIcon: 'text-[oklch(0.78_0.04_250)]/85',
+    cta: 'bg-[linear-gradient(180deg,oklch(0.78_0.04_250)_0%,oklch(0.55_0.04_250)_100%)] focus-visible:outline-[oklch(0.78_0.04_250)]'
+  },
+  edge: {
+    dotBg: 'bg-[oklch(0.7_0.08_60)]',
+    priceBorder: 'border-[oklch(0.62_0.08_60)]/30',
+    priceLabel: 'text-[oklch(0.7_0.08_60)]/85',
+    priceAmount: 'text-[oklch(0.78_0.08_60)]',
+    checkIcon: 'text-[oklch(0.7_0.08_60)]/85',
+    cta: 'bg-[linear-gradient(180deg,oklch(0.78_0.08_60)_0%,oklch(0.55_0.08_60)_100%)] focus-visible:outline-[oklch(0.7_0.08_60)]'
+  },
+  activation: {
+    dotBg: 'bg-[oklch(0.88_0.02_240)]',
+    priceBorder: 'border-[oklch(0.78_0.05_240)]/30',
+    priceLabel: 'text-[oklch(0.88_0.02_240)]/85',
+    priceAmount: 'text-[oklch(0.92_0.02_240)]',
+    checkIcon: 'text-[oklch(0.88_0.02_240)]/90',
+    cta: 'bg-[linear-gradient(180deg,oklch(0.92_0.02_240)_0%,oklch(0.7_0.05_240)_100%)] text-[oklch(0.16_0.005_80)] focus-visible:outline-[oklch(0.88_0.02_240)]'
+  }
+};

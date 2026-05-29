@@ -439,6 +439,18 @@
     animation: eyebrow-dot-pulse 3000ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
   }
 
+  /* Activation bootcamp — energy pulse drift, slow opacity breathing on
+   * radial gradients + sine wave layer. GPU-safe (opacity only). */
+  @keyframes activation-pulse-shift {
+    0%,
+    100% {
+      opacity: 0.95;
+    }
+    50% {
+      opacity: 0.55;
+    }
+  }
+
   /* Card siblings dim on hover — when one card in a `[data-card-group]`
    * grid is hovered, sibling cards subtly fade + scale down. Uses CSS
    * `:has()` (Chromium 105+, Safari 15.4+, Firefox 121+). Falls back to

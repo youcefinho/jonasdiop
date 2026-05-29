@@ -11,6 +11,7 @@ import { submitWaitlist } from '@/lib/api/waitlist';
 import { useT } from '@/lib/i18n/useT';
 import { FaqSchemaScript, SchemaScript } from '@/lib/seo/SchemaScript';
 import { BonusList } from './BonusList';
+import { BootcampHeroPattern } from './BootcampHeroPattern';
 import { BootcampStickyBar } from './BootcampStickyBar';
 import { DeliverablesTable } from './DeliverablesTable';
 import { EdgeApplicationFormShell } from './EdgeApplicationFormShell';
@@ -220,6 +221,7 @@ export function TheEdgePage() {
         ctaLabel={t(copy.stickyBar.ctaLabel)}
         onCtaClick={scrollToApplication}
         placesLabel={t(copy.stickyBar.placesLabel)}
+        variant="edge"
       />
 
       {/* ─── 2. HERO ────────────────────────────────────────────────────── */}
@@ -227,19 +229,20 @@ export function TheEdgePage() {
         aria-label={t(copy.hero.eyebrow)}
         className="relative min-h-[78vh] flex items-center px-md py-2xl bg-section-base overflow-hidden"
       >
+        <BootcampHeroPattern variant="edge" />
         <FiligraneNumber number="01" position="right" />
         <div className="relative max-w-default mx-auto w-full px-md flex flex-col items-start gap-md max-w-[var(--container-content)]">
           <Eyebrow>{t(copy.hero.eyebrow)}</Eyebrow>
           <MaskRevealHeading
             as="h1"
-            className="font-normal tracking-[-0.04em] text-[clamp(2.25rem,1.3rem+3.2vw,4.75rem)] leading-[1.04] max-w-[24ch]"
+            className="font-normal italic tracking-[-0.02em] text-[clamp(2.25rem,1.3rem+3.2vw,4.75rem)] leading-[1.06] max-w-[24ch] [font-feature-settings:'liga','dlig']"
           >
-            <span className="text-shimmer">{t(copy.hero.h1)}</span>
+            <span className="text-[oklch(0.96_0.02_60)]">{t(copy.hero.h1)}</span>
           </MaskRevealHeading>
           <p className="text-body-lg text-silver opacity-85 text-pretty max-w-[62ch]">
             {t(copy.hero.sub)}
           </p>
-          <p className="text-eyebrow uppercase tracking-widest text-gold/80 font-display text-xs">
+          <p className="text-eyebrow uppercase tracking-widest text-[oklch(0.7_0.08_60)]/85 font-display text-xs">
             {t(copy.hero.microProof)}
           </p>
           <div className="mt-md">
@@ -543,6 +546,7 @@ export function TheEdgePage() {
         ctaSecondaryLabel={t(copy.valuePrice.ctaSecondaryLabel)}
         onCtaSecondaryClick={scrollToApplication}
         preLaunchNote={t(copy.valuePrice.preLaunchNote)}
+        variant="edge"
       />
 
       {/* "Pourquoi ce prix" — note importante PDF §11 ────────────────── */}
