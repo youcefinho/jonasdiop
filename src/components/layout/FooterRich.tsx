@@ -80,7 +80,7 @@ export function FooterRich() {
             </button>
           </form>
         </div>
-        <p className="text-sm text-silver/55 mt-sm md:text-right">
+        <p className="text-sm text-silver/75 mt-sm md:text-right">
           {t({
             fr: 'Plateforme email en cours d’intégration · disponible au lancement',
             en: 'Email platform integration in progress · available at launch'
