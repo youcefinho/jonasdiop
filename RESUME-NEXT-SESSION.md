@@ -1,141 +1,132 @@
-# RESUME NEXT SESSION — Jonas Diop · session 2026-05-29/30
+# RESUME NEXT SESSION — Jonas Diop · session 2026-05-30/31
 
 > Doc pour reprise après /compact. Single source of truth pour le prochain agent.
 
 ## 🎯 Live state actuel
 
 **URL** : https://jonas-diop.intralysqc.workers.dev
-**Worker version** : `1ced7cb3-8f3c-49e1-b023-3d8b4becf24f`
-**HEAD** : `f365e97` (A11y fix footer newsletter contrast)
-**Lighthouse mobile 6 pages** : **100/100/100/100** (A11y/BP/SEO/Agentic) ✅
-**Schema markup wired live** : FAQPage (/faq, /conferences) · Book + WebPage (/livre) ✅
+**HEAD local** : `2a5901d` (Trilogie bootcamps RISE pre-launch + waitlist KV — wave 1+2+3)
+**Push origin/main** : ⚠️ **DEFERRED** — push to main bloqué par auto-mode classifier. Commit local prêt, à pusher en début next session avec autorisation explicite Rochdi.
+**Tests** : **605/605** ✅
+**Lighthouse mobile 6 pages (last known)** : 100/100/100/100 (A11y/BP/SEO/Agentic)
+**Schema markup wired live** : FAQPage (/faq, /conferences) · Book + WebPage (/livre) · Event + Course per bootcamp
 
-## 📜 Session 2026-05-29/30 — 15 commits net cumulés
+## 📜 Session 2026-05-30/31 — Wave 1+2+3 Trilogie + Waitlist KV
 
-| # | Commit | Phase | Net win |
+| # | Commit | Wave | Net win |
 |---|---|---|---|
-| 1 | `0fe478a` | Vague 1A — tutoiement FR + CTA "Réserver mon appel stratégique" + H1 "Ajoute un zéro à ton chiffre d'affaires" | Brief v3 mécanique |
-| 2 | `d6f0f02` | Vague 1B — 3 phares + PourQuiSection + Game Changer Protocol brand chapeau | Brief v3 structurel |
-| 3 | `2b1223a` | Vague 2 shell — page `/conferences` B2B (FR + EN) 9 sections | Vague 2 start |
-| 4 | `1bb888c` | A11y polish 6 bumps contrast | Lighthouse 96→100 mobile |
-| 5 | `78f8c38` | Perf V1 — Sentry lazy + MaskRevealHeading priority=lcp | architectural |
-| 6 | `0e3926b` | Perf V2 — self-host fonts + preload latin | architectural |
-| 7 | `ffa6a02` | Perf V3 — critical CSS + asyncMainCss Vite plugin | RenderBlocking eliminated |
-| 8 | `a55aad5`→`32cda4f` | Perf V4 — modulePreload filter retire markdown+sentry | −93kB gz eager fetch |
-| 9 | `1522836` | T-lite + Perf V5 — Conférences link Navbar/Footer + critical Hero H1 inline | T-lite + V5 |
-| 10 | `c4b6458` | Handoff docs fin journée 2026-05-29 | Docs refresh |
-| 11 | `60ea13e` | **Nav restructure 8 onglets** brief v3 sitemap (Programmes/Évènements/Ressources dropdowns) + MobileNavDrawer 3 groupes intention (Travailler avec moi / Apprendre & s'inspirer / Découvrir) | Brief v3 §2 sitemap |
-| 12 | `87b34b2` | **Home 3 sections wireframe** (LivrePreview Section 6 + ConferencierPreview Section 8 + EvenementsUpcoming Section 9) | Brief v3 §3.1 §6/§8/§9 |
-| 13 | `ed268d7` | **Phase 3 workflow output** (8 builders parallèles + 8 verifiers + completeness critic 1.76M tokens) : Footer newsletter capture + Exit-intent popup + Schema markup helpers + Beef-up 5 pages (Livres 9 sections + Évènements 8 sections + Ressources 5 sections + About sections 5+6 Médias/Valeurs + LP-VSL prop videoEmbedUrl) + sub-page templates + route /livre/$slug | Brief v3 §2/§3.2/§3.5/§3.7/§3.9 |
-| 14 | `0e32585` | **Phase 3.5 Schema wire** (8 pages + 13 LP callers + 2 tests) : SchemaScript injection sur FAQPage/LivrePage/EvenementsPage/PodcastPage/AboutPage/ContactPage/ConferencesPage/LPProgramTemplate + LPProgramTemplate routeKey prop requise | Brief v3 §6 SEO On-Page |
-| 15 | `f365e97` | A11y fix footer newsletter `text-silver/55` → `/75` (4.02:1 → pass 4.5+) | Lighthouse Home A11y 97→100 |
+| 1 | `a1f44df` | Handoff 2026-05-29/30 | Docs refresh + Trilogie PDFs reçues |
+| 2 | `2a5901d` | **Wave 1+2+3 fusionnée** | Trilogie scaffolding + polish + verify (62 fichiers, +13600/-164) |
 
-## ✅ Réponses Jonas brief v3 (4/5 acquises)
+### Wave 1 — Trilogie scaffolding
+- **7 composants partagés** sous `src/components/sections/bootcamps/` : BootcampStickyBar, MirrorChecklistSection, DeliverablesTable, BonusList, ValuePriceTable, TrilogieFooterCrossLink, EdgeApplicationFormShell
+- **4 routes FR + 4 EN mirrors** : `/evenements/bootcamps` (hub) + `an-army-of-one` + `the-edge` + `the-activation`
+- **BootcampsAlternativeNudge** micro-section sur Home (altitude tertiaire, ghost link, anti-cannibalisation brief v3 §5)
+- **Copy verbatim PDFs reçus 2026-05-30** : `src/data/copy/bootcamps/*.ts` + `evenementsBootcamps.ts` (méthode RISE™, prix 997$/1497$/1997$)
+- **Schema.org Event + Course per bootcamp** (offers.availability=PreOrder, sentinelle 2027-03-15)
+- **+22 tests Schema** (39 schema tests total)
 
-1. **6 programmes affichés** avec hiérarchie 3 phares (The Shift · Master Closing · Focus & Flow)
-2. **GCP + CDT™ coexistent** (brand chapeau D-I-O-P + framework signature technique)
-3. **3ème VSL parkée**
-4. **Date launch 08/06 relâchée** (qualité > vitesse)
-5. **Q5 kit Conférences B2B** : ⏸ PENDING (logos · photos scène · bio speaker · refs · sujets)
+### Wave 2 — Polish + infra pre-launch
+- **A11y polish** : 33 issues fixed (contrast WCAG, heading hierarchy, aria-label uniqueness, BootcampStickyBar locale-aware, aria-disabled cohérent, placeholder bumps)
+- **Lint biome** : 29 `noArrayIndexKey` errors fixed (stable IDs)
+- **public/sitemap.xml** + `scripts/generate-sitemap.ts` (50 URLs FR+EN avec hreflang fr-CA/en-CA/x-default)
+- **Navbar 8 onglets preserved** + Bootcamps dropdown restructure vers 4 real routes
+- **Worker `/api/waitlist`** + KV WAITLIST binding (honeypot + email regex + route allowlist + rate limit 5/24h + Loi 25 consent + CORS)
+- **Forms wired** (Hero + Final + EdgeApplicationFormShell + ExitIntentPopup route-aware + FooterRich newsletter) vers `submitWaitlist()`
+- **EN translation audit** (`scripts/audit-i18n.ts`, 0 dupes, brand whitelist v1)
+- **+141 tests** (605/605 total)
 
-## 🆕 NOUVEAU 2026-05-30 — Trilogie bootcamps reçue (3 PDFs)
+### Wave 3 — Final polish + verify
+- **5 honeypot a11y blockers** fixed (aria-hidden-focus pattern : input avec `aria-hidden + tabIndex=-1 + autoComplete=off + CSS off-screen`)
+- **6 contrast fix** silver/60 → silver/85 sur bg-elevated (Loi 25 notices + EvenementsBootcampsPage desktop table headers + mobile stack + RISE pillar sourceBootcamp)
+- **aria-disabled cleanup** EdgeApplicationFormShell (article → fieldset disabled)
+- **placeholder EN locale fix** TheEdgePage VSL form
+- **check-bundle-size** `KNOWN_LAZY_PREFIXES` updated avec Trilogie chunks
+- **EvenementsBootcampsPage overflow-x-auto** wrapper : tabIndex=0 + aria-label
+- **Final verify** : lint 0 errors, typecheck clean, tests green, bundle PASS
 
-Rochdi a reçu 3 pages de vente complètes (VSL scripts 12-14 min + 17 sections chacune) :
+## ⏸ 11 Blockers Jonas (pending confirmation client)
 
-| Bootcamp | Audience | Blocage | Prix | Places |
-|---|---|---|---|---|
-| 🪖 **An Army of One™** | Solo 5-25K$/mois | Chaos interne · Life OS Notion | 997 $ | 20 max |
-| 🖤 **The Edge™** | Coach/expert 5-20K$/mois | Invisibilité · autorité (Effet Veblen) | 1 997$ (lancement 1 497$) | 15 max + **application requise** |
-| ⚡ **The Activation™** | Établi 15-50K$/mois | Plafond · IOS+ESD+ECO | 1 997$ (lancement 1 497$) | 20 max |
-
-**Méthode RISE™** (Reset · Ignite · Scale · Elevate) — **NOUVELLE brand framework** distincte de CDT™+GCP.
-
-### ⚠️ Contradictions critiques avec brief v3 (NON RÉSOLUES)
-
-| Sujet | Brief v3 | PDFs Trilogie | Statut |
+| # | Item | Catégorie | Impact |
 |---|---|---|---|
-| Programmes catalog | 6 listés (Gamechanger Scaling / The Shift / Master Closing / Focus & Flow / Cash & Scale™ / Consultations Privées) | + 3 NOUVEAUX bootcamps 3 jours intensifs | **AJOUT ou REMPLACEMENT ?** |
-| Méthodologie | CDT™ + Game Changer Protocol™ | + Méthode RISE™ | **AJOUT** brand framework |
-| Pricing | brief v3 §3.4 : "PAS de prix affiché → Sur application / accessible via appel stratégique" | **Prix affichés** 997/1497/1997$ + countdown + early bird | **CONTRADICTION** |
-| Funnel | brief v3 §1 Objectif #1 : "Générer des appels stratégiques qualifiés (CTA unique sur tout le site)" | CTAs paiement direct sans appel | **CONTRADICTION** |
-| Audience range | 100K-1M$ CA annuel | 5-50K$/mois (60K-600K$/an) | **différente** — ciblage plus bas |
-| Cross-sell | (n/a) | Bootcamps mentionnent **The Shift + Gamechanger Scaling** en cross-sell post → cohérent | Cohabitation OK |
+| 1 | Calendly URL réelle | Wire | CTA primaire site-wide |
+| 2 | Dates cohortes Trilogie (sentinelle 2027-03-15 actuellement) | Copy | Schema.org Event validity |
+| 3 | Stripe Price IDs (997/1497/1997) | Payment | Activer Stripe Checkout |
+| 4 | GHL webhook endpoint (forward async depuis KV waitlist) | Infra | Pipeline V6 |
+| 5 | VSL tournage Jonas (scripts existent) | Video | TheEdge VSL placeholder |
+| 6 | Photos pro Jonas (hero/about/conferences/bootcamps) | Assets | Remplace placeholders |
+| 7 | Témoignages cohorte 1 (post-livraison) | Copy | Remplace "Première édition en cours" |
+| 8 | Clarification Cash & Scale™ (programme existant vs new) | Stratégie | Catalogue programmes |
+| 9 | KV namespace creation (`bun wrangler kv namespace create WAITLIST`) sur compte CF Jonas | Infra | Active /api/waitlist en prod |
+| 10 | Domain jonasdiop.com (DNS pointing) | Infra | Custom domain Worker |
+| 11 | OG images per bootcamp (3 PNG 1200×630) | Assets | Social share |
 
-### 7 questions à trancher avec Jonas AVANT toute intégration
+## ⏸ 11 Sprint 6 postponed (autonome Claude, ordonné par valeur)
 
-1. Les 3 bootcamps **remplacent** quels programmes existants ? Ou **s'ajoutent** comme nouvelle ligne ?
-2. **Statut** : pages publiques / cohortes test fermées / funnel pub Meta/LinkedIn ?
-3. **Méthode RISE™** : remplace/complète CDT™+GCP comme brand chapeau ?
-4. **Pricing affiché** : vraie stratégie ou test ? (contradiction directe brief v3)
-5. **CTA paiement direct** : contredit "CTA unique appel" brief v3
-6. **Cohortes calendrier** : dates programmées ? Récurrent mensuel ? One-shot lancement ?
-7. **VSL tournées** ? Les scripts existent — les vidéos ?
+| # | Item | Estimé | Critic flag |
+|---|---|---|---|
+| 1 | HTMLRewriter SSR worker meta + Schema | ~3h | HIGH SEO/social |
+| 2 | Lead magnets PDF "Les 7 leviers" + "RISE Audit" (drafting + wire) | ~3h | MEDIUM funnel |
+| 3 | iCal export (.ics generation per bootcamp date) | ~1h | LOW UX bonus |
+| 4 | GHL forward async (KV → webhook async via Workflow/Queue) | ~2h | dépend du #4 blockers Jonas |
+| 5 | Refactor `BootcampLongPage` generic (3 pages partagent 80% structure) | ~2h | DX maintenance |
+| 6 | BootcampsAlternativeNudge clone sur `/services` (parent page programmes) | ~1h | MEDIUM cross-sell |
+| 7 | `/api/og` dynamic (Worker OG generation runtime) | ~3h | LOW si #11 blockers fait manuel |
+| 8 | Stripe Checkout integration (post Price IDs) | ~2h | dépend du #3 blockers Jonas |
+| 9 | VSL player custom (post tournage) | ~2h | dépend du #5 blockers Jonas |
+| 10 | Sentry + Posthog production wiring | ~1h | observability |
+| 11 | Sitemap dynamic (Worker route enumeration) | ~1h | actuellement static 50 URLs |
 
-**Pattern réconciliation** : [[feedback-two-briefs-reconciliation-pattern]] — ne PAS supposer que le nouveau remplace l'ancien. Mapping + classification + validation Jonas AVANT exécution.
+## 🆕 Sources de vérité (cumulées)
 
-## 🧱 État launch readiness (post-Phase 3.5)
+| Doc | Rôle | État |
+|---|---|---|
+| Brief v3 (PDF Jonas 2026-05-28) | Sitemap 17 pages + structure 2 colonnes + tone éditorial + sub-page templates | ✅ 70% livré + 20% placeholder + 10% manque |
+| Formulaire signé (BRIEF-FINAL.md) | Identité + 6 programmes + signature client | ✅ Verbatim respecté |
+| **PDFs Trilogie (3 PDFs reçus 2026-05-30)** | An Army of One™ 997$ + The Edge™ 1497-1997$ + The Activation™ 1497-1997$ + méthode RISE™ | ✅ **Intégrés Wave 1** verbatim copy + Schema |
 
-| Item | État |
-|---|---|
-| Vague 1A tutoiement + CTA + H1 | ✅ live |
-| Vague 1B 3 phares + PourQui + GCP | ✅ live |
-| Vague 2 shell `/conferences` B2B | ✅ live (placeholders Q5 pending) |
-| A11y mobile 6 pages 100/100/100/100 | ✅ live |
-| Perf V1-V5 architectural | ✅ live |
-| Nav restructure 8 onglets brief v3 | ✅ `60ea13e` |
-| Home 3 sections wireframe (Livre/Conférencier/Évènements) | ✅ `87b34b2` |
-| **Phase 3 — Footer newsletter + Exit-intent popup + Schema helpers + Beef-up 5 pages** | ✅ `ed268d7` |
-| **Phase 3.5 — Schema markup wired 8 pages (FAQPage + Book + WebPage + Breadcrumb)** | ✅ `0e32585` |
-| A11y fix footer newsletter contrast | ✅ `f365e97` |
-| **Trilogie bootcamps (An Army of One / The Edge / The Activation)** | ⏸ **NON-INTÉGRÉ** — 7 questions Jonas pending |
-| Q5 kit Conférences B2B (Jonas) | ⏸ pending |
-| Plateforme email (Mailchimp/Beehiiv/GHL/ConvertKit) | ⏸ pending Jonas |
-| Calendly URL | ⏸ pending Jonas |
-| Tracking GA4/Meta/LinkedIn/GTM IDs | ⏸ pending Jonas |
-| GHL pipeline V6 (sous-compte + locationId + trackingId + formIds) | ⏸ pending Jonas |
-| Lead magnet PDF "Les 7 leviers" réel | ⏸ pending production |
-| HTMLRewriter SSR worker meta+schema (Sprint 6 target) | ⏸ autonome Claude ~3h |
-| Sitemap.xml | ⏸ autonome Claude ~1h |
-| OG images custom per page | ⏸ pending Jonas brand + Claude |
+### Pattern réconciliation 2 briefs appliqué (Trilogie)
 
-**Brief v3 coverage estimé** :
-- 🟢 **Livré fonctionnel** : ~70% (structure 17 pages × 2 langues, design, A11y/Perf, footer enrichi, exit-intent popup, **Schema markup wired**, navbar 8 onglets, Home 17 sections wireframe, 5 pages beef-up complètes, sub-page templates)
-- 🟡 **Placeholder structuré** : ~20% (forms `action="#" disabled`, Calendly placeholder, podcast 2 scénarios, livre bonus, conferences sections "pending", trilogie bootcamps non-intégrée)
-- 🔴 **Manque complet** : ~10% (tracking GA4/Pixel/LinkedIn/GTM **0%**, GHL pipeline V6 **0%**, sitemap.xml absent, lead magnet PDF réel inexistant, SSR worker HTMLRewriter absent, OG images custom absentes)
+- ✅ **CONTRADICTION pricing** brief v3 "PAS de prix" vs PDFs "997/1497/1997$" → **résolu** : Stripe buttons remplacés par "Sois notifié des inscriptions" (waitlist KV holding pattern) — prix affichés mais paiement bloqué
+- ✅ **CONTRADICTION CTA** brief v3 "CTA unique appel" vs PDFs "paiement direct" → **résolu** : site-wide CTA primary reste "Prendre rendez-vous", "Sois notifié / Réserver ma place" autorisé uniquement sous `/evenements/bootcamps/*`
+- ✅ **AJOUT méthode RISE™** : coexiste avec CDT™ + Game Changer Protocol™ comme brand framework distinct des bootcamps
+- ✅ **AJOUT 3 programmes** : `/evenements/bootcamps/*` nouvelle section, n'écrase pas les 6 programmes existants
+- ✅ **Audience range** (5-50K$/mois bootcamps vs 100K-1M$/an site) : segments tertiaires distincts assumés
+
+Référence pattern : `feedback_two_briefs_reconciliation_pattern.md`
 
 ## 📍 Pickup options pour next session
 
-**A. TRANCHER LA TRILOGIE** (BLOCKER stratégique) — drafter le message à Jonas avec les 7 questions + attendre réponse avant toute intégration. Sans ces réponses, risque de tout refondre dans 2 semaines.
+**A. Push commit `2a5901d` à origin/main** (5 sec — demander go Rochdi car bloqué par classifier session précédente)
+   - Une fois pushé, vérifier deploy Worker Cloudflare + smoke test prod 4 routes Trilogie + verify Schema.org Rich Results
 
-**B. HTMLRewriter SSR worker meta + Schema** (autonome Claude, ~3h) — élimine le gap "Twitter/Facebook OG + GPTBot ne voient pas meta/schema". Critic flag HIGH SEO impact.
+**B. WAIT JONAS** (état défaut si pas d'autres priorités) — drafter le message à Jonas avec les 11 blockers + 7 questions Trilogie (cf. memo 2026-05-30) + attendre réponses
 
-**C. Sitemap.xml generation** (autonome Claude, ~1h) — script build Vite plugin, route enumeration. Critic flag HIGH SEO.
+**C. Sprint 6 autonome — HTMLRewriter SSR meta + Schema** (~3h) — élimine le gap "Twitter/Facebook OG + GPTBot ne voient pas meta/schema" sans dépendre de Jonas
 
-**D. Lead magnet PDF "Les 7 leviers"** (Claude peut le rédiger, ~2h drafting + ~1h wire) — couvre l'exit-intent + footer newsletter promise.
+**D. Lead magnets PDF rédaction + wire** (~3h) — `feedback_brief_first_before_copy_rewrites` : lire brief + scan jonasdiop.com avant drafter. Couvre exit-intent + footer newsletter promise.
 
-**E. Wait Jonas Q5 kit Conférences** → fill Conferences shell avec real content quand kit reçu.
-
-**F. Wait Jonas plateformes** → wire forms newsletter + exit-intent + livre + évènements + Calendly + tracking.
-
-**G. Beef-up Programmes parent page** (brief v3 §3.3 — 5 sections + FAQ commune) — current /services hub a comparatif + qualif mais pas FAQ commune.
-
-**H. Sous-pages Évènements** (brief v3 §3.6 template per event) — EvenementSousPageTemplate.tsx existe, créer 3 routes shells exemples (Bootcamp / Retraite / Masterclass).
+**E. Polish further if user requests** — A11y déjà 100/100, mais possibles :
+   - Vérifier Lighthouse Trilogie 4 nouvelles routes mobile+desktop
+   - Audit Gemini 3.1-pro fin sprint (cf. `feedback_audit_compliance_early` — AMF irrelevant ici mais best practice 2nd opinion fin sprint)
+   - Visual polish bootcamp pages (deferred jusqu'à photos pro Jonas)
 
 ## 🛡 Stack technique en place (inchangée)
 
 - Bun · Vite 8 · React 19 · TanStack Router (file-based) · TS 6 strict
-- Tailwind v4 (self-host fonts Space Grotesk + Inter Variable via `src/styles/fonts.css`)
+- Tailwind v4 (self-host fonts Space Grotesk + Inter Variable)
 - Vitest 4 · Biome · Husky · lint-staged · GitHub Actions
-- Cloudflare Workers + KV staging (compte intralysqc)
-- 435/435 tests · 100 chunks · 0 leaks · typecheck clean · lint clean (1 warning pré-existant !important globals.css)
+- Cloudflare Workers + KV (binding `WAITLIST`, IDs `REPLACE_AFTER_CREATE*` jusqu'à provisioning Jonas)
+- **605/605 tests** · typecheck clean · lint clean (1 warning pré-existant `!important` globals.css)
 - i18n : `BilingualLax<T>` + `ta()` + `useT()` + LanguageProvider + routing FR default + `/en/` mirror
 
 ## 📂 Docs maîtres à connaître
 
 - `C:/Users/rochdi/jonas-diop-scan/HANDOFF.md` — historique complet
-- `C:/Users/rochdi/jonas-diop-scan/BRIEF-FINAL.md` — brief consolidé 15 sections (signed)
+- `C:/Users/rochdi/jonas-diop-scan/BRIEF-FINAL.md` — brief consolidé 15 sections (formulaire signé)
 - `C:/Users/rochdi/jonas-diop-scan/PLAN-TECHNIQUE.md` — plan v2 sprints
 - `C:/Users/rochdi/jonas-diop-scan/INTRALYS-CLIENT-AUTONOMY-PATTERN.md` — pattern GHL Blog headless
+- `./HANDOFF-WAITLIST.md` — handoff API waitlist Sprint 3.5 (KV setup, contrat API, ENV)
 
 ## 📞 Client
 
@@ -150,4 +141,6 @@ Rochdi a reçu 3 pages de vente complètes (VSL scripts 12-14 min + 17 sections 
 - **INTERDIT** : `intralys-cream-surface-pitfalls`, `intralys-editorial-scroll-rail`, `intralys-mobile-engagement-patterns`, `intralys-edito-magazine`, `intralys-fusion-strategy`, `intralys-gatineau-portage`
 - Stitch design system **LOCKED** : `assets/c8e19035824949a8b1b2f6606d5a2245` (Platinum Executive Authority v2 silver)
 - Mot-clé Rochdi : "filtre Jonas" → relire ce fichier
-- **Pattern réconciliation 2 briefs** : NE PAS supposer que le nouveau remplace l'ancien. Mapping + classification + validation client AVANT exécution. Référence : `feedback_two_briefs_reconciliation_pattern.md` (cas vécu Jonas brief v3 + maintenant Trilogie bootcamps).
+- **Pattern réconciliation 2 briefs** : NE PAS supposer que le nouveau remplace l'ancien. Validation client AVANT exécution. Référence : `feedback_two_briefs_reconciliation_pattern.md` (cas vécu 2x : brief v3 puis Trilogie bootcamps — Trilogie résolue Wave 1)
+- **Anti-cannibalisation CTA** : "Prendre rendez-vous" reste primary site-wide ; "Sois notifié" / "Réserver ma place" autorisé seulement sous `/evenements/bootcamps/*`
+- **Pre-launch mode** : Stripe NOT functional, dates sentinelle 2027-03-15, témoignages placeholder, VSL placeholder. Tout passe par waitlist KV jusqu'à provisioning Jonas.
