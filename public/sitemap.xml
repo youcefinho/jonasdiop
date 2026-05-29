@@ -363,6 +363,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/bootcamps/the-activation"/>
   </url>
   <url>
+    <loc>https://jonas-diop.intralys.dev/evenements/retraites</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/retraites"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/retreats"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/retraites"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/events/retreats</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/retraites"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/retreats"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/retraites"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/evenements/masterclass</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/masterclass"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/masterclass"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/masterclass"/>
+  </url>
+  <url>
+    <loc>https://jonas-diop.intralys.dev/en/events/masterclass</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jonas-diop.intralys.dev/evenements/masterclass"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jonas-diop.intralys.dev/en/events/masterclass"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonas-diop.intralys.dev/evenements/masterclass"/>
+  </url>
+  <url>
     <loc>https://jonas-diop.intralys.dev/ressources</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>

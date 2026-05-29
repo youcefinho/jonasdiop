@@ -24,6 +24,8 @@ export type RouteKey =
   | 'evenements-bootcamp-an-army-of-one'
   | 'evenements-bootcamp-the-edge'
   | 'evenements-bootcamp-the-activation'
+  | 'evenements-retraites'
+  | 'evenements-masterclass'
   | 'ressources'
   | 'podcast'
   | 'mentions-legales'
@@ -70,6 +72,14 @@ export const ROUTES: RoutePaths = {
   'evenements-bootcamp-the-activation': {
     fr: '/evenements/bootcamps/the-activation',
     en: '/en/events/bootcamps/the-activation'
+  },
+  'evenements-retraites': {
+    fr: '/evenements/retraites',
+    en: '/en/events/retreats'
+  },
+  'evenements-masterclass': {
+    fr: '/evenements/masterclass',
+    en: '/en/events/masterclass'
   },
   ressources: { fr: '/ressources', en: '/en/resources' },
   podcast: { fr: '/podcast', en: '/en/podcast' },

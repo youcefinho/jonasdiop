@@ -44,7 +44,11 @@ const variantClass: Record<BootcampVariant, string> = {
   // Bronze italic serif — editorial prestige
   edge: 'text-[oklch(0.7_0.08_60)]/90 italic [font-feature-settings:"smcp"]',
   // Platinum versioning — performance lab telemetry
-  activation: 'text-[oklch(0.88_0.02_240)]/85 tabular-nums [font-variant-numeric:tabular-nums]'
+  activation: 'text-[oklch(0.88_0.02_240)]/85 tabular-nums [font-variant-numeric:tabular-nums]',
+  // Sage immersive — retreats (lowercase roman feels like field notes)
+  retraite: 'text-[oklch(0.74_0.05_155)]/85 italic',
+  // Indigo digital — masterclass (versioning style echo activation)
+  masterclass: 'text-[oklch(0.75_0.1_270)]/85 tabular-nums [font-variant-numeric:tabular-nums]'
 };
 
 function formatNumber(variant: BootcampVariant, index: number, total?: number): string {

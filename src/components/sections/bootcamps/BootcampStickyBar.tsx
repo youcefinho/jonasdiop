@@ -162,6 +162,20 @@ const variantTheme: Record<BootcampVariant, StickyTheme> = {
     icon: 'text-[oklch(0.88_0.02_240)]/90',
     price: 'text-[oklch(0.92_0.02_240)]',
     cta: 'bg-[linear-gradient(180deg,oklch(0.92_0.02_240)_0%,oklch(0.7_0.05_240)_100%)] text-[oklch(0.16_0.005_80)] focus-visible:outline-[oklch(0.88_0.02_240)]'
+  },
+  // Retraite — sage green, calm/immersive
+  retraite: {
+    emoji: 'text-[oklch(0.74_0.05_155)]/95',
+    icon: 'text-[oklch(0.74_0.05_155)]/85',
+    price: 'text-[oklch(0.82_0.05_155)]',
+    cta: 'bg-[linear-gradient(180deg,oklch(0.82_0.05_155)_0%,oklch(0.58_0.06_155)_100%)] focus-visible:outline-[oklch(0.74_0.05_155)]'
+  },
+  // Masterclass — indigo digital, accessible/online
+  masterclass: {
+    emoji: 'text-[oklch(0.75_0.1_270)]/95',
+    icon: 'text-[oklch(0.75_0.1_270)]/85',
+    price: 'text-[oklch(0.82_0.1_270)]',
+    cta: 'bg-[linear-gradient(180deg,oklch(0.82_0.1_270)_0%,oklch(0.6_0.12_270)_100%)] focus-visible:outline-[oklch(0.75_0.1_270)]'
   }
 };
 
@@ -169,5 +183,7 @@ const variantTheme: Record<BootcampVariant, StickyTheme> = {
 const variantSeparator: Record<BootcampVariant, string> = {
   army: '›', // tactical chevron
   edge: '·', // editorial dot
-  activation: '⟡' // diamond — energy node
+  activation: '⟡', // diamond — energy node
+  retraite: '◐', // half-moon — calm balance
+  masterclass: '◇' // open diamond — digital node
 };

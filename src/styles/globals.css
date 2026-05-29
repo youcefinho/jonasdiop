@@ -482,6 +482,16 @@
     --bc-accent-strong: oklch(0.94 0.02 240);
     --bc-pattern-stroke: oklch(0.78 0.05 240);
   }
+  [data-bootcamp="retraite"] {
+    --bc-accent: oklch(0.74 0.05 155);
+    --bc-accent-strong: oklch(0.82 0.05 155);
+    --bc-pattern-stroke: oklch(0.6 0.06 155);
+  }
+  [data-bootcamp="masterclass"] {
+    --bc-accent: oklch(0.75 0.1 270);
+    --bc-accent-strong: oklch(0.82 0.1 270);
+    --bc-pattern-stroke: oklch(0.6 0.12 270);
+  }
 
   /* Atmospheric per-variant tint — applied to body via :has() selector so it
    * lives behind ALL content (Navbar, sticky bar, sections, footer) and
@@ -506,6 +516,20 @@
     background-image:
       radial-gradient(ellipse 110% 70% at 70% 0%, oklch(0.26 0.04 240 / 0.4), transparent 60%),
       radial-gradient(ellipse 80% 60% at 30% 80%, oklch(0.23 0.05 200 / 0.3), transparent 65%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  body:has([data-bootcamp="retraite"]) {
+    background-image:
+      radial-gradient(ellipse 100% 65% at 50% 0%, oklch(0.22 0.04 155 / 0.4), transparent 60%),
+      radial-gradient(ellipse 75% 55% at 15% 85%, oklch(0.2 0.045 145 / 0.32), transparent 65%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  body:has([data-bootcamp="masterclass"]) {
+    background-image:
+      radial-gradient(ellipse 110% 65% at 40% 0%, oklch(0.23 0.06 270 / 0.42), transparent 60%),
+      radial-gradient(ellipse 80% 55% at 85% 90%, oklch(0.21 0.055 280 / 0.32), transparent 65%);
     background-attachment: fixed;
     background-repeat: no-repeat;
   }

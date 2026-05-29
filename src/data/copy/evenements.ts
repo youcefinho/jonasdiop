@@ -195,7 +195,8 @@ export const evenementsCopy = {
         ctaLabel: {
           fr: 'Voir la retraite',
           en: 'See the retreat'
-        } satisfies BilingualLax<string>
+        } satisfies BilingualLax<string>,
+        ctaRouteKey: 'evenements-retraites'
       },
       {
         id: 'masterclass',
@@ -219,7 +220,8 @@ export const evenementsCopy = {
         ctaLabel: {
           fr: 'Voir la masterclass',
           en: 'See the masterclass'
-        } satisfies BilingualLax<string>
+        } satisfies BilingualLax<string>,
+        ctaRouteKey: 'evenements-masterclass'
       }
     ]
   },

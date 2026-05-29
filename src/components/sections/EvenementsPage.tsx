@@ -12,6 +12,52 @@ import { useT } from '@/lib/i18n/useT';
 import { FaqSchemaScript, SchemaScript } from '@/lib/seo/SchemaScript';
 
 /**
+ * Per-card visual identity for the "Types d'événements" section. Each
+ * format reads as its own universe rather than 3 templated clones :
+ *  - bootcamps   → gold tactical (default Trilogy palette + crosshair glyph)
+ *  - retraites   → sage green immersive (mountain peak glyph)
+ *  - masterclass → indigo digital (open-window glyph)
+ */
+const CARD_THEMES = {
+  bootcamps: {
+    border: 'border-gold/25',
+    borderHover: 'hover:border-gold/55',
+    eyebrowColor: 'text-gold',
+    glyphColor: 'text-gold',
+    glyph: '⊕', // crosshair / tactical sight
+    sheen:
+      'bg-[linear-gradient(120deg,transparent_30%,oklch(0.74_0.085_75/0.08)_50%,transparent_70%)]',
+    ctaColor: 'text-gold',
+    ctaHover: 'hover:text-gold/80',
+    ctaFocusRing: 'focus-visible:ring-gold/40'
+  },
+  retraites: {
+    border: 'border-[oklch(0.74_0.05_155)]/25',
+    borderHover: 'hover:border-[oklch(0.74_0.05_155)]/55',
+    eyebrowColor: 'text-[oklch(0.74_0.05_155)]',
+    glyphColor: 'text-[oklch(0.74_0.05_155)]',
+    glyph: '▲', // mountain / peak
+    sheen:
+      'bg-[linear-gradient(120deg,transparent_30%,oklch(0.74_0.05_155/0.08)_50%,transparent_70%)]',
+    ctaColor: 'text-[oklch(0.78_0.05_155)]',
+    ctaHover: 'hover:text-[oklch(0.78_0.05_155)]/80',
+    ctaFocusRing: 'focus-visible:ring-[oklch(0.74_0.05_155)]/40'
+  },
+  masterclass: {
+    border: 'border-[oklch(0.75_0.1_270)]/25',
+    borderHover: 'hover:border-[oklch(0.75_0.1_270)]/55',
+    eyebrowColor: 'text-[oklch(0.75_0.1_270)]',
+    glyphColor: 'text-[oklch(0.75_0.1_270)]',
+    glyph: '▣', // open window / screen
+    sheen:
+      'bg-[linear-gradient(120deg,transparent_30%,oklch(0.75_0.1_270/0.08)_50%,transparent_70%)]',
+    ctaColor: 'text-[oklch(0.8_0.1_270)]',
+    ctaHover: 'hover:text-[oklch(0.8_0.1_270)]/80',
+    ctaFocusRing: 'focus-visible:ring-[oklch(0.75_0.1_270)]/40'
+  }
+} as const;
+
+/**
  * EvenementsPage — /evenements (FR) et /en/events (EN). Brief v3 §3.5.
  *
  * 8 sections complètes :
@@ -163,17 +209,34 @@ export function EvenementsPage() {
               {copy.types.items.map((item) => {
                 const ctaRouteKey =
                   'ctaRouteKey' in item ? (item.ctaRouteKey as keyof typeof ROUTES) : undefined;
+                // Per-card visual identity — each event type reads as a
+                // distinct universe : bootcamps = gold tactical, retraites =
+                // sage immersive, masterclass = indigo digital. Border
+                // accent + eyebrow accent + sheen gradient + corner glyph
+                // all shift per card.
+                const cardTheme =
+                  CARD_THEMES[item.id as keyof typeof CARD_THEMES] ?? CARD_THEMES.bootcamps;
                 return (
                   <article
                     key={item.id}
                     id={item.anchorId}
-                    className="group relative scroll-mt-[120px] flex flex-col gap-sm p-md bg-elevated border border-silver/15 rounded-lg shadow-haptic-card hover:border-gold/30 transition-colors duration-base overflow-hidden"
+                    className={`group relative scroll-mt-[120px] flex flex-col gap-sm p-md bg-elevated border rounded-lg shadow-haptic-card transition-colors duration-base overflow-hidden ${cardTheme.border} ${cardTheme.borderHover}`}
                   >
+                    {/* Sheen gradient — per-card accent */}
                     <span
                       aria-hidden="true"
-                      className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_30%,oklch(0.74_0.085_75/0.05)_50%,transparent_70%)] bg-[length:200%_200%] bg-[position:200%_0] transition-all duration-[700ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:bg-[position:-50%_0]"
+                      className={`pointer-events-none absolute inset-0 bg-[length:200%_200%] bg-[position:200%_0] transition-all duration-[700ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:bg-[position:-50%_0] ${cardTheme.sheen}`}
                     />
-                    <span className="text-eyebrow uppercase tracking-widest text-gold opacity-80 font-display text-xs">
+                    {/* Corner glyph — signature per-card visual marker */}
+                    <span
+                      aria-hidden="true"
+                      className={`pointer-events-none absolute top-sm right-sm text-h3 leading-none font-display select-none opacity-30 transition-opacity duration-base group-hover:opacity-60 ${cardTheme.glyphColor}`}
+                    >
+                      {cardTheme.glyph}
+                    </span>
+                    <span
+                      className={`text-eyebrow uppercase tracking-widest opacity-90 font-display text-xs ${cardTheme.eyebrowColor}`}
+                    >
                       {t(item.eyebrow)}
                     </span>
                     <h3 className="text-h3 text-primary font-display text-balance leading-[1.2]">
@@ -188,7 +251,7 @@ export function EvenementsPage() {
                     {ctaRouteKey ? (
                       <Link
                         to={ROUTES[ctaRouteKey][locale]}
-                        className="relative mt-sm inline-flex items-center gap-2 self-start text-eyebrow uppercase tracking-widest text-gold font-display text-xs hover:text-gold/80 transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/40 rounded-sm"
+                        className={`relative mt-sm inline-flex items-center gap-2 self-start text-eyebrow uppercase tracking-widest font-display text-xs transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 rounded-sm ${cardTheme.ctaColor} ${cardTheme.ctaHover} ${cardTheme.ctaFocusRing}`}
                       >
                         {t(item.ctaLabel)}
                         <ArrowRight

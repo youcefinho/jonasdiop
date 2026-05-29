@@ -80,11 +80,11 @@ export function MobileNavDrawer() {
       label: { fr: '— The Activation™', en: '— The Activation™' }
     },
     {
-      to: `${ROUTES.evenements[locale]}#retraites`,
+      to: ROUTES['evenements-retraites'][locale],
       label: { fr: 'Retraites', en: 'Retreats' }
     },
     {
-      to: `${ROUTES.evenements[locale]}#masterclass`,
+      to: ROUTES['evenements-masterclass'][locale],
       label: { fr: 'Masterclass', en: 'Masterclass' }
     }
   ];

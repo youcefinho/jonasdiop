@@ -1,6 +1,12 @@
 import type { CSSProperties } from 'react';
 
-export type BootcampVariant = 'army' | 'edge' | 'activation';
+/**
+ * Theme variant covering the 3 Trilogy bootcamps + the 2 sibling event
+ * type pages (retraites + masterclass). The latter don't paint a hero
+ * pattern but reuse the same accent + body tint cascade in globals.css —
+ * keeping the type list in one place avoids parallel type universes.
+ */
+export type BootcampVariant = 'army' | 'edge' | 'activation' | 'retraite' | 'masterclass';
 
 interface BootcampHeroPatternProps {
   readonly variant: BootcampVariant;
@@ -39,6 +45,8 @@ export function BootcampHeroPattern({
       {variant === 'army' ? <ArmyTacticalGrid /> : null}
       {variant === 'edge' ? <EdgeDamaskFiligrane /> : null}
       {variant === 'activation' ? <ActivationEnergyPulse /> : null}
+      {/* retraite + masterclass render their own page-level signature
+       *  outside this component — nothing to draw here. */}
     </div>
   );
 }
@@ -46,7 +54,11 @@ export function BootcampHeroPattern({
 const defaultOpacity: Record<BootcampVariant, number> = {
   army: 0.16,
   edge: 0.14,
-  activation: 0.18
+  activation: 0.18,
+  // No hero pattern for sibling event-type pages — they render a different
+  // signature. These entries exist only to satisfy the Record type.
+  retraite: 0,
+  masterclass: 0
 };
 
 // ─── ARMY — tactical grid + GPS coordinates ──────────────────────────────

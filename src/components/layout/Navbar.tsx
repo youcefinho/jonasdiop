@@ -85,12 +85,12 @@ export function Navbar() {
       description: { fr: 'Activation · scale & système', en: 'Activation · scale & system' }
     },
     {
-      to: `${ROUTES.evenements[locale]}#retraites`,
+      to: ROUTES['evenements-retraites'][locale],
       label: { fr: 'Retraites', en: 'Retreats' },
       description: { fr: 'Immersifs 5-7 jours', en: 'Immersive 5-7 days' }
     },
     {
-      to: `${ROUTES.evenements[locale]}#masterclass`,
+      to: ROUTES['evenements-masterclass'][locale],
       label: { fr: 'Masterclass · en ligne', en: 'Masterclass · online' },
       description: { fr: 'Court & accessible', en: 'Short & accessible' }
     }

@@ -258,5 +258,21 @@ const variantTheme: Record<BootcampVariant, PriceTheme> = {
     priceAmount: 'text-[oklch(0.92_0.02_240)]',
     checkIcon: 'text-[oklch(0.88_0.02_240)]/90',
     cta: 'bg-[linear-gradient(180deg,oklch(0.92_0.02_240)_0%,oklch(0.7_0.05_240)_100%)] text-[oklch(0.16_0.005_80)] focus-visible:outline-[oklch(0.88_0.02_240)]'
+  },
+  retraite: {
+    dotBg: 'bg-[oklch(0.74_0.05_155)]',
+    priceBorder: 'border-[oklch(0.58_0.06_155)]/30',
+    priceLabel: 'text-[oklch(0.74_0.05_155)]/85',
+    priceAmount: 'text-[oklch(0.82_0.05_155)]',
+    checkIcon: 'text-[oklch(0.74_0.05_155)]/85',
+    cta: 'bg-[linear-gradient(180deg,oklch(0.82_0.05_155)_0%,oklch(0.58_0.06_155)_100%)] focus-visible:outline-[oklch(0.74_0.05_155)]'
+  },
+  masterclass: {
+    dotBg: 'bg-[oklch(0.75_0.1_270)]',
+    priceBorder: 'border-[oklch(0.6_0.12_270)]/30',
+    priceLabel: 'text-[oklch(0.75_0.1_270)]/85',
+    priceAmount: 'text-[oklch(0.82_0.1_270)]',
+    checkIcon: 'text-[oklch(0.75_0.1_270)]/85',
+    cta: 'bg-[linear-gradient(180deg,oklch(0.82_0.1_270)_0%,oklch(0.6_0.12_270)_100%)] focus-visible:outline-[oklch(0.75_0.1_270)]'
   }
 };
