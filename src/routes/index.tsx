@@ -2,11 +2,14 @@ import { createFileRoute } from '@tanstack/react-router';
 import { FooterRich } from '@/components/layout/FooterRich';
 import { Navbar } from '@/components/layout/Navbar';
 import { AboutPreviewSection } from '@/components/sections/AboutPreviewSection';
+import { ConferencierPreviewSection } from '@/components/sections/ConferencierPreviewSection';
+import { EvenementsUpcomingSection } from '@/components/sections/EvenementsUpcomingSection';
 import { FAQHomeSection } from '@/components/sections/FAQHomeSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import { GameChangerProtocolPreview } from '@/components/sections/GameChangerProtocolPreview';
 import { Hero } from '@/components/sections/Hero';
 import { HowItWorksTimeline } from '@/components/sections/HowItWorksTimeline';
+import { LivrePreviewSection } from '@/components/sections/LivrePreviewSection';
 import { MarqueeTestimonials } from '@/components/sections/MarqueeTestimonials';
 import { MethodologieCDTPreviewSection } from '@/components/sections/MethodologieCDTPreviewSection';
 import { PodcastPreviewSection } from '@/components/sections/PodcastPreviewSection';
@@ -59,10 +62,19 @@ function HomeFR() {
         </ScrollReveal>
         <MarqueeTestimonials />
         <ScrollReveal>
+          <LivrePreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
           <RessourcesPreviewSection />
         </ScrollReveal>
         <ScrollReveal>
           <PodcastPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ConferencierPreviewSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <EvenementsUpcomingSection />
         </ScrollReveal>
         <ScrollReveal>
           <FAQHomeSection />
