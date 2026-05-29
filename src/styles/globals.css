@@ -451,6 +451,180 @@
     }
   }
 
+  /* ─────────────────────────────────────────────────────────────────────
+   * BOOTCAMP TRILOGY THEME SYSTEM
+   *
+   * Each bootcamp page wraps content in `<BootcampThemeProvider variant="…">`
+   * which sets `[data-bootcamp="army|edge|activation"]` on a wrapper div.
+   * That activates per-variant CSS vars + automatic cascade overrides on
+   * every `.text-gold/X`, `.border-gold/X`, `.bg-gold/X`, `.outline-gold`
+   * descendant — zero per-component refactor needed.
+   *
+   * Pages outside the bootcamp scope (Home/About/etc.) keep their gold
+   * styling intact — the cascade only applies inside the wrapper.
+   * ───────────────────────────────────────────────────────────────────── */
+
+  /* Variant accent + pattern vars — per-bootcamp identity. Vars only —
+   * background is applied at body level via :has() (see below) so the
+   * wrapper div stays layout-neutral and doesn't break sticky positioning. */
+  [data-bootcamp="army"] {
+    --bc-accent: oklch(0.78 0.04 250);
+    --bc-accent-strong: oklch(0.86 0.04 250);
+    --bc-pattern-stroke: oklch(0.65 0.04 250);
+  }
+  [data-bootcamp="edge"] {
+    --bc-accent: oklch(0.7 0.08 60);
+    --bc-accent-strong: oklch(0.78 0.08 60);
+    --bc-pattern-stroke: oklch(0.62 0.08 60);
+  }
+  [data-bootcamp="activation"] {
+    --bc-accent: oklch(0.88 0.02 240);
+    --bc-accent-strong: oklch(0.94 0.02 240);
+    --bc-pattern-stroke: oklch(0.78 0.05 240);
+  }
+
+  /* Atmospheric per-variant tint — applied to body via :has() selector so it
+   * lives behind ALL content (Navbar, sticky bar, sections, footer) and
+   * doesn't interfere with sticky positioning. Uses radial gradients
+   * overlaid on the existing base. Browser support: :has() = Chromium 105+,
+   * Safari 15.4+, Firefox 121+. Older browsers gracefully fall back to base. */
+  body:has([data-bootcamp="army"]) {
+    background-image:
+      radial-gradient(ellipse 100% 60% at 30% 0%, oklch(0.22 0.025 250 / 0.5), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 80% 100%, oklch(0.2 0.025 250 / 0.35), transparent 65%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  body:has([data-bootcamp="edge"]) {
+    background-image:
+      radial-gradient(ellipse 110% 70% at 50% 0%, oklch(0.22 0.04 60 / 0.45), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 20% 100%, oklch(0.2 0.035 60 / 0.3), transparent 65%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  body:has([data-bootcamp="activation"]) {
+    background-image:
+      radial-gradient(ellipse 110% 70% at 70% 0%, oklch(0.26 0.04 240 / 0.4), transparent 60%),
+      radial-gradient(ellipse 80% 60% at 30% 80%, oklch(0.23 0.05 200 / 0.3), transparent 65%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  /* ── Cascade overrides — gold utilities → bootcamp accent
+   * Selector specificity (1,1,0) > Tailwind class (0,1,0). No !important. */
+  [data-bootcamp] .text-gold {
+    color: var(--bc-accent);
+  }
+  [data-bootcamp] .text-gold\/95 {
+    color: color-mix(in oklch, var(--bc-accent) 95%, transparent);
+  }
+  [data-bootcamp] .text-gold\/90 {
+    color: color-mix(in oklch, var(--bc-accent) 90%, transparent);
+  }
+  [data-bootcamp] .text-gold\/85 {
+    color: color-mix(in oklch, var(--bc-accent) 85%, transparent);
+  }
+  [data-bootcamp] .text-gold\/80 {
+    color: color-mix(in oklch, var(--bc-accent) 80%, transparent);
+  }
+  [data-bootcamp] .text-gold\/75 {
+    color: color-mix(in oklch, var(--bc-accent) 75%, transparent);
+  }
+  [data-bootcamp] .text-gold\/70 {
+    color: color-mix(in oklch, var(--bc-accent) 70%, transparent);
+  }
+  [data-bootcamp] .text-gold\/60 {
+    color: color-mix(in oklch, var(--bc-accent) 60%, transparent);
+  }
+  [data-bootcamp] .text-gold\/55 {
+    color: color-mix(in oklch, var(--bc-accent) 55%, transparent);
+  }
+  [data-bootcamp] .text-gold\/50 {
+    color: color-mix(in oklch, var(--bc-accent) 50%, transparent);
+  }
+  [data-bootcamp] .text-gold\/40 {
+    color: color-mix(in oklch, var(--bc-accent) 40%, transparent);
+  }
+
+  [data-bootcamp] .bg-gold {
+    background-color: var(--bc-accent);
+  }
+  [data-bootcamp] .bg-gold\/30 {
+    background-color: color-mix(in oklch, var(--bc-accent) 30%, transparent);
+  }
+  [data-bootcamp] .bg-gold\/25 {
+    background-color: color-mix(in oklch, var(--bc-accent) 25%, transparent);
+  }
+  [data-bootcamp] .bg-gold\/20 {
+    background-color: color-mix(in oklch, var(--bc-accent) 20%, transparent);
+  }
+  [data-bootcamp] .bg-gold\/15 {
+    background-color: color-mix(in oklch, var(--bc-accent) 15%, transparent);
+  }
+  [data-bootcamp] .bg-gold\/10 {
+    background-color: color-mix(in oklch, var(--bc-accent) 10%, transparent);
+  }
+  [data-bootcamp] .bg-gold\/5 {
+    background-color: color-mix(in oklch, var(--bc-accent) 5%, transparent);
+  }
+
+  [data-bootcamp] .border-gold {
+    border-color: var(--bc-accent);
+  }
+  [data-bootcamp] .border-gold\/50 {
+    border-color: color-mix(in oklch, var(--bc-accent) 50%, transparent);
+  }
+  [data-bootcamp] .border-gold\/40 {
+    border-color: color-mix(in oklch, var(--bc-accent) 40%, transparent);
+  }
+  [data-bootcamp] .border-gold\/30 {
+    border-color: color-mix(in oklch, var(--bc-accent) 30%, transparent);
+  }
+  [data-bootcamp] .border-gold\/25 {
+    border-color: color-mix(in oklch, var(--bc-accent) 25%, transparent);
+  }
+  [data-bootcamp] .border-gold\/20 {
+    border-color: color-mix(in oklch, var(--bc-accent) 20%, transparent);
+  }
+  [data-bootcamp] .border-gold\/15 {
+    border-color: color-mix(in oklch, var(--bc-accent) 15%, transparent);
+  }
+
+  [data-bootcamp] .outline-gold {
+    outline-color: var(--bc-accent);
+  }
+
+  /* Eyebrow dot — Eyebrow component uses bg-gold internally; ensures every
+   * eyebrow across every section adopts the per-variant accent. */
+  [data-bootcamp] [data-eyebrow-dot] {
+    background-color: var(--bc-accent);
+  }
+
+  /* FiligraneNumber stroke — gigantic outline section index behind every
+   * section heading. Adopts the variant accent at low opacity so it
+   * whispers cohesively across all 17 sections of the page. */
+  [data-bootcamp] [data-filigrane-number] {
+    -webkit-text-stroke-color: color-mix(in oklch, var(--bc-accent) 12%, transparent);
+  }
+
+  /* CTA gradient utility — replaces hardcoded gold linear-gradient buttons
+   * inside bootcamp pages. Apply class `.cta-bc-gradient` instead of the
+   * arbitrary `bg-[linear-gradient(...)]` and the button auto-themes. */
+  [data-bootcamp] .cta-bc-gradient {
+    background: linear-gradient(180deg, var(--bc-accent-strong) 0%, var(--bc-accent) 100%);
+  }
+
+  /* Shimmer text — heading shimmer effect (.text-shimmer) repaints with
+   * the variant accent so hero/section titles glow in-brand per page. */
+  [data-bootcamp] .text-shimmer {
+    background-image: linear-gradient(
+      110deg,
+      var(--bc-accent-strong) 0%,
+      var(--bc-accent) 45%,
+      var(--bc-accent-strong) 100%
+    );
+  }
+
   /* Card siblings dim on hover — when one card in a `[data-card-group]`
    * grid is hovered, sibling cards subtly fade + scale down. Uses CSS
    * `:has()` (Chromium 105+, Safari 15.4+, Firefox 121+). Falls back to

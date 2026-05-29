@@ -16,10 +16,13 @@ interface FiligraneNumberProps {
 export function FiligraneNumber({ number, position = 'right' }: FiligraneNumberProps) {
   return (
     <span
+      data-filigrane-number
       aria-hidden="true"
       className={clsx(
         'pointer-events-none absolute top-md select-none font-display font-bold leading-none tracking-tighter text-transparent',
         'text-[clamp(7rem,18vw,14rem)]',
+        // Default silver stroke for non-bootcamp pages. Bootcamp pages override
+        // via cascade selector `[data-bootcamp] [data-filigrane-number]` below.
         '[-webkit-text-stroke:1px_oklch(0.79_0.005_270/0.06)]',
         '[text-stroke:1px_oklch(0.79_0.005_270/0.06)]',
         position === 'right' ? 'right-md' : 'left-md'

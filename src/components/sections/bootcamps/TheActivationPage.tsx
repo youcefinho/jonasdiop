@@ -27,6 +27,7 @@ import { VslPlaceholderSection } from '../VslPlaceholderSection';
 import { BonusList } from './BonusList';
 import { BootcampHeroPattern } from './BootcampHeroPattern';
 import { BootcampStickyBar } from './BootcampStickyBar';
+import { BootcampThemeProvider } from './BootcampThemeProvider';
 import { DeliverablesTable } from './DeliverablesTable';
 import { MirrorChecklistSection } from './MirrorChecklistSection';
 import { TrilogieFooterCrossLink } from './TrilogieFooterCrossLink';
@@ -117,7 +118,7 @@ export function TheActivationPage() {
   }));
 
   return (
-    <>
+    <BootcampThemeProvider variant="activation">
       <SchemaScript
         locale={locale}
         id="schema-org-route-the-activation"
@@ -801,7 +802,7 @@ export function TheActivationPage() {
             }
           : {})}
       />
-    </>
+    </BootcampThemeProvider>
   );
 }
 

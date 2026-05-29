@@ -13,6 +13,7 @@ import { FaqSchemaScript, SchemaScript } from '@/lib/seo/SchemaScript';
 import { BonusList } from './BonusList';
 import { BootcampHeroPattern } from './BootcampHeroPattern';
 import { BootcampStickyBar } from './BootcampStickyBar';
+import { BootcampThemeProvider } from './BootcampThemeProvider';
 import { DeliverablesTable } from './DeliverablesTable';
 import { EdgeApplicationFormShell } from './EdgeApplicationFormShell';
 import { MirrorChecklistSection } from './MirrorChecklistSection';
@@ -131,7 +132,7 @@ export function TheEdgePage() {
   }));
 
   return (
-    <>
+    <BootcampThemeProvider variant="edge">
       {/* ─── Schema.org wiring ──────────────────────────────────────────── */}
       <SchemaScript
         locale={locale}
@@ -930,6 +931,6 @@ export function TheEdgePage() {
         headline={t(copy.trilogieFooter.headline)}
         subtitle={t(copy.trilogieFooter.subtitle)}
       />
-    </>
+    </BootcampThemeProvider>
   );
 }

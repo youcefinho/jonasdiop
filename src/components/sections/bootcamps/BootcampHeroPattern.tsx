@@ -44,9 +44,9 @@ export function BootcampHeroPattern({
 }
 
 const defaultOpacity: Record<BootcampVariant, number> = {
-  army: 0.08,
-  edge: 0.07,
-  activation: 0.1
+  army: 0.16,
+  edge: 0.14,
+  activation: 0.18
 };
 
 // ─── ARMY — tactical grid + GPS coordinates ──────────────────────────────
@@ -66,11 +66,30 @@ function ArmyTacticalGrid() {
           height="48"
           patternUnits="userSpaceOnUse"
         >
-          {/* Fine grid lines — steel */}
-          <path d="M 48 0 L 0 0 0 48" fill="none" stroke="oklch(0.65 0.04 250)" strokeWidth="0.5" />
+          {/* Fine grid lines — steel (var fallback for non-bootcamp usage) */}
+          <path
+            d="M 48 0 L 0 0 0 48"
+            fill="none"
+            stroke="var(--bc-pattern-stroke, oklch(0.65 0.04 250))"
+            strokeWidth="0.5"
+          />
           {/* Crosshair tick marks at intersections */}
-          <line x1="0" y1="0" x2="6" y2="0" stroke="oklch(0.7 0.04 250)" strokeWidth="1" />
-          <line x1="0" y1="0" x2="0" y2="6" stroke="oklch(0.7 0.04 250)" strokeWidth="1" />
+          <line
+            x1="0"
+            y1="0"
+            x2="6"
+            y2="0"
+            stroke="var(--bc-pattern-stroke, oklch(0.7 0.04 250))"
+            strokeWidth="1"
+          />
+          <line
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="6"
+            stroke="var(--bc-pattern-stroke, oklch(0.7 0.04 250))"
+            strokeWidth="1"
+          />
         </pattern>
         <pattern
           id="bootcamp-army-coords"
@@ -84,7 +103,7 @@ function ArmyTacticalGrid() {
           <text
             x="6"
             y="14"
-            fill="oklch(0.65 0.04 250)"
+            fill="var(--bc-pattern-stroke, oklch(0.65 0.04 250))"
             fontSize="7"
             fontFamily="ui-monospace, monospace"
             letterSpacing="0.1em"
@@ -94,7 +113,7 @@ function ArmyTacticalGrid() {
           <text
             x="100"
             y="100"
-            fill="oklch(0.65 0.04 250)"
+            fill="var(--bc-pattern-stroke, oklch(0.65 0.04 250))"
             fontSize="7"
             fontFamily="ui-monospace, monospace"
             letterSpacing="0.1em"

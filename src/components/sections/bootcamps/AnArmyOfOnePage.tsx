@@ -15,6 +15,7 @@ import { type FormEvent, useState } from 'react';
 import { BonusList } from '@/components/sections/bootcamps/BonusList';
 import { BootcampHeroPattern } from '@/components/sections/bootcamps/BootcampHeroPattern';
 import { BootcampStickyBar } from '@/components/sections/bootcamps/BootcampStickyBar';
+import { BootcampThemeProvider } from '@/components/sections/bootcamps/BootcampThemeProvider';
 import { DeliverablesTable } from '@/components/sections/bootcamps/DeliverablesTable';
 import { MirrorChecklistSection } from '@/components/sections/bootcamps/MirrorChecklistSection';
 import {
@@ -173,7 +174,7 @@ export function AnArmyOfOnePage() {
   const avecItems = (t(c.finalCta.avecColumn.items) ?? []) as readonly string[];
 
   return (
-    <>
+    <BootcampThemeProvider variant="army">
       {/* ─── SEO Schema graph — WebPage + Event + Course + FAQ + Breadcrumb ──
           Event + Course paired (same slug) so Google's Course rich-result can
           correlate price + dates via hasCourseInstance.instanceOf. Pre-launch
@@ -1069,6 +1070,6 @@ export function AnArmyOfOnePage() {
           subtitle={t(c.trilogie.subtitle)}
         />
       )}
-    </>
+    </BootcampThemeProvider>
   );
 }
