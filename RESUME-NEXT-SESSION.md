@@ -1,80 +1,125 @@
-# RESUME NEXT SESSION — Jonas Diop · session 2026-05-29
+# RESUME NEXT SESSION — Jonas Diop · session 2026-05-29/30
 
 > Doc pour reprise après /compact. Single source of truth pour le prochain agent.
 
 ## 🎯 Live state actuel
 
 **URL** : https://jonas-diop.intralysqc.workers.dev
-**Worker version** : `71503e1d-5f35-491c-b87d-fadf1deb460e`
-**HEAD** : `1522836` (T-lite + Perf V5)
-**Lighthouse mobile 4 pages** : **100/100/100/100** (A11y/BP/SEO/Agentic) ✅
+**Worker version** : `1ced7cb3-8f3c-49e1-b023-3d8b4becf24f`
+**HEAD** : `f365e97` (A11y fix footer newsletter contrast)
+**Lighthouse mobile 6 pages** : **100/100/100/100** (A11y/BP/SEO/Agentic) ✅
+**Schema markup wired live** : FAQPage (/faq, /conferences) · Book + WebPage (/livre) ✅
 
-## 📜 Session 2026-05-29 — commits (chronologique)
+## 📜 Session 2026-05-29/30 — 15 commits net cumulés
 
 | # | Commit | Phase | Net win |
 |---|---|---|---|
 | 1 | `0fe478a` | Vague 1A — tutoiement FR + CTA "Réserver mon appel stratégique" + H1 "Ajoute un zéro à ton chiffre d'affaires" | Brief v3 mécanique |
-| 2 | `d6f0f02` | Vague 1B — 3 phares (The Shift · Master Closing · Focus & Flow) + nouvelle section "Pour qui / Problème" + Game Changer Protocol brand chapeau (Home + About chapter) | Brief v3 structurel |
-| 3 | `2b1223a` | Vague 2 shell — page `/conferences` B2B (FR + EN) avec 9 sections (Hero · Why invite · Formats · Subjects · Speaker bio · References · Gallery · FAQ · Final CTA), tone VOUS exception, pending flags pour 5 inputs Jonas | Vague 2 start |
-| 4 | `1bb888c` | A11y polish — 6 bumps contrast (TrustedLogosBar opacity 40→70, services badges gold/50→/80, table headers silver/60→/85, disqualif opacity-60→/80) | Lighthouse 96→100 mobile |
-| 5 | `78f8c38` | Perf V1 — Sentry sync→dynamic import + MaskRevealHeading `priority="lcp"` Hero H1 skip animation | architectural |
-| 6 | `0e3926b` | Perf V2 — Self-host 4 WOFF2 variable fonts (Space Grotesk + Inter, latin + latin-ext) + preload latin + drop Fontsource JS imports | architectural |
-| 7 | `ffa6a02` | Perf V3 — Critical CSS inline (~500 bytes) + Vite plugin `asyncMainCss` (preload-onload trick) | RenderBlocking insight eliminated |
-| 8 | `a55aad5` → `32cda4f` | Perf V4 — `modulePreload.resolveDependencies` filter retire markdown (155kB) + sentry (138kB) du preload chain Home. cv-defer attempted then reverted (LCP régression non-causée par cv-defer). | −93kB gz eager fetch |
-| 9 | `1522836` | T-lite + Perf V5 — Conférences link in Navbar desktop + mobile drawer + Footer (FR/EN) + critical Hero H1 inline CSS (`hero-h1-lcp` class avec font-size clamp + tracking + line-height inline pour éliminer LCP repaint) | T-lite + V5 |
+| 2 | `d6f0f02` | Vague 1B — 3 phares + PourQuiSection + Game Changer Protocol brand chapeau | Brief v3 structurel |
+| 3 | `2b1223a` | Vague 2 shell — page `/conferences` B2B (FR + EN) 9 sections | Vague 2 start |
+| 4 | `1bb888c` | A11y polish 6 bumps contrast | Lighthouse 96→100 mobile |
+| 5 | `78f8c38` | Perf V1 — Sentry lazy + MaskRevealHeading priority=lcp | architectural |
+| 6 | `0e3926b` | Perf V2 — self-host fonts + preload latin | architectural |
+| 7 | `ffa6a02` | Perf V3 — critical CSS + asyncMainCss Vite plugin | RenderBlocking eliminated |
+| 8 | `a55aad5`→`32cda4f` | Perf V4 — modulePreload filter retire markdown+sentry | −93kB gz eager fetch |
+| 9 | `1522836` | T-lite + Perf V5 — Conférences link Navbar/Footer + critical Hero H1 inline | T-lite + V5 |
+| 10 | `c4b6458` | Handoff docs fin journée 2026-05-29 | Docs refresh |
+| 11 | `60ea13e` | **Nav restructure 8 onglets** brief v3 sitemap (Programmes/Évènements/Ressources dropdowns) + MobileNavDrawer 3 groupes intention (Travailler avec moi / Apprendre & s'inspirer / Découvrir) | Brief v3 §2 sitemap |
+| 12 | `87b34b2` | **Home 3 sections wireframe** (LivrePreview Section 6 + ConferencierPreview Section 8 + EvenementsUpcoming Section 9) | Brief v3 §3.1 §6/§8/§9 |
+| 13 | `ed268d7` | **Phase 3 workflow output** (8 builders parallèles + 8 verifiers + completeness critic 1.76M tokens) : Footer newsletter capture + Exit-intent popup + Schema markup helpers + Beef-up 5 pages (Livres 9 sections + Évènements 8 sections + Ressources 5 sections + About sections 5+6 Médias/Valeurs + LP-VSL prop videoEmbedUrl) + sub-page templates + route /livre/$slug | Brief v3 §2/§3.2/§3.5/§3.7/§3.9 |
+| 14 | `0e32585` | **Phase 3.5 Schema wire** (8 pages + 13 LP callers + 2 tests) : SchemaScript injection sur FAQPage/LivrePage/EvenementsPage/PodcastPage/AboutPage/ContactPage/ConferencesPage/LPProgramTemplate + LPProgramTemplate routeKey prop requise | Brief v3 §6 SEO On-Page |
+| 15 | `f365e97` | A11y fix footer newsletter `text-silver/55` → `/75` (4.02:1 → pass 4.5+) | Lighthouse Home A11y 97→100 |
 
-## ✅ Réponses Jonas brief v3 (4/5)
+## ✅ Réponses Jonas brief v3 (4/5 acquises)
 
-1. **3 ou 6 programmes affichés** → 6 avec **hiérarchie visuelle 3 phares** (The Shift · Master Closing · Focus & Flow taggés "phare" dot gold + tag eyebrow gold)
-2. **GCP vs CDT™** → **coexistence validée** : GCP = brand chapeau (parcours D-I-O-P visible), CDT™ = framework technique signature interne. Analogie Apple iOS+iPhone.
-3. **3ème VSL** → **parkée** (on travaille avec 2 vidéos existantes Jonas)
-4. **Date launch 08/06** → **relâchée** (qualité > vitesse selon Jonas)
+1. **6 programmes affichés** avec hiérarchie 3 phares (The Shift · Master Closing · Focus & Flow)
+2. **GCP + CDT™ coexistent** (brand chapeau D-I-O-P + framework signature technique)
+3. **3ème VSL parkée**
+4. **Date launch 08/06 relâchée** (qualité > vitesse)
+5. **Q5 kit Conférences B2B** : ⏸ PENDING (logos · photos scène · bio speaker · refs · sujets)
 
-## ⏸ BLOCKER actuel — Q5 kit Conférences B2B
+## 🆕 NOUVEAU 2026-05-30 — Trilogie bootcamps reçue (3 PDFs)
 
-Page `/conferences` est **shell prêt avec placeholders** mais a besoin de Jonas pour 5 inputs :
+Rochdi a reçu 3 pages de vente complètes (VSL scripts 12-14 min + 17 sections chacune) :
 
-1. **Logos** entreprises clientes (PNG/SVG fond transparent)
-2. **Photos** Jonas sur scène (haute résolution paysage)
-3. **Bio "speaker"** ton corporate, distincte de la bio coach (max 150 mots)
-4. **Références événements passés** : sujet · audience · année · lien vidéo public si dispo
-5. **Sujets de conférences** validés : titre · durée (45min / 60min / 90min / journée) · format (keynote / atelier / panel)
+| Bootcamp | Audience | Blocage | Prix | Places |
+|---|---|---|---|---|
+| 🪖 **An Army of One™** | Solo 5-25K$/mois | Chaos interne · Life OS Notion | 997 $ | 20 max |
+| 🖤 **The Edge™** | Coach/expert 5-20K$/mois | Invisibilité · autorité (Effet Veblen) | 1 997$ (lancement 1 497$) | 15 max + **application requise** |
+| ⚡ **The Activation™** | Établi 15-50K$/mois | Plafond · IOS+ESD+ECO | 1 997$ (lancement 1 497$) | 20 max |
 
-**Message draft prêt à envoyer à Jonas** (déjà composé dans la conversation précédente, à copier-coller depuis le scrollback).
+**Méthode RISE™** (Reset · Ignite · Scale · Elevate) — **NOUVELLE brand framework** distincte de CDT™+GCP.
 
-## 🧱 État launch readiness
+### ⚠️ Contradictions critiques avec brief v3 (NON RÉSOLUES)
+
+| Sujet | Brief v3 | PDFs Trilogie | Statut |
+|---|---|---|---|
+| Programmes catalog | 6 listés (Gamechanger Scaling / The Shift / Master Closing / Focus & Flow / Cash & Scale™ / Consultations Privées) | + 3 NOUVEAUX bootcamps 3 jours intensifs | **AJOUT ou REMPLACEMENT ?** |
+| Méthodologie | CDT™ + Game Changer Protocol™ | + Méthode RISE™ | **AJOUT** brand framework |
+| Pricing | brief v3 §3.4 : "PAS de prix affiché → Sur application / accessible via appel stratégique" | **Prix affichés** 997/1497/1997$ + countdown + early bird | **CONTRADICTION** |
+| Funnel | brief v3 §1 Objectif #1 : "Générer des appels stratégiques qualifiés (CTA unique sur tout le site)" | CTAs paiement direct sans appel | **CONTRADICTION** |
+| Audience range | 100K-1M$ CA annuel | 5-50K$/mois (60K-600K$/an) | **différente** — ciblage plus bas |
+| Cross-sell | (n/a) | Bootcamps mentionnent **The Shift + Gamechanger Scaling** en cross-sell post → cohérent | Cohabitation OK |
+
+### 7 questions à trancher avec Jonas AVANT toute intégration
+
+1. Les 3 bootcamps **remplacent** quels programmes existants ? Ou **s'ajoutent** comme nouvelle ligne ?
+2. **Statut** : pages publiques / cohortes test fermées / funnel pub Meta/LinkedIn ?
+3. **Méthode RISE™** : remplace/complète CDT™+GCP comme brand chapeau ?
+4. **Pricing affiché** : vraie stratégie ou test ? (contradiction directe brief v3)
+5. **CTA paiement direct** : contredit "CTA unique appel" brief v3
+6. **Cohortes calendrier** : dates programmées ? Récurrent mensuel ? One-shot lancement ?
+7. **VSL tournées** ? Les scripts existent — les vidéos ?
+
+**Pattern réconciliation** : [[feedback-two-briefs-reconciliation-pattern]] — ne PAS supposer que le nouveau remplace l'ancien. Mapping + classification + validation Jonas AVANT exécution.
+
+## 🧱 État launch readiness (post-Phase 3.5)
 
 | Item | État |
 |---|---|
-| Vague 1A — tutoiement + CTA + H1 brief v3 | ✅ live |
-| Vague 1B — 3 phares + Pour qui + GCP brand chapeau | ✅ live |
-| Vague 2 shell `/conferences` B2B | ✅ live (placeholders) |
-| A11y mobile 4 pages 100/100/100/100 | ✅ live |
-| Perf V1-V5 architecturals (Sentry/fonts/CSS/preload/Hero) | ✅ live |
-| **Q5 kit Conférences (Jonas)** | ⏸ pending |
-| Vague 2 reste — Navbar restructure 8 onglets parent-subs | ⏸ pending Jonas validation brief v3 sitemap |
-| Vague 2 reste — VSL Home injection (hosting decision) | ⏸ pending Jonas (Cloudflare Stream vs Vimeo vs YouTube) |
-| Vague 2 reste — Sticky event banner | ⏸ pending event |
-| Vague 2 reste — Pop-up exit-intent | ⏸ contradictoire brief #1 NO vs brief v3 OUI |
-| Vague 3 — Tracking GA4 / Meta / LinkedIn / GTM | ⏸ post-launch + Jonas account IDs |
-| Vague 3 — Schema.org Book/Event/Podcast étendu | ⏸ post-launch + Jonas data |
-| Vague 3 — Lead magnets | ⏸ contradictoire brief #1 NO vs brief v3 OUI |
-| Perf — CrUX field data | ⏸ post-traffic real-world |
-| SEO — meta SSR `/conferences` (HTMLRewriter pattern) | ⏸ polish item |
+| Vague 1A tutoiement + CTA + H1 | ✅ live |
+| Vague 1B 3 phares + PourQui + GCP | ✅ live |
+| Vague 2 shell `/conferences` B2B | ✅ live (placeholders Q5 pending) |
+| A11y mobile 6 pages 100/100/100/100 | ✅ live |
+| Perf V1-V5 architectural | ✅ live |
+| Nav restructure 8 onglets brief v3 | ✅ `60ea13e` |
+| Home 3 sections wireframe (Livre/Conférencier/Évènements) | ✅ `87b34b2` |
+| **Phase 3 — Footer newsletter + Exit-intent popup + Schema helpers + Beef-up 5 pages** | ✅ `ed268d7` |
+| **Phase 3.5 — Schema markup wired 8 pages (FAQPage + Book + WebPage + Breadcrumb)** | ✅ `0e32585` |
+| A11y fix footer newsletter contrast | ✅ `f365e97` |
+| **Trilogie bootcamps (An Army of One / The Edge / The Activation)** | ⏸ **NON-INTÉGRÉ** — 7 questions Jonas pending |
+| Q5 kit Conférences B2B (Jonas) | ⏸ pending |
+| Plateforme email (Mailchimp/Beehiiv/GHL/ConvertKit) | ⏸ pending Jonas |
+| Calendly URL | ⏸ pending Jonas |
+| Tracking GA4/Meta/LinkedIn/GTM IDs | ⏸ pending Jonas |
+| GHL pipeline V6 (sous-compte + locationId + trackingId + formIds) | ⏸ pending Jonas |
+| Lead magnet PDF "Les 7 leviers" réel | ⏸ pending production |
+| HTMLRewriter SSR worker meta+schema (Sprint 6 target) | ⏸ autonome Claude ~3h |
+| Sitemap.xml | ⏸ autonome Claude ~1h |
+| OG images custom per page | ⏸ pending Jonas brand + Claude |
+
+**Brief v3 coverage estimé** :
+- 🟢 **Livré fonctionnel** : ~70% (structure 17 pages × 2 langues, design, A11y/Perf, footer enrichi, exit-intent popup, **Schema markup wired**, navbar 8 onglets, Home 17 sections wireframe, 5 pages beef-up complètes, sub-page templates)
+- 🟡 **Placeholder structuré** : ~20% (forms `action="#" disabled`, Calendly placeholder, podcast 2 scénarios, livre bonus, conferences sections "pending", trilogie bootcamps non-intégrée)
+- 🔴 **Manque complet** : ~10% (tracking GA4/Pixel/LinkedIn/GTM **0%**, GHL pipeline V6 **0%**, sitemap.xml absent, lead magnet PDF réel inexistant, SSR worker HTMLRewriter absent, OG images custom absentes)
 
 ## 📍 Pickup options pour next session
 
-**A. Wait Jonas Q5** → quand il envoie le kit, remplir Conferences shell avec real content (bio + photos + logos + refs + sujets validés).
+**A. TRANCHER LA TRILOGIE** (BLOCKER stratégique) — drafter le message à Jonas avec les 7 questions + attendre réponse avant toute intégration. Sans ces réponses, risque de tout refondre dans 2 semaines.
 
-**B. SEO polish `/conferences`** → wire meta title/description SSR via HTMLRewriter pattern (référence `feedback_seo_htmlrewriter_ssr_pattern`). Currently la page affiche le default site title.
+**B. HTMLRewriter SSR worker meta + Schema** (autonome Claude, ~3h) — élimine le gap "Twitter/Facebook OG + GPTBot ne voient pas meta/schema". Critic flag HIGH SEO impact.
 
-**C. Vague 3 tracking start** → si Jonas envoie les IDs (GA4 measurement ID, Meta Pixel ID, LinkedIn Insight Tag), wire le tracking. Aucune dépendance autre que les IDs.
+**C. Sitemap.xml generation** (autonome Claude, ~1h) — script build Vite plugin, route enumeration. Critic flag HIGH SEO.
 
-**D. Restructure Navbar 8 onglets parent-subs** → si Jonas valide sitemap brief v3 (parent + sub-pages, ex : Programmes parent avec subs 3 phares). Plus complexe que T-lite déjà fait.
+**D. Lead magnet PDF "Les 7 leviers"** (Claude peut le rédiger, ~2h drafting + ~1h wire) — couvre l'exit-intent + footer newsletter promise.
 
-**E. Real-world LCP test** → demander à Jonas (ou friend) de tester sur device réel (Android 4G normal) et reporter LCP perçu. Lab Slow4G+4xCPU est punishing, real-world should be <2.5s.
+**E. Wait Jonas Q5 kit Conférences** → fill Conferences shell avec real content quand kit reçu.
 
-**F. Refine PourQuiSection / GCP wording** → si Jonas a feedback sur les 3 problem cards ou la méthode DIOP wording, raffinement copy possible.
+**F. Wait Jonas plateformes** → wire forms newsletter + exit-intent + livre + évènements + Calendly + tracking.
+
+**G. Beef-up Programmes parent page** (brief v3 §3.3 — 5 sections + FAQ commune) — current /services hub a comparatif + qualif mais pas FAQ commune.
+
+**H. Sous-pages Évènements** (brief v3 §3.6 template per event) — EvenementSousPageTemplate.tsx existe, créer 3 routes shells exemples (Bootcamp / Retraite / Masterclass).
 
 ## 🛡 Stack technique en place (inchangée)
 
@@ -82,7 +127,7 @@ Page `/conferences` est **shell prêt avec placeholders** mais a besoin de Jonas
 - Tailwind v4 (self-host fonts Space Grotesk + Inter Variable via `src/styles/fonts.css`)
 - Vitest 4 · Biome · Husky · lint-staged · GitHub Actions
 - Cloudflare Workers + KV staging (compte intralysqc)
-- 430/430 tests · 97 chunks · 0 leaks
+- 435/435 tests · 100 chunks · 0 leaks · typecheck clean · lint clean (1 warning pré-existant !important globals.css)
 - i18n : `BilingualLax<T>` + `ta()` + `useT()` + LanguageProvider + routing FR default + `/en/` mirror
 
 ## 📂 Docs maîtres à connaître
@@ -105,3 +150,4 @@ Page `/conferences` est **shell prêt avec placeholders** mais a besoin de Jonas
 - **INTERDIT** : `intralys-cream-surface-pitfalls`, `intralys-editorial-scroll-rail`, `intralys-mobile-engagement-patterns`, `intralys-edito-magazine`, `intralys-fusion-strategy`, `intralys-gatineau-portage`
 - Stitch design system **LOCKED** : `assets/c8e19035824949a8b1b2f6606d5a2245` (Platinum Executive Authority v2 silver)
 - Mot-clé Rochdi : "filtre Jonas" → relire ce fichier
+- **Pattern réconciliation 2 briefs** : NE PAS supposer que le nouveau remplace l'ancien. Mapping + classification + validation client AVANT exécution. Référence : `feedback_two_briefs_reconciliation_pattern.md` (cas vécu Jonas brief v3 + maintenant Trilogie bootcamps).
