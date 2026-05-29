@@ -8,6 +8,7 @@ import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { conferencesCopy } from '@/data/copy/conferences';
 import { useT } from '@/lib/i18n/useT';
+import { FaqSchemaScript, SchemaScript } from '@/lib/seo/SchemaScript';
 
 /**
  * ConferencesPage — /conferences shell B2B (brief v3 nouvelle page).
@@ -27,8 +28,28 @@ export function ConferencesPage() {
   const { t, locale } = useT();
   const copy = conferencesCopy;
 
+  // ── Schema.org wiring — WebPage + B2B FAQ
+  // Service node injection deferred to base graph (programmes catalog covers
+  // each individual offer ; conferences is a meta-offer pointing at the same
+  // Org/Person and would duplicate the ItemList signal).
+  const faqItems = copy.faq.items.map((item) => ({
+    question: t(item.q),
+    answer: t(item.a)
+  }));
+
   return (
     <>
+      <SchemaScript
+        locale={locale}
+        options={{
+          webPage: {
+            routeKey: 'conferences',
+            name: t(copy.meta.title),
+            description: t(copy.meta.description)
+          }
+        }}
+      />
+      <FaqSchemaScript locale={locale} items={faqItems} routeKey="conferences" />
       {/* ─── HERO ──────────────────────────────────────────────────────── */}
       <section
         aria-label={t(copy.hero.eyebrow)}

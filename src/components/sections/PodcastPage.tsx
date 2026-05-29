@@ -7,6 +7,7 @@ import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { clientConfig } from '@/config/clientConfig';
 import { podcastCopy } from '@/data/copy/podcast';
 import { useT } from '@/lib/i18n/useT';
+import { SchemaScript } from '@/lib/seo/SchemaScript';
 
 /**
  * PodcastPage — composite landing page section for /podcast (FR) and /en/podcast.
@@ -29,7 +30,7 @@ export function PodcastPage() {
 // ============================================================================
 
 export function PodcastPageLive() {
-  const { t } = useT();
+  const { t, locale } = useT();
   const a = podcastCopy.scenarioA;
   const platforms = a.platforms.items;
   const platformUrlMap: Record<string, string | null> = {
@@ -40,6 +41,23 @@ export function PodcastPageLive() {
 
   return (
     <>
+      {/* ── Schema.org — PodcastSeries + WebPage (Scenario A : podcast live) */}
+      <SchemaScript
+        locale={locale}
+        options={{
+          podcast: {
+            series: {
+              name: t(podcastCopy.hero.h1),
+              description: t(podcastCopy.hero.subA)
+            }
+          },
+          webPage: {
+            routeKey: 'podcast',
+            name: t(podcastCopy.meta.scenarioA.title),
+            description: t(podcastCopy.meta.scenarioA.description)
+          }
+        }}
+      />
       {/* HERO */}
       <section
         aria-label={t(podcastCopy.hero.eyebrow)}
@@ -233,11 +251,28 @@ export function PodcastPageLive() {
 // ============================================================================
 
 export function PodcastPageWaitlist() {
-  const { t } = useT();
+  const { t, locale } = useT();
   const b = podcastCopy.scenarioB;
 
   return (
     <>
+      {/* ── Schema.org — PodcastSeries (coming_soon) + WebPage (Scenario B) */}
+      <SchemaScript
+        locale={locale}
+        options={{
+          podcast: {
+            series: {
+              name: t(podcastCopy.hero.h1),
+              description: t(podcastCopy.hero.subB)
+            }
+          },
+          webPage: {
+            routeKey: 'podcast',
+            name: t(podcastCopy.meta.scenarioB.title),
+            description: t(podcastCopy.meta.scenarioB.description)
+          }
+        }}
+      />
       {/* HERO */}
       <section
         aria-label={t(podcastCopy.hero.eyebrow)}

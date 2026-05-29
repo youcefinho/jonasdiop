@@ -43,7 +43,10 @@ describe('a11y — Sprint 4 LP templates', () => {
     it(`LPProgramTemplate (Gamechanger) has 0 axe violations (${locale})`, async () => {
       const { container } = render(
         <LanguageProvider locale={locale}>
-          <LPProgramTemplate copy={gamechangerScalingCopy} />
+          <LPProgramTemplate
+            copy={gamechangerScalingCopy}
+            routeKey="services-gamechanger-scaling"
+          />
         </LanguageProvider>
       );
       const results = await axe(container);

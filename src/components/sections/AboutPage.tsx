@@ -8,12 +8,14 @@ import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { PullQuote } from '@/components/ui/PullQuote';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
+import { clientConfig } from '@/config/clientConfig';
 import { ROUTES } from '@/config/routes';
 import { aboutCopy } from '@/data/copy/about';
 import { gameChangerProtocolCopy } from '@/data/copy/game-changer-protocol';
 import { jonasQuotes } from '@/data/copy/quotes';
 import { useParallax } from '@/hooks/useParallax';
 import { useT } from '@/lib/i18n/useT';
+import { SchemaScript } from '@/lib/seo/SchemaScript';
 
 /**
  * Icon map for valeurs cards — keeps lucide tree-shakeable and lets us
@@ -59,6 +61,19 @@ export function AboutPage() {
 
   return (
     <>
+      {/* ── Schema.org — AboutPage variant + about anchor to Person @id (Jonas) */}
+      <SchemaScript
+        locale={locale}
+        options={{
+          webPage: {
+            routeKey: 'about',
+            variant: 'AboutPage',
+            name: t(aboutCopy.meta.title),
+            description: t(aboutCopy.meta.description),
+            aboutNodeId: `${clientConfig.site.productionUrl}#jonas`
+          }
+        }}
+      />
       {/* ─── HERO with Jonas portrait — REAL CONTEMPLATIVE photo ────────────── */}
       <section
         aria-label={t(aboutCopy.hero.eyebrow)}

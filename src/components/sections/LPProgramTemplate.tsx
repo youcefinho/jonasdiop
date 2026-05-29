@@ -7,9 +7,10 @@ import { FiligraneNumber } from '@/components/ui/FiligraneNumber';
 import { MaskRevealHeading } from '@/components/ui/MaskRevealHeading';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
-import { ROUTES } from '@/config/routes';
+import { ROUTES, type RouteKey } from '@/config/routes';
 import type { BilingualLax } from '@/lib/i18n/types';
 import { useT } from '@/lib/i18n/useT';
+import { FaqSchemaScript, SchemaScript } from '@/lib/seo/SchemaScript';
 
 // ---------------------------------------------------------------------------
 // Types — shaped to match actual copy file structure (services-*.ts)
@@ -132,6 +133,14 @@ interface LPProgramTemplateProps {
   copy: LPCopy;
   /** CTA variant — default gold-primary (postuler/réserver appel) */
   ctaVariant?: 'gold-primary' | 'silver-secondary';
+  /**
+   * RouteKey identifying which programme route this template renders for.
+   * Used to anchor Schema.org @id values (Service node + FAQPage node +
+   * WebPage node) to the canonical route URL so multiple LP schemas across
+   * the site never collide in Google's index. Required — every call site
+   * must declare which programme route is being rendered.
+   */
+  routeKey: RouteKey;
 }
 
 // ---------------------------------------------------------------------------
@@ -151,13 +160,45 @@ interface LPProgramTemplateProps {
  * FAQ = native <details>/<summary> with animated + → ×.
  * Dual CTA gold-primary (Hero + Final CTA).
  */
-export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgramTemplateProps) {
+export function LPProgramTemplate({
+  copy,
+  ctaVariant = 'gold-primary',
+  routeKey
+}: LPProgramTemplateProps) {
   const { t, locale } = useT();
   const videoEmbedUrl = copy.hero.videoEmbedUrl ? t(copy.hero.videoEmbedUrl).trim() : '';
   const hasVideo = videoEmbedUrl.length > 0;
 
+  // ── Schema.org wiring — Service + WebPage (always) + FAQPage (when copy.faq)
+  // The convenience `FaqSchemaScript` wrapper mounts under a separate DOM id
+  // (`schema-org-faq-<routeKey>`) so it composes cleanly with the route-level
+  // graph (`schema-org-route`) — both crawled by Googlebot.
+  const programmeName = t(copy.hero.h1);
+  const programmeDescription = copy.meta ? t(copy.meta.description) : t(copy.hero.sub);
+  const webPageName = copy.meta ? t(copy.meta.title) : programmeName;
+  const faqItems = copy.faq
+    ? copy.faq.items.map((item) => ({
+        question: t(item.question),
+        answer: t(item.answer)
+      }))
+    : null;
+
   return (
     <>
+      <SchemaScript
+        locale={locale}
+        id={`schema-org-route-${routeKey}`}
+        options={{
+          webPage: {
+            routeKey,
+            name: webPageName,
+            description: programmeDescription
+          }
+        }}
+      />
+      {faqItems && faqItems.length > 0 && (
+        <FaqSchemaScript locale={locale} items={faqItems} routeKey={routeKey} />
+      )}
       <Navbar />
       <main className="pt-[80px]">
         {/* ---------------------------------------------------------------- */}

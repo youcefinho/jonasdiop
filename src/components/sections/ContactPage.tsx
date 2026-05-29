@@ -7,6 +7,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { contactCopy } from '@/data/copy/contact';
 import { useT } from '@/lib/i18n/useT';
+import { SchemaScript } from '@/lib/seo/SchemaScript';
 
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
@@ -19,7 +20,7 @@ type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
  * DA Platinum Executive Authority. Form + Calendly = visual placeholders, GHL/Calendly wire Sprint 6.
  */
 export function ContactPage() {
-  const { t } = useT();
+  const { t, locale } = useT();
   // Submit state machine — wire to GHL POST handler when H8 credentials land.
   // Currently the form is disabled (stub state) so the loading/success/error
   // branches don't fire ; once the disabled attributes are removed and the
@@ -29,6 +30,28 @@ export function ContactPage() {
 
   return (
     <>
+      {/* ── Schema.org — ContactPage variant + Breadcrumb (Accueil → Contact) */}
+      <SchemaScript
+        locale={locale}
+        options={{
+          webPage: {
+            routeKey: 'contact',
+            variant: 'ContactPage',
+            name: t(contactCopy.meta.title),
+            description: t(contactCopy.meta.description),
+            breadcrumbTrail: [
+              {
+                name: t({ fr: 'Accueil', en: 'Home' }),
+                url: locale === 'fr' ? '/' : '/en'
+              },
+              {
+                name: t(contactCopy.hero.eyebrow),
+                url: locale === 'fr' ? '/contact' : '/en/contact'
+              }
+            ]
+          }
+        }}
+      />
       {/* ---------------------------------------------------------------- */}
       {/* HERO                                                              */}
       {/* ---------------------------------------------------------------- */}

@@ -6,6 +6,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { livreCopy } from '@/data/copy/livre';
 import { useT } from '@/lib/i18n/useT';
+import { SchemaScript } from '@/lib/seo/SchemaScript';
 
 /**
  * Markers I→IV pour les bénéfices "pourquoi ce livre" — évite la collision
@@ -33,7 +34,7 @@ const ROMAN_MARKERS = ['I', 'II', 'III', 'IV', 'V', 'VI'] as const;
  * Liens d'achat = "#" disabled jusqu'à édition.
  */
 export function LivrePage() {
-  const { t } = useT();
+  const { t, locale } = useT();
   const copy = livreCopy;
 
   const scrollToBonusForm = () => {
@@ -51,6 +52,21 @@ export function LivrePage() {
 
   return (
     <>
+      {/* ── Schema.org — Book (pre-launch : no ISBN / datePublished yet) + WebPage */}
+      <SchemaScript
+        locale={locale}
+        options={{
+          book: {
+            title: t(copy.hero.h1),
+            description: t(copy.pourquoi.intro)
+          },
+          webPage: {
+            routeKey: 'livre',
+            name: t(copy.meta.title),
+            description: t(copy.meta.description)
+          }
+        }}
+      />
       {/* ─── 1. HERO ──────────────────────────────────────────────────────── */}
       <section
         aria-label={t(copy.hero.eyebrow)}

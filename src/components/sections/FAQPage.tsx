@@ -7,6 +7,7 @@ import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { faqCopy } from '@/data/copy/faq';
 import { useT } from '@/lib/i18n/useT';
+import { FaqSchemaScript, SchemaScript } from '@/lib/seo/SchemaScript';
 
 /**
  * FAQPage — composite landing page section for /faq (FR) and /en/faq.
@@ -20,8 +21,29 @@ import { useT } from '@/lib/i18n/useT';
 export function FAQPage() {
   const { t, locale } = useT();
 
+  // ── Schema.org wiring — FAQPage (full 14-item catalog) + WebPage
+  // Items pre-sorted by category order (Google uses the first N for the rich
+  // result, so the order in faq.ts already mirrors strategic importance).
+  const faqItems = faqCopy.categories.flatMap((cat) =>
+    cat.items.map((item) => ({
+      question: t(item.question),
+      answer: t(item.answer)
+    }))
+  );
+
   return (
     <>
+      <SchemaScript
+        locale={locale}
+        options={{
+          webPage: {
+            routeKey: 'faq',
+            name: t(faqCopy.meta.title),
+            description: t(faqCopy.meta.description)
+          }
+        }}
+      />
+      <FaqSchemaScript locale={locale} items={faqItems} routeKey="faq" />
       {/* ---------------------------------------------------------------- */}
       {/* HERO                                                              */}
       {/* ---------------------------------------------------------------- */}

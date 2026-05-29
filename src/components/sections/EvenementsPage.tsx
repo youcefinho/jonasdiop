@@ -8,6 +8,7 @@ import { StaggerReveal } from '@/components/ui/StaggerReveal';
 import { ROUTES } from '@/config/routes';
 import { evenementsCopy } from '@/data/copy/evenements';
 import { useT } from '@/lib/i18n/useT';
+import { FaqSchemaScript, SchemaScript } from '@/lib/seo/SchemaScript';
 
 /**
  * EvenementsPage — /evenements (FR) et /en/events (EN). Brief v3 §3.5.
@@ -36,8 +37,28 @@ export function EvenementsPage() {
   const copy = evenementsCopy;
   const hasUpcoming = copy.calendrier.upcomingEvents.length > 0;
 
+  // ── Schema.org wiring — WebPage + FAQ logistics
+  // No Event nodes injected for now : copy.calendrier.upcomingEvents is
+  // []-typed (no events scheduled). When Jonas confirms dates, swap to the
+  // `events` option (each item mapped to EventInput).
+  const faqItems = copy.faq.items.map((item) => ({
+    question: t(item.q),
+    answer: t(item.a)
+  }));
+
   return (
     <>
+      <SchemaScript
+        locale={locale}
+        options={{
+          webPage: {
+            routeKey: 'evenements',
+            name: t(copy.meta.title),
+            description: t(copy.meta.description)
+          }
+        }}
+      />
+      <FaqSchemaScript locale={locale} items={faqItems} routeKey="evenements" />
       {/* ─── 1. HERO ────────────────────────────────────────────────────── */}
       <section
         aria-label={t(copy.hero.eyebrow)}

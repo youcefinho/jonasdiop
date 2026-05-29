@@ -257,7 +257,10 @@ function DevComponents() {
           LPProgramTemplate (Sprint 4) — Gamechanger sample
         </h2>
         <div className="border border-silver/15 rounded-lg overflow-hidden">
-          <LPProgramTemplate copy={gamechangerScalingCopy} />
+          <LPProgramTemplate
+            copy={gamechangerScalingCopy}
+            routeKey="services-gamechanger-scaling"
+          />
         </div>
       </section>
 
