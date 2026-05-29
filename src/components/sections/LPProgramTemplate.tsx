@@ -1,4 +1,4 @@
-import { ArrowRight, Check, X } from 'lucide-react';
+import { ArrowRight, Check, Play, X } from 'lucide-react';
 import { FooterRich } from '@/components/layout/FooterRich';
 import { Navbar } from '@/components/layout/Navbar';
 import { CTAPill } from '@/components/ui/CTAPill';
@@ -25,6 +25,13 @@ interface LPHero {
   h1: BilingualLax<string>;
   sub: BilingualLax<string>;
   badge?: BilingualLax<string>;
+  /**
+   * Optional VSL embed URL (iframe src). When absent, a dark placeholder with
+   * play icon + "VSL bientôt disponible" copy renders instead. Bilingual to
+   * allow distinct FR/EN videos (e.g. Cloudflare Stream / Vimeo Plus / YouTube
+   * unlisted) — Jonas hosting platform decision pending (Sprint 2.6).
+   */
+  videoEmbedUrl?: BilingualLax<string>;
 }
 
 interface LPPromise {
@@ -146,13 +153,17 @@ interface LPProgramTemplateProps {
  */
 export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgramTemplateProps) {
   const { t, locale } = useT();
+  const videoEmbedUrl = copy.hero.videoEmbedUrl ? t(copy.hero.videoEmbedUrl).trim() : '';
+  const hasVideo = videoEmbedUrl.length > 0;
 
   return (
     <>
       <Navbar />
       <main className="pt-[80px]">
         {/* ---------------------------------------------------------------- */}
-        {/* HERO                                                              */}
+        {/* HERO — Brief v3 §3.4 Section 1 : HOOK + VSL                      */}
+        {/* H1 (douleur/aspiration) → sub → VSL (embed ou placeholder)       */}
+        {/* → CTA "Réserver mon appel stratégique" → ligne de réassurance    */}
         {/* ---------------------------------------------------------------- */}
         <section
           aria-label={t(copy.hero.eyebrow)}
@@ -173,12 +184,66 @@ export function LPProgramTemplate({ copy, ctaVariant = 'gold-primary' }: LPProgr
               </p>
             )}
 
+            {/* ------------------------------------------------------------ */}
+            {/* VSL — Brief v3 §3.4 Section 1                                */}
+            {/* If videoEmbedUrl present : 16:9 iframe (autoplay muted, ctls)*/}
+            {/* Else : dark placeholder w/ play icon + "bientôt disponible"  */}
+            {/* ------------------------------------------------------------ */}
+            <div className="mt-lg w-full max-w-[clamp(20rem,90vw,52rem)]">
+              <div
+                data-vsl-embed
+                className="relative aspect-video overflow-hidden rounded-[clamp(0.75rem,0.8vw+0.4rem,1.25rem)] border border-silver/15 bg-elevated shadow-haptic-card"
+              >
+                {hasVideo ? (
+                  <iframe
+                    src={videoEmbedUrl}
+                    title={t({
+                      fr: `Vidéo de présentation — ${t(copy.hero.h1)}`,
+                      en: `Presentation video — ${t(copy.hero.h1)}`
+                    })}
+                    loading="lazy"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                ) : (
+                  <div
+                    data-vsl-placeholder
+                    role="img"
+                    aria-label={t({
+                      fr: 'Vidéo bientôt disponible',
+                      en: 'Video coming soon'
+                    })}
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-sm bg-[radial-gradient(ellipse_at_center,_oklch(0.22_0.005_80)_0%,_oklch(0.14_0.005_80)_100%)]"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="flex h-[clamp(3.5rem,5vw+1rem,5.5rem)] w-[clamp(3.5rem,5vw+1rem,5.5rem)] items-center justify-center rounded-full border border-gold/30 bg-base/40 backdrop-blur-sm"
+                    >
+                      <Play className="h-[clamp(1.25rem,1.5vw+0.5rem,1.75rem)] w-[clamp(1.25rem,1.5vw+0.5rem,1.75rem)] max-w-none shrink-0 fill-gold/70 text-gold/70 ml-1" />
+                    </span>
+                    <p className="text-eyebrow uppercase tracking-widest text-silver/60 font-display text-xs">
+                      {t({ fr: 'VSL bientôt disponible', en: 'VSL coming soon' })}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+
             <div className="mt-md">
               <CTAPill variant={ctaVariant} href={ROUTES.contact[locale]}>
                 {t(copy.finalCta.ctaLabel)}
                 <ArrowRight className="h-4 w-4 max-w-none shrink-0" aria-hidden="true" />
               </CTAPill>
             </div>
+
+            {/* Ligne de réassurance — Brief v3 §3.4 Section 1 */}
+            <p className="text-sm text-silver/60 text-pretty">
+              {t({
+                fr: 'Appel gratuit · 30 min · aucune obligation',
+                en: 'Free call · 30 min · no obligation'
+              })}
+            </p>
           </div>
         </section>
 

@@ -187,6 +187,123 @@ Three values guide every engagement : **Pragmatism. Vision. Leverage.**`
     }
   ],
 
+  valeursSection: {
+    eyebrow: {
+      fr: 'Valeurs & philosophie',
+      en: 'Values & philosophy'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Trois principes guident chaque mandat.',
+      en: 'Three principles guide every engagement.'
+    } satisfies BilingualLax<string>,
+    sub: {
+      fr: "Pas des slogans muraux. Des règles d'exécution que tu retrouves dans la manière dont je travaille — du diagnostic à la livraison finale.",
+      en: 'Not slogans on a wall. Execution rules you find in the way I work — from diagnostic to final delivery.'
+    } satisfies BilingualLax<string>,
+    items: [
+      {
+        id: 'pragmatisme',
+        letter: '01',
+        title: {
+          fr: 'Pragmatisme',
+          en: 'Pragmatism'
+        } satisfies BilingualLax<string>,
+        body: {
+          fr: 'Pas de théorie pour le plaisir de la théorie. Chaque décision est tranchée par une seule question : est-ce que ça produit un résultat mesurable dans 30 à 90 jours ?',
+          en: 'No theory for theory’s sake. Every decision is settled by a single question : does it produce a measurable result within 30 to 90 days ?'
+        } satisfies BilingualLax<string>
+      },
+      {
+        id: 'vision',
+        letter: '02',
+        title: {
+          fr: 'Vision',
+          en: 'Vision'
+        } satisfies BilingualLax<string>,
+        body: {
+          fr: "Architecturer aujourd'hui ce qui tient dans 3 ans. On ne patche pas un goulot — on reconstruit le système pour qu'il scale sans que tu deviennes le goulot suivant.",
+          en: 'Architect today what holds in 3 years. We don’t patch a bottleneck — we rebuild the system so it scales without you becoming the next bottleneck.'
+        } satisfies BilingualLax<string>
+      },
+      {
+        id: 'levier',
+        letter: '03',
+        title: {
+          fr: 'Levier',
+          en: 'Leverage'
+        } satisfies BilingualLax<string>,
+        body: {
+          fr: "Une heure investie doit produire 3 à 5 fois plus de résultats. Si une action ne se multiplie pas, elle ne mérite pas d'occuper ton agenda. C'est le cœur de la CDT™.",
+          en: 'One hour invested has to produce 3 to 5 times more output. If an action doesn’t multiply, it doesn’t earn space on your calendar. That’s the core of CDT™.'
+        } satisfies BilingualLax<string>
+      }
+    ]
+  },
+
+  mediasSection: {
+    eyebrow: {
+      fr: 'Médias, apparitions & partenaires',
+      en: 'Media, appearances & partners'
+    } satisfies BilingualLax<string>,
+    title: {
+      fr: 'Reconnu dans les écosystèmes entrepreneuriaux francophones et anglophones.',
+      en: 'Recognized across francophone and anglophone entrepreneurial ecosystems.'
+    } satisfies BilingualLax<string>,
+    body: {
+      fr: "Podcasts d'affaires, scènes de conférences, partenariats avec des programmes d'accélération et des cohortes d'entrepreneurs : la CDT™ circule là où les opérateurs sérieux écoutent.",
+      en: 'Business podcasts, conference stages, partnerships with accelerator programs and entrepreneur cohorts : CDT™ travels where serious operators are listening.'
+    } satisfies BilingualLax<string>,
+    placeholders: [
+      {
+        id: 'podcasts',
+        label: { fr: 'Podcasts invités', en: 'Guest podcasts' } satisfies BilingualLax<string>
+      },
+      {
+        id: 'medias',
+        label: {
+          fr: "Médias d'affaires",
+          en: 'Business media'
+        } satisfies BilingualLax<string>
+      },
+      {
+        id: 'evenements',
+        label: {
+          fr: 'Événements & scènes',
+          en: 'Events & stages'
+        } satisfies BilingualLax<string>
+      },
+      {
+        id: 'partenaires',
+        label: {
+          fr: 'Partenaires & programmes',
+          en: 'Partners & programs'
+        } satisfies BilingualLax<string>
+      },
+      {
+        id: 'cohortes',
+        label: {
+          fr: "Cohortes d'entrepreneurs",
+          en: 'Entrepreneur cohorts'
+        } satisfies BilingualLax<string>
+      },
+      {
+        id: 'accelerateurs',
+        label: {
+          fr: "Programmes d'accélération",
+          en: 'Accelerator programs'
+        } satisfies BilingualLax<string>
+      }
+    ],
+    placeholderNote: {
+      fr: 'Logos podcasts, médias et partenaires — kit Conférences en cours de remise par Jonas.',
+      en: 'Podcast, media and partner logos — Conferences kit pending delivery from Jonas.'
+    } satisfies BilingualLax<string>,
+    ctaLabel: {
+      fr: 'Voir les formats de conférences',
+      en: 'See conference formats'
+    } satisfies BilingualLax<string>
+  },
+
   finalCta: {
     eyebrow: {
       fr: 'Prochaine étape',

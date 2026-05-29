@@ -1,3 +1,4 @@
+import { Compass, Mic2, Sparkles, Target, Users } from 'lucide-react';
 import { TrustBand } from '@/components/sections/TrustBand';
 import { CTAPill } from '@/components/ui/CTAPill';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -15,6 +16,28 @@ import { useParallax } from '@/hooks/useParallax';
 import { useT } from '@/lib/i18n/useT';
 
 /**
+ * Icon map for valeurs cards — keeps lucide tree-shakeable and lets us
+ * type the lookup without `any`.
+ */
+const VALEUR_ICONS: Record<string, typeof Target> = {
+  pragmatisme: Target,
+  vision: Compass,
+  levier: Sparkles
+};
+
+/**
+ * Placeholder icon map for médias logos grid — until Jonas kit lands.
+ */
+const MEDIA_ICONS: Record<string, typeof Mic2> = {
+  podcasts: Mic2,
+  medias: Sparkles,
+  evenements: Users,
+  partenaires: Compass,
+  cohortes: Users,
+  accelerateurs: Target
+};
+
+/**
  * AboutPage — full /a-propos page. Inspired by Stitch boards 15 + 22.
  *
  * Structure :
@@ -25,6 +48,8 @@ import { useT } from '@/lib/i18n/useT';
  *   Chapters 3+4 — Naissance CDT + Aujourd'hui (ScrollReveal + StaggerReveal)
  *   📷 Architectural building signature break (ImageReveal expand)
  *   Chapter 5 — Mission (ScrollReveal)
+ *   Chapter 6 — Valeurs / Philosophie (3 principes : Pragmatisme · Vision · Levier)
+ *   Chapter 7 — Médias / Apparitions / Partenaires (logos placeholders → CTA Conférences)
  *   TrustBand gold stats
  *   FinalCTA
  */
@@ -331,6 +356,121 @@ export function AboutPage() {
                 </p>
               </article>
             ))}
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* ─── CHAPTER 6 — VALEURS / PHILOSOPHIE (Pragmatisme · Vision · Levier) ── */}
+      <ScrollReveal>
+        <section
+          aria-label={t(aboutCopy.valeursSection.eyebrow)}
+          className="relative py-2xl bg-section-elevated border-y border-silver/10"
+        >
+          <FiligraneNumber number="06" position="right" />
+          <div className="relative max-w-content mx-auto px-md flex flex-col gap-xl">
+            <header className="flex flex-col gap-sm max-w-[64ch]">
+              <Eyebrow>{t(aboutCopy.valeursSection.eyebrow)}</Eyebrow>
+              <h2 className="text-h2 text-primary font-display text-balance">
+                {t(aboutCopy.valeursSection.title)}
+              </h2>
+              <p className="text-body-lg text-silver opacity-85 text-pretty">
+                {t(aboutCopy.valeursSection.sub)}
+              </p>
+            </header>
+            <StaggerReveal
+              as="ul"
+              className="grid grid-cols-1 md:grid-cols-3 gap-md list-none p-0"
+              staggerMs={120}
+              data-card-group="about-valeurs"
+            >
+              {aboutCopy.valeursSection.items.map((valeur) => {
+                const Icon = VALEUR_ICONS[valeur.id] ?? Sparkles;
+                return (
+                  <li
+                    key={valeur.id}
+                    className="flex flex-col gap-sm p-md bg-elevated border border-silver/15 rounded-lg min-w-0"
+                  >
+                    <div className="flex items-center gap-sm">
+                      <span
+                        aria-hidden="true"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold/30 bg-gold/10 text-gold shrink-0"
+                      >
+                        <Icon className="w-5 h-5 max-w-none shrink-0" />
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="text-gold font-display font-normal text-[clamp(1.5rem,1.2rem+0.8vw,2.25rem)] leading-none tracking-tight opacity-90"
+                      >
+                        {valeur.letter}
+                      </span>
+                    </div>
+                    <h3 className="text-h3 text-primary font-display text-balance">
+                      {t(valeur.title)}
+                    </h3>
+                    <p className="text-body text-silver opacity-80 text-pretty">{t(valeur.body)}</p>
+                  </li>
+                );
+              })}
+            </StaggerReveal>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* ─── CHAPTER 7 — MÉDIAS / APPARITIONS / PARTENAIRES ─────────────────── */}
+      <ScrollReveal>
+        <section
+          aria-label={t(aboutCopy.mediasSection.eyebrow)}
+          className="relative py-2xl bg-section-base"
+        >
+          <FiligraneNumber number="07" position="left" />
+          <div className="relative max-w-content mx-auto px-md flex flex-col gap-xl">
+            <header className="flex flex-col gap-sm max-w-[64ch]">
+              <Eyebrow>{t(aboutCopy.mediasSection.eyebrow)}</Eyebrow>
+              <h2 className="text-h2 text-primary font-display text-balance">
+                {t(aboutCopy.mediasSection.title)}
+              </h2>
+              <p className="text-body-lg text-silver opacity-85 text-pretty">
+                {t(aboutCopy.mediasSection.body)}
+              </p>
+            </header>
+
+            {/* Placeholder logos grid — kit Jonas pending */}
+            <StaggerReveal
+              as="ul"
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-sm list-none p-0"
+              staggerMs={80}
+              data-card-group="about-medias-placeholders"
+            >
+              {aboutCopy.mediasSection.placeholders.map((slot) => {
+                const Icon = MEDIA_ICONS[slot.id] ?? Sparkles;
+                return (
+                  <li
+                    key={slot.id}
+                    className="flex flex-col items-center justify-center gap-2 aspect-[3/2] p-sm bg-elevated border border-dashed border-silver/20 rounded-md min-w-0"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="inline-flex items-center justify-center w-8 h-8 text-silver opacity-60"
+                    >
+                      <Icon className="w-5 h-5 max-w-none shrink-0" />
+                    </span>
+                    <span className="text-eyebrow uppercase tracking-widest text-silver opacity-70 font-display text-center text-pretty">
+                      {t(slot.label)}
+                    </span>
+                  </li>
+                );
+              })}
+            </StaggerReveal>
+
+            <p className="text-body text-silver opacity-55 text-pretty max-w-[60ch] italic">
+              {t(aboutCopy.mediasSection.placeholderNote)}
+            </p>
+
+            <div className="mt-sm">
+              <CTAPill variant="silver-secondary" href={ROUTES.conferences[locale]}>
+                {t(aboutCopy.mediasSection.ctaLabel)}
+              </CTAPill>
+            </div>
           </div>
         </section>
       </ScrollReveal>

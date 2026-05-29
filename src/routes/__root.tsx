@@ -8,6 +8,7 @@ import { StickyFloatingCTA } from '@/components/layout/StickyFloatingCTA';
 import { NotFoundPage } from '@/components/sections/NotFoundPage';
 import { ClickRipple } from '@/components/ui/ClickRipple';
 import { CustomCursor } from '@/components/ui/CustomCursor';
+import { ExitIntentPopup } from '@/components/ui/ExitIntentPopup';
 import { GrainOverlay } from '@/components/ui/GrainOverlay';
 import { PageTransition } from '@/components/ui/PageTransition';
 import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
@@ -77,6 +78,7 @@ function RootLayout() {
         <StickyFloatingCTA />
         <CookieBanner />
         <CookieSettingsModal />
+        <ExitIntentPopup />
       </CookieConsentProvider>
     </LanguageProvider>
   );
