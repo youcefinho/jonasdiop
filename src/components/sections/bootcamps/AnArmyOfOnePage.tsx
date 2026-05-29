@@ -528,14 +528,14 @@ export function AnArmyOfOnePage() {
                           </StaggerReveal>
                         </div>
 
-                        <aside className="md:w-[18rem] shrink-0 flex flex-col gap-2 p-md rounded-lg border border-gold/25 bg-gold/5">
+                        <div className="md:w-[18rem] shrink-0 flex flex-col gap-2 p-md rounded-lg border border-gold/25 bg-gold/5">
                           <span className="text-eyebrow uppercase tracking-widest text-gold/80 font-display text-[10px]">
                             {t(c.solution.outcomeLabel)}
                           </span>
                           <p className="text-body text-primary font-display font-medium text-balance leading-snug">
                             {t(day.outcome)}
                           </p>
-                        </aside>
+                        </div>
                       </div>
                     </article>
                   </li>

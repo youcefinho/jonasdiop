@@ -321,18 +321,18 @@ export function ExitIntentPopup() {
               />
             </div>
 
-            {/* Honeypot — hidden from humans + screen readers. */}
-            <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-              <label htmlFor={honeypotId}>Website</label>
-              <input
-                id={honeypotId}
-                type="text"
-                tabIndex={-1}
-                autoComplete="off"
-                value={honeypot}
-                onChange={(e) => setHoneypot(e.target.value)}
-              />
-            </div>
+            {/* Honeypot — hidden from humans + screen readers. aria-hidden on input directly to avoid axe aria-hidden-focus violation. */}
+            <input
+              id={honeypotId}
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-px w-px overflow-hidden"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
 
             <button
               type="submit"
