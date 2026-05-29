@@ -24,23 +24,22 @@
     "GHL_TRACKING_ID": "REPLACE_AT_END"
   },
 
-  "kv_namespaces": [
-    {
-      "binding": "ARTICLE_CACHE",
-      "id": "REPLACE_AFTER_CREATE"
-    },
-    // Pré-lancement waitlist (Sprint 3.5 — Trilogie bootcamps email capture).
-    // Setup une seule fois sur le compte CF Jonas :
-    //   bun wrangler kv namespace create WAITLIST
-    //   bun wrangler kv namespace create WAITLIST --preview
-    // Puis remplacer les deux REPLACE_AFTER_CREATE ci-dessous par les IDs renvoyés.
-    // Tant que le binding est manquant, /api/waitlist renvoie 503 (handler safe).
-    {
-      "binding": "WAITLIST",
-      "id": "REPLACE_AFTER_CREATE",
-      "preview_id": "REPLACE_AFTER_CREATE"
-    }
-  ],
+  // KV bindings DISABLED until Cloudflare namespaces exist. The previous
+  // placeholder IDs ("REPLACE_AFTER_CREATE") caused wrangler deploy to fail
+  // because Cloudflare rejected the invalid namespace IDs. The worker.ts
+  // handlers already 503-fallback when bindings are missing (article cache
+  // skips, /api/waitlist returns 503) so the rest of the site ships fine.
+  //
+  // To re-enable, run ONCE on the production CF account :
+  //   bun wrangler kv namespace create ARTICLE_CACHE
+  //   bun wrangler kv namespace create WAITLIST
+  //   bun wrangler kv namespace create WAITLIST --preview
+  // Then uncomment + paste the returned IDs below.
+  //
+  // "kv_namespaces": [
+  //   { "binding": "ARTICLE_CACHE", "id": "<paste-id>" },
+  //   { "binding": "WAITLIST",      "id": "<paste-id>", "preview_id": "<paste-id>" }
+  // ],
 
   // H11 décision : si on garde D1, décommenter ce bloc + créer la DB via wrangler d1 create
   // "d1_databases": [
